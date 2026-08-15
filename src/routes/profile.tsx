@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import * as React from "react";
 import { Page } from "@/components/AppShell";
 import { Button, Panel, ProgressBar, Modal, Tabs } from "@/components/kit/primitives";
@@ -215,6 +215,50 @@ function ProfileScreen() {
             </div>
             <div className="numeric text-lg font-black text-foreground truncate">{records.weekendCupBest}</div>
             <div className="text-xs text-muted-foreground font-mono">Trophy archived</div>
+          </Panel>
+        </div>
+      </div>
+
+      {/* 4. Recent Ranked Matches with Review Access */}
+      <div className="space-y-3">
+        <div className="label-xs text-muted-foreground font-black uppercase tracking-wider flex items-center justify-between">
+          <span>Recent Ranked Match History</span>
+          <span className="text-primary font-normal">Last Matches</span>
+        </div>
+
+        <div className="space-y-2.5">
+          <Panel className="p-4 flex items-center justify-between gap-3 border-border hover:border-primary/40 transition-all">
+            <div className="flex items-center gap-3">
+              <span className="label-xs px-2 py-1 rounded-lg bg-primary/20 text-primary font-black uppercase">
+                WIN
+              </span>
+              <div>
+                <div className="font-bold text-sm text-foreground">vs LUCAS92 (7 — 5)</div>
+                <div className="text-xs text-muted-foreground font-mono">+18 ELO · Performance: 1814</div>
+              </div>
+            </div>
+            <Link to="/match-review" search={{ matchId: "match-last" }}>
+              <Button size="sm" variant="surface" className="font-bold text-xs">
+                Review Match →
+              </Button>
+            </Link>
+          </Panel>
+
+          <Panel className="p-4 flex items-center justify-between gap-3 border-border hover:border-primary/40 transition-all">
+            <div className="flex items-center gap-3">
+              <span className="label-xs px-2 py-1 rounded-lg bg-primary/20 text-primary font-black uppercase">
+                WIN
+              </span>
+              <div>
+                <div className="font-bold text-sm text-foreground">vs Thomas (6 — 4)</div>
+                <div className="text-xs text-muted-foreground font-mono">+14 ELO · Performance: 1740</div>
+              </div>
+            </div>
+            <Link to="/match-review" search={{ matchId: "match-thomas" }}>
+              <Button size="sm" variant="surface" className="font-bold text-xs">
+                Review Match →
+              </Button>
+            </Link>
           </Panel>
         </div>
       </div>

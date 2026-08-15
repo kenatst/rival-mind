@@ -8,7 +8,7 @@ import { getLastMatch } from "@/lib/session";
 import { profileRepo, rankedRepo } from "@/repositories";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
-import { Swords, Share2, RotateCcw, Copy, Check, Sparkles } from "lucide-react";
+import { Swords, Share2, RotateCcw, Copy, Check, Sparkles, Target } from "lucide-react";
 
 export const Route = createFileRoute("/match-result")({
   head: () => ({
@@ -174,30 +174,41 @@ function MatchResultScreen() {
 
               <Button
                 size="xl"
-                variant={rematchSent ? "surface" : "prestige"}
-                onClick={handleRematch}
-                disabled={rematchSent}
-                className="w-full font-bold"
+                variant="surface"
+                onClick={() => navigate({ to: "/match-review" })}
+                className="w-full font-black text-lg border-primary/40 text-primary hover:bg-primary/10"
               >
-                <Swords size={18} /> {rematchSent ? "Rematch Sent..." : "Rematch"}
+                <Target size={20} /> Review Match
               </Button>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <Button
                 size="md"
-                variant="surface"
-                onClick={() => setIsShareModalOpen(true)}
+                variant={rematchSent ? "surface" : "prestige"}
+                onClick={handleRematch}
+                disabled={rematchSent}
                 className="w-full font-bold"
               >
-                <Share2 size={16} /> Share Victory Card
+                <Swords size={16} /> {rematchSent ? "Rematch Sent..." : "Rematch"}
               </Button>
 
               <Button
                 size="md"
+                variant="surface"
+                onClick={() => setIsShareModalOpen(true)}
+                className="w-full font-bold"
+              >
+                <Share2 size={16} /> Share Card
+              </Button>
+            </div>
+
+            <div className="text-center pt-1">
+              <Button
+                size="sm"
                 variant="outline"
                 onClick={() => navigate({ to: "/home" })}
-                className="w-full text-muted-foreground font-bold"
+                className="text-muted-foreground font-bold"
               >
                 Return to Lobby
               </Button>

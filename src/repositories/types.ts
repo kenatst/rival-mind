@@ -2,6 +2,7 @@ import { PlayerProfile, DivisionTier } from "@/lib/types";
 import { ModeRunResult } from "@/engine/modeEngine";
 import { PlayerModeRecordsSummary, PlayerSkillDimensions } from "@/engine/recordsEngine";
 import { PlayerRivalry } from "@/engine/socialEngine";
+import { MatchReviewDTO } from "@/engine/matchReviewEngine";
 
 export type BackendMode = "mock" | "supabase";
 
@@ -99,7 +100,7 @@ export interface MatchAnswerResultDTO {
 }
 
 export interface IProfileRepository {
-  getProfile(userId: string): Promise<PlayerProfile>;
+  getProfile(userId?: string): Promise<PlayerProfile>;
   updateProfile(userId: string, updates: Partial<PlayerProfile>): Promise<PlayerProfile>;
   switchPersona?(personaName: "KENAEL" | "LUCAS92" | "THOMAS" | "EMMA"): Promise<PlayerProfile>;
 }
@@ -128,3 +129,9 @@ export interface IRecordsRepository {
   getPlayerSkillDimensions(userId: string): Promise<PlayerSkillDimensions>;
   saveModeRecord(userId: string, modeSlug: string, value: number): Promise<boolean>;
 }
+
+export interface IMatchReviewRepository {
+  getMatchReview(matchId: string, playerId: string): Promise<MatchReviewDTO>;
+}
+
+export * from "@/engine/matchReviewEngine";

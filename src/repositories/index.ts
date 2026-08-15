@@ -5,6 +5,7 @@ import {
   IRankedRepository,
   ISocialRepository,
   IRecordsRepository,
+  IMatchReviewRepository,
   BackendMode,
 } from "./types";
 import {
@@ -13,6 +14,7 @@ import {
   SupabaseRankedRepository,
   SupabaseSocialRepository,
   SupabaseRecordsRepository,
+  SupabaseMatchReviewRepository,
   DEV_PERSONAS,
 } from "./supabaseRepository";
 import {
@@ -21,6 +23,7 @@ import {
   MockRankedRepository,
   MockSocialRepository,
   MockRecordsRepository,
+  MockMatchReviewRepository,
 } from "./mockRepository";
 
 const client = getSupabaseClient();
@@ -42,6 +45,9 @@ export const socialRepo: ISocialRepository =
 
 export const recordsRepo: IRecordsRepository =
   activeBackendMode === "supabase" ? new SupabaseRecordsRepository() : new MockRecordsRepository();
+
+export const matchReviewRepo: IMatchReviewRepository =
+  activeBackendMode === "supabase" ? new SupabaseMatchReviewRepository() : new MockMatchReviewRepository();
 
 export { DEV_PERSONAS };
 export * from "./types";

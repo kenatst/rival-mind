@@ -46,7 +46,7 @@ function RankedMatch() {
     let unsubscribe: (() => void) | undefined;
 
     async function init() {
-      const p = await profileRepo.getProfile("u-kenael");
+      const p = await profileRepo.getProfile();
       if (isCancelled) return;
       setProfile(p);
 

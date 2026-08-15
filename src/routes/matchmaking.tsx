@@ -34,7 +34,7 @@ function Matchmaking() {
     let isCancelled = false;
 
     async function initQueue() {
-      const p = await profileRepo.getProfile("u-kenael");
+      const p = await profileRepo.getProfile();
       if (isCancelled) return;
       setProfile(p);
 

@@ -5,16 +5,19 @@ import {
   IRankedRepository,
   ISocialRepository,
   IRecordsRepository,
+  IMatchReviewRepository,
   RankedMatchSnapshotDTO,
   SanitizedRoundDTO,
   QueueStatusDTO,
   MatchAnswerResultDTO,
+  MatchReviewDTO,
 } from "./types";
 import { DEV_PERSONAS } from "./supabaseRepository";
 import { SEED_QUESTIONS } from "@/engine/seedData";
 import { calculateEloOutcome } from "@/engine/ratingCalculator";
 import { socialEngine, PlayerRivalry } from "@/engine/socialEngine";
 import { recordsEngine, PlayerModeRecordsSummary, PlayerSkillDimensions } from "@/engine/recordsEngine";
+import { generateMatchReviewDTO } from "@/engine/matchReviewEngine";
 
 interface MockInternalRound {
   roundNumber: number;
@@ -61,12 +64,23 @@ class MockStateStore {
   public activePersona: PlayerProfile = { ...DEV_PERSONAS["KENAEL"]! };
   public waitingQueue: Map<string, { queueId: string; userId: string; rating: number; joinedAt: number; onMatched?: (matchId: string) => void }> = new Map();
   public matches: Map<string, MockInternalMatch> = new Map();
+  public reviews: Map<string, MatchReviewDTO> = new Map();
 }
 
 const store = MockStateStore.instance;
 
+function getOpponentForPersona(persona: PlayerProfile): PlayerProfile {
+  if (persona.username === "LUCAS92") return DEV_PERSONAS["KENAEL"]!;
+  if (persona.username === "KENAEL") return DEV_PERSONAS["LUCAS92"]!;
+  if (persona.username === "THOMAS") return DEV_PERSONAS["EMMA"]!;
+  return DEV_PERSONAS["THOMAS"]!;
+}
+
 export class MockProfileRepository implements IProfileRepository {
-  public async getProfile(_userId: string): Promise<PlayerProfile> {
+  public async getProfile(userId?: string): Promise<PlayerProfile> {
+    if (userId && DEV_PERSONAS[userId.replace("u-", "").toUpperCase()]) {
+      return { ...DEV_PERSONAS[userId.replace("u-", "").toUpperCase()]! };
+    }
     return { ...store.activePersona };
   }
 
@@ -103,7 +117,13 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
 
     if (opponentEntry) {
       const matchId = `match-${now.toString(36)}`;
-      const match = this.createMockMatch(matchId, store.activePersona, DEV_PERSONAS["LUCAS92"]!);
+      const joiningPersona =
+        Object.values(DEV_PERSONAS).find((p) => p.id === userId) || store.activePersona;
+      const waitingPersona =
+        Object.values(DEV_PERSONAS).find((p) => p.id === opponentEntry?.userId) ||
+        getOpponentForPersona(joiningPersona);
+
+      const match = this.createMockMatch(matchId, waitingPersona, joiningPersona);
       store.matches.set(matchId, match);
 
       if (opponentEntry.onMatched) {
@@ -156,7 +176,8 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
       if (store.waitingQueue.has(queueId)) {
         store.waitingQueue.delete(queueId);
         const matchId = `match-auto-${Date.now().toString(36)}`;
-        const match = this.createMockMatch(matchId, store.activePersona, DEV_PERSONAS["LUCAS92"]!);
+        const opponent = getOpponentForPersona(store.activePersona);
+        const match = this.createMockMatch(matchId, store.activePersona, opponent);
         store.matches.set(matchId, match);
         onMatchFound(matchId);
       }
@@ -214,7 +235,8 @@ export class MockRankedRepository implements IRankedRepository {
     let match = store.matches.get(matchId);
     if (!match) {
       const mm = new MockMatchmakingRepository();
-      const newMatch = (mm as any).createMockMatch(matchId, store.activePersona, DEV_PERSONAS["LUCAS92"]!);
+      const opp = getOpponentForPersona(store.activePersona);
+      const newMatch = (mm as any).createMockMatch(matchId, store.activePersona, opp);
       store.matches.set(matchId, newMatch);
       match = newMatch;
     }
@@ -250,14 +272,16 @@ export class MockRankedRepository implements IRankedRepository {
       lockedAt: now,
     });
 
-    if (!round.answers.has(match.playerB.id) && userId === match.playerA.id) {
+    const oppId = userId === match.playerA.id ? match.playerB.id : match.playerA.id;
+
+    if (!round.answers.has(oppId) && userId === match.playerA.id) {
       setTimeout(() => {
         const oppCorrect = Math.random() > 0.3;
         const oppOption = oppCorrect
           ? round.correctOptionId
           : round.options.find((o) => o.id !== round.correctOptionId)?.id || "b";
 
-        round.answers.set(match.playerB.id, {
+        round.answers.set(oppId, {
           selectedOptionId: oppOption,
           serverResponseMs: 2400,
           wasCorrect: oppCorrect,
@@ -332,10 +356,17 @@ export class MockRankedRepository implements IRankedRepository {
         match.playerBRatingAfter = eloCalc.playerBRatingAfter;
         match.playerBDelta = eloCalc.playerBDelta;
 
-        store.activePersona.elo = eloCalc.playerARatingAfter;
-        store.activePersona.peakElo = Math.max(store.activePersona.peakElo, eloCalc.playerARatingAfter);
-        store.activePersona.battles += 1;
-        if (winner === store.activePersona.id) store.activePersona.wins += 1;
+        if (store.activePersona.id === match.playerA.id) {
+          store.activePersona.elo = eloCalc.playerARatingAfter;
+          store.activePersona.peakElo = Math.max(store.activePersona.peakElo, eloCalc.playerARatingAfter);
+          store.activePersona.battles += 1;
+          if (winner === store.activePersona.id) store.activePersona.wins += 1;
+        } else if (store.activePersona.id === match.playerB.id) {
+          store.activePersona.elo = eloCalc.playerBRatingAfter;
+          store.activePersona.peakElo = Math.max(store.activePersona.peakElo, eloCalc.playerBRatingAfter);
+          store.activePersona.battles += 1;
+          if (winner === store.activePersona.id) store.activePersona.wins += 1;
+        }
       }
 
       this.notifyListeners(match);
@@ -503,5 +534,19 @@ export class MockRecordsRepository implements IRecordsRepository {
 
   public async saveModeRecord(userId: string, modeSlug: string, value: number): Promise<boolean> {
     return true;
+  }
+}
+
+export class MockMatchReviewRepository implements IMatchReviewRepository {
+  public async getMatchReview(matchId: string, playerId: string): Promise<MatchReviewDTO> {
+    const key = `${matchId}-${playerId}`;
+    const cached = store.reviews.get(key);
+    if (cached) return cached;
+
+    const rankedRepo = new MockRankedRepository();
+    const snap = await rankedRepo.getMatchSnapshot(matchId, playerId);
+    const review = generateMatchReviewDTO(snap, playerId);
+    store.reviews.set(key, review);
+    return review;
   }
 }

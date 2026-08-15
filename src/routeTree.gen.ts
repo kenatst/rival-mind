@@ -18,6 +18,7 @@ import { Route as LeaguesRouteImport } from './routes/leagues'
 import { Route as LiveRouteImport } from './routes/live'
 import { Route as MatchRouteImport } from './routes/match'
 import { Route as MatchResultRouteImport } from './routes/match-result'
+import { Route as MatchReviewRouteImport } from './routes/match-review'
 import { Route as MatchmakingRouteImport } from './routes/matchmaking'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PlayRouteImport } from './routes/play'
@@ -72,6 +73,11 @@ const MatchRoute = MatchRouteImport.update({
 const MatchResultRoute = MatchResultRouteImport.update({
   id: '/match-result',
   path: '/match-result',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatchReviewRoute = MatchReviewRouteImport.update({
+  id: '/match-review',
+  path: '/match-review',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchmakingRoute = MatchmakingRouteImport.update({
@@ -135,6 +141,7 @@ export interface FileRoutesByFullPath {
   '/live': typeof LiveRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
+  '/match-review': typeof MatchReviewRoute
   '/matchmaking': typeof MatchmakingRoute
   '/notifications': typeof NotificationsRoute
   '/play': typeof PlayRoute
@@ -156,6 +163,7 @@ export interface FileRoutesByTo {
   '/live': typeof LiveRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
+  '/match-review': typeof MatchReviewRoute
   '/matchmaking': typeof MatchmakingRoute
   '/notifications': typeof NotificationsRoute
   '/play': typeof PlayRoute
@@ -178,6 +186,7 @@ export interface FileRoutesById {
   '/live': typeof LiveRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
+  '/match-review': typeof MatchReviewRoute
   '/matchmaking': typeof MatchmakingRoute
   '/notifications': typeof NotificationsRoute
   '/play': typeof PlayRoute
@@ -201,6 +210,7 @@ export interface FileRouteTypes {
     | '/live'
     | '/match'
     | '/match-result'
+    | '/match-review'
     | '/matchmaking'
     | '/notifications'
     | '/play'
@@ -222,6 +232,7 @@ export interface FileRouteTypes {
     | '/live'
     | '/match'
     | '/match-result'
+    | '/match-review'
     | '/matchmaking'
     | '/notifications'
     | '/play'
@@ -243,6 +254,7 @@ export interface FileRouteTypes {
     | '/live'
     | '/match'
     | '/match-result'
+    | '/match-review'
     | '/matchmaking'
     | '/notifications'
     | '/play'
@@ -265,6 +277,7 @@ export interface RootRouteChildren {
   LiveRoute: typeof LiveRoute
   MatchRoute: typeof MatchRoute
   MatchResultRoute: typeof MatchResultRoute
+  MatchReviewRoute: typeof MatchReviewRoute
   MatchmakingRoute: typeof MatchmakingRoute
   NotificationsRoute: typeof NotificationsRoute
   PlayRoute: typeof PlayRoute
@@ -340,6 +353,13 @@ declare module '@tanstack/react-router' {
       path: '/match-result'
       fullPath: '/match-result'
       preLoaderRoute: typeof MatchResultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/match-review': {
+      id: '/match-review'
+      path: '/match-review'
+      fullPath: '/match-review'
+      preLoaderRoute: typeof MatchReviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/matchmaking': {
@@ -425,6 +445,7 @@ const rootRouteChildren: RootRouteChildren = {
   LiveRoute: LiveRoute,
   MatchRoute: MatchRoute,
   MatchResultRoute: MatchResultRoute,
+  MatchReviewRoute: MatchReviewRoute,
   MatchmakingRoute: MatchmakingRoute,
   NotificationsRoute: NotificationsRoute,
   PlayRoute: PlayRoute,

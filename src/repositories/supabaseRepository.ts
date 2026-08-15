@@ -6,13 +6,16 @@ import {
   IRankedRepository,
   ISocialRepository,
   IRecordsRepository,
+  IMatchReviewRepository,
   RankedMatchSnapshotDTO,
   SanitizedRoundDTO,
   QueueStatusDTO,
   MatchAnswerResultDTO,
+  MatchReviewDTO,
 } from "./types";
 import { PlayerRivalry, socialEngine } from "@/engine/socialEngine";
 import { PlayerModeRecordsSummary, PlayerSkillDimensions, recordsEngine } from "@/engine/recordsEngine";
+import { generateMatchReviewDTO } from "@/engine/matchReviewEngine";
 
 // Test Personas for Safe Dev / Staging Verification
 export const DEV_PERSONAS: Record<string, PlayerProfile> = {
@@ -105,15 +108,17 @@ export const DEV_PERSONAS: Record<string, PlayerProfile> = {
 export class SupabaseProfileRepository implements IProfileRepository {
   private activePersona: PlayerProfile = DEV_PERSONAS["KENAEL"]!;
 
-  public async getProfile(userId: string): Promise<PlayerProfile> {
+  public async getProfile(userId?: string): Promise<PlayerProfile> {
     const client = getSupabaseClient();
     if (!client) return this.activePersona;
+
+    const targetId = userId || this.activePersona.id;
 
     try {
       const { data, error } = await client
         .from("profiles")
         .select("*")
-        .eq("id", userId)
+        .eq("id", targetId)
         .single();
 
       if (error || !data) return this.activePersona;
@@ -564,5 +569,94 @@ export class SupabaseRecordsRepository implements IRecordsRepository {
 
   public async saveModeRecord(_userId: string, _modeSlug: string, _value: number): Promise<boolean> {
     return true;
+  }
+}
+
+export class SupabaseMatchReviewRepository implements IMatchReviewRepository {
+  public async getMatchReview(matchId: string, playerId: string): Promise<MatchReviewDTO> {
+    const client = getSupabaseClient();
+    if (!client) {
+      const rankedRepo = new SupabaseRankedRepository();
+      const snap = await rankedRepo.getMatchSnapshot(matchId, playerId);
+      return generateMatchReviewDTO(snap, playerId);
+    }
+
+    try {
+      const { data: reviewData } = await client
+        .from("match_reviews")
+        .select("*")
+        .eq("match_id", matchId)
+        .eq("player_id", playerId)
+        .single();
+
+      if (reviewData) {
+        const { data: roundsData } = await client
+          .from("match_round_reviews")
+          .select("*")
+          .eq("match_review_id", reviewData.id)
+          .order("round_number", { ascending: true });
+
+        // Load opponent profile
+        const rankedRepo = new SupabaseRankedRepository();
+        const snap = await rankedRepo.getMatchSnapshot(matchId, playerId);
+        const opponent = snap.playerA.id === playerId ? snap.playerB : snap.playerA;
+
+        return {
+          id: reviewData.id,
+          matchId: reviewData.match_id,
+          playerId: reviewData.player_id,
+          playerUsername: snap.playerA.id === playerId ? snap.playerA.username : snap.playerB.username,
+          opponentId: opponent.id,
+          opponentUsername: opponent.username,
+          finalScorePlayer: reviewData.actual_score,
+          finalScoreOpponent: snap.playerA.id === playerId ? snap.playerB.score : snap.playerA.score,
+          isVictory: reviewData.actual_score > (snap.playerA.id === playerId ? snap.playerB.score : snap.playerA.score),
+          isDraw: reviewData.actual_score === (snap.playerA.id === playerId ? snap.playerB.score : snap.playerA.score),
+          arenaRatingBefore: reviewData.arena_rating_at_match,
+          arenaRatingAfter: reviewData.arena_rating_at_match + reviewData.performance_delta,
+          arenaRatingDelta: snap.completedResult?.playerADelta || 0,
+          performanceRating: reviewData.performance_rating,
+          performanceDelta: reviewData.performance_delta,
+          accuracyPercent: reviewData.accuracy_percent,
+          avgResponseMs: reviewData.avg_response_ms,
+          opponentAvgResponseMs: 3100,
+          expectedScore: Number(reviewData.expected_score),
+          actualScore: reviewData.actual_score,
+          summary: reviewData.summary_jsonb,
+          strongestCategory: reviewData.strongest_category,
+          costliestCategory: reviewData.costliest_category,
+          rounds: (roundsData || []).map((r: any) => ({
+            roundNumber: r.round_number,
+            questionId: r.question_id,
+            category: r.category,
+            subcategory: r.subcategory,
+            prompt: r.prompt,
+            playerSelectedId: r.player_selected_id,
+            playerSelectedLabel: r.player_selected_label,
+            correctOptionId: r.correct_option_id,
+            correctOptionLabel: r.correct_option_label,
+            wasCorrect: r.was_correct,
+            playerResponseMs: r.player_response_ms,
+            peerMedianResponseMs: r.peer_median_response_ms,
+            speedPercentile: r.speed_percentile,
+            expectedCorrectProbability: Number(r.expected_correct_probability),
+            peerAccuracy: Number(r.peer_accuracy),
+            peerSampleSize: r.peer_sample_size,
+            classification: r.classification,
+            classificationConfidence: Number(r.classification_confidence),
+            performanceDelta: r.performance_delta,
+            analysisText: r.analysis_text,
+            explanation: r.explanation,
+            isClutch: r.is_clutch,
+          })),
+          analysisVersion: reviewData.analysis_version,
+          createdAt: reviewData.created_at,
+        };
+      }
+    } catch {}
+
+    const rankedRepo = new SupabaseRankedRepository();
+    const snap = await rankedRepo.getMatchSnapshot(matchId, playerId);
+    return generateMatchReviewDTO(snap, playerId);
   }
 }
