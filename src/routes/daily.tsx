@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Page } from "@/components/AppShell";
 import { QuizEngine } from "@/components/QuizEngine";
-import { questionBank } from "@/data/mock";
+import { useNavigate } from "@tanstack/react-router";
+import { questions } from "@/data/mock";
 
 export const Route = createFileRoute("/daily")({
   head: () => ({
@@ -16,9 +17,10 @@ export const Route = createFileRoute("/daily")({
 });
 
 function Daily() {
+  const navigate = useNavigate();
   return (
     <Page title="Daily 12" subtitle="Same 12 questions for every player today." >
-      <QuizEngine questions={questionBank.slice(0, 12)} mode="daily" />
+      <QuizEngine questions={questions.slice(0, 12)} onFinish={() => navigate({ to: "/home" })} />
     </Page>
   );
 }

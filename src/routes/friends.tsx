@@ -3,7 +3,9 @@ import * as React from "react";
 import { Page } from "@/components/AppShell";
 import { Button, Panel, Tabs } from "@/components/kit/primitives";
 import { Avatar, DivisionBadge } from "@/components/kit/badges";
-import { friends, friendRequests } from "@/data/mock";
+import { friends } from "@/data/mock";
+
+const friendRequests = friends.slice(0, 2);
 import { fmt } from "@/lib/game";
 
 export const Route = createFileRoute("/friends")({
@@ -66,7 +68,7 @@ function FriendsScreen() {
                   <DivisionBadge elo={f.elo} size="sm" />
                 </div>
               </div>
-              <Button size="sm" variant={f.online ? "default" : "surface"}>
+              <Button size="sm" variant={f.online ? "primary" : "surface"}>
                 {f.online ? "Battle" : "Invite"}
               </Button>
             </div>
