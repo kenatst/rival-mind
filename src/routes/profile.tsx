@@ -1,105 +1,192 @@
 import { createFileRoute } from "@tanstack/react-router";
+import * as React from "react";
 import { Page } from "@/components/AppShell";
-import { Panel, ProgressBar } from "@/components/kit/primitives";
+import { Button, Panel, ProgressBar, Modal } from "@/components/kit/primitives";
+import { Avatar, DivisionBadge } from "@/components/kit/badges";
 import { StatTile } from "@/components/kit/game";
-import { Avatar, CountryBadge, DivisionBadge } from "@/components/kit/badges";
-import { currentUser } from "@/data/mock";
 import { divisionForElo, fmt } from "@/lib/game";
+import { gameService } from "@/lib/gameService";
+import { Flame, Share2, Trophy, Crown, Copy, Check, Zap, ShieldAlert } from "lucide-react";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: `${currentUser.username} — player profile | QuizArena` },
-      { name: "description", content: "Rating history, division, category mastery and career stats." },
-      { property: "og:title", content: "Player profile — QuizArena" },
-      { property: "og:description", content: "Division, ELO history and category mastery." },
+      { title: "Profile — QuizArena" },
+      { name: "description", content: "Your competitive record, division history, accuracy and unlocked achievements." },
+      { property: "og:title", content: "Profile — QuizArena" },
+      { property: "og:description", content: "Track your competitive knowledge career." },
     ],
   }),
-  component: Profile,
+  component: ProfileScreen,
 });
 
-function Profile() {
-  const d = divisionForElo(currentUser.elo);
+function ProfileScreen() {
+  const [profile, setProfile] = React.useState(() => gameService.getUserProfile());
+  const [isShareModalOpen, setIsShareModalOpen] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
+
+  React.useEffect(() => {
+    return gameService.subscribe(() => {
+      setProfile(gameService.getUserProfile());
+    });
+  }, []);
+
+  const d = divisionForElo(profile.elo);
+
+  const handleCopyCard = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <Page title="Profile" wide>
-      <Panel glow>
-        <div className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4">
-          <Avatar initials={currentUser.initials} color={currentUser.avatarColor} size={72} ring />
-          <div className="min-w-0">
-            <h2 className="display truncate text-3xl">{currentUser.username}</h2>
-            <div className="mt-2 flex flex-wrap items-center gap-2">
-              <CountryBadge country={currentUser.country} />
-              <DivisionBadge elo={currentUser.elo} size="sm" />
+    <Page title="Player Profile" subtitle="Your competitive stats, division milestones and unlocked achievements." wide>
+      {/* Gamer Identity Card */}
+      <Panel glow className="mb-6 p-6 sm:p-8">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6">
+          <div className="flex min-w-0 items-center gap-5">
+            <Avatar initials={profile.initials} color={profile.avatarColor} size={72} ring />
+            <div className="min-w-0">
+              <div className="flex items-center gap-2">
+                <h1 className="display truncate text-3xl sm:text-4xl">{profile.username}</h1>
+                <span className="text-2xl leading-none">{profile.country.flag}</span>
+              </div>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <DivisionBadge elo={profile.elo} size="md" />
+                <span className="label-xs text-muted-foreground flex items-center gap-1">
+                  Level {profile.level} ({fmt(profile.xp)} XP) · <Flame size={13} className="text-gold fill-gold" /> {profile.streak}d streak
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="numeric text-5xl text-gold sm:text-6xl">{fmt(profile.elo)}</div>
+            <div className="label-xs mt-1 text-muted-foreground font-mono">
+              World #{fmt(profile.worldRank)} · France #{profile.countryRank}
             </div>
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <StatTile label="World ELO" value={fmt(currentUser.elo)} accent="gold" />
-          <StatTile label="Level" value={currentUser.level} accent="primary" />
-          <StatTile label="World rank" value={`#${fmt(currentUser.worldRank)}`} />
-          <StatTile label="Streak" value={`${currentUser.streak} d`} accent="primary" />
+        <div className="mt-6 border-t border-border pt-4">
+          <div className="label-xs mb-2 flex justify-between text-muted-foreground font-semibold">
+            <span>Current Division: {d.label}</span>
+            <span className="text-primary">{d.eloRemaining} ELO to {d.nextLabel}</span>
+          </div>
+          <ProgressBar value={d.progress} color={`linear-gradient(90deg, ${d.color}, var(--primary))`} striped />
         </div>
 
-        <div className="mt-6">
-          <div className="label-xs mb-2 flex justify-between text-muted-foreground">
-            <span>Level {currentUser.level}</span>
-            <span>
-              {fmt(currentUser.xp)} XP
-            </span>
-          </div>
-          <ProgressBar value={0.68} />
-        </div>
-
-        <div className="mt-5">
-          <div className="label-xs mb-2 flex justify-between text-muted-foreground">
-            <span>{d.label}</span>
-            <span>{d.ceiling - currentUser.elo} to {d.nextLabel}</span>
-          </div>
-          <ProgressBar value={d.progress} color={`linear-gradient(90deg, ${d.color}, var(--gold))`} />
+        <div className="mt-5 flex justify-end">
+          <Button variant="outline" size="sm" onClick={() => setIsShareModalOpen(true)}>
+            <Share2 size={15} /> Share Gamer Card
+          </Button>
         </div>
       </Panel>
 
-      <div className="mt-5 grid gap-4 lg:grid-cols-2">
-        <Panel>
-          <div className="label-xs mb-4 text-muted-foreground">Category mastery</div>
-          <div className="space-y-4">
-            {[...currentUser.strongCategories, ...currentUser.weakCategories].map((c) => (
+      {/* 4 Key Career Metrics */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-6">
+        <StatTile label="Accuracy" value={`${profile.accuracy}%`} accent="primary" />
+        <StatTile label="Battles Played" value={fmt(profile.battles)} />
+        <StatTile label="Wins" value={fmt(profile.wins)} accent="gold" />
+        <StatTile label="Win Rate" value={`${Math.round((profile.wins / profile.battles) * 100)}%`} accent="accent" />
+      </div>
+
+      {/* Strong vs Weak Categories */}
+      <div className="grid gap-4 md:grid-cols-2 mb-6">
+        <Panel className="p-5 space-y-3 border-success/30">
+          <div className="label-xs flex items-center gap-2 text-success font-black">
+            <Zap size={15} /> Strong Categories (Powerhouses)
+          </div>
+          <div className="space-y-2.5">
+            {profile.strongCategories.map((c) => (
               <div key={c.category}>
-                <div className="mb-1.5 flex items-center justify-between text-sm">
-                  <span className="font-bold">{c.category}</span>
-                  <span className="numeric text-muted-foreground">{c.score}%</span>
+                <div className="label-xs mb-1 flex justify-between text-muted-foreground">
+                  <span className="text-foreground">{c.category}</span>
+                  <span className="text-success">{c.score}% Score</span>
                 </div>
-                <ProgressBar value={c.score / 100} />
+                <ProgressBar value={c.score / 100} color="var(--success)" height={6} />
               </div>
             ))}
           </div>
         </Panel>
 
-        <Panel>
-          <div className="label-xs mb-4 text-muted-foreground">Career</div>
-          <div className="grid grid-cols-2 gap-3">
-            <StatTile label="Matches" value={fmt(currentUser.battles)} />
-            <StatTile label="Win rate" value={`${Math.round((currentUser.wins / currentUser.battles) * 100)}%`} accent="primary" />
-            <StatTile label="Accuracy" value={`${currentUser.accuracy}%`} />
-            <StatTile label="Peak ELO" value={fmt(1512)} accent="gold" />
+        <Panel className="p-5 space-y-3 border-danger/30">
+          <div className="label-xs flex items-center gap-2 text-danger font-black">
+            <ShieldAlert size={15} /> Growth Opportunities
           </div>
-          <div className="label-xs mt-5 mb-3 text-muted-foreground">Last 10 ranked</div>
-          <div className="flex gap-1.5">
-            {["W","W","L","W","W","W","L","W","L","W"].map((r, i) => (
-              <span
-                key={i}
-                className={`numeric grid h-8 flex-1 place-items-center rounded-md text-xs ${
-                  r === "W" ? "bg-success/20 text-success" : "bg-danger/20 text-danger"
-                }`}
-              >
-                {r}
-              </span>
+          <div className="space-y-2.5">
+            {profile.weakCategories.map((c) => (
+              <div key={c.category}>
+                <div className="label-xs mb-1 flex justify-between text-muted-foreground">
+                  <span className="text-foreground">{c.category}</span>
+                  <span className="text-danger">{c.score}% Score</span>
+                </div>
+                <ProgressBar value={c.score / 100} color="var(--danger)" height={6} />
+              </div>
             ))}
           </div>
         </Panel>
       </div>
+
+      {/* Achievements Showcase */}
+      <Panel className="p-5">
+        <div className="label-xs flex items-center justify-between text-gold font-black mb-4">
+          <span className="flex items-center gap-2">
+            <Trophy size={16} /> Showcase Achievements
+          </span>
+          <span className="text-muted-foreground font-mono">4 / 6 Unlocked</span>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {profile.achievements.map((ach) => (
+            <div
+              key={ach.id}
+              className={`flex items-start gap-3 rounded-xl border p-3.5 transition-colors ${
+                ach.unlocked
+                  ? "border-border bg-surface-2/60"
+                  : "border-border/40 bg-surface/30 opacity-50"
+              }`}
+            >
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface border border-border text-xl">
+                {ach.icon}
+              </div>
+              <div className="min-w-0">
+                <div className="display text-base font-bold">{ach.label}</div>
+                <p className="text-xs text-muted-foreground mt-0.5">{ach.description}</p>
+                {ach.unlocked && (
+                  <span className="label-xs text-primary font-bold mt-1 inline-block">
+                    ✓ Unlocked
+                  </span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Panel>
+
+      {/* Share Modal */}
+      <Modal open={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} title="Share Gamer Card">
+        <div className="space-y-4 text-center">
+          <div className="rounded-2xl border border-primary/40 bg-surface-2 p-6 text-center space-y-3">
+            <Avatar initials={profile.initials} color={profile.avatarColor} size={64} ring />
+            <div className="display text-2xl">{profile.username} {profile.country.flag}</div>
+            <div className="numeric text-4xl text-gold font-black">{profile.elo} ELO</div>
+            <div className="label-xs text-muted-foreground">
+              Division: {d.label} · {profile.accuracy}% Accuracy · 🔥 {profile.streak}d Streak
+            </div>
+          </div>
+
+          <Button full onClick={handleCopyCard} variant="primary">
+            {copied ? (
+              <>
+                <Check size={18} /> Copied to Clipboard!
+              </>
+            ) : (
+              <>
+                <Copy size={18} /> Copy Gamer Link
+              </>
+            )}
+          </Button>
+        </div>
+      </Modal>
     </Page>
   );
 }

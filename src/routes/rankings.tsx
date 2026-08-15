@@ -6,13 +6,13 @@ import { LeaderboardRow } from "@/components/kit/game";
 import { DivisionBadge } from "@/components/kit/badges";
 import {
   countryRankings,
-  currentUser,
   franceLeaderboard,
   friendsLeaderboard,
   nearbyLeaderboard,
   topLeaderboard,
 } from "@/data/mock";
-import { divisionForElo, fmt } from "@/lib/game";
+import { divisionForElo, fmt, TIERS } from "@/lib/game";
+import { gameService } from "@/lib/gameService";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/rankings")({
@@ -34,9 +34,16 @@ export const Route = createFileRoute("/rankings")({
 type Scope = "top" | "friends" | "france" | "nearby" | "countries";
 
 function Rankings() {
-  const [scope, setScope] = React.useState<Scope>("top");
-  const elo = 1475;
-  const d = divisionForElo(elo);
+  const [scope, setScope] = React.useState<Scope>("nearby");
+  const [profile, setProfile] = React.useState(() => gameService.getUserProfile());
+
+  React.useEffect(() => {
+    return gameService.subscribe(() => {
+      setProfile(gameService.getUserProfile());
+    });
+  }, []);
+
+  const d = divisionForElo(profile.elo);
 
   const list =
     scope === "top"
@@ -48,35 +55,67 @@ function Rankings() {
           : nearbyLeaderboard;
 
   return (
-    <Page title="World League" subtitle="One rating. 184 countries. Everyone on the same ladder." wide>
-      <Panel glow className="mb-5">
+    <Page title="World League" subtitle="One rating. 184 countries. Everyone on the same global circuit." wide>
+      {/* Player Standing Highlight */}
+      <Panel glow className="mb-5 p-6">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
           <div className="min-w-0">
-            <div className="label-xs text-muted-foreground">Your rating</div>
-            <div className="numeric mt-1 text-5xl text-gold sm:text-6xl">{fmt(elo)}</div>
+            <div className="label-xs text-muted-foreground">Your Rating</div>
+            <div className="numeric mt-1 text-5xl text-gold sm:text-6xl">{fmt(profile.elo)}</div>
+            <div className="label-xs mt-1 text-muted-foreground">
+              World #{fmt(profile.worldRank)} · France #{profile.countryRank}
+            </div>
           </div>
-          <DivisionBadge elo={elo} size="lg" />
+          <DivisionBadge elo={profile.elo} size="lg" />
         </div>
         <div className="mt-5">
-          <div className="label-xs mb-2 flex justify-between text-muted-foreground">
-            <span>{d.label}</span>
-            <span>
-              {d.ceiling - elo} to {d.nextLabel}
+          <div className="label-xs mb-2 flex justify-between text-muted-foreground font-semibold">
+            <span>Current Division: {d.label}</span>
+            <span className="text-primary">
+              {d.eloRemaining} ELO to {d.nextLabel}
             </span>
           </div>
-          <ProgressBar value={d.progress} color={`linear-gradient(90deg, ${d.color}, var(--gold))`} />
+          <ProgressBar value={d.progress} color={`linear-gradient(90deg, ${d.color}, var(--primary))`} striped />
         </div>
       </Panel>
+
+      {/* Division Milestones Overview */}
+      <div className="mb-5 p-3 rounded-2xl border border-border bg-surface/60 overflow-x-auto">
+        <div className="label-xs mb-2 text-muted-foreground">Division Milestones</div>
+        <div className="flex items-center gap-2 min-w-[650px]">
+          {Object.entries(TIERS).map(([tierKey, cfg]) => {
+            const isCurrent = d.tier === tierKey;
+            return (
+              <div
+                key={tierKey}
+                className={cn(
+                  "flex-1 p-2.5 rounded-xl border text-center transition-colors",
+                  isCurrent
+                    ? "border-primary bg-primary/10 shadow-[var(--shadow-glow)]"
+                    : "border-border/40 bg-surface/30 opacity-70",
+                )}
+              >
+                <div className="display text-xs font-bold" style={{ color: cfg.color }}>
+                  {cfg.tier}
+                </div>
+                <div className="numeric text-[10px] text-muted-foreground mt-0.5">
+                  {cfg.min}+ ELO
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
       <Tabs
         value={scope}
         onChange={setScope}
         tabs={[
-          { id: "top", label: "Top 100" },
-          { id: "friends", label: "Friends" },
-          { id: "france", label: "France" },
-          { id: "nearby", label: "Nearby" },
-          { id: "countries", label: "Countries" },
+          { id: "nearby", label: "🔥 Nearby Rivals" },
+          { id: "top", label: "🌍 Top 100" },
+          { id: "france", label: "🇫🇷 France" },
+          { id: "friends", label: "👥 Friends" },
+          { id: "countries", label: "📊 Country Wars" },
         ]}
       />
 
@@ -86,7 +125,7 @@ function Rankings() {
         <div className="mt-4 space-y-1.5">
           {scope === "nearby" && (
             <p className="label-xs mb-3 text-muted-foreground">
-              Players within a few points of you. Pass one to climb.
+              Players closest to your rating. Defeat them to climb the world leaderboard.
             </p>
           )}
           {list.map((e) => (
@@ -99,7 +138,7 @@ function Rankings() {
 }
 
 function CountryRankings() {
-  const [metric, setMetric] = React.useState<"power" | "total">("power");
+  const [metric, setMetric] = React.useState<"total" | "power">("total");
   const sorted = [...countryRankings].sort((a, b) =>
     metric === "power" ? b.power - a.power : b.totalPoints - a.totalPoints,
   );
@@ -116,8 +155,8 @@ function CountryRankings() {
             value={metric}
             onChange={setMetric}
             tabs={[
-              { id: "power", label: "Power" },
-              { id: "total", label: "Total" },
+              { id: "total", label: "📊 Total Points" },
+              { id: "power", label: "⚡ Power (Avg ELO)" },
             ]}
           />
           <div className="space-y-1.5">
@@ -131,34 +170,34 @@ function CountryRankings() {
                     : "border-transparent bg-surface",
                 )}
               >
-                <span className={cn("numeric text-lg", i < 3 ? "text-gold" : "text-muted-foreground")}>
-                  {i + 1}
+                <span className={cn("numeric text-lg font-bold", i < 3 ? "text-gold" : "text-muted-foreground")}>
+                  #{i + 1}
                 </span>
                 <span className="text-xl leading-none">{c.country.flag}</span>
-                <span className="display truncate text-base">{c.country.name}</span>
-                <span className="numeric text-right text-lg">
-                  {metric === "power" ? fmt(c.power) : fmt(c.totalPoints)}
+                <span className="display truncate text-base font-bold">{c.country.name}</span>
+                <span className="numeric text-right text-lg font-bold">
+                  {metric === "power" ? `${fmt(c.power)} ELO` : fmt(c.totalPoints)}
                 </span>
               </div>
             ))}
           </div>
         </div>
 
-        <Panel className="h-fit">
-          <div className="label-xs text-muted-foreground">Your country</div>
-          <div className="display mt-2 text-2xl">{france.country.flag} France</div>
-          <div className="numeric mt-3 text-5xl text-gold">#{france.rank}</div>
-          <div className="numeric mt-3 text-2xl">{fmt(france.totalPoints)}</div>
-          <div className="label-xs mt-1 text-success">+{fmt(france.todayPoints)} today</div>
+        <Panel className="h-fit space-y-3 p-5">
+          <div className="label-xs text-muted-foreground font-black">Your Country Standing</div>
+          <div className="display mt-1 text-2xl">{france.country.flag} France</div>
+          <div className="numeric text-5xl text-gold font-black">#{france.rank} World</div>
+          <div className="numeric text-2xl">{fmt(france.totalPoints)} pts</div>
+          <div className="label-xs text-success font-bold">+{fmt(france.todayPoints)} contributed today</div>
 
-          <div className="mt-6">
-            <div className="label-xs mb-2 flex justify-between text-muted-foreground">
-              <span>Next target {uk.country.flag} UK</span>
-              <span className="text-foreground">{fmt(gap)} pts</span>
+          <div className="mt-4 pt-3 border-t border-border space-y-2">
+            <div className="label-xs flex justify-between text-muted-foreground font-bold">
+              <span>Next Target {uk.country.flag} UK (#3)</span>
+              <span className="text-foreground">{fmt(gap)} pts to overtake</span>
             </div>
             <ProgressBar value={france.totalPoints / uk.totalPoints} striped />
-            <p className="mt-3 text-sm text-muted-foreground">
-              Every ranked match you win adds points to France.
+            <p className="text-xs text-muted-foreground pt-1">
+              Every ranked match you win adds points directly to France's national score.
             </p>
           </div>
         </Panel>
