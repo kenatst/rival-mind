@@ -26,6 +26,7 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ResultRouteImport } from './routes/result'
+import { Route as TrainRouteImport } from './routes/train'
 import { Route as AdminQuestionsRouteImport } from './routes/admin/questions'
 import { Route as DevMultiplayerRouteImport } from './routes/dev/multiplayer'
 import { Route as ModesModeSlugRouteImport } from './routes/modes/$modeSlug'
@@ -115,6 +116,11 @@ const ResultRoute = ResultRouteImport.update({
   path: '/result',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrainRoute = TrainRouteImport.update({
+  id: '/train',
+  path: '/train',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminQuestionsRoute = AdminQuestionsRouteImport.update({
   id: '/admin/questions',
   path: '/admin/questions',
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/quiz': typeof QuizRoute
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
+  '/train': typeof TrainRoute
   '/admin/questions': typeof AdminQuestionsRoute
   '/dev/multiplayer': typeof DevMultiplayerRoute
   '/modes/$modeSlug': typeof ModesModeSlugRoute
@@ -171,6 +178,7 @@ export interface FileRoutesByTo {
   '/quiz': typeof QuizRoute
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
+  '/train': typeof TrainRoute
   '/admin/questions': typeof AdminQuestionsRoute
   '/dev/multiplayer': typeof DevMultiplayerRoute
   '/modes/$modeSlug': typeof ModesModeSlugRoute
@@ -194,6 +202,7 @@ export interface FileRoutesById {
   '/quiz': typeof QuizRoute
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
+  '/train': typeof TrainRoute
   '/admin/questions': typeof AdminQuestionsRoute
   '/dev/multiplayer': typeof DevMultiplayerRoute
   '/modes/$modeSlug': typeof ModesModeSlugRoute
@@ -218,6 +227,7 @@ export interface FileRouteTypes {
     | '/quiz'
     | '/rankings'
     | '/result'
+    | '/train'
     | '/admin/questions'
     | '/dev/multiplayer'
     | '/modes/$modeSlug'
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/quiz'
     | '/rankings'
     | '/result'
+    | '/train'
     | '/admin/questions'
     | '/dev/multiplayer'
     | '/modes/$modeSlug'
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/quiz'
     | '/rankings'
     | '/result'
+    | '/train'
     | '/admin/questions'
     | '/dev/multiplayer'
     | '/modes/$modeSlug'
@@ -285,6 +297,7 @@ export interface RootRouteChildren {
   QuizRoute: typeof QuizRoute
   RankingsRoute: typeof RankingsRoute
   ResultRoute: typeof ResultRoute
+  TrainRoute: typeof TrainRoute
   AdminQuestionsRoute: typeof AdminQuestionsRoute
   DevMultiplayerRoute: typeof DevMultiplayerRoute
   ModesModeSlugRoute: typeof ModesModeSlugRoute
@@ -411,6 +424,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResultRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/train': {
+      id: '/train'
+      path: '/train'
+      fullPath: '/train'
+      preLoaderRoute: typeof TrainRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/questions': {
       id: '/admin/questions'
       path: '/admin/questions'
@@ -453,6 +473,7 @@ const rootRouteChildren: RootRouteChildren = {
   QuizRoute: QuizRoute,
   RankingsRoute: RankingsRoute,
   ResultRoute: ResultRoute,
+  TrainRoute: TrainRoute,
   AdminQuestionsRoute: AdminQuestionsRoute,
   DevMultiplayerRoute: DevMultiplayerRoute,
   ModesModeSlugRoute: ModesModeSlugRoute,
