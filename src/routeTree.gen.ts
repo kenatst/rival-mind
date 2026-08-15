@@ -16,6 +16,7 @@ import { Route as MatchResultRouteImport } from './routes/match-result'
 import { Route as MatchmakingRouteImport } from './routes/matchmaking'
 import { Route as PlayRouteImport } from './routes/play'
 import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ResultRouteImport } from './routes/result'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const QuizRoute = QuizRouteImport.update({
   path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RankingsRoute = RankingsRouteImport.update({
+  id: '/rankings',
+  path: '/rankings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultRoute = ResultRouteImport.update({
   id: '/result',
   path: '/result',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/matchmaking': typeof MatchmakingRoute
   '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
+  '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/matchmaking': typeof MatchmakingRoute
   '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
+  '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/matchmaking': typeof MatchmakingRoute
   '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
+  '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/matchmaking'
     | '/play'
     | '/quiz'
+    | '/rankings'
     | '/result'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/matchmaking'
     | '/play'
     | '/quiz'
+    | '/rankings'
     | '/result'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/matchmaking'
     | '/play'
     | '/quiz'
+    | '/rankings'
     | '/result'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   MatchmakingRoute: typeof MatchmakingRoute
   PlayRoute: typeof PlayRoute
   QuizRoute: typeof QuizRoute
+  RankingsRoute: typeof RankingsRoute
   ResultRoute: typeof ResultRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rankings': {
+      id: '/rankings'
+      path: '/rankings'
+      fullPath: '/rankings'
+      preLoaderRoute: typeof RankingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/result': {
       id: '/result'
       path: '/result'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   MatchmakingRoute: MatchmakingRoute,
   PlayRoute: PlayRoute,
   QuizRoute: QuizRoute,
+  RankingsRoute: RankingsRoute,
   ResultRoute: ResultRoute,
 }
 export const routeTree = rootRouteImport
