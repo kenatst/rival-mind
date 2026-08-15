@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as MatchRouteImport } from './routes/match'
 import { Route as MatchmakingRouteImport } from './routes/matchmaking'
 import { Route as PlayRouteImport } from './routes/play'
 import { Route as QuizRouteImport } from './routes/quiz'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatchRoute = MatchRouteImport.update({
+  id: '/match',
+  path: '/match',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchmakingRoute = MatchmakingRouteImport.update({
@@ -50,6 +56,7 @@ const ResultRoute = ResultRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/match': typeof MatchRoute
   '/matchmaking': typeof MatchmakingRoute
   '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/match': typeof MatchRoute
   '/matchmaking': typeof MatchmakingRoute
   '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/match': typeof MatchRoute
   '/matchmaking': typeof MatchmakingRoute
   '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
@@ -74,16 +83,25 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/matchmaking' | '/play' | '/quiz' | '/result'
+  fullPaths:
+    '/' | '/home' | '/match' | '/matchmaking' | '/play' | '/quiz' | '/result'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/matchmaking' | '/play' | '/quiz' | '/result'
+  to: '/' | '/home' | '/match' | '/matchmaking' | '/play' | '/quiz' | '/result'
   id:
-    '__root__' | '/' | '/home' | '/matchmaking' | '/play' | '/quiz' | '/result'
+    | '__root__'
+    | '/'
+    | '/home'
+    | '/match'
+    | '/matchmaking'
+    | '/play'
+    | '/quiz'
+    | '/result'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HomeRoute: typeof HomeRoute
+  MatchRoute: typeof MatchRoute
   MatchmakingRoute: typeof MatchmakingRoute
   PlayRoute: typeof PlayRoute
   QuizRoute: typeof QuizRoute
@@ -104,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/match': {
+      id: '/match'
+      path: '/match'
+      fullPath: '/match'
+      preLoaderRoute: typeof MatchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/matchmaking': {
@@ -140,6 +165,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HomeRoute: HomeRoute,
+  MatchRoute: MatchRoute,
   MatchmakingRoute: MatchmakingRoute,
   PlayRoute: PlayRoute,
   QuizRoute: QuizRoute,
