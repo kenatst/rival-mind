@@ -17,7 +17,7 @@ const TIERS: { tier: DivisionTier; min: number; color: string }[] = [
 
 export interface ResolvedDivision {
   tier: DivisionTier;
-  sub?: "I" | "II" | "III";
+  sub?: "I" | "II" | "III" | undefined;
   label: string;
   color: string;
   floor: number;
