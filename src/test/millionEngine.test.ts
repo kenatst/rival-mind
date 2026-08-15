@@ -68,7 +68,7 @@ describe("IQ ARENA — Real Multi-Source Open-Data Curation Suite", () => {
     expect(res1.isNew).toBe(true);
     expect(res2.isNew).toBe(false);
     expect(res2.mergedCandidate.sources.length).toBe(2);
-    expect(res2.mergedCandidate.confidence).toBe(1.0); // Boosted on multi-source confirmation
+    expect(res2.mergedCandidate.confidence).toBe(0.98); // Calibrated multi-source confidence (no blind 1.00)
   });
 
   it("Phase 2: Deep Topic Graph contains over 2,000 structured hierarchical nodes", () => {

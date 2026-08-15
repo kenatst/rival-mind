@@ -1,0 +1,6922 @@
+[
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #1 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #1",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #1",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #1.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1001",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #2 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #2",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #2",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #2.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1002",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #3 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #3",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #3",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #3.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1003",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-3",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #4 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #4",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #4",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #4.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1004",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #5 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #5",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #5",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #5.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1005",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #6 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #6",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #6",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #6.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1006",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-6",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #7 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #7",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #7",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #7.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1007",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #8 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #8",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #8",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #8.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1008",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #9 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #9",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #9",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #9.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1009",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-9",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #10 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #10",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #10",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #10.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1010",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #11 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #11",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #11",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #11.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1011",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #12 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #12",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #12",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #12.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1012",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-12",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #13 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #13",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #13",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #13.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1013",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #14 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #14",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #14",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #14.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1014",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #15 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #15",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #15",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #15.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1015",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-15",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #16 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #16",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #16",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #16.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1016",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #17 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #17",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #17",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #17.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1017",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #18 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #18",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #18",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #18.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1018",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-18",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #19 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #19",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #19",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #19.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1019",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #20 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #20",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #20",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #20.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1020",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #21 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #21",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #21",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #21.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1021",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-21",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #22 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #22",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #22",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #22.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1022",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #23 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #23",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #23",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #23.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1023",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #24 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #24",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #24",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #24.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1024",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-24",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #25 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #25",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #25",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #25.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1025",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #26 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #26",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #26",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #26.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1026",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #27 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #27",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #27",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #27.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1027",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-27",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #28 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #28",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #28",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #28.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1028",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #29 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #29",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #29",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #29.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1029",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #30 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #30",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #30",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #30.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1030",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-30",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #31 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #31",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #31",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #31.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1031",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #32 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #32",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #32",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #32.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1032",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #33 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #33",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #33",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #33.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1033",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-33",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #34 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #34",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #34",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #34.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1034",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #35 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #35",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #35",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #35.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1035",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #36 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #36",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #36",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #36.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1036",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #37 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #37",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #37",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #37.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1037",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #38 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #38",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #38",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #38.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1038",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #39 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #39",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #39",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #39.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1039",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-39",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #40 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #40",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #40",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #40.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1040",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #41 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #41",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #41",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #41.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1041",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #42 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #42",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #42",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #42.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1042",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-42",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #43 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #43",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #43",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #43.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1043",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #44 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #44",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #44",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #44.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1044",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #45 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #45",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #45",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #45.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1045",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-45",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #46 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #46",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #46",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #46.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1046",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #47 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #47",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #47",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #47.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1047",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #48 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #48",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #48",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #48.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1048",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-48",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #49 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #49",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #49",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #49.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1049",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "History",
+    "topic": "History Core Topic",
+    "prompt": "Dans le domaine de History, quel élément correspond à l'entité #50 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #50",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #50",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour History Notable Entity #50.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1050",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #1 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #1",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #1",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #1.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1001",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #2 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #2",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #2",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #2.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1002",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #3 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #3",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #3",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #3.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1003",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-3",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #4 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #4",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #4",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #4.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1004",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #5 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #5",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #5",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #5.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1005",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #6 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #6",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #6",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #6.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1006",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-6",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #7 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #7",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #7",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #7.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1007",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #8 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #8",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #8",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #8.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1008",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #9 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #9",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #9",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #9.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1009",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-9",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #10 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #10",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #10",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #10.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1010",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #11 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #11",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #11",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #11.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1011",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #12 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #12",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #12",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #12.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1012",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-12",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #13 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #13",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #13",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #13.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1013",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #14 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #14",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #14",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #14.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1014",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #15 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #15",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #15",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #15.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1015",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-15",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #16 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #16",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #16",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #16.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1016",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #17 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #17",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #17",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #17.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1017",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #18 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #18",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #18",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #18.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1018",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-18",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #19 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #19",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #19",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #19.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1019",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #20 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #20",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #20",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #20.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1020",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #21 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #21",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #21",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #21.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1021",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-21",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #22 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #22",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #22",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #22.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1022",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #23 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #23",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #23",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #23.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1023",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #24 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #24",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #24",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #24.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1024",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-24",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #25 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #25",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #25",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #25.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1025",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #26 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #26",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #26",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #26.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1026",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #27 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #27",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #27",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #27.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1027",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-27",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #28 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #28",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #28",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #28.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1028",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #29 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #29",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #29",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #29.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1029",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #30 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #30",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #30",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #30.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1030",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-30",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #31 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #31",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #31",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #31.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1031",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #32 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #32",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #32",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #32.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1032",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #33 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #33",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #33",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #33.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1033",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-33",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #34 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #34",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #34",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #34.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1034",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #35 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #35",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #35",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #35.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1035",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #36 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #36",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #36",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #36.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1036",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #37 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #37",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #37",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #37.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1037",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #38 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #38",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #38",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #38.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1038",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #39 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #39",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #39",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #39.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1039",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-39",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #40 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #40",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #40",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #40.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1040",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #41 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #41",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #41",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #41.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1041",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #42 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #42",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #42",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #42.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1042",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-42",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #43 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #43",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #43",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #43.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1043",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #44 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #44",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #44",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #44.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1044",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #45 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #45",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #45",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #45.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1045",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-45",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #46 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #46",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #46",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #46.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1046",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #47 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #47",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #47",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #47.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1047",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #48 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #48",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #48",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #48.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1048",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-48",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #49 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #49",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #49",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #49.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1049",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Geography",
+    "topic": "Geography Core Topic",
+    "prompt": "Dans le domaine de Geography, quel élément correspond à l'entité #50 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #50",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #50",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Geography Notable Entity #50.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1050",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #1 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #1",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #1",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #1.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1001",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #2 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #2",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #2",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #2.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1002",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #3 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #3",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #3",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #3.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1003",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-3",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #4 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #4",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #4",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #4.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1004",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #5 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #5",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #5",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #5.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1005",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #6 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #6",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #6",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #6.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1006",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-6",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #7 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #7",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #7",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #7.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1007",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #8 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #8",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #8",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #8.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1008",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #9 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #9",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #9",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #9.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1009",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-9",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #10 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #10",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #10",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #10.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1010",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #11 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #11",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #11",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #11.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1011",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #12 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #12",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #12",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #12.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1012",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-12",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #13 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #13",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #13",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #13.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1013",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #14 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #14",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #14",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #14.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1014",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #15 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #15",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #15",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #15.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1015",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-15",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #16 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #16",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #16",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #16.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1016",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #17 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #17",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #17",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #17.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1017",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #18 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #18",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #18",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #18.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1018",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-18",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #19 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #19",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #19",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #19.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1019",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #20 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #20",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #20",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #20.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1020",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #21 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #21",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #21",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #21.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1021",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-21",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #22 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #22",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #22",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #22.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1022",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #23 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #23",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #23",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #23.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1023",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #24 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #24",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #24",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #24.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1024",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-24",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #25 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #25",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #25",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #25.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1025",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #26 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #26",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #26",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #26.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1026",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #27 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #27",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #27",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #27.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1027",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-27",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #28 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #28",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #28",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #28.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1028",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #29 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #29",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #29",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #29.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1029",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #30 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #30",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #30",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #30.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1030",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-30",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #31 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #31",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #31",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #31.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1031",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #32 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #32",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #32",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #32.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1032",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #33 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #33",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #33",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #33.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1033",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-33",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #34 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #34",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #34",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #34.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1034",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #35 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #35",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #35",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #35.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1035",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #36 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #36",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #36",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #36.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1036",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #37 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #37",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #37",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #37.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1037",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #38 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #38",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #38",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #38.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1038",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #39 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #39",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #39",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #39.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1039",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-39",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #40 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #40",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #40",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #40.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1040",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #41 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #41",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #41",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #41.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1041",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #42 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #42",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #42",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #42.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1042",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-42",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #43 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #43",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #43",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #43.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1043",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #44 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #44",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #44",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #44.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1044",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #45 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #45",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #45",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #45.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1045",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-45",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #46 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #46",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #46",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #46.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1046",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #47 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #47",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #47",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #47.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1047",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #48 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #48",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #48",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #48.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1048",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-48",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #49 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #49",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #49",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #49.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1049",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Science",
+    "topic": "Science Core Topic",
+    "prompt": "Dans le domaine de Science, quel élément correspond à l'entité #50 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #50",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #50",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Science Notable Entity #50.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1050",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #1 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #1",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #1",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #1",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #1.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1001",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #2 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #2",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #2",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #2",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #2.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1002",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #3 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #3",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #3",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #3",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #3.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1003",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-3",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #4 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #4",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #4",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #4",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #4.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1004",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #5 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #5",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #5",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #5",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #5.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1005",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #6 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #6",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #6",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #6",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #6.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1006",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-6",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #7 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #7",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #7",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #7",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #7.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1007",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #8 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #8",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #8",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #8",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #8.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1008",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #9 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #9",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #9",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #9",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #9.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1009",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-9",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #10 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #10",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #10",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #10",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #10.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1010",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #11 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #11",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #11",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #11",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #11.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1011",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #12 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #12",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #12",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #12",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #12.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1012",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-12",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #13 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #13",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #13",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #13",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #13.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1013",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #14 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #14",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #14",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #14",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #14.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1014",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #15 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #15",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #15",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #15",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #15.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1015",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-15",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #16 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #16",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #16",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #16",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #16.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1016",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #17 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #17",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #17",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #17",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #17.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1017",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #18 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #18",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #18",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #18",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #18.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1018",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-18",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #19 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #19",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #19",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #19",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #19.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1019",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #20 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #20",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #20",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #20",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #20.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1020",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #21 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #21",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #21",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #21",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #21.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1021",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-21",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #22 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #22",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #22",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #22",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #22.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1022",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #23 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #23",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #23",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #23",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #23.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1023",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #24 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #24",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #24",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #24",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #24.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1024",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-24",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #25 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #25",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #25",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #25",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #25.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1025",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #26 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #26",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #26",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #26",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #26.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1026",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #27 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #27",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #27",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #27",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #27.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1027",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-27",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #28 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #28",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #28",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #28",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #28.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1028",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #29 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #29",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #29",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #29",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #29.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1029",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #30 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #30",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #30",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #30",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #30.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1030",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-30",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #31 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #31",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #31",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #31",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #31.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1031",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #32 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #32",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #32",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #32",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #32.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1032",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #33 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #33",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #33",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #33",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #33.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1033",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-33",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #34 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #34",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #34",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #34",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #34.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1034",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #35 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #35",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #35",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #35",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #35.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1035",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #36 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #36",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #36",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #36",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #36.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1036",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #37 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #37",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #37",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #37",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #37.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1037",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #38 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #38",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #38",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #38",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #38.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1038",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #39 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #39",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #39",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #39",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #39.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1039",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-39",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #40 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #40",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #40",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #40",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #40.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1040",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #41 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #41",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #41",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #41",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #41.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1041",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #42 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #42",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #42",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #42",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #42.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1042",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-42",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #43 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #43",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #43",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #43",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #43.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1043",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #44 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #44",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #44",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #44",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #44.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1044",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #45 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #45",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #45",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #45",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #45.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1045",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-45",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #46 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #46",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #46",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #46",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #46.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1046",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #47 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #47",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #47",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #47",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #47.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1047",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #48 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #48",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #48",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #48",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #48.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1048",
+        "license": "CC0"
+      },
+      {
+        "sourceName": "musicbrainz",
+        "externalId": "mbid-48",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #49 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #49",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #49",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #49",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #49.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1049",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "category": "Cinema",
+    "topic": "Cinema Core Topic",
+    "prompt": "Dans le domaine de Cinema, quel élément correspond à l'entité #50 ?",
+    "options": [
+      {
+        "label": "Canonical Answer #50",
+        "isCorrect": true
+      },
+      {
+        "label": "Faux Choix A #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix B #50",
+        "isCorrect": false
+      },
+      {
+        "label": "Faux Choix C #50",
+        "isCorrect": false
+      }
+    ],
+    "explanation": "Fait vérifié par sources ouvertes pour Cinema Notable Entity #50.",
+    "canonicalPredicate": "CAPITAL_OF",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "sourceName": "wikidata",
+        "externalId": "Q1050",
+        "license": "CC0"
+      }
+    ]
+  }
+]

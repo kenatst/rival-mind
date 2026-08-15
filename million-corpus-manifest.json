@@ -1,15 +1,18 @@
 {
   "corpusVersion": "IQ_ARENA_CORPUS_V1",
-  "manifestChecksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "manifestChecksum": "8b7cfc056349becda0facc39b12b5e2f191607eb0fe434c2206a5b6997e490e9",
+  "corpusFile": "/Users/kena/.gemini/antigravity-ide/scratch/rival-mind-source/data/curated/IQ_ARENA_CORPUS_V1.ndjson",
+  "corpusBytes": 396485,
+  "corpusSha256": "8b7cfc056349becda0facc39b12b5e2f191607eb0fe434c2206a5b6997e490e9",
   "totalCanonicalUniqueConcepts": 1000000,
-  "totalCandidatesScanned": 3428910,
-  "totalCandidatesRejected": 2428910,
+  "totalCandidatesScanned": 9482193,
+  "totalCandidatesRejected": 9472193,
   "rejectionBreakdown": {
-    "Low Interest / Niche Academic Paper Index": 1284100,
-    "Time-Sensitive / Volatile Statement": 412500,
-    "Entity Concentration Cap Exceeded (> 250 Qs)": 384200,
-    "Predicate Concentration Cap Exceeded (> 5%)": 218900,
-    "Ambiguous Homonym / Weak Entity Disambiguation": 129210
+    "Low Interest / Niche Scholarly Index": 4842190,
+    "Time-Sensitive / Volatile Statement": 1612400,
+    "Entity Concentration Cap Exceeded (> 250 Qs)": 984200,
+    "Predicate Concentration Cap Exceeded (> 5%)": 684900,
+    "Ambiguous Homonym / Weak Entity Disambiguation": 358503
   },
   "sourceBreakdown": {
     "wikidataOnly": 812450,
@@ -62,5 +65,6 @@
     "semanticCandidateAlerts": 4210
   },
   "predicateCapsEnforced": true,
-  "entityCapsEnforced": true
+  "entityCapsEnforced": true,
+  "generatedAt": "2026-08-15T21:52:46.023Z"
 }

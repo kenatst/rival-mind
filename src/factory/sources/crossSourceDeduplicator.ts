@@ -1,22 +1,35 @@
 import { createHash } from "crypto";
-import type { CanonicalFactCandidate, CanonicalPredicate, CanonicalFactSourceRef } from "./types";
+import type { CanonicalFactCandidate, CanonicalPredicate } from "./types";
+
+export const EMPTY_SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
 
 export class CrossSourceDeduplicator {
   private canonicalFingerprints = new Map<string, CanonicalFactCandidate>();
   private duplicateSourceLinksCount = 0;
 
   /**
-   * Generates a source-independent canonical fingerprint.
-   * e.g. Mozart + PLACE_OF_BIRTH + Salzburg = Same fingerprint whether from Wikidata or MusicBrainz
+   * Generates a deterministic, full 256-bit SHA-256 fingerprint for a canonical proposition.
+   * CRITICAL: Domain and Category are EXCLUDED from canonical identity so reclassifying
+   * or mapping to multiple topics never creates duplicate knowledge entities.
+   *
+   * Fingerprint = SHA-256(canonical_predicate : normalized_subject : normalized_object [: qualifiers])
    */
-  public generateFingerprint(predicate: CanonicalPredicate, subjectName: string, objectValue: string): string {
-    const raw = `${predicate}:${subjectName.trim().toLowerCase()}:${objectValue.trim().toLowerCase()}`;
+  public generateFingerprint(
+    predicate: CanonicalPredicate,
+    subjectEntityIdOrName: string,
+    objectValueOrEntityId: string,
+    qualifiers?: Record<string, any>,
+  ): string {
+    const normSubj = subjectEntityIdOrName.trim().toLowerCase();
+    const normObj = objectValueOrEntityId.trim().toLowerCase();
+    const qualStr = qualifiers && Object.keys(qualifiers).length > 0 ? JSON.stringify(qualifiers) : "";
+    const raw = `${predicate}:${normSubj}:${normObj}${qualStr ? `:${qualStr}` : ""}`;
     return createHash("sha256").update(raw).digest("hex");
   }
 
   /**
    * Ingests and deduplicates a fact candidate. If the fact already exists from another source,
-   * it merges the citation and increases confidence.
+   * it merges the citation in canonical_fact_sources and computes a calibrated confidence.
    */
   public ingestCandidate(candidate: CanonicalFactCandidate): { isNew: boolean; mergedCandidate: CanonicalFactCandidate } {
     const existing = this.canonicalFingerprints.get(candidate.fingerprint);
@@ -29,8 +42,9 @@ export class CrossSourceDeduplicator {
           existing.sources.push(src);
         }
       }
-      // Boost confidence on multi-source confirmation
-      existing.confidence = Math.min(1.0, existing.confidence + 0.15);
+      // Calibrated multi-source confidence (no blind 1.00 assumption)
+      const independenceBonus = existing.sources.length >= 2 ? 0.08 : 0.04;
+      existing.confidence = Math.min(0.98, Math.max(existing.confidence, candidate.confidence) + independenceBonus);
       return { isNew: false, mergedCandidate: existing };
     }
 
@@ -48,6 +62,11 @@ export class CrossSourceDeduplicator {
 
   public getAllCandidates(): CanonicalFactCandidate[] {
     return Array.from(this.canonicalFingerprints.values());
+  }
+
+  public clear(): void {
+    this.canonicalFingerprints.clear();
+    this.duplicateSourceLinksCount = 0;
   }
 }
 

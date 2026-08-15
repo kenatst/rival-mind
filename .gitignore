@@ -20,6 +20,11 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Analytical Data Artifacts & Staging
+data/
+*.parquet
+*.ndjson
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
