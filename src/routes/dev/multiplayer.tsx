@@ -162,12 +162,27 @@ function DevMultiplayerHarness() {
             </li>
           </ol>
 
-          <div className="flex gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             <Link to="/matchmaking">
               <Button size="md" variant="primary" className="font-black">
                 <Swords size={16} /> Launch Ranked Matchmaking
               </Button>
             </Link>
+            <Button
+              size="md"
+              variant="prestige"
+              onClick={async () => {
+                const q = await matchmakingRepo.joinQueue(currentPersona?.id || "u-kenael", "ranked_classic", 1657);
+                if (q.matchId) {
+                  window.location.href = `/match?matchId=${q.matchId}`;
+                } else {
+                  window.location.href = `/matchmaking`;
+                }
+              }}
+              className="font-bold"
+            >
+              <Zap size={16} /> Instant Queue & Join
+            </Button>
             <Button size="md" variant="surface" onClick={handleJoinTestQueue}>
               Test Queue API
             </Button>

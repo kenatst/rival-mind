@@ -65,6 +65,167 @@ class MockStateStore {
   public waitingQueue: Map<string, { queueId: string; userId: string; rating: number; joinedAt: number; onMatched?: (matchId: string) => void }> = new Map();
   public matches: Map<string, MockInternalMatch> = new Map();
   public reviews: Map<string, MatchReviewDTO> = new Map();
+  public syncChannel?: BroadcastChannel | undefined;
+
+  constructor() {
+    if (typeof window !== "undefined" && "BroadcastChannel" in window) {
+      try {
+        this.syncChannel = new BroadcastChannel("iq_arena_multiplayer_sync");
+        this.syncChannel.onmessage = (event) => {
+          this.handleSyncMessage(event.data);
+        };
+      } catch {}
+    }
+  }
+
+  private handleSyncMessage(data: any) {
+    if (!data || !data.type) return;
+
+    if (data.type === "QUEUE_JOINED") {
+      this.waitingQueue.set(data.queueId, {
+        queueId: data.queueId,
+        userId: data.userId,
+        rating: data.rating,
+        joinedAt: data.joinedAt,
+      });
+    } else if (data.type === "MATCH_CREATED" && data.matchId && data.match) {
+      const restoredMatch = this.deserializeMatch(data.match);
+      this.matches.set(data.matchId, restoredMatch);
+
+      // Check if this window was waiting in queue
+      for (const [qId, entry] of this.waitingQueue.entries()) {
+        if (entry.onMatched) {
+          entry.onMatched(data.matchId);
+        }
+      }
+      this.waitingQueue.clear();
+    } else if (data.type === "ANSWER_LOCKED" && data.matchId) {
+      const match = this.matches.get(data.matchId);
+      if (match) {
+        const round = match.rounds[data.roundNumber - 1];
+        if (round) {
+          round.answers.set(data.userId, {
+            selectedOptionId: data.selectedOptionId,
+            serverResponseMs: data.serverResponseMs,
+            wasCorrect: data.wasCorrect,
+            lockedAt: data.lockedAt,
+          });
+
+          if (round.answers.size >= 2) {
+            this.processRoundReveal(match, round);
+          } else {
+            this.notifyMatchListeners(match);
+          }
+        }
+      }
+    }
+  }
+
+  public broadcast(msg: any) {
+    if (this.syncChannel) {
+      try {
+        this.syncChannel.postMessage(msg);
+      } catch {}
+    }
+  }
+
+  public serializeMatch(match: MockInternalMatch): any {
+    return {
+      matchId: match.matchId,
+      state: match.state,
+      currentRound: match.currentRound,
+      totalRounds: match.totalRounds,
+      startsAt: match.startsAt,
+      playerA: match.playerA,
+      playerB: match.playerB,
+      playerAScore: match.playerAScore,
+      playerBScore: match.playerBScore,
+      rounds: match.rounds.map((r) => ({
+        ...r,
+        answers: Array.from(r.answers.entries()),
+      })),
+      playerARatingBefore: match.playerARatingBefore,
+      playerARatingAfter: match.playerARatingAfter,
+      playerADelta: match.playerADelta,
+      playerBRatingBefore: match.playerBRatingBefore,
+      playerBRatingAfter: match.playerBRatingAfter,
+      playerBDelta: match.playerBDelta,
+    };
+  }
+
+  public deserializeMatch(data: any): MockInternalMatch {
+    return {
+      ...data,
+      rounds: data.rounds.map((r: any) => ({
+        ...r,
+        answers: new Map(r.answers || []),
+      })),
+      listeners: new Set(),
+    };
+  }
+
+  public notifyMatchListeners(match: MockInternalMatch) {
+    for (const listener of match.listeners) {
+      const snap = new MockRankedRepository().buildSnapshotDTO(match, this.activePersona.id);
+      listener(snap);
+    }
+  }
+
+  public processRoundReveal(match: MockInternalMatch, round: MockInternalRound) {
+    round.status = "revealed";
+    round.revealedAt = Date.now();
+    match.state = "round_reveal";
+
+    const ansA = round.answers.get(match.playerA.id);
+    const ansB = round.answers.get(match.playerB.id);
+
+    if (ansA?.wasCorrect && !ansB?.wasCorrect) {
+      match.playerAScore += 1;
+    } else if (!ansA?.wasCorrect && ansB?.wasCorrect) {
+      match.playerBScore += 1;
+    } else if (ansA?.wasCorrect && ansB?.wasCorrect) {
+      if (ansA.serverResponseMs < ansB.serverResponseMs) match.playerAScore += 1;
+      else if (ansB.serverResponseMs < ansA.serverResponseMs) match.playerBScore += 1;
+    }
+
+    this.notifyMatchListeners(match);
+
+    setTimeout(() => {
+      if (round.roundNumber < match.totalRounds) {
+        match.currentRound += 1;
+        const nextRound = match.rounds[match.currentRound - 1]!;
+        nextRound.status = "active";
+        nextRound.servedAt = Date.now();
+        nextRound.expiresAt = nextRound.servedAt + 10000;
+        match.state = "round_active";
+      } else {
+        match.state = "completed";
+        const winner =
+          match.playerAScore > match.playerBScore
+            ? match.playerA.id
+            : match.playerBScore > match.playerAScore
+            ? match.playerB.id
+            : undefined;
+
+        const eloCalc = calculateEloOutcome(
+          match.playerARatingBefore,
+          match.playerBRatingBefore,
+          match.playerAScore,
+          match.playerBScore,
+          24,
+        );
+
+        match.winnerId = winner;
+        match.isDraw = !winner;
+        match.playerARatingAfter = eloCalc.playerARatingAfter;
+        match.playerADelta = eloCalc.playerADelta;
+        match.playerBRatingAfter = eloCalc.playerBRatingAfter;
+        match.playerBDelta = eloCalc.playerBDelta;
+      }
+
+      this.notifyMatchListeners(match);
+    }, 2500);
+  }
 }
 
 const store = MockStateStore.instance;
@@ -116,7 +277,7 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
     }
 
     if (opponentEntry) {
-      const matchId = `match-${now.toString(36)}`;
+      const matchId = `match-sync-${now.toString(36)}`;
       const joiningPersona =
         Object.values(DEV_PERSONAS).find((p) => p.id === userId) || store.activePersona;
       const waitingPersona =
@@ -130,6 +291,13 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
         opponentEntry.onMatched(matchId);
       }
 
+      // Broadcast to other tabs/browsers
+      store.broadcast({
+        type: "MATCH_CREATED",
+        matchId,
+        match: store.serializeMatch(match),
+      });
+
       return {
         queueId,
         status: "matched",
@@ -139,6 +307,14 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
     }
 
     store.waitingQueue.set(queueId, {
+      queueId,
+      userId,
+      rating,
+      joinedAt: now,
+    });
+
+    store.broadcast({
+      type: "QUEUE_JOINED",
       queueId,
       userId,
       rating,
@@ -172,6 +348,7 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
       entry.onMatched = onMatchFound;
     }
 
+    // Extended timeout to allow manual 2-browser testing comfortably (30s)
     const timeout = setTimeout(() => {
       if (store.waitingQueue.has(queueId)) {
         store.waitingQueue.delete(queueId);
@@ -181,17 +358,16 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
         store.matches.set(matchId, match);
         onMatchFound(matchId);
       }
-    }, 2200);
+    }, 30000);
 
     return () => clearTimeout(timeout);
   }
 
-  private createMockMatch(matchId: string, playerA: PlayerProfile, playerB: PlayerProfile): MockInternalMatch {
+  public createMockMatch(matchId: string, playerA: PlayerProfile, playerB: PlayerProfile): MockInternalMatch {
     const now = Date.now();
-    const shuffled = [...SEED_QUESTIONS].sort(() => 0.5 - Math.random()).slice(0, 8);
-
-    const rounds: MockInternalRound[] = shuffled.map((q, idx) => {
-      const servedAt = now + (idx === 0 ? 3000 : 999999);
+    const startsAt = now + 4000; // Synchronized start in future
+    const rounds: MockInternalRound[] = SEED_QUESTIONS.slice(0, 8).map((q, idx) => {
+      const servedAt = startsAt;
       return {
         roundNumber: idx + 1,
         questionId: q.id,
@@ -213,7 +389,7 @@ export class MockMatchmakingRepository implements IMatchmakingRepository {
       state: "countdown",
       currentRound: 1,
       totalRounds: 8,
-      startsAt: now + 3000,
+      startsAt,
       playerA: { ...playerA },
       playerB: { ...playerB },
       playerAScore: 0,
@@ -236,7 +412,7 @@ export class MockRankedRepository implements IRankedRepository {
     if (!match) {
       const mm = new MockMatchmakingRepository();
       const opp = getOpponentForPersona(store.activePersona);
-      const newMatch = (mm as any).createMockMatch(matchId, store.activePersona, opp);
+      const newMatch = mm.createMockMatch(matchId, store.activePersona, opp);
       store.matches.set(matchId, newMatch);
       match = newMatch;
     }
@@ -272,26 +448,24 @@ export class MockRankedRepository implements IRankedRepository {
       lockedAt: now,
     });
 
+    // Broadcast answer to sync across browser tabs
+    store.broadcast({
+      type: "ANSWER_LOCKED",
+      matchId,
+      roundNumber,
+      userId,
+      selectedOptionId,
+      serverResponseMs,
+      wasCorrect,
+      lockedAt: now,
+    });
+
     const oppId = userId === match.playerA.id ? match.playerB.id : match.playerA.id;
 
-    if (!round.answers.has(oppId) && userId === match.playerA.id) {
-      setTimeout(() => {
-        const oppCorrect = Math.random() > 0.3;
-        const oppOption = oppCorrect
-          ? round.correctOptionId
-          : round.options.find((o) => o.id !== round.correctOptionId)?.id || "b";
-
-        round.answers.set(oppId, {
-          selectedOptionId: oppOption,
-          serverResponseMs: 2400,
-          wasCorrect: oppCorrect,
-          lockedAt: Date.now(),
-        });
-
-        this.processRoundReveal(match, round);
-      }, 950);
-    } else if (round.answers.size >= 2) {
-      this.processRoundReveal(match, round);
+    if (round.answers.size >= 2) {
+      store.processRoundReveal(match, round);
+    } else {
+      store.notifyMatchListeners(match);
     }
 
     const snapshot = this.buildSnapshotDTO(match, userId);
@@ -305,74 +479,6 @@ export class MockRankedRepository implements IRankedRepository {
     };
   }
 
-  private processRoundReveal(match: MockInternalMatch, round: MockInternalRound) {
-    round.status = "revealed";
-    round.revealedAt = Date.now();
-    match.state = "round_reveal";
-
-    const ansA = round.answers.get(match.playerA.id);
-    const ansB = round.answers.get(match.playerB.id);
-
-    if (ansA?.wasCorrect && !ansB?.wasCorrect) {
-      match.playerAScore += 1;
-    } else if (!ansA?.wasCorrect && ansB?.wasCorrect) {
-      match.playerBScore += 1;
-    } else if (ansA?.wasCorrect && ansB?.wasCorrect) {
-      if (ansA.serverResponseMs < ansB.serverResponseMs) match.playerAScore += 1;
-      else if (ansB.serverResponseMs < ansA.serverResponseMs) match.playerBScore += 1;
-    }
-
-    this.notifyListeners(match);
-
-    setTimeout(() => {
-      if (round.roundNumber < match.totalRounds) {
-        match.currentRound += 1;
-        const nextRound = match.rounds[match.currentRound - 1]!;
-        nextRound.status = "active";
-        nextRound.servedAt = Date.now();
-        nextRound.expiresAt = nextRound.servedAt + 10000;
-        match.state = "round_active";
-      } else {
-        match.state = "completed";
-        const winner =
-          match.playerAScore > match.playerBScore
-            ? match.playerA.id
-            : match.playerBScore > match.playerAScore
-            ? match.playerB.id
-            : undefined;
-
-        const eloCalc = calculateEloOutcome(
-          match.playerARatingBefore,
-          match.playerBRatingBefore,
-          match.playerAScore,
-          match.playerBScore,
-          24,
-        );
-
-        match.winnerId = winner;
-        match.isDraw = !winner;
-        match.playerARatingAfter = eloCalc.playerARatingAfter;
-        match.playerADelta = eloCalc.playerADelta;
-        match.playerBRatingAfter = eloCalc.playerBRatingAfter;
-        match.playerBDelta = eloCalc.playerBDelta;
-
-        if (store.activePersona.id === match.playerA.id) {
-          store.activePersona.elo = eloCalc.playerARatingAfter;
-          store.activePersona.peakElo = Math.max(store.activePersona.peakElo, eloCalc.playerARatingAfter);
-          store.activePersona.battles += 1;
-          if (winner === store.activePersona.id) store.activePersona.wins += 1;
-        } else if (store.activePersona.id === match.playerB.id) {
-          store.activePersona.elo = eloCalc.playerBRatingAfter;
-          store.activePersona.peakElo = Math.max(store.activePersona.peakElo, eloCalc.playerBRatingAfter);
-          store.activePersona.battles += 1;
-          if (winner === store.activePersona.id) store.activePersona.wins += 1;
-        }
-      }
-
-      this.notifyListeners(match);
-    }, 2400);
-  }
-
   public async requestRematch(
     matchId: string,
     userId: string,
@@ -383,17 +489,17 @@ export class MockRankedRepository implements IRankedRepository {
     match.rematchRequestedBy = userId;
     const newMatchId = `match-rematch-${Date.now().toString(36)}`;
     const mm = new MockMatchmakingRepository();
-    const newMatch = (mm as any).createMockMatch(newMatchId, match.playerA, match.playerB);
+    const newMatch = mm.createMockMatch(newMatchId, match.playerA, match.playerB);
     store.matches.set(newMatchId, newMatch);
     match.rematchMatchId = newMatchId;
 
-    this.notifyListeners(match);
+    store.notifyMatchListeners(match);
     return { success: true, newMatchId };
   }
 
   public subscribeMatch(
     matchId: string,
-    userId: string,
+    _userId: string,
     onUpdate: (snapshot: RankedMatchSnapshotDTO) => void,
   ): () => void {
     const match = store.matches.get(matchId);
@@ -403,13 +509,7 @@ export class MockRankedRepository implements IRankedRepository {
     return () => match.listeners.delete(onUpdate);
   }
 
-  private notifyListeners(match: MockInternalMatch) {
-    for (const listener of match.listeners) {
-      listener(this.buildSnapshotDTO(match, store.activePersona.id));
-    }
-  }
-
-  private buildSnapshotDTO(match: MockInternalMatch, userId: string): RankedMatchSnapshotDTO {
+  public buildSnapshotDTO(match: MockInternalMatch, userId: string): RankedMatchSnapshotDTO {
     const roundIdx = match.currentRound - 1;
     const round = match.rounds[roundIdx];
 
@@ -420,7 +520,7 @@ export class MockRankedRepository implements IRankedRepository {
       const oppAns = round.answers.get(oppId);
 
       const now = Date.now();
-      const secondsRemaining = Math.max(0, Math.round((round.expiresAt - now) / 1000));
+      const secondsRemaining = Math.max(0, Math.ceil((round.expiresAt - now) / 1000));
       const isRevealed = round.status === "revealed" || match.state === "completed";
 
       sanitizedRound = {

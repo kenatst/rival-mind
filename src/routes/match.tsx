@@ -117,21 +117,23 @@ function RankedMatch() {
   }, [matchId, navigate]);
 
   React.useEffect(() => {
-    if (stage !== "answering" || !snapshot?.round) return;
+    if (stage !== "answering" || !snapshot?.round?.expiresAt) return;
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          handleSelectAnswer("timeout");
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+    const tick = () => {
+      const expiresAtMs = new Date(snapshot.round!.expiresAt).getTime();
+      const remaining = Math.max(0, Math.ceil((expiresAtMs - Date.now()) / 1000));
+      setTimeLeft(remaining);
+
+      if (remaining <= 0) {
+        handleSelectAnswer("timeout");
+      }
+    };
+
+    tick();
+    const timer = setInterval(tick, 250);
 
     return () => clearInterval(timer);
-  }, [stage, snapshot]);
+  }, [stage, snapshot?.round?.expiresAt]);
 
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
