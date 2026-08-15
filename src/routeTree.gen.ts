@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as LeaguesRouteImport } from './routes/leagues'
 import { Route as MatchRouteImport } from './routes/match'
 import { Route as MatchResultRouteImport } from './routes/match-result'
 import { Route as MatchmakingRouteImport } from './routes/matchmaking'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeaguesRoute = LeaguesRouteImport.update({
+  id: '/leagues',
+  path: '/leagues',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchRoute = MatchRouteImport.update({
@@ -68,6 +74,7 @@ const ResultRoute = ResultRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/leagues': typeof LeaguesRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
   '/matchmaking': typeof MatchmakingRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/leagues': typeof LeaguesRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
   '/matchmaking': typeof MatchmakingRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/leagues': typeof LeaguesRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
   '/matchmaking': typeof MatchmakingRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/home'
+    | '/leagues'
     | '/match'
     | '/match-result'
     | '/matchmaking'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/home'
+    | '/leagues'
     | '/match'
     | '/match-result'
     | '/matchmaking'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/home'
+    | '/leagues'
     | '/match'
     | '/match-result'
     | '/matchmaking'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HomeRoute: typeof HomeRoute
+  LeaguesRoute: typeof LeaguesRoute
   MatchRoute: typeof MatchRoute
   MatchResultRoute: typeof MatchResultRoute
   MatchmakingRoute: typeof MatchmakingRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leagues': {
+      id: '/leagues'
+      path: '/leagues'
+      fullPath: '/leagues'
+      preLoaderRoute: typeof LeaguesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/match': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HomeRoute: HomeRoute,
+  LeaguesRoute: LeaguesRoute,
   MatchRoute: MatchRoute,
   MatchResultRoute: MatchResultRoute,
   MatchmakingRoute: MatchmakingRoute,
