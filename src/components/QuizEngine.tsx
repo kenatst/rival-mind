@@ -79,7 +79,7 @@ export function QuizEngine({
     <div className="stage flex min-h-screen flex-col bg-background">
       <header className="mx-auto flex w-full max-w-3xl items-center gap-4 px-4 py-4 sm:px-6">
         <Link
-          to={exitTo}
+          to={exitTo as "/"}
           className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
           aria-label="Leave quiz"
         >
