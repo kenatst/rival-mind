@@ -3,7 +3,7 @@ import { Page } from "@/components/AppShell";
 import { Panel, ProgressBar } from "@/components/kit/primitives";
 import { StatTile } from "@/components/kit/game";
 import { Avatar, CountryBadge, DivisionBadge } from "@/components/kit/badges";
-import { categoryStats, currentUser } from "@/data/mock";
+import { currentUser } from "@/data/mock";
 import { divisionForElo, fmt } from "@/lib/game";
 
 export const Route = createFileRoute("/profile")({
@@ -46,10 +46,10 @@ function Profile() {
           <div className="label-xs mb-2 flex justify-between text-muted-foreground">
             <span>Level {currentUser.level}</span>
             <span>
-              {fmt(currentUser.xp)} / {fmt(currentUser.xpToNext)} XP
+              {fmt(currentUser.xp)} XP
             </span>
           </div>
-          <ProgressBar value={currentUser.xp / currentUser.xpToNext} />
+          <ProgressBar value={0.68} />
         </div>
 
         <div className="mt-5">
@@ -65,15 +65,13 @@ function Profile() {
         <Panel>
           <div className="label-xs mb-4 text-muted-foreground">Category mastery</div>
           <div className="space-y-4">
-            {categoryStats.map((c) => (
+            {[...currentUser.strongCategories, ...currentUser.weakCategories].map((c) => (
               <div key={c.category}>
                 <div className="mb-1.5 flex items-center justify-between text-sm">
-                  <span className="font-bold">
-                    {c.icon} {c.category}
-                  </span>
-                  <span className="numeric text-muted-foreground">{c.accuracy}%</span>
+                  <span className="font-bold">{c.category}</span>
+                  <span className="numeric text-muted-foreground">{c.score}%</span>
                 </div>
-                <ProgressBar value={c.accuracy / 100} />
+                <ProgressBar value={c.score / 100} />
               </div>
             ))}
           </div>
@@ -82,14 +80,14 @@ function Profile() {
         <Panel>
           <div className="label-xs mb-4 text-muted-foreground">Career</div>
           <div className="grid grid-cols-2 gap-3">
-            <StatTile label="Matches" value={fmt(currentUser.matchesPlayed)} />
-            <StatTile label="Win rate" value={`${currentUser.winRate}%`} accent="primary" />
+            <StatTile label="Matches" value={fmt(currentUser.battles)} />
+            <StatTile label="Win rate" value={`${Math.round((currentUser.wins / currentUser.battles) * 100)}%`} accent="primary" />
             <StatTile label="Accuracy" value={`${currentUser.accuracy}%`} />
-            <StatTile label="Peak ELO" value={fmt(currentUser.peakElo)} accent="gold" />
+            <StatTile label="Peak ELO" value={fmt(1512)} accent="gold" />
           </div>
           <div className="label-xs mt-5 mb-3 text-muted-foreground">Last 10 ranked</div>
           <div className="flex gap-1.5">
-            {currentUser.form.map((r, i) => (
+            {["W","W","L","W","W","W","L","W","L","W"].map((r, i) => (
               <span
                 key={i}
                 className={`numeric grid h-8 flex-1 place-items-center rounded-md text-xs ${
