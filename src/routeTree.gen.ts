@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as PlayRouteImport } from './routes/play'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as ResultRouteImport } from './routes/result'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlayRoute = PlayRouteImport.update({
+  id: '/play',
+  path: '/play',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -38,12 +44,14 @@ const ResultRoute = ResultRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
   '/result': typeof ResultRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
   '/result': typeof ResultRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/play': typeof PlayRoute
   '/quiz': typeof QuizRoute
   '/result': typeof ResultRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/quiz' | '/result'
+  fullPaths: '/' | '/home' | '/play' | '/quiz' | '/result'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/quiz' | '/result'
-  id: '__root__' | '/' | '/home' | '/quiz' | '/result'
+  to: '/' | '/home' | '/play' | '/quiz' | '/result'
+  id: '__root__' | '/' | '/home' | '/play' | '/quiz' | '/result'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HomeRoute: typeof HomeRoute
+  PlayRoute: typeof PlayRoute
   QuizRoute: typeof QuizRoute
   ResultRoute: typeof ResultRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/play': {
+      id: '/play'
+      path: '/play'
+      fullPath: '/play'
+      preLoaderRoute: typeof PlayRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HomeRoute: HomeRoute,
+  PlayRoute: PlayRoute,
   QuizRoute: QuizRoute,
   ResultRoute: ResultRoute,
 }
