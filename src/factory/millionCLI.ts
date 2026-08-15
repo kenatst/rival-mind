@@ -1,4 +1,4 @@
-import { realMillionCurationEngine } from "./curationEngine";
+import { physicalCorpusMaterializer } from "./parquetGenerator";
 
 const args = process.argv.slice(2);
 
@@ -14,20 +14,20 @@ async function main() {
   const isDryRun = parseFlag("dry-run") !== "false";
 
   console.log(`================================================================`);
-  console.log(`🏛️ IQ ARENA — Multi-Source Open-Knowledge Curation Engine`);
+  console.log(`🏛️ IQ ARENA — Industrial Multi-Source Corpus Materializer`);
   console.log(`🏛️ Target Ref:      kvfxguzshicmhbvlzobg`);
   console.log(`🏛️ Target Host:     db.kvfxguzshicmhbvlzobg.supabase.co`);
-  console.log(`🏛️ Mode:            ${isDryRun ? "🧪 DRY RUN & STAGING CURATION" : "🚀 LIVE PRODUCTION INGESTION"}`);
+  console.log(`🏛️ Mode:            ${isDryRun ? "🧪 PHYSICAL STAGING MATERIALIZATION" : "🚀 LIVE PRODUCTION INGESTION"}`);
   console.log(`🏛️ Canonical Goal:  ${target.toLocaleString()} REAL OPEN-DATA CONCEPTS`);
   console.log(`================================================================\n`);
 
   const startTime = Date.now();
 
-  const res = await realMillionCurationEngine.executeCurationPipeline({
+  const res = await physicalCorpusMaterializer.materializeCorpus({
     target,
-    onCheckpoint: (milestone) => {
+    onProgress: (count, total) => {
       const elapsedSec = ((Date.now() - startTime) / 1000).toFixed(1);
-      console.log(`  ⏱️ Checkpoint ${milestone.toLocaleString()} | Elapsed: ${elapsedSec}s | Heap: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`);
+      console.log(`  ⏱️ Progress ${count.toLocaleString()} / ${total.toLocaleString()} | Elapsed: ${elapsedSec}s | Heap: ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`);
     },
   });
 
@@ -41,17 +41,19 @@ async function main() {
   console.log(`• Total Canonical Concepts:      ${res.totalCanonicalUniqueConcepts.toLocaleString()}`);
   console.log(`• Total Candidates Scanned:      ${res.totalCandidatesScanned.toLocaleString()}`);
   console.log(`• Candidates Rejected:           ${res.totalCandidatesRejected.toLocaleString()} (${((res.totalCandidatesRejected / res.totalCandidatesScanned) * 100).toFixed(1)}% aggressive quality pruning)`);
+  console.log(`• Raw Source Bytes Ingested:     ${(res.rawSourceBytesTotal / 1024 / 1024 / 1024).toFixed(2)} GB across 3 primary dumps`);
+  console.log(`• Physical Corpus Artifact:      ${res.corpusFile}`);
+  console.log(`• Physical Corpus File Size:     ${(res.corpusBytes / 1024 / 1024).toFixed(2)} MB (${res.corpusBytes.toLocaleString()} bytes)`);
+  console.log(`• Physical Corpus SHA-256:       ${res.corpusSha256}`);
+  console.log(`• Deep Hierarchical Topics:      ${res.topicsCount.toLocaleString()} topics across 4 depth levels`);
   console.log(`• Total Execution Time:          ${durationSec}s`);
   console.log(`• Peak Heap RAM:                 ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)} MB`);
-  console.log(`• Deep Hierarchical Topics:      ${res.topicsCount.toLocaleString()} topics across 4 depth levels`);
-  console.log(`• Manifest Checksum:             ${res.manifestChecksum}`);
   console.log("────────────────────────────────────────────────────────────────");
 
-  console.log("\n🌐 Multi-Source Provenance Breakdown:");
-  console.log(`  - Wikidata Structured Data (CC0)    : ${res.sourceBreakdown.wikidataOnly.toLocaleString()} (${((res.sourceBreakdown.wikidataOnly / res.totalCanonicalUniqueConcepts) * 100).toFixed(1)}%)`);
-  console.log(`  - MusicBrainz Core (CC0 / CC-BY)    : ${res.sourceBreakdown.musicbrainzOnly.toLocaleString()} (${((res.sourceBreakdown.musicbrainzOnly / res.totalCanonicalUniqueConcepts) * 100).toFixed(1)}%)`);
-  console.log(`  - OpenAlex Science & Discoveries    : ${res.sourceBreakdown.openalexOnly.toLocaleString()} (${((res.sourceBreakdown.openalexOnly / res.totalCanonicalUniqueConcepts) * 100).toFixed(1)}%)`);
-  console.log(`  - Multi-Source Verified Triples     : ${res.sourceBreakdown.multiSourceVerified.toLocaleString()} (${((res.sourceBreakdown.multiSourceVerified / res.totalCanonicalUniqueConcepts) * 100).toFixed(1)}%)`);
+  console.log("\n🌐 Multi-Source Provenance Snapshots:");
+  for (const s of res.sourceSnapshots) {
+    console.log(`  - ${s.sourceName.toUpperCase().padEnd(16)}: ${(s.fileSizeBytes / 1024 / 1024).toFixed(1).padStart(7)} MB | SHA256: ${s.fileSha256.substring(0, 16)}... | License: ${s.license}`);
+  }
 
   console.log("\n📚 Real Category Distribution (12 Sacred Domains):");
   for (const [cat, count] of Object.entries(res.categoryDistribution)) {
@@ -86,6 +88,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("❌ Fatal Million Ingestion Error:", err);
+  console.error("❌ Fatal Million Materialization Error:", err);
   process.exit(1);
 });

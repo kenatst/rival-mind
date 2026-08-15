@@ -16,6 +16,8 @@
     "factory:publish": "bun run src/factory/cli.ts publish",
     "factory:run": "bun run src/factory/cli.ts run",
     "factory:generate-million": "bun run src/factory/millionCLI.ts",
+    "corpus:verify-real": "bun run src/factory/verifyRealCorpusCLI.ts",
+    "corpus:verify-live": "bun run src/factory/verifyLiveDbCLI.ts",
     "questions:import": "bun run src/factory/importCLI.ts",
     "questions:audit": "bun run src/factory/auditCLI.ts",
     "dev:reset-multiplayer": "bun run src/dev/resetMultiplayer.ts",

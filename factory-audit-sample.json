@@ -1,16 +1,16 @@
 [
   {
-    "id": "cand-factory-job-nyav9w28-682",
-    "category": "Geography",
-    "prompt": "Podgorica est la capitale de quel pays ?",
+    "id": "cand-factory-job-gyzsjh4u-1117",
+    "category": "History",
+    "prompt": "En quelle année s'est déroulé l'événement historique « le premier pas de l'Homme sur la Lune (mission Apollo 11) » ?",
     "options": [
-      "Monaco",
-      "le Cambodge",
-      "l'Inde",
-      "le Monténégro"
+      "800",
+      "1919",
+      "1969",
+      "1789"
     ],
-    "correctAnswer": "le Monténégro",
-    "explanation": "Podgorica est la capitale et le centre institutionnel de le Monténégro.",
+    "correctAnswer": "1969",
+    "explanation": "L'événement historique « le premier pas de l'Homme sur la Lune (mission Apollo 11) » a eu lieu en 1969.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -19,22 +19,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-rev-137",
-      "templateId": "geo-capital-reverse"
+      "factId": "f-hist-d-15",
+      "templateId": "hist-year"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-836",
+    "id": "cand-factory-job-gyzsjh4u-820",
     "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « l'antimoine » ?",
+    "prompt": "Quel est le symbole chimique de l'élément « le technétium » ?",
     "options": [
-      "Li",
-      "Sb",
-      "Am",
-      "Pm"
+      "Tc",
+      "Fr",
+      "Hf",
+      "Pr"
     ],
-    "correctAnswer": "Sb",
-    "explanation": "Dans la classification périodique des éléments, l'antimoine a pour symbole chimique Sb.",
+    "correctAnswer": "Tc",
+    "explanation": "Dans la classification périodique des éléments, le technétium a pour symbole chimique Tc.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -43,454 +43,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-sym-51",
+      "factId": "f-pt-sym-43",
       "templateId": "sci-chem-symbol"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-173",
+    "id": "cand-factory-job-gyzsjh4u-338",
     "category": "Geography",
-    "prompt": "Sur quel continent se situe le Canada ?",
+    "prompt": "Sur quel continent se situe le Nigéria ?",
     "options": [
+      "l'Europe",
       "l'Amérique du Nord",
-      "l'Amérique centrale",
-      "l'Amérique du Sud",
-      "l'Asie / Europe"
-    ],
-    "correctAnswer": "l'Amérique du Nord",
-    "explanation": "le Canada est un territoire situé sur le continent l'Amérique du Nord.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-35",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-258",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe la Corée du Sud ?",
-    "options": [
-      "l'Amérique du Sud",
-      "l'Asie",
-      "l'Amérique centrale",
-      "l'Europe"
-    ],
-    "correctAnswer": "l'Asie",
-    "explanation": "la Corée du Sud est un territoire situé sur le continent l'Asie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-52",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-797",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 31 ?",
-    "options": [
-      "l'osmium",
-      "le bismuth",
-      "le thallium",
-      "le gallium"
-    ],
-    "correctAnswer": "le gallium",
-    "explanation": "L'élément chimique possédant le numéro atomique 31 est le gallium.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-num-31",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-398",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe le Koweït ?",
-    "options": [
-      "l'Océanie",
-      "l'Amérique du Sud",
-      "l'Amérique centrale",
+      "l'Afrique",
       "l'Asie"
     ],
-    "correctAnswer": "l'Asie",
-    "explanation": "le Koweït est un territoire situé sur le continent l'Asie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-80",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-514",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Panama ?",
-    "options": [
-      "le naira",
-      "le balboa",
-      "le won",
-      "la roupie srilankaise"
-    ],
-    "correctAnswer": "le balboa",
-    "explanation": "le balboa est l'unité monétaire officielle en circulation en le Panama.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-103",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-234",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Paraguay ?",
-    "options": [
-      "le dollar surinamais",
-      "le guarani",
-      "le somoni",
-      "la kina"
-    ],
-    "correctAnswer": "le guarani",
-    "explanation": "le guarani est l'unité monétaire officielle en circulation en le Paraguay.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-47",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-807",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 36 ?",
-    "options": [
-      "le germanium",
-      "le curium",
-      "le krypton",
-      "le béryllium"
-    ],
-    "correctAnswer": "le krypton",
-    "explanation": "L'élément chimique possédant le numéro atomique 36 est le krypton.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-num-36",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-768",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le chlore » ?",
-    "options": [
-      "Tm",
-      "Na",
-      "Cl",
-      "C"
-    ],
-    "correctAnswer": "Cl",
-    "explanation": "Dans la classification périodique des éléments, le chlore a pour symbole chimique Cl.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-17",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-766",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le soufre » ?",
-    "options": [
-      "W",
-      "K",
-      "S",
-      "Rn"
-    ],
-    "correctAnswer": "S",
-    "explanation": "Dans la classification périodique des éléments, le soufre a pour symbole chimique S.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-16",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-906",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le radon » ?",
-    "options": [
-      "K",
-      "Rn",
-      "Al",
-      "Fr"
-    ],
-    "correctAnswer": "Rn",
-    "explanation": "Dans la classification périodique des éléments, le radon a pour symbole chimique Rn.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-86",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1128",
-    "category": "History",
-    "prompt": "À quelle dynastie régnante appartenait Élisabeth Ire ?",
-    "options": [
-      "Capétiens",
-      "Tudor",
-      "Bourbons",
-      "Mérovingiens"
-    ],
-    "correctAnswer": "Tudor",
-    "explanation": "Élisabeth Ire était un souverain issu de la dynastie des Tudor.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-hist-dyn-7",
-      "templateId": "hist-monarch-dynasty"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-131",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de l'Estonie ?",
-    "options": [
-      "Paris",
-      "Naypyidaw",
-      "Sanaa",
-      "Tallinn"
-    ],
-    "correctAnswer": "Tallinn",
-    "explanation": "Tallinn est la capitale officielle de l'Estonie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-27",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-914",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le thorium » ?",
-    "options": [
-      "Th",
-      "Te",
-      "Tm",
-      "Lu"
-    ],
-    "correctAnswer": "Th",
-    "explanation": "Dans la classification périodique des éléments, le thorium a pour symbole chimique Th.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-90",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-40",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de les Pays-Bas ?",
-    "options": [
-      "le mont Kenya",
-      "le Phnom Aural",
-      "le mont Scenery",
-      "le mont Nyangani"
-    ],
-    "correctAnswer": "le mont Scenery",
-    "explanation": "le mont Scenery constitue le sommet le plus élevé de les Pays-Bas.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-8",
-      "templateId": "geo-highest-point"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1007",
-    "category": "Literature",
-    "prompt": "Quel écrivain est l'auteur de l'ouvrage « Cent Ans de solitude » ?",
-    "options": [
-      "Gabriel García Márquez",
-      "Homère",
-      "Miguel de Cervantes",
-      "Alexandre Dumas"
-    ],
-    "correctAnswer": "Gabriel García Márquez",
-    "explanation": "Le livre « Cent Ans de solitude » est un ouvrage majeur écrit par Gabriel García Márquez.",
-    "difficulty": "easy",
-    "qualityScore": 0.97,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-lit-b-13",
-      "templateId": "lit-author"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-734",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Yémen ?",
-    "options": [
-      "le taka",
-      "le birr éthiopien",
-      "le riyal yéménite",
-      "le quetzal"
-    ],
-    "correctAnswer": "le riyal yéménite",
-    "explanation": "le riyal yéménite est l'unité monétaire officielle en circulation en le Yémen.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-147",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1140",
-    "category": "Nature",
-    "prompt": "À quelle classe animale appartient le tigre ?",
-    "options": [
-      "mammifères",
-      "poissons",
-      "amphibiens",
-      "reptiles"
-    ],
-    "correctAnswer": "mammifères",
-    "explanation": "le tigre est classé biologiquement parmi les mammifères.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-nat-z-12",
-      "templateId": "nat-class"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-729",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de Oman ?",
-    "options": [
-      "le denar macédonien",
-      "le dinar irakien",
-      "l'ariary",
-      "le rial omanais"
-    ],
-    "correctAnswer": "le rial omanais",
-    "explanation": "le rial omanais est l'unité monétaire officielle en circulation en Oman.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-146",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-568",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe le Rwanda ?",
-    "options": [
-      "l'Afrique",
-      "l'Amérique centrale",
-      "l'Océanie",
-      "l'Asie / Europe"
-    ],
     "correctAnswer": "l'Afrique",
-    "explanation": "le Rwanda est un territoire situé sur le continent l'Afrique.",
+    "explanation": "le Nigéria est un territoire situé sur le continent l'Afrique.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -499,94 +67,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cont-114",
+      "factId": "f-cont-68",
       "templateId": "geo-continent"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-760",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « l'aluminium » ?",
-    "options": [
-      "Pb",
-      "Mo",
-      "He",
-      "Al"
-    ],
-    "correctAnswer": "Al",
-    "explanation": "Dans la classification périodique des éléments, l'aluminium a pour symbole chimique Al.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-13",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-227",
+    "id": "cand-factory-job-gyzsjh4u-360",
     "category": "Geography",
-    "prompt": "Sucre est la capitale de quel pays ?",
+    "prompt": "Quel est le point culminant de les Philippines ?",
     "options": [
-      "la Biélorussie",
-      "le Botswana",
-      "la Bolivie",
-      "le Danemark"
+      "le Jebel Shams",
+      "le mont Apo",
+      "le Blue Mountain Peak",
+      "le Phnom Aural"
     ],
-    "correctAnswer": "la Bolivie",
-    "explanation": "Sucre est la capitale et le centre institutionnel de la Bolivie.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-46",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-434",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Kazakhstan ?",
-    "options": [
-      "le colon costaricien",
-      "le tenge",
-      "le zloty",
-      "le sum ouzbek"
-    ],
-    "correctAnswer": "le tenge",
-    "explanation": "le tenge est l'unité monétaire officielle en circulation en le Kazakhstan.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-87",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-785",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 25 ?",
-    "options": [
-      "l'hydrogène",
-      "le radon",
-      "le manganèse",
-      "le dysprosium"
-    ],
-    "correctAnswer": "le manganèse",
-    "explanation": "L'élément chimique possédant le numéro atomique 25 est le manganèse.",
+    "correctAnswer": "le mont Apo",
+    "explanation": "le mont Apo constitue le sommet le plus élevé de les Philippines.",
     "difficulty": "hard",
     "qualityScore": 1,
     "pools": [
@@ -595,94 +91,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-num-25",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-631",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de Maurice ?",
-    "options": [
-      "Port-Louis",
-      "Georgetown",
-      "Stockholm",
-      "Wellington"
-    ],
-    "correctAnswer": "Port-Louis",
-    "explanation": "Port-Louis est la capitale officielle de Maurice.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-127",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-405",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de l'Irak ?",
-    "options": [
-      "le Djebel Chambi",
-      "le Cheekha Dar",
-      "le Hkakabo Razi",
-      "le Møllehøj"
-    ],
-    "correctAnswer": "le Cheekha Dar",
-    "explanation": "le Cheekha Dar constitue le sommet le plus élevé de l'Irak.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-81",
+      "factId": "f-mount-72",
       "templateId": "geo-highest-point"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-2",
-    "category": "Geography",
-    "prompt": "Paris est la capitale de quel pays ?",
-    "options": [
-      "la France",
-      "la Macédoine du Nord",
-      "la Papouasie-Nouvelle-Guinée",
-      "la Biélorussie"
-    ],
-    "correctAnswer": "la France",
-    "explanation": "Paris est la capitale et le centre institutionnel de la France.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-1",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1168",
+    "id": "cand-factory-job-gyzsjh4u-1166",
     "category": "Food & Culture",
-    "prompt": "De quel pays est originaire la spécialité culinaire « la pizza margherita » ?",
+    "prompt": "De quel pays est originaire la spécialité culinaire « le goulasch » ?",
     "options": [
       "le Canada",
-      "la Corée du Sud",
-      "la Grèce",
-      "l'Italie"
+      "la Hongrie",
+      "le Mexique",
+      "la Corée du Sud"
     ],
-    "correctAnswer": "l'Italie",
-    "explanation": "La spécialité gastronomique « la pizza margherita » trouve son origine traditionnelle en l'Italie.",
+    "correctAnswer": "la Hongrie",
+    "explanation": "La spécialité gastronomique « le goulasch » trouve son origine traditionnelle en la Hongrie.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -691,24 +115,48 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-food-o-11",
+      "factId": "f-food-o-9",
       "templateId": "food-origin"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-492",
+    "id": "cand-factory-job-gyzsjh4u-782",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « le chrome » ?",
+    "options": [
+      "Hf",
+      "Cr",
+      "Hg",
+      "Tb"
+    ],
+    "correctAnswer": "Cr",
+    "explanation": "Dans la classification périodique des éléments, le chrome a pour symbole chimique Cr.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-24",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-492",
     "category": "Geography",
     "prompt": "Kingston est la capitale de quel pays ?",
     "options": [
       "la Jamaïque",
-      "le Laos",
-      "la Bosnie-Herzégovine",
-      "Oman"
+      "la Finlande",
+      "Oman",
+      "la Lettonie"
     ],
     "correctAnswer": "la Jamaïque",
     "explanation": "Kingston est la capitale et le centre institutionnel de la Jamaïque.",
     "difficulty": "medium",
-    "qualityScore": 0.97,
+    "qualityScore": 1,
     "pools": [
       "training",
       "verified",
@@ -720,17 +168,17 @@
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-399",
+    "id": "cand-factory-job-gyzsjh4u-129",
     "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Koweït ?",
+    "prompt": "Quelle est la monnaie officielle de l'Islande ?",
     "options": [
-      "le sum ouzbek",
-      "le dinar koweïtien",
-      "le franc rwandais",
-      "le birr éthiopien"
+      "le balboa",
+      "la couronne islandaise",
+      "le peso uruguayen",
+      "le shilling tanzanien"
     ],
-    "correctAnswer": "le dinar koweïtien",
-    "explanation": "le dinar koweïtien est l'unité monétaire officielle en circulation en le Koweït.",
+    "correctAnswer": "la couronne islandaise",
+    "explanation": "la couronne islandaise est l'unité monétaire officielle en circulation en l'Islande.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -739,22 +187,70 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-curr-80",
+      "factId": "f-curr-26",
       "templateId": "geo-currency"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-557",
+    "id": "cand-factory-job-gyzsjh4u-413",
     "category": "Geography",
-    "prompt": "Dodoma est la capitale de quel pays ?",
+    "prompt": "Sur quel continent se situe Israël ?",
     "options": [
-      "la France",
-      "la Namibie",
-      "la Lettonie",
-      "la Tanzanie"
+      "l'Asie / Europe",
+      "l'Asie",
+      "l'Amérique du Sud",
+      "l'Amérique centrale"
     ],
-    "correctAnswer": "la Tanzanie",
-    "explanation": "Dodoma est la capitale et le centre institutionnel de la Tanzanie.",
+    "correctAnswer": "l'Asie",
+    "explanation": "Israël est un territoire situé sur le continent l'Asie.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cont-83",
+      "templateId": "geo-continent"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-708",
+    "category": "Geography",
+    "prompt": "Sur quel continent se situe le Cambodge ?",
+    "options": [
+      "l'Amérique du Nord",
+      "l'Amérique du Sud",
+      "l'Asie",
+      "l'Amérique centrale"
+    ],
+    "correctAnswer": "l'Asie",
+    "explanation": "le Cambodge est un territoire situé sur le continent l'Asie.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cont-142",
+      "templateId": "geo-continent"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-707",
+    "category": "Geography",
+    "prompt": "Phnom Penh est la capitale de quel pays ?",
+    "options": [
+      "le Cambodge",
+      "la Corée du Nord",
+      "le Honduras",
+      "la Bosnie-Herzégovine"
+    ],
+    "correctAnswer": "le Cambodge",
+    "explanation": "Phnom Penh est la capitale et le centre institutionnel de le Cambodge.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -763,23 +259,23 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-rev-112",
+      "factId": "f-cap-rev-142",
       "templateId": "geo-capital-reverse"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-755",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 10 ?",
+    "id": "cand-factory-job-gyzsjh4u-208",
+    "category": "Geography",
+    "prompt": "Sur quel continent se situe le Pérou ?",
     "options": [
-      "l'iode",
-      "le neptunium",
-      "le hafnium",
-      "le néon"
+      "l'Asie",
+      "l'Amérique du Sud",
+      "l'Amérique du Nord",
+      "l'Afrique"
     ],
-    "correctAnswer": "le néon",
-    "explanation": "L'élément chimique possédant le numéro atomique 10 est le néon.",
-    "difficulty": "hard",
+    "correctAnswer": "l'Amérique du Sud",
+    "explanation": "le Pérou est un territoire situé sur le continent l'Amérique du Sud.",
+    "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
       "training",
@@ -787,22 +283,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-num-10",
-      "templateId": "sci-atomic-number"
+      "factId": "f-cont-42",
+      "templateId": "geo-continent"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-155",
+    "id": "cand-factory-job-gyzsjh4u-185",
     "category": "Geography",
-    "prompt": "Quel est le point culminant de l'Ukraine ?",
+    "prompt": "Quel est le point culminant de le Mexique ?",
     "options": [
-      "le mont Hoverla",
-      "la pointe Dufour",
-      "le mont Roraima",
-      "le mont Titano"
+      "le Maromokotro",
+      "le pic d'Orizaba",
+      "le volcan Tajumulco",
+      "le mont Cook"
     ],
-    "correctAnswer": "le mont Hoverla",
-    "explanation": "le mont Hoverla constitue le sommet le plus élevé de l'Ukraine.",
+    "correctAnswer": "le pic d'Orizaba",
+    "explanation": "le pic d'Orizaba constitue le sommet le plus élevé de le Mexique.",
     "difficulty": "hard",
     "qualityScore": 1,
     "pools": [
@@ -811,46 +307,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-mount-31",
+      "factId": "f-mount-37",
       "templateId": "geo-highest-point"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-632",
-    "category": "Geography",
-    "prompt": "Port-Louis est la capitale de quel pays ?",
+    "id": "cand-factory-job-gyzsjh4u-1094",
+    "category": "Music",
+    "prompt": "Quel compositeur est l'auteur de l'œuvre musicale « Le Lac des cygnes » ?",
     "options": [
-      "le Botswana",
-      "le Laos",
-      "le Luxembourg",
-      "Maurice"
+      "Piotr Ilitch Tchaïkovski",
+      "Frédéric Chopin",
+      "Maurice Ravel",
+      "Jean-Sébastien Bach"
     ],
-    "correctAnswer": "Maurice",
-    "explanation": "Port-Louis est la capitale et le centre institutionnel de Maurice.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-127",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-483",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe les Maldives ?",
-    "options": [
-      "l'Océanie",
-      "l'Asie",
-      "l'Europe",
-      "l'Afrique"
-    ],
-    "correctAnswer": "l'Asie",
-    "explanation": "les Maldives est un territoire situé sur le continent l'Asie.",
+    "correctAnswer": "Piotr Ilitch Tchaïkovski",
+    "explanation": "La composition « Le Lac des cygnes » est l'une des œuvres célèbres de Piotr Ilitch Tchaïkovski.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -859,115 +331,19 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cont-97",
-      "templateId": "geo-continent"
+      "factId": "f-mus-w-10",
+      "templateId": "mus-composer"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-112",
-    "category": "Geography",
-    "prompt": "Sofia est la capitale de quel pays ?",
-    "options": [
-      "la Norvège",
-      "la Bulgarie",
-      "la Bolivie",
-      "l'Islande"
-    ],
-    "correctAnswer": "la Bulgarie",
-    "explanation": "Sofia est la capitale et le centre institutionnel de la Bulgarie.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-23",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1107",
-    "category": "History",
-    "prompt": "En quelle année s'est déroulé l'événement historique « la signature du traité de Versailles » ?",
-    "options": [
-      "1066",
-      "1919",
-      "1492",
-      "1776"
-    ],
-    "correctAnswer": "1919",
-    "explanation": "L'événement historique « la signature du traité de Versailles » a eu lieu en 1919.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-hist-d-5",
-      "templateId": "hist-year"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-733",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe le Yémen ?",
-    "options": [
-      "l'Europe",
-      "l'Amérique du Sud",
-      "l'Asie",
-      "l'Océanie"
-    ],
-    "correctAnswer": "l'Asie",
-    "explanation": "le Yémen est un territoire situé sur le continent l'Asie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-147",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-736",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « l'hydrogène » ?",
-    "options": [
-      "P",
-      "Pm",
-      "H",
-      "Cm"
-    ],
-    "correctAnswer": "H",
-    "explanation": "Dans la classification périodique des éléments, l'hydrogène a pour symbole chimique H.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-1",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-16",
+    "id": "cand-factory-job-gyzsjh4u-16",
     "category": "Geography",
     "prompt": "Quelle est la capitale de l'Allemagne ?",
     "options": [
+      "Vaduz",
       "Berlin",
-      "Suva",
-      "Antananarivo",
-      "Reykjavik"
+      "Port Moresby",
+      "Naypyidaw"
     ],
     "correctAnswer": "Berlin",
     "explanation": "Berlin est la capitale officielle de l'Allemagne.",
@@ -984,41 +360,17 @@
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-22",
+    "id": "cand-factory-job-gyzsjh4u-216",
     "category": "Geography",
-    "prompt": "Londres est la capitale de quel pays ?",
+    "prompt": "Quelle est la capitale de l'Uruguay ?",
     "options": [
-      "l'Ukraine",
-      "le Royaume-Uni",
-      "l'Irak",
-      "Chypre"
+      "Montevideo",
+      "Abuja",
+      "Astana",
+      "La Valette"
     ],
-    "correctAnswer": "le Royaume-Uni",
-    "explanation": "Londres est la capitale et le centre institutionnel de le Royaume-Uni.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-5",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1005",
-    "category": "Literature",
-    "prompt": "Quel écrivain est l'auteur de l'ouvrage « Don Quichotte » ?",
-    "options": [
-      "Marcel Proust",
-      "Miguel de Cervantes",
-      "Johann Wolfgang von Goethe",
-      "Pierre Corneille"
-    ],
-    "correctAnswer": "Miguel de Cervantes",
-    "explanation": "Le livre « Don Quichotte » est un ouvrage majeur écrit par Miguel de Cervantes.",
+    "correctAnswer": "Montevideo",
+    "explanation": "Montevideo est la capitale officielle de l'Uruguay.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -1027,238 +379,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-lit-b-12",
-      "templateId": "lit-author"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1063",
-    "category": "Cinema",
-    "prompt": "Quel cinéaste a réalisé le film « Le Voyage de Chihiro » ?",
-    "options": [
-      "Ridley Scott",
-      "David Fincher",
-      "Denis Villeneuve",
-      "Hayao Miyazaki"
-    ],
-    "correctAnswer": "Hayao Miyazaki",
-    "explanation": "Le long-métrage « Le Voyage de Chihiro » a été mis en scène par le réalisateur Hayao Miyazaki.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cin-m-9",
-      "templateId": "cin-director"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-139",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de la Lettonie ?",
-    "options": [
-      "l'euro",
-      "le dollar de Singapour",
-      "la couronne danoise",
-      "le real"
-    ],
-    "correctAnswer": "l'euro",
-    "explanation": "l'euro est l'unité monétaire officielle en circulation en la Lettonie.",
-    "difficulty": "medium",
-    "qualityScore": 0.97,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-28",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-912",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « l'actinium » ?",
-    "options": [
-      "Ra",
-      "Ac",
-      "Tb",
-      "Ge"
-    ],
-    "correctAnswer": "Ac",
-    "explanation": "Dans la classification périodique des éléments, l'actinium a pour symbole chimique Ac.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-89",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1134",
-    "category": "Nature",
-    "prompt": "À quelle classe animale appartient la chauve-souris ?",
-    "options": [
-      "poissons",
-      "amphibiens",
-      "oiseaux",
-      "mammifères"
-    ],
-    "correctAnswer": "mammifères",
-    "explanation": "la chauve-souris est classé biologiquement parmi les mammifères.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-nat-z-6",
-      "templateId": "nat-class"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-415",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de Israël ?",
-    "options": [
-      "le Jabal an Nabi Shu'ayb",
-      "le Midžor",
-      "le mont Scenery",
-      "le mont Méron"
-    ],
-    "correctAnswer": "le mont Méron",
-    "explanation": "le mont Méron constitue le sommet le plus élevé de Israël.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-83",
-      "templateId": "geo-highest-point"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-371",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de le Liban ?",
-    "options": [
-      "Skopje",
-      "Apia",
-      "Beyrouth",
-      "Jakarta"
-    ],
-    "correctAnswer": "Beyrouth",
-    "explanation": "Beyrouth est la capitale officielle de le Liban.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-75",
+      "factId": "f-cap-dir-44",
       "templateId": "geo-capital-direct"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-261",
+    "id": "cand-factory-job-gyzsjh4u-703",
     "category": "Geography",
-    "prompt": "Quelle est la capitale de la Corée du Nord ?",
+    "prompt": "Sur quel continent se situe le Liechtenstein ?",
     "options": [
-      "Libreville",
-      "Pyongyang",
-      "Abou Dabi",
-      "Panama"
-    ],
-    "correctAnswer": "Pyongyang",
-    "explanation": "Pyongyang est la capitale officielle de la Corée du Nord.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-53",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1151",
-    "category": "Technology",
-    "prompt": "Qui est le créateur ou inventeur principal de « l'ampoule électrique à incandescence commerciale » ?",
-    "options": [
-      "Alexander Graham Bell",
-      "James Gosling",
-      "Thomas Edison",
-      "Tim Berners-Lee"
-    ],
-    "correctAnswer": "Thomas Edison",
-    "explanation": "Le développement et la création de « l'ampoule électrique à incandescence commerciale » ont été menés par Thomas Edison.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-tech-cr-8",
-      "templateId": "tech-creator"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-966",
-    "category": "Art",
-    "prompt": "Quel artiste a peint le célèbre chef-d'œuvre « L'École d'Athènes » ?",
-    "options": [
-      "Jacques-Louis David",
-      "Eugène Delacroix",
-      "Pablo Picasso",
-      "Raphaël"
-    ],
-    "correctAnswer": "Raphaël",
-    "explanation": "L'œuvre « L'École d'Athènes » a été réalisée par le peintre Raphaël.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-art-mw-29",
-      "templateId": "art-painter"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-128",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe l'Islande ?",
-    "options": [
+      "l'Amérique du Nord",
+      "l'Europe",
       "l'Asie / Europe",
-      "l'Amérique centrale",
-      "l'Océanie",
-      "l'Europe"
+      "l'Océanie"
     ],
     "correctAnswer": "l'Europe",
-    "explanation": "l'Islande est un territoire situé sur le continent l'Europe.",
+    "explanation": "le Liechtenstein est un territoire situé sur le continent l'Europe.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -1267,46 +403,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cont-26",
+      "factId": "f-cont-141",
       "templateId": "geo-continent"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-809",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 37 ?",
-    "options": [
-      "le rubidium",
-      "le protactinium",
-      "le curium",
-      "le tungstène"
-    ],
-    "correctAnswer": "le rubidium",
-    "explanation": "L'élément chimique possédant le numéro atomique 37 est le rubidium.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-num-37",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-351",
+    "id": "cand-factory-job-gyzsjh4u-636",
     "category": "Geography",
-    "prompt": "Quelle est la capitale de le Vietnam ?",
+    "prompt": "Quelle est la capitale de les Seychelles ?",
     "options": [
-      "Hanoï",
-      "Achgabat",
-      "Tachkent",
-      "Varsovie"
+      "Lisbonne",
+      "Georgetown",
+      "Harare",
+      "Victoria"
     ],
-    "correctAnswer": "Hanoï",
-    "explanation": "Hanoï est la capitale officielle de le Vietnam.",
+    "correctAnswer": "Victoria",
+    "explanation": "Victoria est la capitale officielle de les Seychelles.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -1315,22 +427,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-dir-71",
+      "factId": "f-cap-dir-128",
       "templateId": "geo-capital-direct"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-751",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 8 ?",
+    "id": "cand-factory-job-gyzsjh4u-130",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de l'Islande ?",
     "options": [
-      "le vanadium",
-      "le terbium",
-      "l'oxygène",
-      "le fer"
+      "le Ben Nevis",
+      "le Hvannadalshnjúkur",
+      "la colline d'Otse",
+      "le mont Sainte-Catherine"
     ],
-    "correctAnswer": "l'oxygène",
-    "explanation": "L'élément chimique possédant le numéro atomique 8 est l'oxygène.",
+    "correctAnswer": "le Hvannadalshnjúkur",
+    "explanation": "le Hvannadalshnjúkur constitue le sommet le plus élevé de l'Islande.",
     "difficulty": "hard",
     "qualityScore": 1,
     "pools": [
@@ -1339,94 +451,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-num-8",
-      "templateId": "sci-atomic-number"
+      "factId": "f-mount-26",
+      "templateId": "geo-highest-point"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-52",
+    "id": "cand-factory-job-gyzsjh4u-236",
     "category": "Geography",
-    "prompt": "Stockholm est la capitale de quel pays ?",
+    "prompt": "Quelle est la capitale de le Guyana ?",
     "options": [
-      "la Suède",
-      "la Grèce",
-      "le Tadjikistan",
-      "la Roumanie"
+      "Georgetown",
+      "Kiev",
+      "Naypyidaw",
+      "Rabat"
     ],
-    "correctAnswer": "la Suède",
-    "explanation": "Stockholm est la capitale et le centre institutionnel de la Suède.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-11",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1103",
-    "category": "History",
-    "prompt": "En quelle année s'est déroulé l'événement historique « la prise de la Bastille » ?",
-    "options": [
-      "1804",
-      "1789",
-      "800",
-      "1989"
-    ],
-    "correctAnswer": "1789",
-    "explanation": "L'événement historique « la prise de la Bastille » a eu lieu en 1789.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-hist-d-1",
-      "templateId": "hist-year"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-172",
-    "category": "Geography",
-    "prompt": "Ottawa est la capitale de quel pays ?",
-    "options": [
-      "le Guyana",
-      "le Canada",
-      "la France",
-      "la Libye"
-    ],
-    "correctAnswer": "le Canada",
-    "explanation": "Ottawa est la capitale et le centre institutionnel de le Canada.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-rev-35",
-      "templateId": "geo-capital-reverse"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-243",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe le Suriname ?",
-    "options": [
-      "l'Amérique du Sud",
-      "l'Asie",
-      "l'Europe",
-      "l'Asie / Europe"
-    ],
-    "correctAnswer": "l'Amérique du Sud",
-    "explanation": "le Suriname est un territoire situé sur le continent l'Amérique du Sud.",
+    "correctAnswer": "Georgetown",
+    "explanation": "Georgetown est la capitale officielle de le Guyana.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -1435,46 +475,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cont-49",
-      "templateId": "geo-continent"
+      "factId": "f-cap-dir-48",
+      "templateId": "geo-capital-direct"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-79",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de la Grèce ?",
+    "id": "cand-factory-job-gyzsjh4u-773",
+    "category": "Science",
+    "prompt": "Quel élément chimique a pour numéro atomique 19 ?",
     "options": [
-      "l'euro",
-      "le franc rwandais",
-      "la roupie srilankaise",
-      "le taka"
+      "le radon",
+      "l'uranium",
+      "le palladium",
+      "le potassium"
     ],
-    "correctAnswer": "l'euro",
-    "explanation": "l'euro est l'unité monétaire officielle en circulation en la Grèce.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-16",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-555",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de Madagascar ?",
-    "options": [
-      "la colline d'Otse",
-      "le Maromokotro",
-      "le mont Titano",
-      "le Jebel Shams"
-    ],
-    "correctAnswer": "le Maromokotro",
-    "explanation": "le Maromokotro constitue le sommet le plus élevé de Madagascar.",
+    "correctAnswer": "le potassium",
+    "explanation": "L'élément chimique possédant le numéro atomique 19 est le potassium.",
     "difficulty": "hard",
     "qualityScore": 1,
     "pools": [
@@ -1483,19 +499,67 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-mount-111",
+      "factId": "f-pt-num-19",
+      "templateId": "sci-atomic-number"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-345",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de l'Indonésie ?",
+    "options": [
+      "le Phou Bia",
+      "le Puncak Jaya",
+      "la Zugspitze",
+      "le Grauspitz"
+    ],
+    "correctAnswer": "le Puncak Jaya",
+    "explanation": "le Puncak Jaya constitue le sommet le plus élevé de l'Indonésie.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-69",
       "templateId": "geo-highest-point"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-641",
+    "id": "cand-factory-job-gyzsjh4u-1168",
+    "category": "Food & Culture",
+    "prompt": "De quel pays est originaire la spécialité culinaire « la pizza margherita » ?",
+    "options": [
+      "l'Italie",
+      "le Japon",
+      "le Maroc",
+      "l'Espagne"
+    ],
+    "correctAnswer": "l'Italie",
+    "explanation": "La spécialité gastronomique « la pizza margherita » trouve son origine traditionnelle en l'Italie.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-food-o-11",
+      "templateId": "food-origin"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-641",
     "category": "Geography",
     "prompt": "Quelle est la capitale de les Fidji ?",
     "options": [
-      "La Valette",
-      "Madrid",
+      "Montevideo",
+      "Kaboul",
       "Suva",
-      "Georgetown"
+      "Budapest"
     ],
     "correctAnswer": "Suva",
     "explanation": "Suva est la capitale officielle de les Fidji.",
@@ -1512,41 +576,17 @@
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-423",
+    "id": "cand-factory-job-gyzsjh4u-392",
     "category": "Geography",
-    "prompt": "Sur quel continent se situe la Géorgie ?",
+    "prompt": "Doha est la capitale de quel pays ?",
     "options": [
-      "l'Océanie",
-      "l'Asie / Europe",
-      "l'Asie",
-      "l'Amérique du Sud"
+      "l'Autriche",
+      "le Qatar",
+      "les Émirats arabes unis",
+      "l'Italie"
     ],
-    "correctAnswer": "l'Asie",
-    "explanation": "la Géorgie est un territoire situé sur le continent l'Asie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-85",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-882",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le tungstène » ?",
-    "options": [
-      "Hf",
-      "Nd",
-      "Pu",
-      "W"
-    ],
-    "correctAnswer": "W",
-    "explanation": "Dans la classification périodique des éléments, le tungstène a pour symbole chimique W.",
+    "correctAnswer": "le Qatar",
+    "explanation": "Doha est la capitale et le centre institutionnel de le Qatar.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -1555,70 +595,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-sym-74",
-      "templateId": "sci-chem-symbol"
+      "factId": "f-cap-rev-79",
+      "templateId": "geo-capital-reverse"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-640",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de les Seychelles ?",
-    "options": [
-      "la Sněžka",
-      "le morne Seychellois",
-      "le mont Sainte-Catherine",
-      "la pointe Dufour"
-    ],
-    "correctAnswer": "le morne Seychellois",
-    "explanation": "le morne Seychellois constitue le sommet le plus élevé de les Seychelles.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-128",
-      "templateId": "geo-highest-point"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-198",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe le Chili ?",
-    "options": [
-      "l'Amérique du Sud",
-      "l'Amérique centrale",
-      "l'Asie / Europe",
-      "l'Asie"
-    ],
-    "correctAnswer": "l'Amérique du Sud",
-    "explanation": "le Chili est un territoire situé sur le continent l'Amérique du Sud.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-40",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-790",
+    "id": "cand-factory-job-gyzsjh4u-937",
     "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le nickel » ?",
+    "prompt": "Quel scientifique a découvert ou formulé « les rayons X » ?",
     "options": [
-      "Xe",
-      "Er",
-      "Ni",
-      "F"
+      "Wilhelm Röntgen",
+      "Isaac Newton",
+      "Alexander Fleming",
+      "William Harvey"
     ],
-    "correctAnswer": "Ni",
-    "explanation": "Dans la classification périodique des éléments, le nickel a pour symbole chimique Ni.",
+    "correctAnswer": "Wilhelm Röntgen",
+    "explanation": "La découverte de « les rayons X » est historiquement attribuée à Wilhelm Röntgen.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -1627,238 +619,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-sym-28",
-      "templateId": "sci-chem-symbol"
+      "factId": "f-sci-disc-10",
+      "templateId": "sci-discovery"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-310",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de la Tunisie ?",
-    "options": [
-      "le Djebel Chambi",
-      "le Ben Nevis",
-      "le mont Olympe",
-      "l'Ojos del Salado"
-    ],
-    "correctAnswer": "le Djebel Chambi",
-    "explanation": "le Djebel Chambi constitue le sommet le plus élevé de la Tunisie.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-62",
-      "templateId": "geo-highest-point"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1067",
-    "category": "Cinema",
-    "prompt": "Quel cinéaste a réalisé le film « Psychose » ?",
-    "options": [
-      "Denis Villeneuve",
-      "Alfred Hitchcock",
-      "Bong Joon-ho",
-      "Quentin Tarantino"
-    ],
-    "correctAnswer": "Alfred Hitchcock",
-    "explanation": "Le long-métrage « Psychose » a été mis en scène par le réalisateur Alfred Hitchcock.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cin-m-13",
-      "templateId": "cin-director"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-624",
-    "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de la Namibie ?",
-    "options": [
-      "le dollar namibien",
-      "la hryvnia",
-      "le kyat",
-      "le yen"
-    ],
-    "correctAnswer": "le dollar namibien",
-    "explanation": "le dollar namibien est l'unité monétaire officielle en circulation en la Namibie.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-curr-125",
-      "templateId": "geo-currency"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-648",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe la Papouasie-Nouvelle-Guinée ?",
-    "options": [
-      "l'Océanie",
-      "l'Amérique centrale",
-      "l'Amérique du Sud",
-      "l'Amérique du Nord"
-    ],
-    "correctAnswer": "l'Océanie",
-    "explanation": "la Papouasie-Nouvelle-Guinée est un territoire situé sur le continent l'Océanie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-130",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-725",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de Bahreïn ?",
-    "options": [
-      "l'Aconcagua",
-      "le mont Dzerjinski",
-      "le Jabal ad Dukhan",
-      "le mont Titano"
-    ],
-    "correctAnswer": "le Jabal ad Dukhan",
-    "explanation": "le Jabal ad Dukhan constitue le sommet le plus élevé de Bahreïn.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-145",
-      "templateId": "geo-highest-point"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-753",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 9 ?",
-    "options": [
-      "le thorium",
-      "le platine",
-      "le fluor",
-      "le cadmium"
-    ],
-    "correctAnswer": "le fluor",
-    "explanation": "L'élément chimique possédant le numéro atomique 9 est le fluor.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-num-9",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-804",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le brome » ?",
-    "options": [
-      "Br",
-      "Dy",
-      "Pb",
-      "Pt"
-    ],
-    "correctAnswer": "Br",
-    "explanation": "Dans la classification périodique des éléments, le brome a pour symbole chimique Br.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-35",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-818",
-    "category": "Science",
-    "prompt": "Quel est le symbole chimique de l'élément « le molybdène » ?",
-    "options": [
-      "Ho",
-      "Nd",
-      "Mo",
-      "Th"
-    ],
-    "correctAnswer": "Mo",
-    "explanation": "Dans la classification périodique des éléments, le molybdène a pour symbole chimique Mo.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-sym-42",
-      "templateId": "sci-chem-symbol"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-406",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de l'Iran ?",
-    "options": [
-      "Téhéran",
-      "Tirana",
-      "Victoria",
-      "Manille"
-    ],
-    "correctAnswer": "Téhéran",
-    "explanation": "Téhéran est la capitale officielle de l'Iran.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-82",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1041",
+    "id": "cand-factory-job-gyzsjh4u-995",
     "category": "Literature",
-    "prompt": "Quel écrivain est l'auteur de l'ouvrage « Le Père Goriot » ?",
+    "prompt": "Quel écrivain est l'auteur de l'ouvrage « Madame Bovary » ?",
     "options": [
-      "Victor Hugo",
-      "Charles Baudelaire",
-      "Honoré de Balzac",
-      "Fiodor Dostoïevski"
+      "William Shakespeare",
+      "Gustave Flaubert",
+      "Jean Racine",
+      "Victor Hugo"
     ],
-    "correctAnswer": "Honoré de Balzac",
-    "explanation": "Le livre « Le Père Goriot » est un ouvrage majeur écrit par Honoré de Balzac.",
+    "correctAnswer": "Gustave Flaubert",
+    "explanation": "Le livre « Madame Bovary » est un ouvrage majeur écrit par Gustave Flaubert.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -1867,22 +643,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-lit-b-30",
+      "factId": "f-lit-b-7",
       "templateId": "lit-author"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-362",
+    "id": "cand-factory-job-gyzsjh4u-457",
     "category": "Geography",
-    "prompt": "Kuala Lumpur est la capitale de quel pays ?",
+    "prompt": "Kaboul est la capitale de quel pays ?",
     "options": [
-      "la Grèce",
-      "le Népal",
-      "la Malaisie",
-      "la Croatie"
+      "le Monténégro",
+      "l'Afrique du Sud",
+      "l'Afghanistan",
+      "le Turkménistan"
     ],
-    "correctAnswer": "la Malaisie",
-    "explanation": "Kuala Lumpur est la capitale et le centre institutionnel de la Malaisie.",
+    "correctAnswer": "l'Afghanistan",
+    "explanation": "Kaboul est la capitale et le centre institutionnel de l'Afghanistan.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -1891,22 +667,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-rev-73",
+      "factId": "f-cap-rev-92",
       "templateId": "geo-capital-reverse"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-614",
+    "id": "cand-factory-job-gyzsjh4u-569",
     "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Zimbabwe ?",
+    "prompt": "Quelle est la monnaie officielle de le Rwanda ?",
     "options": [
-      "le guarani",
-      "le lek albanais",
-      "le dollar zimbabwéen",
-      "le franc rwandais"
+      "le metical",
+      "le franc rwandais",
+      "la livre turque",
+      "le som kirghiz"
     ],
-    "correctAnswer": "le dollar zimbabwéen",
-    "explanation": "le dollar zimbabwéen est l'unité monétaire officielle en circulation en le Zimbabwe.",
+    "correctAnswer": "le franc rwandais",
+    "explanation": "le franc rwandais est l'unité monétaire officielle en circulation en le Rwanda.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -1915,22 +691,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-curr-123",
+      "factId": "f-curr-114",
       "templateId": "geo-currency"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-546",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de l'Éthiopie ?",
+    "id": "cand-factory-job-gyzsjh4u-971",
+    "category": "Art",
+    "prompt": "Quel artiste a peint le célèbre chef-d'œuvre « L'Angélus » ?",
     "options": [
-      "Rome",
-      "Addis-Abeba",
-      "Luxembourg",
-      "Sanaa"
+      "Grant Wood",
+      "Rembrandt",
+      "Jean-François Millet",
+      "Henri Matisse"
     ],
-    "correctAnswer": "Addis-Abeba",
-    "explanation": "Addis-Abeba est la capitale officielle de l'Éthiopie.",
+    "correctAnswer": "Jean-François Millet",
+    "explanation": "L'œuvre « L'Angélus » a été réalisée par le peintre Jean-François Millet.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -1939,23 +715,23 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-dir-110",
-      "templateId": "geo-capital-direct"
+      "factId": "f-art-mw-34",
+      "templateId": "art-painter"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-167",
+    "id": "cand-factory-job-gyzsjh4u-523",
     "category": "Geography",
-    "prompt": "Ankara est la capitale de quel pays ?",
+    "prompt": "Sur quel continent se situe le Honduras ?",
     "options": [
-      "l'Allemagne",
-      "la Lituanie",
-      "la Lettonie",
-      "la Turquie"
+      "l'Amérique du Sud",
+      "l'Océanie",
+      "l'Amérique du Nord",
+      "l'Amérique centrale"
     ],
-    "correctAnswer": "la Turquie",
-    "explanation": "Ankara est la capitale et le centre institutionnel de la Turquie.",
-    "difficulty": "medium",
+    "correctAnswer": "l'Amérique centrale",
+    "explanation": "le Honduras est un territoire situé sur le continent l'Amérique centrale.",
+    "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
       "training",
@@ -1963,46 +739,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-rev-34",
-      "templateId": "geo-capital-reverse"
+      "factId": "f-cont-105",
+      "templateId": "geo-continent"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-1024",
-    "category": "Literature",
-    "prompt": "De quelle nationalité était l'écrivain George Orwell ?",
+    "id": "cand-factory-job-gyzsjh4u-865",
+    "category": "Science",
+    "prompt": "Quel élément chimique a pour numéro atomique 65 ?",
     "options": [
-      "britannique",
-      "française",
-      "italienne",
-      "espagnole"
+      "le terbium",
+      "le technétium",
+      "le fer",
+      "l'ytterbium"
     ],
-    "correctAnswer": "britannique",
-    "explanation": "George Orwell était un grand auteur de nationalité britannique.",
-    "difficulty": "medium",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-lit-nat-21",
-      "templateId": "lit-nationality"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-420",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de l'Arménie ?",
-    "options": [
-      "la Sněžka",
-      "le mont Olympe",
-      "le mont Aragats",
-      "le mont Cook"
-    ],
-    "correctAnswer": "le mont Aragats",
-    "explanation": "le mont Aragats constitue le sommet le plus élevé de l'Arménie.",
+    "correctAnswer": "le terbium",
+    "explanation": "L'élément chimique possédant le numéro atomique 65 est le terbium.",
     "difficulty": "hard",
     "qualityScore": 1,
     "pools": [
@@ -2011,22 +763,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-mount-84",
-      "templateId": "geo-highest-point"
+      "factId": "f-pt-num-65",
+      "templateId": "sci-atomic-number"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-193",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe l'Argentine ?",
+    "id": "cand-factory-job-gyzsjh4u-1025",
+    "category": "Literature",
+    "prompt": "Quel écrivain est l'auteur de l'ouvrage « La Ferme des animaux » ?",
     "options": [
-      "l'Amérique du Sud",
-      "l'Océanie",
-      "l'Amérique du Nord",
-      "l'Afrique"
+      "Victor Hugo",
+      "Gustave Flaubert",
+      "Honoré de Balzac",
+      "George Orwell"
     ],
-    "correctAnswer": "l'Amérique du Sud",
-    "explanation": "l'Argentine est un territoire situé sur le continent l'Amérique du Sud.",
+    "correctAnswer": "George Orwell",
+    "explanation": "Le livre « La Ferme des animaux » est un ouvrage majeur écrit par George Orwell.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -2035,19 +787,1123 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cont-39",
+      "factId": "f-lit-b-22",
+      "templateId": "lit-author"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1064",
+    "category": "Cinema",
+    "prompt": "Quel cinéaste a réalisé le film « Princesse Mononoké » ?",
+    "options": [
+      "Martin Scorsese",
+      "Hayao Miyazaki",
+      "Bong Joon-ho",
+      "Steven Spielberg"
+    ],
+    "correctAnswer": "Hayao Miyazaki",
+    "explanation": "Le long-métrage « Princesse Mononoké » a été mis en scène par le réalisateur Hayao Miyazaki.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cin-m-10",
+      "templateId": "cin-director"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1086",
+    "category": "Music",
+    "prompt": "Quel compositeur est l'auteur de l'œuvre musicale « la Symphonie n° 5 » ?",
+    "options": [
+      "Ludwig van Beethoven",
+      "Igor Stravinsky",
+      "Piotr Ilitch Tchaïkovski",
+      "Georges Bizet"
+    ],
+    "correctAnswer": "Ludwig van Beethoven",
+    "explanation": "La composition « la Symphonie n° 5 » est l'une des œuvres célèbres de Ludwig van Beethoven.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mus-w-2",
+      "templateId": "mus-composer"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-14",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de l'Espagne ?",
+    "options": [
+      "le colon costaricien",
+      "la gourde",
+      "le riyal qatari",
+      "l'euro"
+    ],
+    "correctAnswer": "l'euro",
+    "explanation": "l'euro est l'unité monétaire officielle en circulation en l'Espagne.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-3",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-832",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « l'indium » ?",
+    "options": [
+      "Bi",
+      "P",
+      "In",
+      "Hg"
+    ],
+    "correctAnswer": "In",
+    "explanation": "Dans la classification périodique des éléments, l'indium a pour symbole chimique In.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-49",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-669",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de Malte ?",
+    "options": [
+      "la hryvnia",
+      "l'euro",
+      "le naira",
+      "la couronne norvégienne"
+    ],
+    "correctAnswer": "l'euro",
+    "explanation": "l'euro est l'unité monétaire officielle en circulation en Malte.",
+    "difficulty": "medium",
+    "qualityScore": 0.97,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-134",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-924",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « l'américium » ?",
+    "options": [
+      "Fe",
+      "Eu",
+      "Am",
+      "Pa"
+    ],
+    "correctAnswer": "Am",
+    "explanation": "Dans la classification périodique des éléments, l'américium a pour symbole chimique Am.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-95",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1146",
+    "category": "Technology",
+    "prompt": "Qui est le créateur ou inventeur principal de « le langage de programmation C » ?",
+    "options": [
+      "Johannes Gutenberg",
+      "James Gosling",
+      "Dennis Ritchie",
+      "John Warnock et Charles Geschke"
+    ],
+    "correctAnswer": "Dennis Ritchie",
+    "explanation": "Le développement et la création de « le langage de programmation C » ont été menés par Dennis Ritchie.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-tech-cr-3",
+      "templateId": "tech-creator"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-395",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de le Qatar ?",
+    "options": [
+      "le Qurayn Abu al Bawl",
+      "le Zla Kolata",
+      "le Teide",
+      "le pic Cristóbal Colón"
+    ],
+    "correctAnswer": "le Qurayn Abu al Bawl",
+    "explanation": "le Qurayn Abu al Bawl constitue le sommet le plus élevé de le Qatar.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-79",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-23",
+    "category": "Geography",
+    "prompt": "Sur quel continent se situe le Royaume-Uni ?",
+    "options": [
+      "l'Amérique du Nord",
+      "l'Amérique du Sud",
+      "l'Europe",
+      "l'Afrique"
+    ],
+    "correctAnswer": "l'Europe",
+    "explanation": "le Royaume-Uni est un territoire situé sur le continent l'Europe.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cont-5",
       "templateId": "geo-continent"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-552",
+    "id": "cand-factory-job-gyzsjh4u-972",
+    "category": "Art",
+    "prompt": "Quel artiste a peint le célèbre chef-d'œuvre « La Danse » ?",
+    "options": [
+      "Henri Matisse",
+      "Pablo Picasso",
+      "Théodore Géricault",
+      "Jacques-Louis David"
+    ],
+    "correctAnswer": "Henri Matisse",
+    "explanation": "L'œuvre « La Danse » a été réalisée par le peintre Henri Matisse.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-art-mw-35",
+      "templateId": "art-painter"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1156",
+    "category": "Technology",
+    "prompt": "Qui est le créateur ou inventeur principal de « le langage de programmation JavaScript » ?",
+    "options": [
+      "Brendan Eich",
+      "Thomas Edison",
+      "Alexander Graham Bell",
+      "Tim Berners-Lee"
+    ],
+    "correctAnswer": "Brendan Eich",
+    "explanation": "Le développement et la création de « le langage de programmation JavaScript » ont été menés par Brendan Eich.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-tech-cr-13",
+      "templateId": "tech-creator"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-705",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de le Liechtenstein ?",
+    "options": [
+      "le Grauspitz",
+      "le mont Olympe",
+      "le Musala",
+      "le Doi Inthanon"
+    ],
+    "correctAnswer": "le Grauspitz",
+    "explanation": "le Grauspitz constitue le sommet le plus élevé de le Liechtenstein.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-141",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1133",
+    "category": "Nature",
+    "prompt": "À quelle classe animale appartient le crocodile du Nil ?",
+    "options": [
+      "mollusques",
+      "crustacés",
+      "reptiles",
+      "mammifères"
+    ],
+    "correctAnswer": "reptiles",
+    "explanation": "le crocodile du Nil est classé biologiquement parmi les reptiles.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-nat-z-5",
+      "templateId": "nat-class"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-978",
+    "category": "Art",
+    "prompt": "Quel sculpteur est l'auteur de la célèbre sculpture « Le Penseur » ?",
+    "options": [
+      "Georges Seurat",
+      "Diego Vélasquez",
+      "Auguste Rodin",
+      "Rembrandt"
+    ],
+    "correctAnswer": "Auguste Rodin",
+    "explanation": "La sculpture « Le Penseur » a été créée par Auguste Rodin.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-art-sc-1",
+      "templateId": "art-sculptor"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-498",
+    "category": "Geography",
+    "prompt": "Sur quel continent se situe Haïti ?",
+    "options": [
+      "l'Amérique du Sud",
+      "l'Amérique du Nord",
+      "l'Asie",
+      "l'Afrique"
+    ],
+    "correctAnswer": "l'Amérique du Nord",
+    "explanation": "Haïti est un territoire situé sur le continent l'Amérique du Nord.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cont-100",
+      "templateId": "geo-continent"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1163",
+    "category": "Food & Culture",
+    "prompt": "De quel pays est originaire la spécialité culinaire « la feijoada » ?",
+    "options": [
+      "le Brésil",
+      "la Corée du Sud",
+      "la Thaïlande",
+      "le Maghreb"
+    ],
+    "correctAnswer": "le Brésil",
+    "explanation": "La spécialité gastronomique « la feijoada » trouve son origine traditionnelle en le Brésil.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-food-o-6",
+      "templateId": "food-origin"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-801",
+    "category": "Science",
+    "prompt": "Quel élément chimique a pour numéro atomique 33 ?",
+    "options": [
+      "le calcium",
+      "l'arsenic",
+      "le rhénium",
+      "le thulium"
+    ],
+    "correctAnswer": "l'arsenic",
+    "explanation": "L'élément chimique possédant le numéro atomique 33 est l'arsenic.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-num-33",
+      "templateId": "sci-atomic-number"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-164",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de la Moldavie ?",
+    "options": [
+      "le leu moldave",
+      "le franc guinéen",
+      "le colon costaricien",
+      "le peso chilien"
+    ],
+    "correctAnswer": "le leu moldave",
+    "explanation": "le leu moldave est l'unité monétaire officielle en circulation en la Moldavie.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-33",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1154",
+    "category": "Technology",
+    "prompt": "Qui est le créateur ou inventeur principal de « le système de contrôle de version Git » ?",
+    "options": [
+      "Linus Torvalds",
+      "Alexander Graham Bell",
+      "James Gosling",
+      "Tim Berners-Lee"
+    ],
+    "correctAnswer": "Linus Torvalds",
+    "explanation": "Le développement et la création de « le système de contrôle de version Git » ont été menés par Linus Torvalds.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-tech-cr-11",
+      "templateId": "tech-creator"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1087",
+    "category": "Music",
+    "prompt": "Quel compositeur est l'auteur de l'œuvre musicale « La Flûte enchantée » ?",
+    "options": [
+      "Wolfgang Amadeus Mozart",
+      "Ludwig van Beethoven",
+      "Giuseppe Verdi",
+      "Igor Stravinsky"
+    ],
+    "correctAnswer": "Wolfgang Amadeus Mozart",
+    "explanation": "La composition « La Flûte enchantée » est l'une des œuvres célèbres de Wolfgang Amadeus Mozart.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mus-w-3",
+      "templateId": "mus-composer"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1068",
+    "category": "Cinema",
+    "prompt": "Quel cinéaste a réalisé le film « Fenêtre sur cour » ?",
+    "options": [
+      "Federico Fellini",
+      "James Cameron",
+      "Christopher Nolan",
+      "Alfred Hitchcock"
+    ],
+    "correctAnswer": "Alfred Hitchcock",
+    "explanation": "Le long-métrage « Fenêtre sur cour » a été mis en scène par le réalisateur Alfred Hitchcock.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cin-m-14",
+      "templateId": "cin-director"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-604",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de l'Angola ?",
+    "options": [
+      "le kwanza",
+      "le cedi",
+      "la roupie maldivienne",
+      "le peso cubain"
+    ],
+    "correctAnswer": "le kwanza",
+    "explanation": "le kwanza est l'unité monétaire officielle en circulation en l'Angola.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-121",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-525",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de le Honduras ?",
+    "options": [
+      "le Cerro Las Minas",
+      "l'Aconcagua",
+      "le mont Fuji",
+      "le Ras Dashan"
+    ],
+    "correctAnswer": "le Cerro Las Minas",
+    "explanation": "le Cerro Las Minas constitue le sommet le plus élevé de le Honduras.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-105",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1054",
+    "category": "Literature",
+    "prompt": "De quelle nationalité était l'écrivain Pierre Corneille ?",
+    "options": [
+      "russe",
+      "colombienne",
+      "britannique",
+      "française"
+    ],
+    "correctAnswer": "française",
+    "explanation": "Pierre Corneille était un grand auteur de nationalité française.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-lit-nat-36",
+      "templateId": "lit-nationality"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1082",
+    "category": "Cinema",
+    "prompt": "Quel cinéaste a réalisé le film « Fight Club » ?",
+    "options": [
+      "David Fincher",
+      "Bong Joon-ho",
+      "Martin Scorsese",
+      "Quentin Tarantino"
+    ],
+    "correctAnswer": "David Fincher",
+    "explanation": "Le long-métrage « Fight Club » a été mis en scène par le réalisateur David Fincher.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cin-m-28",
+      "templateId": "cin-director"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-105",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de la Croatie ?",
+    "options": [
+      "le Møllehøj",
+      "le Grauspitz",
+      "la Dinara",
+      "le mont Tomanivi"
+    ],
+    "correctAnswer": "la Dinara",
+    "explanation": "la Dinara constitue le sommet le plus élevé de la Croatie.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-21",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-953",
+    "category": "Art",
+    "prompt": "Quel artiste a peint le célèbre chef-d'œuvre « La Persistance de la mémoire » ?",
+    "options": [
+      "Hokusai",
+      "Claude Monet",
+      "Auguste Renoir",
+      "Salvador Dalí"
+    ],
+    "correctAnswer": "Salvador Dalí",
+    "explanation": "L'œuvre « La Persistance de la mémoire » a été réalisée par le peintre Salvador Dalí.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-art-mw-16",
+      "templateId": "art-painter"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1078",
+    "category": "Cinema",
+    "prompt": "Quel cinéaste a réalisé le film « La Haine » ?",
+    "options": [
+      "James Cameron",
+      "Ridley Scott",
+      "Alfred Hitchcock",
+      "Mathieu Kassovitz"
+    ],
+    "correctAnswer": "Mathieu Kassovitz",
+    "explanation": "Le long-métrage « La Haine » a été mis en scène par le réalisateur Mathieu Kassovitz.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cin-m-24",
+      "templateId": "cin-director"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-872",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « le thulium » ?",
+    "options": [
+      "Tm",
+      "Pb",
+      "Eu",
+      "Ne"
+    ],
+    "correctAnswer": "Tm",
+    "explanation": "Dans la classification périodique des éléments, le thulium a pour symbole chimique Tm.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-69",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-888",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « l'iridium » ?",
+    "options": [
+      "Ir",
+      "Fr",
+      "V",
+      "N"
+    ],
+    "correctAnswer": "Ir",
+    "explanation": "Dans la classification périodique des éléments, l'iridium a pour symbole chimique Ir.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-77",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1111",
+    "category": "History",
+    "prompt": "En quelle année s'est déroulé l'événement historique « le sacre de Charlemagne comme empereur d'Occident » ?",
+    "options": [
+      "1789",
+      "1066",
+      "1989",
+      "800"
+    ],
+    "correctAnswer": "800",
+    "explanation": "L'événement historique « le sacre de Charlemagne comme empereur d'Occident » a eu lieu en 800.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-hist-d-9",
+      "templateId": "hist-year"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-722",
+    "category": "Geography",
+    "prompt": "Manama est la capitale de quel pays ?",
+    "options": [
+      "Bahreïn",
+      "la Suisse",
+      "le Sénégal",
+      "le Monténégro"
+    ],
+    "correctAnswer": "Bahreïn",
+    "explanation": "Manama est la capitale et le centre institutionnel de Bahreïn.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-rev-145",
+      "templateId": "geo-capital-reverse"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-816",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « le niobium » ?",
+    "options": [
+      "Si",
+      "Cm",
+      "As",
+      "Nb"
+    ],
+    "correctAnswer": "Nb",
+    "explanation": "Dans la classification périodique des éléments, le niobium a pour symbole chimique Nb.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-41",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-126",
+    "category": "Geography",
+    "prompt": "Quelle est la capitale de l'Islande ?",
+    "options": [
+      "Amman",
+      "Port Moresby",
+      "Gaborone",
+      "Reykjavik"
+    ],
+    "correctAnswer": "Reykjavik",
+    "explanation": "Reykjavik est la capitale officielle de l'Islande.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-dir-26",
+      "templateId": "geo-capital-direct"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-580",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de le Burkina Faso ?",
+    "options": [
+      "le mont Khazret Sultan",
+      "le mont Tena Kourou",
+      "le Ben Nevis",
+      "le Phnom Aural"
+    ],
+    "correctAnswer": "le mont Tena Kourou",
+    "explanation": "le mont Tena Kourou constitue le sommet le plus élevé de le Burkina Faso.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-116",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-757",
+    "category": "Science",
+    "prompt": "Quel élément chimique a pour numéro atomique 11 ?",
+    "options": [
+      "le cadmium",
+      "le sodium",
+      "le niobium",
+      "le bismuth"
+    ],
+    "correctAnswer": "le sodium",
+    "explanation": "L'élément chimique possédant le numéro atomique 11 est le sodium.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-num-11",
+      "templateId": "sci-atomic-number"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-649",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de la Papouasie-Nouvelle-Guinée ?",
+    "options": [
+      "la couronne norvégienne",
+      "le rouble biélorusse",
+      "la kina",
+      "le dirham des EAU"
+    ],
+    "correctAnswer": "la kina",
+    "explanation": "la kina est l'unité monétaire officielle en circulation en la Papouasie-Nouvelle-Guinée.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-130",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-534",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de le Nicaragua ?",
+    "options": [
+      "la livre égyptienne",
+      "le cordoba",
+      "le dinar algérien",
+      "le dollar surinamais"
+    ],
+    "correctAnswer": "le cordoba",
+    "explanation": "le cordoba est l'unité monétaire officielle en circulation en le Nicaragua.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-107",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1091",
+    "category": "Music",
+    "prompt": "Quel compositeur est l'auteur de l'œuvre musicale « Les Concertos brandebourgeois » ?",
+    "options": [
+      "Georges Bizet",
+      "Ludwig van Beethoven",
+      "Jean-Sébastien Bach",
+      "Giuseppe Verdi"
+    ],
+    "correctAnswer": "Jean-Sébastien Bach",
+    "explanation": "La composition « Les Concertos brandebourgeois » est l'une des œuvres célèbres de Jean-Sébastien Bach.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mus-w-7",
+      "templateId": "mus-composer"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-189",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de le Brésil ?",
+    "options": [
+      "le kwanza",
+      "l'afghani",
+      "le real",
+      "le tugrik"
+    ],
+    "correctAnswer": "le real",
+    "explanation": "le real est l'unité monétaire officielle en circulation en le Brésil.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-38",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-166",
+    "category": "Geography",
+    "prompt": "Quelle est la capitale de la Turquie ?",
+    "options": [
+      "Suva",
+      "Kiev",
+      "Ankara",
+      "Vilnius"
+    ],
+    "correctAnswer": "Ankara",
+    "explanation": "Ankara est la capitale officielle de la Turquie.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-dir-34",
+      "templateId": "geo-capital-direct"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-502",
+    "category": "Geography",
+    "prompt": "Saint-Domingue est la capitale de quel pays ?",
+    "options": [
+      "le Kazakhstan",
+      "la République dominicaine",
+      "le Maroc",
+      "la Thaïlande"
+    ],
+    "correctAnswer": "la République dominicaine",
+    "explanation": "Saint-Domingue est la capitale et le centre institutionnel de la République dominicaine.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-rev-101",
+      "templateId": "geo-capital-reverse"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-884",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « le rhénium » ?",
+    "options": [
+      "Th",
+      "Re",
+      "In",
+      "Os"
+    ],
+    "correctAnswer": "Re",
+    "explanation": "Dans la classification périodique des éléments, le rhénium a pour symbole chimique Re.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-75",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1135",
+    "category": "Nature",
+    "prompt": "À quelle classe animale appartient l'ornithorynque ?",
+    "options": [
+      "crustacés",
+      "mammifères",
+      "amphibiens",
+      "reptiles"
+    ],
+    "correctAnswer": "mammifères",
+    "explanation": "l'ornithorynque est classé biologiquement parmi les mammifères.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-nat-z-7",
+      "templateId": "nat-class"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-802",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « le sélénium » ?",
+    "options": [
+      "Dy",
+      "Lu",
+      "Se",
+      "Cu"
+    ],
+    "correctAnswer": "Se",
+    "explanation": "Dans la classification périodique des éléments, le sélénium a pour symbole chimique Se.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-34",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-60",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de la Norvège ?",
+    "options": [
+      "le Maglić",
+      "le mont Paektu",
+      "le Galdhøpiggen",
+      "le Bikku Bitti"
+    ],
+    "correctAnswer": "le Galdhøpiggen",
+    "explanation": "le Galdhøpiggen constitue le sommet le plus élevé de la Norvège.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-12",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-552",
     "category": "Geography",
     "prompt": "Antananarivo est la capitale de quel pays ?",
     "options": [
-      "la Roumanie",
-      "l'Éthiopie",
+      "le Cambodge",
+      "la France",
       "Madagascar",
-      "le Yémen"
+      "l'Algérie"
     ],
     "correctAnswer": "Madagascar",
     "explanation": "Antananarivo est la capitale et le centre institutionnel de Madagascar.",
@@ -2064,89 +1920,17 @@
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-31",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de la Belgique ?",
+    "id": "cand-factory-job-gyzsjh4u-1044",
+    "category": "Literature",
+    "prompt": "De quelle nationalité était l'écrivain Voltaire ?",
     "options": [
-      "Podgorica",
-      "Bruxelles",
-      "Luxembourg",
-      "Kampala"
+      "américaine",
+      "allemande",
+      "espagnole",
+      "française"
     ],
-    "correctAnswer": "Bruxelles",
-    "explanation": "Bruxelles est la capitale officielle de la Belgique.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-7",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-925",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 95 ?",
-    "options": [
-      "le scandium",
-      "le plomb",
-      "le thallium",
-      "l'américium"
-    ],
-    "correctAnswer": "l'américium",
-    "explanation": "L'élément chimique possédant le numéro atomique 95 est l'américium.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-pt-num-95",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-526",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de le Salvador ?",
-    "options": [
-      "San Salvador",
-      "Nicosie",
-      "Ouagadougou",
-      "Pyongyang"
-    ],
-    "correctAnswer": "San Salvador",
-    "explanation": "San Salvador est la capitale officielle de le Salvador.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-106",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-67",
-    "category": "Geography",
-    "prompt": "Helsinki est la capitale de quel pays ?",
-    "options": [
-      "la Grèce",
-      "la Colombie",
-      "Saint-Marin",
-      "la Finlande"
-    ],
-    "correctAnswer": "la Finlande",
-    "explanation": "Helsinki est la capitale et le centre institutionnel de la Finlande.",
+    "correctAnswer": "française",
+    "explanation": "Voltaire était un grand auteur de nationalité française.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -2155,22 +1939,46 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-rev-14",
+      "factId": "f-lit-nat-31",
+      "templateId": "lit-nationality"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-642",
+    "category": "Geography",
+    "prompt": "Suva est la capitale de quel pays ?",
+    "options": [
+      "le Paraguay",
+      "le Guyana",
+      "les Fidji",
+      "Oman"
+    ],
+    "correctAnswer": "les Fidji",
+    "explanation": "Suva est la capitale et le centre institutionnel de les Fidji.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-rev-129",
       "templateId": "geo-capital-reverse"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-811",
-    "category": "Science",
-    "prompt": "Quel élément chimique a pour numéro atomique 38 ?",
+    "id": "cand-factory-job-gyzsjh4u-455",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de le Tadjikistan ?",
     "options": [
-      "le sélénium",
-      "l'indium",
-      "le strontium",
-      "le platine"
+      "le Djebel Chambi",
+      "le mont Kosciuszko",
+      "le mont Titano",
+      "le pic Ismail Samani"
     ],
-    "correctAnswer": "le strontium",
-    "explanation": "L'élément chimique possédant le numéro atomique 38 est le strontium.",
+    "correctAnswer": "le pic Ismail Samani",
+    "explanation": "le pic Ismail Samani constitue le sommet le plus élevé de le Tadjikistan.",
     "difficulty": "hard",
     "qualityScore": 1,
     "pools": [
@@ -2179,166 +1987,22 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-pt-num-38",
-      "templateId": "sci-atomic-number"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-436",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de l'Ouzbékistan ?",
-    "options": [
-      "Apia",
-      "Brazzaville",
-      "Tachkent",
-      "Tirana"
-    ],
-    "correctAnswer": "Tachkent",
-    "explanation": "Tachkent est la capitale officielle de l'Ouzbékistan.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cap-dir-88",
-      "templateId": "geo-capital-direct"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-353",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe le Vietnam ?",
-    "options": [
-      "l'Asie / Europe",
-      "l'Asie",
-      "l'Europe",
-      "l'Amérique centrale"
-    ],
-    "correctAnswer": "l'Asie",
-    "explanation": "le Vietnam est un territoire situé sur le continent l'Asie.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-71",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-33",
-    "category": "Geography",
-    "prompt": "Sur quel continent se situe la Belgique ?",
-    "options": [
-      "l'Europe",
-      "l'Asie",
-      "l'Afrique",
-      "l'Océanie"
-    ],
-    "correctAnswer": "l'Europe",
-    "explanation": "la Belgique est un territoire situé sur le continent l'Europe.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-7",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-1074",
-    "category": "Cinema",
-    "prompt": "Quel cinéaste a réalisé le film « Blade Runner » ?",
-    "options": [
-      "Quentin Tarantino",
-      "Denis Villeneuve",
-      "David Fincher",
-      "Ridley Scott"
-    ],
-    "correctAnswer": "Ridley Scott",
-    "explanation": "Le long-métrage « Blade Runner » a été mis en scène par le réalisateur Ridley Scott.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cin-m-20",
-      "templateId": "cin-director"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-660",
-    "category": "Geography",
-    "prompt": "Quel est le point culminant de le Luxembourg ?",
-    "options": [
-      "le Kneiff",
-      "la colline d'Otse",
-      "le Møllehøj",
-      "le Zla Kolata"
-    ],
-    "correctAnswer": "le Kneiff",
-    "explanation": "le Kneiff constitue le sommet le plus élevé de le Luxembourg.",
-    "difficulty": "hard",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-mount-132",
+      "factId": "f-mount-91",
       "templateId": "geo-highest-point"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-83",
+    "id": "cand-factory-job-gyzsjh4u-546",
     "category": "Geography",
-    "prompt": "Sur quel continent se situe la Hongrie ?",
+    "prompt": "Quelle est la capitale de l'Éthiopie ?",
     "options": [
-      "l'Amérique centrale",
-      "l'Asie",
-      "l'Europe",
-      "l'Amérique du Sud"
-    ],
-    "correctAnswer": "l'Europe",
-    "explanation": "la Hongrie est un territoire situé sur le continent l'Europe.",
-    "difficulty": "easy",
-    "qualityScore": 1,
-    "pools": [
-      "training",
-      "verified",
-      "competitive"
-    ],
-    "provenance": {
-      "factId": "f-cont-17",
-      "templateId": "geo-continent"
-    }
-  },
-  {
-    "id": "cand-factory-job-nyav9w28-601",
-    "category": "Geography",
-    "prompt": "Quelle est la capitale de l'Angola ?",
-    "options": [
-      "Luanda",
-      "Erevan",
+      "Caracas",
       "Athènes",
-      "Berlin"
+      "Riga",
+      "Addis-Abeba"
     ],
-    "correctAnswer": "Luanda",
-    "explanation": "Luanda est la capitale officielle de l'Angola.",
+    "correctAnswer": "Addis-Abeba",
+    "explanation": "Addis-Abeba est la capitale officielle de l'Éthiopie.",
     "difficulty": "easy",
     "qualityScore": 1,
     "pools": [
@@ -2347,22 +2011,46 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-dir-121",
+      "factId": "f-cap-dir-110",
       "templateId": "geo-capital-direct"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-657",
+    "id": "cand-factory-job-gyzsjh4u-335",
     "category": "Geography",
-    "prompt": "Luxembourg est la capitale de quel pays ?",
+    "prompt": "Quel est le point culminant de l'Afrique du Sud ?",
     "options": [
-      "Saint-Marin",
-      "les Seychelles",
-      "le Luxembourg",
-      "l'Ukraine"
+      "le Grauspitz",
+      "le Pico da Neblina",
+      "le mont Fuji",
+      "le Mafadi"
     ],
-    "correctAnswer": "le Luxembourg",
-    "explanation": "Luxembourg est la capitale et le centre institutionnel de le Luxembourg.",
+    "correctAnswer": "le Mafadi",
+    "explanation": "le Mafadi constitue le sommet le plus élevé de l'Afrique du Sud.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-67",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-758",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « le magnésium » ?",
+    "options": [
+      "Mg",
+      "W",
+      "H",
+      "Rh"
+    ],
+    "correctAnswer": "Mg",
+    "explanation": "Dans la classification périodique des éléments, le magnésium a pour symbole chimique Mg.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -2371,22 +2059,70 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-cap-rev-132",
+      "factId": "f-pt-sym-12",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-79",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de la Grèce ?",
+    "options": [
+      "le som kirghiz",
+      "l'euro",
+      "le peso uruguayen",
+      "le tenge"
+    ],
+    "correctAnswer": "l'euro",
+    "explanation": "l'euro est l'unité monétaire officielle en circulation en la Grèce.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-16",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-47",
+    "category": "Geography",
+    "prompt": "Vienne est la capitale de quel pays ?",
+    "options": [
+      "Samoa",
+      "l'Autriche",
+      "la Lituanie",
+      "le Koweït"
+    ],
+    "correctAnswer": "l'Autriche",
+    "explanation": "Vienne est la capitale et le centre institutionnel de l'Autriche.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-rev-10",
       "templateId": "geo-capital-reverse"
     }
   },
   {
-    "id": "cand-factory-job-nyav9w28-239",
+    "id": "cand-factory-job-gyzsjh4u-342",
     "category": "Geography",
-    "prompt": "Quelle est la monnaie officielle de le Guyana ?",
+    "prompt": "Jakarta est la capitale de quel pays ?",
     "options": [
-      "le naira",
-      "le dollar guyanien",
-      "le kwacha zambien",
-      "le tugrik"
+      "la Grèce",
+      "Oman",
+      "la Mongolie",
+      "l'Indonésie"
     ],
-    "correctAnswer": "le dollar guyanien",
-    "explanation": "le dollar guyanien est l'unité monétaire officielle en circulation en le Guyana.",
+    "correctAnswer": "l'Indonésie",
+    "explanation": "Jakarta est la capitale et le centre institutionnel de l'Indonésie.",
     "difficulty": "medium",
     "qualityScore": 1,
     "pools": [
@@ -2395,7 +2131,271 @@
       "competitive"
     ],
     "provenance": {
-      "factId": "f-curr-48",
+      "factId": "f-cap-rev-69",
+      "templateId": "geo-capital-reverse"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-724",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de Bahreïn ?",
+    "options": [
+      "le dinar de Bahreïn",
+      "le dollar de Singapour",
+      "le peso colombien",
+      "le som kirghiz"
+    ],
+    "correctAnswer": "le dinar de Bahreïn",
+    "explanation": "le dinar de Bahreïn est l'unité monétaire officielle en circulation en Bahreïn.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-145",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-363",
+    "category": "Geography",
+    "prompt": "Sur quel continent se situe la Malaisie ?",
+    "options": [
+      "l'Amérique du Nord",
+      "l'Asie",
+      "l'Asie / Europe",
+      "l'Océanie"
+    ],
+    "correctAnswer": "l'Asie",
+    "explanation": "la Malaisie est un territoire situé sur le continent l'Asie.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cont-73",
+      "templateId": "geo-continent"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-728",
+    "category": "Geography",
+    "prompt": "Sur quel continent se situe Oman ?",
+    "options": [
+      "l'Afrique",
+      "l'Europe",
+      "l'Asie",
+      "l'Amérique du Sud"
+    ],
+    "correctAnswer": "l'Asie",
+    "explanation": "Oman est un territoire situé sur le continent l'Asie.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cont-146",
+      "templateId": "geo-continent"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-594",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de le Congo ?",
+    "options": [
+      "le taka",
+      "le tugrik",
+      "le franc CFA",
+      "le dollar fidjien"
+    ],
+    "correctAnswer": "le franc CFA",
+    "explanation": "le franc CFA est l'unité monétaire officielle en circulation en le Congo.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-119",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-823",
+    "category": "Science",
+    "prompt": "Quel élément chimique a pour numéro atomique 44 ?",
+    "options": [
+      "le ruthénium",
+      "l'américium",
+      "le rubidium",
+      "le calcium"
+    ],
+    "correctAnswer": "le ruthénium",
+    "explanation": "L'élément chimique possédant le numéro atomique 44 est le ruthénium.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-num-44",
+      "templateId": "sci-atomic-number"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-800",
+    "category": "Science",
+    "prompt": "Quel est le symbole chimique de l'élément « l'arsenic » ?",
+    "options": [
+      "As",
+      "Cm",
+      "Ba",
+      "Sr"
+    ],
+    "correctAnswer": "As",
+    "explanation": "Dans la classification périodique des éléments, l'arsenic a pour symbole chimique As.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-pt-sym-33",
+      "templateId": "sci-chem-symbol"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-524",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de le Honduras ?",
+    "options": [
+      "la couronne suédoise",
+      "le lempira",
+      "le boliviano",
+      "le balboa"
+    ],
+    "correctAnswer": "le lempira",
+    "explanation": "le lempira est l'unité monétaire officielle en circulation en le Honduras.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-105",
+      "templateId": "geo-currency"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-1129",
+    "category": "Nature",
+    "prompt": "À quelle classe animale appartient la baleine bleue ?",
+    "options": [
+      "reptiles",
+      "amphibiens",
+      "mammifères",
+      "crustacés"
+    ],
+    "correctAnswer": "mammifères",
+    "explanation": "la baleine bleue est classé biologiquement parmi les mammifères.",
+    "difficulty": "easy",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-nat-z-1",
+      "templateId": "nat-class"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-112",
+    "category": "Geography",
+    "prompt": "Sofia est la capitale de quel pays ?",
+    "options": [
+      "le Royaume-Uni",
+      "la Slovaquie",
+      "l'Autriche",
+      "la Bulgarie"
+    ],
+    "correctAnswer": "la Bulgarie",
+    "explanation": "Sofia est la capitale et le centre institutionnel de la Bulgarie.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-cap-rev-23",
+      "templateId": "geo-capital-reverse"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-695",
+    "category": "Geography",
+    "prompt": "Quel est le point culminant de Andorre ?",
+    "options": [
+      "le pic de Coma Pedrosa",
+      "le Jabal ad Dukhan",
+      "le Denali",
+      "le chemin des Révoires"
+    ],
+    "correctAnswer": "le pic de Coma Pedrosa",
+    "explanation": "le pic de Coma Pedrosa constitue le sommet le plus élevé de Andorre.",
+    "difficulty": "hard",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-mount-139",
+      "templateId": "geo-highest-point"
+    }
+  },
+  {
+    "id": "cand-factory-job-gyzsjh4u-124",
+    "category": "Geography",
+    "prompt": "Quelle est la monnaie officielle de l'Albanie ?",
+    "options": [
+      "le manat azerbaïdjanais",
+      "le lek albanais",
+      "le dollar néo-zélandais",
+      "le dollar américain"
+    ],
+    "correctAnswer": "le lek albanais",
+    "explanation": "le lek albanais est l'unité monétaire officielle en circulation en l'Albanie.",
+    "difficulty": "medium",
+    "qualityScore": 1,
+    "pools": [
+      "training",
+      "verified",
+      "competitive"
+    ],
+    "provenance": {
+      "factId": "f-curr-25",
       "templateId": "geo-currency"
     }
   }
