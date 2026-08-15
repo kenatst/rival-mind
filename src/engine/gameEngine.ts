@@ -1,5 +1,6 @@
 import { SEED_QUESTIONS, SeedQuestion } from "./seedData";
 import { calculateEloOutcome } from "./ratingCalculator";
+import { calibrationEngine } from "./calibrationEngine";
 import type { MatchMode, PlayerProfile, Question } from "@/lib/types";
 import { currentUser as defaultUser, rivalOpponent } from "@/data/mock";
 
@@ -12,7 +13,8 @@ export interface ServerQuestionInstance {
   category: string;
   difficulty: string;
   seconds: number;
-  answers: { id: string; label: string }[]; // SANITIZED: No isCorrect!
+  servedAt: number; // Server timestamp in ms
+  answers: { id: string; label: string }[]; // SANITIZED: No isCorrect or ground truth
 }
 
 export interface ServerGameSession {
@@ -28,22 +30,35 @@ export interface ServerGameSession {
   status: "active" | "completed";
 }
 
+export interface RankedRoundInternal {
+  roundNumber: number;
+  fullQuestion: SeedQuestion;
+  questionInstance: ServerQuestionInstance;
+  playerAOptionId?: string | undefined;
+  playerBOptionId?: string | undefined;
+  playerACorrect?: boolean | undefined;
+  playerBCorrect?: boolean | undefined;
+  playerATimeMs?: number | undefined;
+  playerBTimeMs?: number | undefined;
+  answeredAt?: number | undefined;
+}
+
 export interface ServerRankedMatch {
   matchId: string;
   playerA: PlayerProfile;
   playerB: PlayerProfile;
-  rounds: {
-    roundNumber: number;
-    question: ServerQuestionInstance;
-    playerAOptionId?: string | undefined;
-    playerBOptionId?: string | undefined;
-    playerACorrect?: boolean | undefined;
-    playerBCorrect?: boolean | undefined;
-  }[];
+  rounds: RankedRoundInternal[];
   status: "in_progress" | "completed";
   winnerId?: string | undefined;
   playerAScore: number;
   playerBScore: number;
+  playerARatingBefore: number;
+  playerBRatingBefore: number;
+  playerARatingAfter?: number | undefined;
+  playerBRatingAfter?: number | undefined;
+  playerADelta?: number | undefined;
+  playerBDelta?: number | undefined;
+  completedAt?: string | undefined;
 }
 
 export interface QuestionReportRecord {
@@ -58,12 +73,13 @@ export interface QuestionReportRecord {
 
 /**
  * Server-Authoritative Game Engine.
- * In-memory authoritative backend store that enforces anti-cheat and sanitization.
+ * Enforces "The client displays. The server decides."
+ * Protects competitive integrity, secrecy of future questions, authoritative timing, and Elo calculations.
  */
 class AuthoritativeGameEngine {
   private questions: SeedQuestion[] = [...SEED_QUESTIONS];
   private activeSessions: Map<string, ServerGameSession> = new Map();
-  private answeredInstances: Map<string, { selectedOptionId: string; wasCorrect: boolean; responseTimeMs: number }> = new Map();
+  private answeredInstances: Map<string, { selectedOptionId: string; wasCorrect: boolean; serverResponseTimeMs: number; clientTelemetryMs?: number }> = new Map();
   private rankedMatches: Map<string, ServerRankedMatch> = new Map();
   private dailyOfficialResults: Map<string, { userId: string; score: number; completedAt: string }> = new Map();
   private reports: QuestionReportRecord[] = [];
@@ -81,17 +97,16 @@ class AuthoritativeGameEngine {
     const sessionId = "sess-" + Math.random().toString(36).substring(2, 10);
     const limit = mode === "daily" ? 12 : 10;
 
-    // Filter available non-quarantined questions
     let pool = this.questions.filter((q) => !this.quarantinedQuestionIds.has(q.id));
     if (categorySlug) {
       const match = pool.filter((q) => q.category.toLowerCase() === categorySlug.toLowerCase());
       if (match.length > 0) pool = match;
     }
 
-    // Shuffle
     const shuffled = [...pool].sort(() => 0.5 - Math.random()).slice(0, limit);
+    const nowMs = Date.now();
 
-    // Create sanitized instances
+    // Create sanitized instances with authoritative servedAt timestamp
     const instances: ServerQuestionInstance[] = shuffled.map((q, idx) => ({
       instanceId: `inst-${sessionId}-${idx + 1}`,
       questionId: q.id,
@@ -101,7 +116,8 @@ class AuthoritativeGameEngine {
       category: q.category,
       difficulty: q.difficulty,
       seconds: q.seconds,
-      answers: q.answers.map((a) => ({ id: a.id, label: a.label })), // Stripped isCorrect!
+      servedAt: nowMs,
+      answers: q.answers.map((a) => ({ id: a.id, label: a.label })), // Stripped isCorrect
     }));
 
     const session: ServerGameSession = {
@@ -120,8 +136,13 @@ class AuthoritativeGameEngine {
     return session;
   }
 
-  // --- 2. Answer Submission (Authoritative Server Validation) ---
-  public submitAnswer(sessionId: string, instanceId: string, selectedOptionId: string, responseTimeMs: number = 2000) {
+  // --- 2. Answer Submission (Authoritative Server Validation & Timing) ---
+  public submitAnswer(
+    sessionId: string,
+    instanceId: string,
+    selectedOptionId: string,
+    clientTelemetryMs?: number,
+  ) {
     const session = this.activeSessions.get(sessionId);
     if (!session) throw new Error("Game session not found");
 
@@ -135,15 +156,24 @@ class AuthoritativeGameEngine {
     const fullQuestion = this.questions.find((q) => q.id === instance.questionId);
     if (!fullQuestion) throw new Error("Original question definition not found");
 
+    // Authoritative timing: compute server response time
+    const nowMs = Date.now();
+    const serverResponseTimeMs = Math.max(50, nowMs - instance.servedAt);
+
     const correctOption = fullQuestion.answers.find((a) => a.isCorrect);
     const wasCorrect = selectedOptionId === correctOption?.id;
     const scoreAwarded = wasCorrect ? 1 : 0;
-    const xpAwarded = wasCorrect ? 80 + Math.max(0, Math.round((10000 - responseTimeMs) / 1000)) * 8 : 15;
+
+    // Speed bonus XP derived strictly from server timing
+    const xpAwarded = wasCorrect
+      ? 80 + Math.max(0, Math.round((10000 - serverResponseTimeMs) / 1000)) * 8
+      : 15;
 
     this.answeredInstances.set(instanceId, {
       selectedOptionId,
       wasCorrect,
-      responseTimeMs,
+      serverResponseTimeMs,
+      clientTelemetryMs,
     });
 
     session.totalScore += scoreAwarded;
@@ -164,22 +194,36 @@ class AuthoritativeGameEngine {
       explanation: fullQuestion.explanation,
       scoreAwarded,
       xpAwarded,
+      serverResponseTimeMs,
       totalSessionScore: session.totalScore,
     };
   }
 
-  // --- 3. Ranked Matchmaking & Bot Duel Staging ---
-  public startRankedMatch(userId: string = defaultUser.id): ServerRankedMatch {
+  // --- 3. Ranked Matchmaking (Round-by-Round Delivery & Server Scoring) ---
+
+  /**
+   * Starts a ranked match. Returns match metadata ONLY.
+   * Future round questions are withheld on the server until requested sequentially.
+   */
+  public startRankedMatch(userId: string = defaultUser.id): {
+    matchId: string;
+    playerA: PlayerProfile;
+    playerB: PlayerProfile;
+    totalRounds: number;
+    initialRoundQuestion: ServerQuestionInstance;
+  } {
     const matchId = "match-" + Math.random().toString(36).substring(2, 10);
-    const playerA = this.playerProfiles.get(userId) || { ...defaultUser };
-    const playerB = { ...rivalOpponent };
+    const playerA = this.playerProfiles.get(userId) || { ...defaultUser, id: userId };
+    const playerB = typeof opponent === "object" && opponent !== null ? opponent : { ...rivalOpponent };
 
     const pool = this.questions.filter((q) => !this.quarantinedQuestionIds.has(q.id));
     const shuffled = [...pool].sort(() => 0.5 - Math.random()).slice(0, 8);
+    const nowMs = Date.now();
 
-    const rounds = shuffled.map((q, idx) => ({
+    const rounds: RankedRoundInternal[] = shuffled.map((q, idx) => ({
       roundNumber: idx + 1,
-      question: {
+      fullQuestion: q,
+      questionInstance: {
         instanceId: `inst-${matchId}-${idx + 1}`,
         questionId: q.id,
         version: 1,
@@ -188,7 +232,8 @@ class AuthoritativeGameEngine {
         category: q.category,
         difficulty: q.difficulty,
         seconds: q.seconds,
-        answers: q.answers.map((a) => ({ id: a.id, label: a.label })),
+        servedAt: idx === 0 ? nowMs : 0, // only set for first round initially
+        answers: q.answers.map((a) => ({ id: a.id, label: a.label })), // sanitized
       },
     }));
 
@@ -200,58 +245,252 @@ class AuthoritativeGameEngine {
       status: "in_progress",
       playerAScore: 0,
       playerBScore: 0,
+      playerARatingBefore: playerA.elo,
+      playerBRatingBefore: playerB.elo,
     };
 
     this.rankedMatches.set(matchId, match);
-    return match;
+
+    return {
+      matchId,
+      playerA,
+      playerB,
+      totalRounds: rounds.length,
+      initialRoundQuestion: rounds[0]!.questionInstance,
+    };
   }
 
-  public completeRankedMatch(matchId: string, playerAScore: number, playerBScore: number) {
+  /**
+   * Retrieves the question for a specific round.
+   * Sets the authoritative servedAt timestamp for that round.
+   */
+  public getRankedRoundQuestion(matchId: string, roundNumber: number, callerUserId: string = defaultUser.id): ServerQuestionInstance {
     const match = this.rankedMatches.get(matchId);
     if (!match) throw new Error("Ranked match not found");
 
-    if (match.status === "completed") {
-      throw new Error("Match already completed");
+    if (callerUserId !== match.playerA.id && callerUserId !== match.playerB.id) {
+      throw new Error("Unauthorized: Caller is not a participant in this match");
     }
 
+    if (match.status !== "in_progress") {
+      throw new Error("Match is no longer in progress");
+    }
+
+    const roundIndex = roundNumber - 1;
+    if (roundIndex < 0 || roundIndex >= match.rounds.length) {
+      throw new Error(`Invalid round number: ${roundNumber}`);
+    }
+
+    // Ensure previous round was answered before requesting next
+    if (roundIndex > 0) {
+      const prevRound = match.rounds[roundIndex - 1]!;
+      if (prevRound.playerACorrect === undefined) {
+        throw new Error(`Cannot skip ahead to round ${roundNumber} before completing round ${roundNumber - 1}`);
+      }
+    }
+
+    const round = match.rounds[roundIndex]!;
+    round.questionInstance.servedAt = Date.now();
+
+    return round.questionInstance;
+  }
+
+  /**
+   * Submits player answer for a specific ranked round.
+   * Authoritatively evaluates correctness, records scores, and simulates fair opponent response.
+   */
+  public submitRankedRound(
+    matchId: string,
+    roundNumber: number,
+    callerUserId: string = defaultUser.id,
+    selectedOptionId: string,
+    clientTelemetryMs?: number,
+  ) {
+    const match = this.rankedMatches.get(matchId);
+    if (!match) throw new Error("Ranked match not found");
+
+    if (callerUserId !== match.playerA.id && callerUserId !== match.playerB.id) {
+      throw new Error("Unauthorized: Caller is not a participant in this match");
+    }
+
+    if (match.status !== "in_progress") {
+      throw new Error("Match is no longer in progress");
+    }
+
+    const roundIndex = roundNumber - 1;
+    const round = match.rounds[roundIndex];
+    if (!round) throw new Error(`Round ${roundNumber} not found in match`);
+
+    if (round.playerACorrect !== undefined) {
+      throw new Error(`Round ${roundNumber} has already been answered`);
+    }
+
+    const nowMs = Date.now();
+    const serverTimeMs = Math.max(50, nowMs - (round.questionInstance.servedAt || nowMs - 2000));
+
+    const correctOption = round.fullQuestion.answers.find((a) => a.isCorrect);
+    const youCorrect = selectedOptionId === correctOption?.id;
+
+    // Simulate opponent (~66% baseline accuracy, independent of user input)
+    const theyCorrect = (roundNumber + 1) % 3 !== 0;
+
+    round.playerAOptionId = selectedOptionId;
+    round.playerACorrect = youCorrect;
+    round.playerATimeMs = serverTimeMs;
+    round.playerBCorrect = theyCorrect;
+    round.answeredAt = nowMs;
+
+    if (youCorrect) match.playerAScore += 1;
+    if (theyCorrect) match.playerBScore += 1;
+
+    const isLastRound = roundNumber === match.rounds.length;
+
+    return {
+      matchId,
+      roundNumber,
+      wasCorrect: youCorrect,
+      correctOptionId: correctOption?.id,
+      explanation: round.fullQuestion.explanation,
+      playerAScore: match.playerAScore,
+      playerBScore: match.playerBScore,
+      serverResponseTimeMs: serverTimeMs,
+      telemetryMs: clientTelemetryMs,
+      isLastRound,
+    };
+  }
+
+  /**
+   * Authoritatively completes a ranked match.
+   * SECURITY: Does NOT accept client-provided scores! Derives outcome from server-recorded rounds.
+   */
+  public completeRankedMatch(matchId: string, callerUserId: string = defaultUser.id) {
+    const match = this.rankedMatches.get(matchId);
+    if (!match) throw new Error("Ranked match not found");
+
+    // Caller must be a participant
+    if (callerUserId !== match.playerA.id && callerUserId !== match.playerB.id) {
+      throw new Error("Unauthorized: Caller is not a participant in this match");
+    }
+
+    // IDEMPOTENCY: If already completed, return existing outcome without applying double rating deltas
+    if (match.status === "completed") {
+      return {
+        matchId,
+        status: "completed",
+        winnerId: match.winnerId,
+        playerAScore: match.playerAScore,
+        playerBScore: match.playerBScore,
+        playerARatingAfter: match.playerARatingAfter,
+        playerBRatingAfter: match.playerBRatingAfter,
+        playerADelta: match.playerADelta,
+        playerBDelta: match.playerBDelta,
+        updatedProfile: match.playerA,
+        isIdempotentReplay: true,
+      };
+    }
+
+    // Verify all rounds have been completed
+    const uncompletedRound = match.rounds.find((r) => r.playerACorrect === undefined);
+    if (uncompletedRound) {
+      throw new Error(`Cannot complete match: Round ${uncompletedRound.roundNumber} is still pending.`);
+    }
+
+    // Derive authoritative scores strictly from server round evaluations
+    const serverPlayerAScore = match.rounds.filter((r) => r.playerACorrect === true).length;
+    const serverPlayerBScore = match.rounds.filter((r) => r.playerBCorrect === true).length;
+
     const outcome = calculateEloOutcome(
-      match.playerA.elo,
-      match.playerB.elo,
-      playerAScore,
-      playerBScore,
+      match.playerARatingBefore,
+      match.playerBRatingBefore,
+      serverPlayerAScore,
+      serverPlayerBScore,
     );
 
-    // Apply rating changes
+    match.playerARatingAfter = outcome.playerARatingAfter;
+    match.playerBRatingAfter = outcome.playerBRatingAfter;
+    match.playerADelta = outcome.playerADelta;
+    match.playerBDelta = outcome.playerBDelta;
+
+    // Apply rating updates atomically
     match.playerA.elo = outcome.playerARatingAfter;
     match.playerA.peakElo = Math.max(match.playerA.peakElo, outcome.playerARatingAfter);
     match.playerA.battles += 1;
-    if (playerAScore > playerBScore) {
+
+    if (serverPlayerAScore > serverPlayerBScore) {
       match.playerA.wins += 1;
       match.playerA.streak += 1;
       match.winnerId = match.playerA.id;
-    } else {
+    } else if (serverPlayerAScore < serverPlayerBScore) {
       match.playerA.streak = 0;
       match.winnerId = match.playerB.id;
+    } else {
+      match.winnerId = undefined; // Draw
     }
+
     match.playerA.worldRank = Math.max(1, Math.round(28000 - match.playerA.elo * 5.8));
     match.playerA.countryRank = Math.max(1, Math.round(1100 - match.playerA.elo * 0.23));
     match.playerA.accuracy = Math.round((match.playerA.wins / match.playerA.battles) * 100);
 
-    match.playerAScore = playerAScore;
-    match.playerBScore = playerBScore;
+    match.playerAScore = serverPlayerAScore;
+    match.playerBScore = serverPlayerBScore;
     match.status = "completed";
+    match.completedAt = new Date().toISOString();
 
     return {
       matchId,
+      status: "completed",
       winnerId: match.winnerId,
-      playerAScore,
-      playerBScore,
+      playerAScore: serverPlayerAScore,
+      playerBScore: serverPlayerBScore,
+      playerARatingAfter: outcome.playerARatingAfter,
+      playerBRatingAfter: outcome.playerBRatingAfter,
+      playerADelta: outcome.playerADelta,
+      playerBDelta: outcome.playerBDelta,
       outcome,
       updatedProfile: match.playerA,
+      isIdempotentReplay: false,
     };
   }
 
-  // --- 4. Daily Challenge Submission (One Official Result Constraint) ---
+  // --- 4. Guest Calibration & Claim System ---
+  public completeGuestQuizAndGetCalibrationToken(guestSessionId: string): { token: string; provisionalRating: number } {
+    const session = this.activeSessions.get(guestSessionId);
+    const score = session ? session.totalScore : 7;
+    return calibrationEngine.createCalibration(guestSessionId, score, 10);
+  }
+
+  public registerUserWithCalibrationClaim(
+    userId: string,
+    username: string,
+    calibrationToken?: string,
+  ): PlayerProfile {
+    let startingRating = 1200;
+
+    if (calibrationToken) {
+      const claim = calibrationEngine.claimCalibration(calibrationToken);
+      if (claim.valid) {
+        startingRating = claim.provisionalRating;
+      }
+    }
+
+    const newProfile: PlayerProfile = {
+      ...defaultUser,
+      id: userId,
+      username: username.toUpperCase(),
+      elo: startingRating,
+      peakElo: startingRating,
+      battles: 0,
+      wins: 0,
+      streak: 0,
+      worldRank: Math.max(1, Math.round(28000 - startingRating * 5.8)),
+      countryRank: Math.max(1, Math.round(1100 - startingRating * 0.23)),
+    };
+
+    this.playerProfiles.set(userId, newProfile);
+    return newProfile;
+  }
+
+  // --- 5. Daily Challenge Submission (One Official Result Constraint) ---
   public submitDailyChallenge(challengeDate: string, userId: string, score: number) {
     const key = `${challengeDate}-${userId}`;
     if (this.dailyOfficialResults.has(key)) {
@@ -286,7 +525,7 @@ class AuthoritativeGameEngine {
     };
   }
 
-  // --- 5. Question Reporting ---
+  // --- 6. Question Reporting ---
   public reportQuestion(questionVariantId: string, userId: string = defaultUser.id, reason: string, details?: string) {
     const report: QuestionReportRecord = {
       reportId: "rep-" + Math.random().toString(36).substring(2, 10),
@@ -305,7 +544,7 @@ class AuthoritativeGameEngine {
     return this.reports;
   }
 
-  // --- 6. Admin Quarantine & Question Center ---
+  // --- 7. Admin Quarantine & Question Center ---
   public getQuestionsForAdmin(statusFilter?: string, search?: string): SeedQuestion[] {
     return this.questions.filter((q) => {
       const isQuarantined = this.quarantinedQuestionIds.has(q.id);
@@ -343,7 +582,23 @@ class AuthoritativeGameEngine {
     return this.questions[index];
   }
 
-  // --- 7. Profile Get/Update ---
+  // --- 8. Question Bank Extension for Factory ---
+  public registerFactoryQuestions(newQuestions: SeedQuestion[]) {
+    for (const q of newQuestions) {
+      const existingIdx = this.questions.findIndex((existing) => existing.id === q.id);
+      if (existingIdx >= 0) {
+        this.questions[existingIdx] = q;
+      } else {
+        this.questions.push(q);
+      }
+    }
+  }
+
+  public getQuestionCount(): number {
+    return this.questions.length;
+  }
+
+  // --- 9. Profile Get/Update ---
   public getProfile(userId: string = defaultUser.id): PlayerProfile {
     return this.playerProfiles.get(userId) || { ...defaultUser };
   }

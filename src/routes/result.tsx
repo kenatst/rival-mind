@@ -8,6 +8,8 @@ import { fmt, useCountUp } from "@/lib/game";
 import { authService } from "@/services/authService";
 import { Sparkles, ArrowRight, Shield } from "lucide-react";
 
+import { calibrationEngine } from "@/engine/calibrationEngine";
+
 export const Route = createFileRoute("/result")({
   head: () => ({
     meta: [
@@ -27,7 +29,13 @@ function PostGame() {
   const navigate = useNavigate();
   const { score, total } = getLastRun();
   const percentile = Math.min(99, 45 + score * 5);
-  const elo = 820 + score * 38;
+  
+  // Authoritative calibration calculation and token issuance
+  const [calibration] = React.useState(() =>
+    calibrationEngine.createCalibration("guest-session", score, total),
+  );
+  
+  const elo = calibration.provisionalRating;
   const worldRank = Math.max(5000, 1_400_000 - score * 110_000);
   const eloShown = useCountUp(elo, 1400, 0);
 
@@ -110,7 +118,8 @@ function PostGame() {
           setIsAuthOpen(false);
           navigate({ to: "/home" });
         }}
-        estimatedElo={elo}
+        calibrationToken={calibration.token}
+        provisionalRatingDisplay={calibration.provisionalRating}
       />
     </div>
   );

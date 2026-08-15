@@ -6,11 +6,13 @@ import { Sparkles, Mail, Lock, User as UserIcon, Check } from "lucide-react";
 export function AuthModal({
   open,
   onClose,
-  estimatedElo,
+  calibrationToken,
+  provisionalRatingDisplay,
 }: {
   open: boolean;
   onClose: () => void;
-  estimatedElo?: number;
+  calibrationToken?: string | undefined;
+  provisionalRatingDisplay?: number | undefined;
 }) {
   const [mode, setMode] = React.useState<"signup" | "signin">("signup");
   const [username, setUsername] = React.useState("");
@@ -28,8 +30,8 @@ export function AuthModal({
     try {
       if (mode === "signup") {
         if (!username) throw new Error("Please enter a username.");
-        if (estimatedElo) {
-          await authService.claimRankAndRegister(email, password, username, estimatedElo);
+        if (calibrationToken) {
+          await authService.claimRankAndRegister(email, password, username, calibrationToken);
         } else {
           await authService.signUpWithEmail(email, password, username);
         }
@@ -67,10 +69,10 @@ export function AuthModal({
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4 text-xs">
-          {estimatedElo && mode === "signup" && (
+          {provisionalRatingDisplay && mode === "signup" && (
             <div className="rounded-xl border border-gold/40 bg-gold/10 p-3 text-center">
-              <div className="label-xs text-gold font-bold">Calibration Rating</div>
-              <div className="numeric text-2xl text-gold font-black mt-0.5">{estimatedElo} ELO</div>
+              <div className="label-xs text-gold font-bold">Server Verified Calibration Rating</div>
+              <div className="numeric text-2xl text-gold font-black mt-0.5">{provisionalRatingDisplay} ELO</div>
             </div>
           )}
 

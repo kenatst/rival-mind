@@ -10,6 +10,11 @@
     "preview": "vite preview",
     "test": "bun test",
     "seed": "bun run src/engine/seed.ts",
+    "factory:ingest": "bun run src/factory/cli.ts ingest",
+    "factory:generate": "bun run src/factory/cli.ts generate",
+    "factory:validate": "bun run src/factory/cli.ts validate",
+    "factory:publish": "bun run src/factory/cli.ts publish",
+    "factory:run": "bun run src/factory/cli.ts run",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

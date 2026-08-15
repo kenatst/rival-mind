@@ -5,7 +5,7 @@ import { Avatar } from "@/components/kit/badges";
 import { playCue, useCountdown } from "@/lib/game";
 import { setLastMatch } from "@/lib/session";
 import { gameService } from "@/lib/gameService";
-import { authoritativeGameEngine } from "@/engine/gameEngine";
+import { authoritativeGameEngine, ServerQuestionInstance } from "@/engine/gameEngine";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/match")({
@@ -26,12 +26,15 @@ function RankedMatch() {
   const navigate = useNavigate();
   const [profile] = React.useState(() => gameService.getUserProfile());
 
-  // Initialize authoritative ranked match on server
+  // Initialize authoritative ranked match on server (returns Round 1 question ONLY)
   const [serverMatch] = React.useState(() =>
     authoritativeGameEngine.startRankedMatch(profile.id),
   );
 
   const [round, setRound] = React.useState(0);
+  const [currentQuestion, setCurrentQuestion] = React.useState<ServerQuestionInstance>(
+    serverMatch.initialRoundQuestion,
+  );
   const [picked, setPicked] = React.useState<string | null>(null);
   const [revealedCorrectId, setRevealedCorrectId] = React.useState<string | null>(null);
   const [scores, setScores] = React.useState({ you: 0, them: 0 });
@@ -39,12 +42,10 @@ function RankedMatch() {
   const [opponentLocked, setOpponentLocked] = React.useState(false);
   const [banner, setBanner] = React.useState<"won" | "lost" | null>(null);
 
-  const rounds = serverMatch.rounds;
-  const currentRound = rounds[round]!;
-  const question = currentRound.question;
+  const totalRounds = serverMatch.totalRounds;
   const isAnswering = stage === "answering";
 
-  const { left, urgent, reset } = useCountdown(question.seconds, isAnswering, () => {
+  const { left, urgent, reset } = useCountdown(currentQuestion.seconds, isAnswering, () => {
     if (stage === "answering") {
       handleSelectAnswer("timeout");
     }
@@ -61,14 +62,14 @@ function RankedMatch() {
       else if (key === "3" || key === "C") selectedIdx = 2;
       else if (key === "4" || key === "D") selectedIdx = 3;
 
-      if (selectedIdx >= 0 && selectedIdx < question.answers.length) {
-        handleSelectAnswer(question.answers[selectedIdx]!.id);
+      if (selectedIdx >= 0 && selectedIdx < currentQuestion.answers.length) {
+        handleSelectAnswer(currentQuestion.answers[selectedIdx]!.id);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [stage, question]);
+  }, [stage, currentQuestion]);
 
   // Opponent simulated behavior
   React.useEffect(() => {
@@ -88,36 +89,39 @@ function RankedMatch() {
 
     // Suspense Beat: 600ms pause before simultaneous reveal
     setTimeout(() => {
-      // Find ground truth answer from server engine
-      const fullQ = authoritativeGameEngine.getQuestionsForAdmin().find((q) => q.id === question.questionId);
-      const correctOpt = fullQ?.answers.find((a) => a.isCorrect);
-      const youCorrect = chosen === correctOpt?.id;
-      const theyCorrect = (round + 1) % 3 !== 0; // opponent ~66% accuracy
+      // Authoritative round submission (server evaluates correctness, scores, timing)
+      const clientTelemetryMs = (10 - left) * 1000;
+      const roundResult = authoritativeGameEngine.submitRankedRound(
+        serverMatch.matchId,
+        round + 1,
+        profile.id,
+        chosen,
+        clientTelemetryMs,
+      );
 
-      setRevealedCorrectId(correctOpt?.id || null);
+      setRevealedCorrectId(roundResult.correctOptionId || null);
       setStage("revealed");
-      playCue(youCorrect ? "answer-correct" : "answer-wrong");
+      playCue(roundResult.wasCorrect ? "answer-correct" : "answer-wrong");
 
       const newScores = {
-        you: scores.you + (youCorrect ? 1 : 0),
-        them: scores.them + (theyCorrect ? 1 : 0),
+        you: roundResult.playerAScore,
+        them: roundResult.playerBScore,
       };
       setScores(newScores);
 
-      if (youCorrect && !theyCorrect) {
+      if (roundResult.wasCorrect && scores.them === roundResult.playerBScore) {
         setBanner("won");
-      } else if (!youCorrect && theyCorrect) {
+      } else if (!roundResult.wasCorrect && scores.them < roundResult.playerBScore) {
         setBanner("lost");
       }
 
       // Next round transition
       setTimeout(() => {
-        if (round === rounds.length - 1) {
-          // Authoritatively complete match on server
-          const matchResult = authoritativeGameEngine.completeRankedMatch(
+        if (roundResult.isLastRound) {
+          // Authoritatively complete match on server (Caller ID only, no client score injection!)
+          authoritativeGameEngine.completeRankedMatch(
             serverMatch.matchId,
-            newScores.you,
-            newScores.them,
+            profile.id,
           );
 
           setLastMatch({
@@ -128,6 +132,16 @@ function RankedMatch() {
           navigate({ to: "/match-result" });
           return;
         }
+
+        const nextRoundNumber = round + 2;
+        // Server fetches strictly the next round question
+        const nextQ = authoritativeGameEngine.getRankedRoundQuestion(
+          serverMatch.matchId,
+          nextRoundNumber,
+          profile.id,
+        );
+
+        setCurrentQuestion(nextQ);
         setRound((r) => r + 1);
         setPicked(null);
         setRevealedCorrectId(null);
@@ -163,7 +177,7 @@ function RankedMatch() {
             </div>
           </div>
           <div className="label-xs text-center text-muted-foreground font-mono font-bold">
-            Round {round + 1}/{rounds.length}
+            Round {round + 1}/{totalRounds}
           </div>
           <div className="flex min-w-0 flex-row-reverse items-center gap-2 text-right">
             <Avatar initials={serverMatch.playerB.initials} color={serverMatch.playerB.avatarColor} size={36} />
@@ -179,11 +193,11 @@ function RankedMatch() {
       <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-8 sm:px-6 justify-between">
         <div className="flex flex-col items-center gap-4 py-4 text-center sm:py-6">
           <span className="label-xs rounded-full border border-border bg-surface px-3.5 py-1 text-primary font-black">
-            {question.category}
+            {currentQuestion.category}
           </span>
-          <Timer seconds={left} total={question.seconds} urgent={urgent && isAnswering} />
+          <Timer seconds={left} total={currentQuestion.seconds} urgent={urgent && isAnswering} />
           <h1 className="display max-w-2xl text-balance text-2xl sm:text-4xl text-foreground font-black">
-            {question.prompt}
+            {currentQuestion.prompt}
           </h1>
 
           {/* Staged Tension Indicator */}
@@ -208,7 +222,7 @@ function RankedMatch() {
 
         {/* 4 Answers Grid */}
         <div className="grid gap-3 sm:grid-cols-2 pt-2">
-          {question.answers.map((a, i) => (
+          {currentQuestion.answers.map((a, i) => (
             <AnswerCard
               key={a.id}
               answer={a}

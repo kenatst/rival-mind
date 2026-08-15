@@ -165,18 +165,16 @@ class AuthService {
   }
 
   /**
-   * Guest ➔ Account Conversion: Transfers calibration score and rank to newly created account.
+   * Guest ➔ Account Conversion: Validates server calibration token and transfers authoritative provisional rating.
    */
-  public async claimRankAndRegister(email: string, pass: string, username: string, estimatedElo: number) {
+  public async claimRankAndRegister(email: string, pass: string, username: string, calibrationToken?: string) {
     const res = await this.signUpWithEmail(email, pass, username);
-    // Update authoritative rating from guest calibration
-    authoritativeGameEngine.updateProfile(this.currentProfile.id, {
-      elo: estimatedElo,
-      peakElo: estimatedElo,
-      username: username.toUpperCase(),
-    });
-    this.currentProfile.elo = estimatedElo;
-    this.currentProfile.username = username.toUpperCase();
+    const updated = authoritativeGameEngine.registerUserWithCalibrationClaim(
+      this.currentProfile.id,
+      username,
+      calibrationToken,
+    );
+    this.currentProfile = updated;
     this.notify();
     return res;
   }
