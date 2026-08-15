@@ -26,6 +26,7 @@ import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ResultRouteImport } from './routes/result'
 import { Route as AdminQuestionsRouteImport } from './routes/admin/questions'
+import { Route as ModesModeSlugRouteImport } from './routes/modes/$modeSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -112,6 +113,11 @@ const AdminQuestionsRoute = AdminQuestionsRouteImport.update({
   path: '/admin/questions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ModesModeSlugRoute = ModesModeSlugRouteImport.update({
+  id: '/modes/$modeSlug',
+  path: '/modes/$modeSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
   '/admin/questions': typeof AdminQuestionsRoute
+  '/modes/$modeSlug': typeof ModesModeSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
   '/admin/questions': typeof AdminQuestionsRoute
+  '/modes/$modeSlug': typeof ModesModeSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +178,7 @@ export interface FileRoutesById {
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
   '/admin/questions': typeof AdminQuestionsRoute
+  '/modes/$modeSlug': typeof ModesModeSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,6 +200,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/result'
     | '/admin/questions'
+    | '/modes/$modeSlug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/result'
     | '/admin/questions'
+    | '/modes/$modeSlug'
   id:
     | '__root__'
     | '/'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/result'
     | '/admin/questions'
+    | '/modes/$modeSlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -249,6 +261,7 @@ export interface RootRouteChildren {
   RankingsRoute: typeof RankingsRoute
   ResultRoute: typeof ResultRoute
   AdminQuestionsRoute: typeof AdminQuestionsRoute
+  ModesModeSlugRoute: typeof ModesModeSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -372,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminQuestionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/modes/$modeSlug': {
+      id: '/modes/$modeSlug'
+      path: '/modes/$modeSlug'
+      fullPath: '/modes/$modeSlug'
+      preLoaderRoute: typeof ModesModeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -393,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   RankingsRoute: RankingsRoute,
   ResultRoute: ResultRoute,
   AdminQuestionsRoute: AdminQuestionsRoute,
+  ModesModeSlugRoute: ModesModeSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

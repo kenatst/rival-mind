@@ -1,20 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import * as React from "react";
 import { Page } from "@/components/AppShell";
-import { Button, Panel, ProgressBar, Modal } from "@/components/kit/primitives";
+import { Button, Panel, ProgressBar, Modal, Tabs } from "@/components/kit/primitives";
 import { Avatar, DivisionBadge } from "@/components/kit/badges";
 import { StatTile } from "@/components/kit/game";
 import { divisionForElo, fmt } from "@/lib/game";
 import { gameService } from "@/lib/gameService";
-import { Flame, Share2, Trophy, Copy, Check, Zap, ShieldAlert } from "lucide-react";
+import { recordsEngine } from "@/engine/recordsEngine";
+import {
+  Flame,
+  Share2,
+  Trophy,
+  Copy,
+  Check,
+  Zap,
+  ShieldAlert,
+  Target,
+  TrendingUp,
+  Building2,
+  Sparkles,
+  Keyboard,
+  Compass,
+} from "lucide-react";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: "Player Profile — IQ ARENA" },
-      { name: "description", content: "Your competitive record, division history, accuracy and unlocked achievements." },
-      { property: "og:title", content: "Player Profile — IQ ARENA" },
-      { property: "og:description", content: "Track your competitive knowledge career." },
+      { title: "Player Profile & Career Records — IQ ARENA" },
+      {
+        name: "description",
+        content: "Track your competitive records, game skill indicators, division history, and career personal bests.",
+      },
     ],
   }),
   component: ProfileScreen,
@@ -24,6 +40,9 @@ function ProfileScreen() {
   const [profile, setProfile] = React.useState(() => gameService.getUserProfile());
   const [isShareModalOpen, setIsShareModalOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
+
+  const records = recordsEngine.getPlayerModeRecords(profile.id);
+  const skills = recordsEngine.getPlayerSkillDimensions(profile.id);
 
   React.useEffect(() => {
     return gameService.subscribe(() => {
@@ -39,8 +58,12 @@ function ProfileScreen() {
   };
 
   return (
-    <Page title="Player Profile" subtitle="Your competitive stats, division milestones and unlocked achievements." wide>
-      {/* Gamer Identity Card */}
+    <Page
+      title="Player Profile & Records"
+      subtitle="Your competitive career, personal best records, and game skill indicators."
+      wide
+    >
+      {/* 1. Gamer Identity Card */}
       <Panel glow className="mb-6 p-6 sm:p-8 shadow-[var(--shadow-glow)]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6">
           <div className="flex min-w-0 items-center gap-5">
@@ -81,112 +104,146 @@ function ProfileScreen() {
         </div>
       </Panel>
 
-      {/* 4 Key Career Metrics */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-6">
-        <StatTile label="Accuracy" value={`${profile.accuracy}%`} accent="primary" />
-        <StatTile label="Battles Played" value={fmt(profile.battles)} />
-        <StatTile label="Wins" value={fmt(profile.wins)} accent="gold" />
-        <StatTile label="Win Rate" value={`${Math.round((profile.wins / profile.battles) * 100)}%`} accent="accent" />
-      </div>
-
-      {/* Strong vs Weak Categories */}
-      <div className="grid gap-4 md:grid-cols-2 mb-6">
-        <Panel className="p-5 space-y-3 border-success/30">
-          <div className="label-xs flex items-center gap-2 text-success font-black">
-            <Zap size={15} /> Strong Categories (Powerhouses)
-          </div>
-          <div className="space-y-2.5">
-            {profile.strongCategories.map((c) => (
-              <div key={c.category}>
-                <div className="label-xs mb-1 flex justify-between text-muted-foreground font-bold">
-                  <span className="text-foreground">{c.category}</span>
-                  <span className="text-success">{c.score}% Score {c.mmr && `· MMR ${c.mmr}`}</span>
-                </div>
-                <ProgressBar value={c.score / 100} color="var(--success)" height={6} />
-              </div>
-            ))}
-          </div>
-        </Panel>
-
-        <Panel className="p-5 space-y-3 border-danger/30">
-          <div className="label-xs flex items-center gap-2 text-danger font-black">
-            <ShieldAlert size={15} /> Growth Opportunities
-          </div>
-          <div className="space-y-2.5">
-            {profile.weakCategories.map((c) => (
-              <div key={c.category}>
-                <div className="label-xs mb-1 flex justify-between text-muted-foreground font-bold">
-                  <span className="text-foreground">{c.category}</span>
-                  <span className="text-danger">{c.score}% Score {c.mmr && `· MMR ${c.mmr}`}</span>
-                </div>
-                <ProgressBar value={c.score / 100} color="var(--danger)" height={6} />
-              </div>
-            ))}
-          </div>
-        </Panel>
-      </div>
-
-      {/* Achievements Showcase */}
-      <Panel className="p-5">
-        <div className="label-xs flex items-center justify-between text-gold font-black mb-4">
-          <span className="flex items-center gap-2">
-            <Trophy size={16} /> Showcase Achievements
-          </span>
-          <span className="text-muted-foreground font-mono">4 / 6 Unlocked</span>
+      {/* 2. Game Performance Skill Indicators (Game performance only, non-medical) */}
+      <div className="mb-6 space-y-3">
+        <div className="label-xs text-muted-foreground font-black uppercase tracking-wider flex items-center justify-between">
+          <span>Game Skill Indicators (Game Telemetry)</span>
+          <span className="text-xs font-mono font-normal">Derived from in-game response data</span>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {profile.achievements.map((ach) => (
-            <div
-              key={ach.id}
-              className={`flex items-start gap-3 rounded-xl border p-3.5 transition-colors ${
-                ach.unlocked
-                  ? "border-border bg-surface-2/60"
-                  : "border-border/40 bg-surface/30 opacity-50"
-              }`}
-            >
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-surface border border-border text-xl">
-                {ach.icon}
-              </div>
-              <div className="min-w-0">
-                <div className="display text-base font-bold">{ach.label}</div>
-                <p className="text-xs text-muted-foreground mt-0.5">{ach.description}</p>
-                {ach.unlocked && (
-                  <span className="label-xs text-primary font-bold mt-1 inline-block">
-                    ✓ Unlocked
-                  </span>
-                )}
-              </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <Panel className="p-4 text-center space-y-1 border-primary/30">
+            <div className="label-xs text-primary font-bold flex items-center justify-center gap-1">
+              <Zap size={13} /> Speed
             </div>
-          ))}
+            <div className="numeric text-3xl font-black text-foreground">{skills.speed} / 100</div>
+            <div className="text-xs text-muted-foreground">Rapid response efficiency</div>
+          </Panel>
+
+          <Panel className="p-4 text-center space-y-1 border-gold/30">
+            <div className="label-xs text-gold font-bold flex items-center justify-center gap-1">
+              <Keyboard size={13} /> Recall
+            </div>
+            <div className="numeric text-3xl font-black text-foreground">{skills.recall} / 100</div>
+            <div className="text-xs text-muted-foreground">Free Answer accuracy</div>
+          </Panel>
+
+          <Panel className="p-4 text-center space-y-1 border-accent/30">
+            <div className="label-xs text-accent font-bold flex items-center justify-center gap-1">
+              <Target size={13} /> Precision
+            </div>
+            <div className="numeric text-3xl font-black text-foreground">{skills.precision} / 100</div>
+            <div className="text-xs text-muted-foreground">Low error rate</div>
+          </Panel>
+
+          <Panel className="p-4 text-center space-y-1 border-border">
+            <div className="label-xs text-muted-foreground font-bold flex items-center justify-center gap-1">
+              <Compass size={13} /> Knowledge
+            </div>
+            <div className="numeric text-3xl font-black text-foreground">{skills.knowledge} / 100</div>
+            <div className="text-xs text-muted-foreground">High-difficulty mastery</div>
+          </Panel>
         </div>
-      </Panel>
+      </div>
+
+      {/* 3. Personal Best Career Mode Records */}
+      <div className="mb-6 space-y-3">
+        <div className="label-xs text-muted-foreground font-black uppercase tracking-wider flex items-center gap-1.5">
+          <Trophy size={14} className="text-gold" /> Personal Bests & Mode Records
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-primary font-bold flex items-center gap-1">
+              <Flame size={13} /> 60s Lightning PB
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">{records.lightningPB} correct</div>
+            <div className="text-xs text-muted-foreground font-mono">Rank #841 France</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-accent font-bold flex items-center gap-1">
+              <Zap size={13} /> 5s Blitz PB
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">{records.blitzPB} pts</div>
+            <div className="text-xs text-muted-foreground font-mono">10/10 in 41s</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-gold font-bold flex items-center gap-1">
+              <Flame size={13} /> All-Time Streak PB
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">{records.streakPB} in a row</div>
+            <div className="text-xs text-muted-foreground font-mono">Survival run</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-muted-foreground font-bold flex items-center gap-1">
+              <TrendingUp size={13} /> Ladder Best
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">Stage {records.ladderBestLevel} / 10</div>
+            <div className="text-xs text-muted-foreground font-mono">Top 8.2% World</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-primary font-bold flex items-center gap-1">
+              <Building2 size={13} /> History Tower
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">Floor {records.historyTowerFloor}</div>
+            <div className="text-xs text-muted-foreground font-mono">7 Bosses defeated</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-accent font-bold flex items-center gap-1">
+              <Building2 size={13} /> Geography Tower
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">Floor {records.geographyTowerFloor}</div>
+            <div className="text-xs text-muted-foreground font-mono">5 Bosses defeated</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-gold font-bold flex items-center gap-1">
+              <Sparkles size={13} /> Daily Gem Streak
+            </div>
+            <div className="numeric text-2xl font-black text-foreground">{records.dailyGemStreak} days</div>
+            <div className="text-xs text-muted-foreground font-mono">Active streak</div>
+          </Panel>
+
+          <Panel className="p-4 space-y-1">
+            <div className="label-xs text-muted-foreground font-bold flex items-center gap-1">
+              <Trophy size={13} /> Weekend Cup
+            </div>
+            <div className="numeric text-lg font-black text-foreground truncate">{records.weekendCupBest}</div>
+            <div className="text-xs text-muted-foreground font-mono">Trophy archived</div>
+          </Panel>
+        </div>
+      </div>
 
       {/* Share Modal */}
-      <Modal open={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} title="Share Gamer Card">
-        <div className="space-y-4 text-center">
-          <div className="rounded-2xl border border-primary/40 bg-surface-2 p-6 text-center space-y-3">
-            <Avatar initials={profile.initials} color={profile.avatarColor} size={64} ring />
-            <div className="display text-2xl font-black">{profile.username} {profile.country.flag}</div>
-            <div className="numeric text-4xl text-gold font-black">{profile.elo} ELO</div>
-            <div className="label-xs text-muted-foreground font-mono">
-              Division: {d.label} · {profile.accuracy}% Accuracy · 🔥 {profile.streak}d Streak
-            </div>
-          </div>
+      {isShareModalOpen && (
+        <Modal
+          title="Share Gamer Profile"
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+        >
+          <div className="space-y-4">
+            <Panel className="p-4 bg-surface-2 border-primary/40 font-mono text-sm leading-relaxed text-foreground whitespace-pre-line">
+              {`👑 IQ ARENA GAMER CARD
+Player: ${profile.username} (${profile.country.flag} France)
+Rating: ${profile.elo} ELO (${d.label})
+Rank: World #${fmt(profile.worldRank)} · France #${profile.countryRank}
+Lightning PB: ${records.lightningPB} in 60s
+Streak PB: ${records.streakPB}
+Profile: https://iqarena.gg/u/${profile.username.toLowerCase()}`}
+            </Panel>
 
-          <Button full onClick={handleCopyCard} variant="primary">
-            {copied ? (
-              <>
-                <Check size={18} /> Copied to Clipboard!
-              </>
-            ) : (
-              <>
-                <Copy size={18} /> Copy Gamer Link
-              </>
-            )}
-          </Button>
-        </div>
-      </Modal>
+            <Button size="lg" full variant="primary" onClick={handleCopyCard} className="font-bold">
+              {copied ? <Check size={18} /> : <Copy size={18} />}
+              {copied ? "Card Copied!" : "Copy Gamer Card"}
+            </Button>
+          </div>
+        </Modal>
+      )}
     </Page>
   );
 }

@@ -234,8 +234,9 @@ function generateFullCorpus() {
   ];
 
   periodic.forEach(([el, sym, num], i) => {
-    add(`pt-sym-${i + 1}`, String(el), "chemical_symbol", String(sym), "Science", "Chemistry", `Q${num + 500}`, "P246", "Element");
-    add(`pt-num-${i + 1}`, String(num), "atomic_number", String(el), "Science", "Periodic Table", `Q${num + 500}`, "P1086", "Element", Number(num));
+    const n = Number(num);
+    add(`pt-sym-${i + 1}`, String(el), "chemical_symbol", String(sym), "Science", "Chemistry", `Q${n + 500}`, "P246", "Element");
+    add(`pt-num-${i + 1}`, String(n), "atomic_number", String(el), "Science", "Periodic Table", `Q${n + 500}`, "P1086", "Element", n);
   });
 
   // Scientific Discoveries
@@ -253,7 +254,7 @@ function generateFullCorpus() {
   ];
 
   discoveries.forEach(([disc, sci, q], i) => {
-    add(`sci-disc-${i + 1}`, disc, "discovered_by", sci, "Science", "Discoveries", q, "P61", "Discovery");
+    add(`sci-disc-${i + 1}`, disc!, "discovered_by", sci!, "Science", "Discoveries", q!, "P61", "Discovery");
   });
 
   // 3. ARTWORKS & PAINTERS / SCULPTORS (40)
@@ -281,7 +282,7 @@ function generateFullCorpus() {
   ];
 
   artPieces.forEach(([title, painter, q], i) => {
-    add(`art-mw-${i + 1}`, title, "created_by_painter", painter, "Art", "Painting", q, "P170", "Artwork");
+    add(`art-mw-${i + 1}`, title!, "created_by_painter", painter!, "Art", "Painting", q!, "P170", "Artwork");
   });
 
   const sculptures = [
@@ -293,7 +294,7 @@ function generateFullCorpus() {
   ];
 
   sculptures.forEach(([title, sculptor, q], i) => {
-    add(`art-sc-${i + 1}`, title, "created_by_sculptor", sculptor, "Art", "Sculpture", q, "P170", "Sculpture");
+    add(`art-sc-${i + 1}`, title!, "created_by_sculptor", sculptor!, "Art", "Sculpture", q!, "P170", "Sculpture");
   });
 
   // 4. LITERATURE (60 Books + 30 Nationalities)
@@ -337,8 +338,8 @@ function generateFullCorpus() {
   ];
 
   books.forEach(([book, author, q, nat], i) => {
-    add(`lit-b-${i + 1}`, book, "authored_by", author, "Literature", "Novels", q, "P50", "Book");
-    add(`lit-nat-${i + 1}`, author, "author_nationality", nat, "Literature", "Authors", q, "P27", "Author");
+    add(`lit-b-${i + 1}`, book!, "authored_by", author!, "Literature", "Novels", q!, "P50", "Book");
+    add(`lit-nat-${i + 1}`, author!, "author_nationality", nat!, "Literature", "Authors", q!, "P27", "Author");
   });
 
   // 5. CINEMA (30 Films)
@@ -361,7 +362,7 @@ function generateFullCorpus() {
   ];
 
   movies.forEach(([movie, dir, q], i) => {
-    add(`cin-m-${i + 1}`, movie, "directed_by", dir, "Cinema", "Directors", q, "P57", "Film");
+    add(`cin-m-${i + 1}`, movie!, "directed_by", dir!, "Cinema", "Directors", q!, "P57", "Film");
   });
 
   // 6. CLASSICAL MUSIC (25 Works)
@@ -387,7 +388,7 @@ function generateFullCorpus() {
   ];
 
   classical.forEach(([w, comp, q], i) => {
-    add(`mus-w-${i + 1}`, w, "composed_by", comp, "Music", "Classical", q, "P86", "Composition");
+    add(`mus-w-${i + 1}`, w!, "composed_by", comp!, "Music", "Classical", q!, "P86", "Composition");
   });
 
   // 7. HISTORY & DATES (25 Events & 10 Dynasties)
@@ -405,7 +406,7 @@ function generateFullCorpus() {
   ];
 
   dates.forEach(([evt, yr, q], i) => {
-    add(`hist-d-${i + 1}`, evt, "event_year", String(yr), "History", "Events", q, "P585", "Event", yr);
+    add(`hist-d-${i + 1}`, evt!, "event_year", String(yr), "History", "Events", q!, "P585", "Event", yr);
   });
 
   const dynasties = [
@@ -419,7 +420,7 @@ function generateFullCorpus() {
   ];
 
   dynasties.forEach(([monarch, dyn, q], i) => {
-    add(`hist-dyn-${i + 1}`, monarch, "dynasty", dyn, "History", "Monarchy", q, "P53", "Monarch");
+    add(`hist-dyn-${i + 1}`, monarch!, "dynasty", dyn!, "History", "Monarchy", q!, "P53", "Monarch");
   });
 
   // 8. NATURE & ZOOLOGY (20)
@@ -435,7 +436,7 @@ function generateFullCorpus() {
   ];
 
   animals.forEach(([an, cl, q], i) => {
-    add(`nat-z-${i + 1}`, an, "taxonomic_class", cl, "Nature", "Zoology", q, "P279", "Taxon");
+    add(`nat-z-${i + 1}`, an!, "taxonomic_class", cl!, "Nature", "Zoology", q!, "P279", "Taxon");
   });
 
   // 9. TECHNOLOGY (15)
@@ -452,7 +453,7 @@ function generateFullCorpus() {
   ];
 
   techCreators.forEach(([t, cr, q], i) => {
-    add(`tech-cr-${i + 1}`, t, "tech_creator", cr, "Technology", "Inventions", q, "P61", "Invention");
+    add(`tech-cr-${i + 1}`, t!, "tech_creator", cr!, "Technology", "Inventions", q!, "P61", "Invention");
   });
 
   // 10. GASTRONOMY (15)
@@ -467,7 +468,7 @@ function generateFullCorpus() {
   ];
 
   dishes.forEach(([d, orig, q], i) => {
-    add(`food-o-${i + 1}`, d, "origin_country", orig, "Food & Culture", "Gastronomy", q, "P495", "Dish");
+    add(`food-o-${i + 1}`, d!, "origin_country", orig!, "Food & Culture", "Gastronomy", q!, "P495", "Dish");
   });
 
   lines.push(`];`);

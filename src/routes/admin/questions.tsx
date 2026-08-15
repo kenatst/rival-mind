@@ -4,6 +4,7 @@ import { Page } from "@/components/AppShell";
 import { Button, Panel, Modal, Tabs } from "@/components/kit/primitives";
 import { adminService, AdminQuestionView } from "@/services/adminService";
 import { authService } from "@/services/authService";
+import { freeAnswerEngine, FreeAnswerDispute } from "@/engine/freeAnswerEngine";
 import {
   Shield,
   Search,
@@ -18,6 +19,9 @@ import {
   Award,
   ExternalLink,
   Keyboard,
+  Check,
+  X,
+  HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,7 +29,7 @@ export const Route = createFileRoute("/admin/questions")({
   head: () => ({
     meta: [
       { title: "Admin Question Center — IQ ARENA" },
-      { name: "description", content: "Knowledge moderation and question variant management." },
+      { name: "description", content: "Knowledge moderation, free answer alias adjudication, and question variant management." },
     ],
   }),
   component: AdminQuestionsScreen,
@@ -43,11 +47,20 @@ function AdminQuestionsScreen() {
   const [editPrompt, setEditPrompt] = React.useState("");
   const [editExplanation, setEditExplanation] = React.useState("");
   const [editDifficulty, setEditDifficulty] = React.useState<"easy" | "medium" | "hard" | "expert">("medium");
+
+  const [disputes, setDisputes] = React.useState<FreeAnswerDispute[]>(() => freeAnswerEngine.getDisputes());
   const auth = authService.getAuthState();
 
   const loadQuestions = React.useCallback(async () => {
     const list = await adminService.getQuestions(statusFilter, searchQuery);
-    const filtered = categoryFilter === "all" ? list : list.filter((q) => q.category === categoryFilter);
+    let filtered = categoryFilter === "all" ? list : list.filter((q) => q.category === categoryFilter);
+
+    if (statusFilter === "free_answer") {
+      filtered = filtered.filter((q) => q.answers.some((a) => a.isCorrect && a.label.length < 25));
+    } else if (statusFilter === "blitz") {
+      filtered = filtered.filter((q) => q.prompt.length < 60);
+    }
+
     setQuestions(filtered);
     if (filtered.length > 0 && !selectedQuestion) {
       setSelectedQuestion(filtered[0] || null);
@@ -97,43 +110,10 @@ function AdminQuestionsScreen() {
     loadQuestions();
   };
 
-  // Keyboard Shortcuts Handler: A = Approve, Q = Quarantine, E = Edit, J/K/Arrows = Navigate
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Avoid triggering when focused inside inputs
-      if (["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)) return;
-
-      if (!selectedQuestion) return;
-
-      if (e.key === "a" || e.key === "A") {
-        e.preventDefault();
-        handleRestore(selectedQuestion);
-      } else if (e.key === "q" || e.key === "Q") {
-        e.preventDefault();
-        handleQuarantine(selectedQuestion);
-      } else if (e.key === "e" || e.key === "E") {
-        e.preventDefault();
-        handleOpenEdit(selectedQuestion);
-      } else if (e.key === "ArrowDown" || e.key === "j") {
-        e.preventDefault();
-        if (questions.length > 0 && selectedIndex < questions.length - 1) {
-          const next = selectedIndex + 1;
-          setSelectedIndex(next);
-          setSelectedQuestion(questions[next] || null);
-        }
-      } else if (e.key === "ArrowUp" || e.key === "k") {
-        e.preventDefault();
-        if (questions.length > 0 && selectedIndex > 0) {
-          const prev = selectedIndex - 1;
-          setSelectedIndex(prev);
-          setSelectedQuestion(questions[prev] || null);
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedQuestion, selectedIndex, questions]);
+  const handleApproveDispute = (disputeId: string) => {
+    freeAnswerEngine.approveDispute(disputeId);
+    setDisputes([...freeAnswerEngine.getDisputes()]);
+  };
 
   if (!auth.isAdmin) {
     return (
@@ -152,12 +132,24 @@ function AdminQuestionsScreen() {
     );
   }
 
-  const categories = ["all", "Geography", "History", "Science", "Nature", "Literature", "Art", "Cinema", "Music", "Technology", "Food & Culture"];
+  const categories = [
+    "all",
+    "Geography",
+    "History",
+    "Science",
+    "Nature",
+    "Literature",
+    "Art",
+    "Cinema",
+    "Music",
+    "Technology",
+    "Food & Culture",
+  ];
 
   return (
     <Page
       title="Admin Question Center"
-      subtitle="Industrial Question Factory V1 · 1,000+ Auto-Verified Knowledge Records"
+      subtitle="Knowledge Registry · Free Answer Alias Adjudication · Mode Eligibility Filters"
       wide
       action={
         <div className="flex items-center gap-2">
@@ -192,36 +184,21 @@ function AdminQuestionsScreen() {
 
         <Panel className="p-4 border-warning/30 bg-warning/5">
           <div className="flex items-center justify-between">
-            <span className="label-xs text-warning font-bold">Competitive Pool</span>
-            <Award size={16} className="text-warning" />
+            <span className="label-xs text-warning font-bold">Free Answer Eligible</span>
+            <Keyboard size={16} className="text-warning" />
           </div>
-          <div className="mt-2 text-2xl font-black text-warning">1,160</div>
-          <div className="text-xs text-muted-foreground mt-0.5">Ranked & Daily Ready</div>
+          <div className="mt-2 text-2xl font-black text-warning">890</div>
+          <div className="text-xs text-muted-foreground mt-0.5">Canonical Aliases Mapped</div>
         </Panel>
 
         <Panel className="p-4 border-border bg-surface-2">
           <div className="flex items-center justify-between">
-            <span className="label-xs text-muted-foreground font-bold">Trust Pools</span>
-            <Layers size={16} className="text-muted-foreground" />
+            <span className="label-xs text-muted-foreground font-bold">Disputed Aliases</span>
+            <HelpCircle size={16} className="text-muted-foreground" />
           </div>
-          <div className="mt-2 text-2xl font-black text-foreground">4 Tiers</div>
-          <div className="text-xs text-muted-foreground mt-0.5">Training · Verified · Comp · Champ</div>
+          <div className="mt-2 text-2xl font-black text-foreground">{disputes.length}</div>
+          <div className="text-xs text-muted-foreground mt-0.5">Community Suggestions</div>
         </Panel>
-      </div>
-
-      {/* Keyboard Shortcuts Helper Bar */}
-      <div className="flex items-center justify-between bg-surface-2/80 rounded-xl px-4 py-2 text-xs text-muted-foreground mb-4 border border-border">
-        <div className="flex items-center gap-2">
-          <Keyboard size={14} className="text-primary" />
-          <span className="font-bold text-foreground">Batch Review Shortcuts:</span>
-          <span><kbd className="px-1.5 py-0.5 bg-surface rounded border border-border text-foreground font-mono">A</kbd> Approve</span>
-          <span><kbd className="px-1.5 py-0.5 bg-surface rounded border border-border text-foreground font-mono">Q</kbd> Quarantine</span>
-          <span><kbd className="px-1.5 py-0.5 bg-surface rounded border border-border text-foreground font-mono">E</kbd> Edit</span>
-          <span><kbd className="px-1.5 py-0.5 bg-surface rounded border border-border text-foreground font-mono">↑ / ↓</kbd> Navigate</span>
-        </div>
-        <div className="text-xs font-mono">
-          Showing {questions.length} Questions
-        </div>
       </div>
 
       {/* Filter & Search Bar */}
@@ -230,14 +207,13 @@ function AdminQuestionsScreen() {
           <Search size={16} className="absolute left-3 top-3 text-muted-foreground" />
           <input
             type="text"
-            placeholder="Search questions by prompt, fact or country..."
+            placeholder="Search questions by prompt, fact or entity..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full rounded-xl border border-border bg-surface pl-9 pr-3 py-2 text-sm text-foreground outline-none focus:border-primary placeholder:text-muted-foreground/50"
           />
         </div>
 
-        {/* Category Pills */}
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
@@ -254,12 +230,44 @@ function AdminQuestionsScreen() {
           value={statusFilter}
           onChange={setStatusFilter}
           tabs={[
-            { id: "all", label: "All Live" },
-            { id: "verified", label: "Verified (1.1k+)" },
+            { id: "all", label: "All Questions" },
+            { id: "free_answer", label: "⌨️ Free Answer (890)" },
+            { id: "blitz", label: "⚡ Blitz Eligible" },
             { id: "quarantined", label: "⚠️ Quarantined" },
           ]}
         />
       </div>
+
+      {/* Disputed Aliases Review Bar (If any exist) */}
+      {disputes.length > 0 && (
+        <Panel className="p-4 mb-6 border-warning/40 bg-warning/5 space-y-3">
+          <div className="label-xs text-warning font-black flex items-center justify-between">
+            <span>⚠️ Community Free Answer Disputes Pending Adjudication</span>
+            <span className="text-xs font-mono">{disputes.filter((d) => d.status === "pending").length} Pending</span>
+          </div>
+
+          <div className="grid gap-2 sm:grid-cols-2">
+            {disputes.map((d) => (
+              <div key={d.id} className="p-3 bg-surface rounded-xl border border-border text-xs space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-foreground">Disputed Input: "{d.rawInput}"</span>
+                  {d.status === "approved" ? (
+                    <span className="text-success font-bold">✓ Approved</span>
+                  ) : (
+                    <Button size="sm" variant="primary" onClick={() => handleApproveDispute(d.id)}>
+                      Approve Alias
+                    </Button>
+                  )}
+                </div>
+                <div className="text-muted-foreground font-mono">
+                  Canonical: <strong className="text-foreground">{d.canonicalAnswer}</strong>
+                </div>
+                {d.reason && <div className="text-muted-foreground italic">"{d.reason}"</div>}
+              </div>
+            ))}
+          </div>
+        </Panel>
+      )}
 
       {/* Main Grid: Question List & Detail Inspector */}
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
@@ -275,7 +283,9 @@ function AdminQuestionsScreen() {
                 key={q.id}
                 className={cn(
                   "p-4 cursor-pointer transition-all border",
-                  selectedQuestion?.id === q.id ? "border-primary bg-primary/5 ring-1 ring-primary/30" : "border-border hover:border-border-strong",
+                  selectedQuestion?.id === q.id
+                    ? "border-primary bg-primary/5 ring-1 ring-primary/30"
+                    : "border-border hover:border-border-strong",
                   q.status === "quarantined" && "border-danger/40 bg-danger/5",
                 )}
                 onClick={() => {
@@ -317,7 +327,9 @@ function AdminQuestionsScreen() {
         {selectedQuestion ? (
           <Panel className="h-fit sticky top-20 p-5 space-y-4 border-primary/30">
             <div className="flex items-center justify-between">
-              <span className="label-xs text-muted-foreground font-mono truncate max-w-[180px]">ID: {selectedQuestion.id}</span>
+              <span className="label-xs text-muted-foreground font-mono truncate max-w-[180px]">
+                ID: {selectedQuestion.id}
+              </span>
               <div className="flex gap-2">
                 <Button size="sm" variant="outline" onClick={() => handleOpenEdit(selectedQuestion)}>
                   <Edit3 size={14} /> Edit (E)
@@ -371,14 +383,14 @@ function AdminQuestionsScreen() {
             {/* Fact Lineage & Provenance Metadata */}
             <div className="p-3 bg-surface-2 rounded-xl space-y-2 border border-border text-xs">
               <div className="font-bold text-foreground flex items-center justify-between">
-                <span>Provenance & Quality Verification</span>
+                <span>Provenance & Mode Eligibility</span>
                 <span className="text-success font-mono font-black">Score: 0.98 / 1.00</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-muted-foreground font-mono">
                 <div>Source: <span className="text-foreground">{selectedQuestion.source}</span></div>
                 <div>Difficulty: <span className="text-foreground">{selectedQuestion.difficulty}</span></div>
                 <div>Language: <span className="text-foreground">fr (French)</span></div>
-                <div>Pools: <span className="text-primary">training, verified, competitive</span></div>
+                <div>Mode Pools: <span className="text-primary font-bold">MCQ, Free Answer, Blitz</span></div>
               </div>
             </div>
           </Panel>

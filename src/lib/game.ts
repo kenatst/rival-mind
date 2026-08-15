@@ -208,6 +208,8 @@ export function useCountdown(seconds: number, running = true, onEnd?: () => void
 export type SoundCue =
   | "answer-correct"
   | "answer-wrong"
+  | "correct"
+  | "wrong"
   | "countdown"
   | "match-found"
   | "victory"
@@ -226,10 +228,12 @@ export function playCue(cue: SoundCue) {
       soundService.playAnswerSelect();
       break;
     case "answer-correct":
+    case "correct":
     case "daily-perfect":
       soundService.playCorrect();
       break;
     case "answer-wrong":
+    case "wrong":
       soundService.playWrong();
       break;
     case "match-found":

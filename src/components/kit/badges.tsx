@@ -8,15 +8,17 @@ export function Avatar({
   size = 44,
   ring,
   online,
+  className,
 }: {
   initials: string;
   color: string;
   size?: number;
   ring?: boolean;
   online?: boolean;
+  className?: string | undefined;
 }) {
   return (
-    <div className="relative shrink-0" style={{ width: size, height: size }}>
+    <div className={cn("relative shrink-0", className)} style={{ width: size, height: size }}>
       <div
         className={cn(
           "numeric grid h-full w-full place-items-center rounded-2xl text-[oklch(0.18_0.03_268)]",

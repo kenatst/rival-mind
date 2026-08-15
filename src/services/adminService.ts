@@ -53,7 +53,16 @@ class AdminService {
       }
     }
 
-    // Engine fallback
+    // Engine fallback: if question count is low, seed with factory questions
+    if (authoritativeGameEngine.getQuestionCount() < 200) {
+      try {
+        const { questionFactoryRunner } = await import("@/factory/factoryRunner");
+        questionFactoryRunner.runPipeline({ target: 1200, dryRun: false });
+      } catch (e) {
+        // Fallback
+      }
+    }
+
     const raw = authoritativeGameEngine.getQuestionsForAdmin(statusFilter, search);
     const reports = authoritativeGameEngine.getReports();
 

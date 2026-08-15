@@ -1,4 +1,9 @@
-import { randomUUID } from "crypto";
+function generateUUID(): string {
+  if (typeof globalThis !== "undefined" && globalThis.crypto && typeof globalThis.crypto.randomUUID === "function") {
+    return globalThis.crypto.randomUUID();
+  }
+  return "uuid-" + Math.random().toString(36).substring(2, 11) + "-" + Date.now().toString(36);
+}
 
 export interface GuestCalibrationRecord {
   id: string;
@@ -27,7 +32,7 @@ class CalibrationEngine {
     const safeCorrect = Math.max(0, Math.min(totalQuestions, correctCount));
     const provisionalRating = 820 + safeCorrect * 38;
 
-    const id = "calib-" + (typeof randomUUID === "function" ? randomUUID() : Math.random().toString(36).substring(2, 10));
+    const id = "calib-" + generateUUID();
     const calibrationToken = "iq_tok_" + Math.random().toString(36).substring(2, 12) + "_" + Date.now().toString(36);
 
     const now = new Date();

@@ -79,7 +79,7 @@ export interface QuestionReportRecord {
 class AuthoritativeGameEngine {
   private questions: SeedQuestion[] = [...SEED_QUESTIONS];
   private activeSessions: Map<string, ServerGameSession> = new Map();
-  private answeredInstances: Map<string, { selectedOptionId: string; wasCorrect: boolean; serverResponseTimeMs: number; clientTelemetryMs?: number }> = new Map();
+  private answeredInstances: Map<string, { selectedOptionId: string; wasCorrect: boolean; serverResponseTimeMs: number; clientTelemetryMs?: number | undefined }> = new Map();
   private rankedMatches: Map<string, ServerRankedMatch> = new Map();
   private dailyOfficialResults: Map<string, { userId: string; score: number; completedAt: string }> = new Map();
   private reports: QuestionReportRecord[] = [];
@@ -214,7 +214,7 @@ class AuthoritativeGameEngine {
   } {
     const matchId = "match-" + Math.random().toString(36).substring(2, 10);
     const playerA = this.playerProfiles.get(userId) || { ...defaultUser, id: userId };
-    const playerB = typeof opponent === "object" && opponent !== null ? opponent : { ...rivalOpponent };
+    const playerB = { ...rivalOpponent };
 
     const pool = this.questions.filter((q) => !this.quarantinedQuestionIds.has(q.id));
     const shuffled = [...pool].sort(() => 0.5 - Math.random()).slice(0, 8);

@@ -183,12 +183,21 @@ export function PlayerCard({
 
 /* ----------------------------- Leaderboard row ----------------------------- */
 
-export function LeaderboardRow({ entry, metric = "ELO" }: { entry: LeaderboardEntry; metric?: string }) {
+export function LeaderboardRow({
+  entry,
+  metric = "ELO",
+  highlight,
+}: {
+  entry: LeaderboardEntry;
+  metric?: string;
+  highlight?: boolean;
+}) {
+  const isHighlighted = highlight || entry.isYou;
   return (
     <div
       className={cn(
         "grid grid-cols-[2.75rem_auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border px-3 py-2.5 transition-colors",
-        entry.isYou
+        isHighlighted
           ? "border-primary/60 bg-primary/10"
           : "border-transparent bg-surface hover:bg-surface-2",
       )}

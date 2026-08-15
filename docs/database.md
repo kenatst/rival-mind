@@ -27,8 +27,17 @@ The IQ ARENA database is built on PostgreSQL with Row Level Security (RLS) enabl
 - `question_variants`: Linguistic formulations (FR) with difficulty ratings, quality scores, trust pools, and version tracking.
 - `question_options`: Individual choices with `is_correct` (restricted from direct client access via RLS).
 
+### Game Modes & Free Answer Layer *(Migration 006)*
+- `game_mode_definitions`: Configuration catalog for all 25 game modes across COMPETE, QUICK, TRAIN, and SOCIAL.
+- `question_answer_aliases`: Accepted alternative spellings, acronyms, and transliterations (e.g. "USA", "UK", "Da Vinci", "Tchaikovsky").
+- `free_answer_attempts`: Audit log of user typed inputs, evaluation outcomes (`CORRECT`, `TYPO_ACCEPTED`, `ALIAS_ACCEPTED`, `INCORRECT`), and community dispute status (`pending`, `approved`, `rejected`).
+- `player_mode_records`: Server-authoritative personal bests across 60s Lightning, 5s Blitz, Streak, Perfect 10, Ladder, and Daily Gem.
+- `category_tower_progress`: Persistent floor progression (1–100) across 11 category towers.
+- `player_rivalries`: Persistent head-to-head match series records (`user_wins`, `opponent_wins`, `streak_holder`, `streak_count`).
+- `competition_events`: Weekend Cups, King of the Hill tournaments, and Seasonal Championships.
+
 ### Sessions & Matchmaking
-- `game_sessions`: Session metadata (mode: `guest`, `training`, `category`, `daily`, `ranked`, `friend_battle`).
+- `game_sessions`: Session metadata (mode: `guest`, `training`, `category`, `daily`, `ranked`, `friend_battle`, `modes`).
 - `game_question_instances`: Record of every delivered question instance with timestamps (`served_at`, `answered_at`), response times, and score awarded.
 - `ranked_matches` & `ranked_match_rounds`: 8-round competitive matches between Player A and Player B. Tracks `player_a_rating_before/after`, `player_b_rating_before/after`, deltas, and authoritative scores.
 - `rating_history`: Immutable audit trail of Elo changes.

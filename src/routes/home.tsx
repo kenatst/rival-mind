@@ -1,11 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
-import { Clock, Swords, Trophy, Zap, Flame, CheckCircle2 } from "lucide-react";
+import * as React from "react";
+import {
+  Swords,
+  Zap,
+  Flame,
+  Trophy,
+  Sparkles,
+  RotateCcw,
+  Calendar,
+  ArrowRight,
+  TrendingUp,
+} from "lucide-react";
 import { Button, Panel, ProgressBar } from "@/components/kit/primitives";
 import { Avatar, DivisionBadge } from "@/components/kit/badges";
-import { worldEvent } from "@/data/mock";
 import { divisionForElo, fmt } from "@/lib/game";
 import { gameService } from "@/lib/gameService";
+import { socialEngine } from "@/engine/socialEngine";
+import { modeEngine } from "@/engine/modeEngine";
 
 export const Route = createFileRoute("/home")({
   head: () => ({
@@ -13,21 +24,22 @@ export const Route = createFileRoute("/home")({
       { title: "Lobby — IQ ARENA" },
       {
         name: "description",
-        content: "Your daily challenge, battle requests, world events and private league standings.",
+        content: "Contextual battle hub, ranked promotion targets, daily challenges, and rivalries.",
       },
-      { property: "og:title", content: "Lobby — IQ ARENA" },
-      { property: "og:description", content: "Jump straight into your next ranked match." },
     ],
   }),
   component: HomeLobby,
 });
 
 function HomeLobby() {
-  const [profile, setProfile] = useState(() => gameService.getUserProfile());
-  const [daily, setDaily] = useState(() => gameService.getDailyChallenge());
-  const [league] = useState(() => gameService.getPrivateLeague());
+  const [profile, setProfile] = React.useState(() => gameService.getUserProfile());
+  const [daily, setDaily] = React.useState(() => gameService.getDailyChallenge());
+  const rivalries = socialEngine.getRivalries();
+  const primaryRivalry = rivalries[0];
 
-  useEffect(() => {
+  const lightningPB = modeEngine.getPersonalBest(profile.id, "lightning") || 24;
+
+  React.useEffect(() => {
     return gameService.subscribe(() => {
       setProfile(gameService.getUserProfile());
       setDaily(gameService.getDailyChallenge());
@@ -37,23 +49,18 @@ function HomeLobby() {
   const d = divisionForElo(profile.elo);
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:py-10 select-none">
-      {/* Hero Player HUD */}
+    <div className="mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 lg:py-8 select-none space-y-6">
+      {/* 1. Hero Player HUD */}
       <section className="stage rounded-3xl border border-border p-5 sm:p-7 shadow-[var(--shadow-lift)]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
           <div className="flex min-w-0 items-center gap-4">
-            <Avatar
-              initials={profile.initials}
-              color={profile.avatarColor}
-              size={64}
-              ring
-            />
+            <Avatar initials={profile.initials} color={profile.avatarColor} size={64} ring />
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h1 className="display truncate text-3xl sm:text-4xl">{profile.username}</h1>
+                <h1 className="display truncate text-3xl sm:text-4xl font-black">{profile.username}</h1>
                 <span className="text-xl leading-none">{profile.country.flag}</span>
               </div>
-              <div className="mt-2 flex flex-wrap items-center gap-2">
+              <div className="mt-1 flex flex-wrap items-center gap-2">
                 <DivisionBadge elo={profile.elo} />
                 <span className="label-xs text-muted-foreground flex items-center gap-1">
                   Lvl {profile.level} · <Flame size={13} className="text-gold fill-gold" /> {profile.streak}d streak
@@ -84,122 +91,107 @@ function HomeLobby() {
           <ProgressBar value={d.progress} color={`linear-gradient(90deg, ${d.color}, var(--primary))`} striped />
         </div>
 
-        {/* Primary Ranked CTA goes DIRECTLY to Matchmaking */}
+        {/* Primary Ranked CTA */}
         <Link to="/matchmaking" className="mt-6 block">
-          <Button size="xl" full className="text-2xl tracking-[0.06em] shadow-[0_6px_0_0_color-mix(in_oklab,var(--primary)_55%,black)]">
+          <Button size="xl" full className="text-2xl tracking-[0.06em] shadow-[0_6px_0_0_color-mix(in_oklab,var(--primary)_55%,black)] font-black">
             <Swords size={26} strokeWidth={3} /> PLAY RANKED
           </Button>
         </Link>
       </section>
 
-      {/* Grid of modes & live events */}
-      <div className="mt-6 grid gap-4 lg:grid-cols-2">
-        {/* Daily 12 Card */}
-        {daily.completed ? (
-          <Panel className="flex flex-col justify-between gap-4 border-primary/30">
-            <div>
-              <div className="label-xs flex items-center gap-2 text-primary font-black">
-                <CheckCircle2 size={16} /> Daily Challenge · Completed
-              </div>
-              <div className="display mt-2 text-2xl font-black">
-                Daily 12 · {daily.score}/12
-              </div>
-              <p className="mt-1 text-sm text-muted-foreground font-mono">
-                Top {daily.percentile}% Worldwide · France #{fmt(daily.countryRank)}
-              </p>
-            </div>
-            <Link to="/daily">
-              <Button variant="surface" full size="md">
-                View Results & Practice
-              </Button>
-            </Link>
-          </Panel>
-        ) : (
-          <Panel className="flex flex-col justify-between gap-4">
-            <div>
-              <div className="label-xs flex items-center gap-2 text-primary font-black">
-                <Clock size={16} strokeWidth={2.5} /> Daily Challenge
-              </div>
-              <div className="display mt-2 text-2xl font-black">Daily 12</div>
-              <p className="mt-1 text-sm text-muted-foreground">
-                {daily.hoursRemaining} hours remaining · exactly one attempt worldwide
-              </p>
-            </div>
-            <Link to="/daily">
-              <Button variant="primary" full size="md">
-                Play Daily 12
-              </Button>
-            </Link>
-          </Panel>
-        )}
+      {/* 2. Three Focused Contextual Recommendation Action Cards */}
+      <div>
+        <div className="label-xs text-muted-foreground font-black uppercase mb-3 tracking-wider">
+          Recommended Contextual Actions
+        </div>
 
-        {/* Battle Request Card */}
-        <Panel className="flex flex-col justify-between gap-4 border-accent/40">
+        <div className="grid gap-4 md:grid-cols-3">
+          {/* Card A: 60s Lightning Record Challenge */}
+          <Link to={"/modes/lightning" as any} className="block">
+            <Panel className="h-full p-5 flex flex-col justify-between border-primary/40 hover:border-primary transition-all active:scale-[0.99] group bg-primary/5">
+              <div>
+                <div className="label-xs text-primary font-black flex items-center gap-1.5 mb-2">
+                  <Zap size={14} /> 60s Lightning Challenge
+                </div>
+                <h3 className="display text-2xl font-black text-foreground group-hover:text-primary transition-colors">
+                  Beat Your Record
+                </h3>
+                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                  Your best: <strong className="text-foreground">{lightningPB} correct</strong> in 60s. Ranked #841 France today.
+                </p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs font-black text-primary">
+                <span>Start 60s Clock</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Panel>
+          </Link>
+
+          {/* Card B: Head-to-Head Rivalry Rematch */}
+          {primaryRivalry && (
+            <Link to="/battles" className="block">
+              <Panel className="h-full p-5 flex flex-col justify-between border-accent/40 hover:border-accent transition-all active:scale-[0.99] group bg-accent/5">
+                <div>
+                  <div className="label-xs text-accent font-black flex items-center gap-1.5 mb-2">
+                    <Swords size={14} /> Head-to-Head Rivalry
+                  </div>
+                  <h3 className="display text-2xl font-black text-foreground group-hover:text-accent transition-colors">
+                    Settle the Score
+                  </h3>
+                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                    KENAEL <strong className="text-foreground">{primaryRivalry.userWins} — {primaryRivalry.opponentWins}</strong> {primaryRivalry.opponentUsername}. {primaryRivalry.narrativeContext}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs font-black text-accent">
+                  <span>Send Rematch</span>
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+              </Panel>
+            </Link>
+          )}
+
+          {/* Card C: Daily Gem or Daily 12 */}
+          <Link to={"/modes/daily-gem" as any} className="block">
+            <Panel className="h-full p-5 flex flex-col justify-between border-gold/40 hover:border-gold transition-all active:scale-[0.99] group bg-gold/5">
+              <div>
+                <div className="label-xs text-gold font-black flex items-center gap-1.5 mb-2">
+                  <Sparkles size={14} /> Daily Ritual
+                </div>
+                <h3 className="display text-2xl font-black text-foreground group-hover:text-gold transition-colors">
+                  Today's Daily Gem
+                </h3>
+                <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                  One difficult question. Only 14.8% worldwide got it right today. Keep your 14-day streak alive.
+                </p>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs font-black text-gold">
+                <span>Play Daily Gem</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </div>
+            </Panel>
+          </Link>
+        </div>
+      </div>
+
+      {/* 3. Quick Link to Full Play Hub */}
+      <div className="p-4 rounded-2xl border border-border bg-surface flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-xl bg-surface-2 text-primary font-black">
+            <Trophy size={18} />
+          </div>
           <div>
-            <div className="label-xs flex items-center gap-2 text-accent font-black">
-              <Swords size={16} strokeWidth={2.5} /> Battle Request
-            </div>
-            <div className="display mt-2 text-2xl font-black">Thomas challenged you</div>
-            <p className="mt-1 text-sm text-muted-foreground">
-              10 questions · identical seed · highest score wins duel
-            </p>
+            <div className="text-sm font-black text-foreground">Explore Full Play Arena</div>
+            <div className="text-xs text-muted-foreground">Category Towers, Free Answer Arena, Sudden Death & 5s Blitz</div>
           </div>
-          <Link
-            to="/quiz"
-            search={{ mode: "battle", opponent: "thomas" } as any}
-          >
-            <Button variant="live" full size="md">
-              Accept Battle (Thomas)
-            </Button>
-          </Link>
-        </Panel>
-
-        {/* Nation War Event Card */}
-        <Panel className="lg:col-span-1">
-          <div className="label-xs flex items-center gap-2 text-accent font-black">
-            <Zap size={14} strokeWidth={3} /> World Event · Nation Wars
-          </div>
-          <div className="display mt-2 text-xl font-bold">
-            {worldEvent.home.flag} France vs Spain {worldEvent.away.flag}
-          </div>
-          <div className="numeric mt-3 flex items-baseline justify-between text-2xl font-black">
-            <span className="text-primary">{worldEvent.homeShare}%</span>
-            <span className="text-accent">{worldEvent.awayShare}%</span>
-          </div>
-          <div className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-muted">
-            <span className="bg-primary" style={{ width: `${worldEvent.homeShare}%` }} />
-            <span className="flex-1 bg-accent" />
-          </div>
-          <p className="mt-3 text-sm text-muted-foreground">
-            France is trailing by 0.6% with {worldEvent.hoursLeft} hours remaining. Win matches to help France overtake!
-          </p>
-        </Panel>
-
-        {/* Private League Card */}
-        <Panel>
-          <div className="label-xs flex items-center gap-2 text-gold font-black">
-            <Trophy size={14} strokeWidth={3} /> Private League
-          </div>
-          <div className="display mt-2 text-xl font-bold">{league.name}</div>
-          <div className="mt-3 space-y-1">
-            {league.members.slice(0, 3).map((m) => (
-              <div
-                key={m.rank}
-                className="flex items-center justify-between rounded-lg bg-surface-2/50 px-3 py-2 text-sm"
-              >
-                <span className={m.isYou ? "font-extrabold text-primary" : "font-semibold"}>
-                  {m.rank}. {m.player.username} {m.isYou && " (YOU)"}
-                </span>
-                <span className="numeric font-bold">{fmt(m.points)} pts</span>
-              </div>
-            ))}
-          </div>
-          <Link to="/leagues" className="mt-4 block">
-            <Button variant="outline" full size="sm">
-              Open League Standings
-            </Button>
-          </Link>
-        </Panel>
+        </div>
+        <Link to="/play">
+          <Button size="sm" variant="surface">
+            View All Modes →
+          </Button>
+        </Link>
       </div>
     </div>
   );

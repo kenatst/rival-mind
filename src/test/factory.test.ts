@@ -14,7 +14,7 @@ describe("IQ ARENA - Question Factory V1 Test Suite (Goal B)", () => {
     expect(res.recordsInserted).toBe(100);
     expect(res.facts.length).toBe(100);
 
-    const firstFact = res.facts[0];
+    const firstFact = res.facts[0]!;
     expect(firstFact.factId).toBeDefined();
     expect(firstFact.externalEntityId).toMatch(/^Q\d+/);
     expect(firstFact.sourceReference).toContain("wikidata.org");

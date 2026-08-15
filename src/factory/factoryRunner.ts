@@ -6,8 +6,6 @@ import { distractorEngine } from "./distractorEngine";
 import { questionValidationPipeline } from "./validationPipeline";
 import { authoritativeGameEngine } from "@/engine/gameEngine";
 import { SeedQuestion } from "@/engine/seedData";
-import * as fs from "fs";
-import * as path from "path";
 
 export interface FactoryRunnerOptions {
   target?: number | undefined;
@@ -157,7 +155,7 @@ export class QuestionFactoryRunner {
     const shuffledVerified = [...verifiedQuestions].sort(() => 0.5 - Math.random());
     const auditSample = shuffledVerified.slice(0, 100);
 
-    // 7. Assemble Run Report
+    // Assemble Run Report
     const report: FactoryRunReport = {
       timestamp: new Date().toISOString(),
       target,
@@ -174,30 +172,38 @@ export class QuestionFactoryRunner {
       rejectionReasons,
     };
 
-    // Export audit sample to file if requested or in workspace
+    // Safely export audit sample in Node/Bun environment
     try {
-      const exportPath = options.auditSamplePath || path.resolve(process.cwd(), "factory-audit-sample.json");
-      fs.writeFileSync(
-        exportPath,
-        JSON.stringify(
-          auditSample.map((q) => ({
-            id: q.candidateId,
-            category: q.category,
-            prompt: q.prompt,
-            options: q.options.map((o) => o.label),
-            correctAnswer: q.correctAnswer,
-            explanation: q.explanation,
-            difficulty: q.difficultyEstimate,
-            qualityScore: q.qualityScore,
-            pools: q.pools,
-            provenance: { factId: q.factId, templateId: q.templateId },
-          })),
-          null,
-          2,
-        ),
-      );
-    } catch (e) {
-      console.warn("Could not write audit sample file:", e);
+      if (typeof process !== "undefined" && process.versions && (process.versions as any).node) {
+        // @ts-ignore
+        const fsMod = typeof require === "function" ? require("fs") : null;
+        // @ts-ignore
+        const pathMod = typeof require === "function" ? require("path") : null;
+        if (fsMod && pathMod) {
+          const exportPath = options.auditSamplePath || pathMod.resolve(process.cwd(), "factory-audit-sample.json");
+          fsMod.writeFileSync(
+            exportPath,
+            JSON.stringify(
+              auditSample.map((q) => ({
+                id: q.candidateId,
+                category: q.category,
+                prompt: q.prompt,
+                options: q.options.map((o) => o.label),
+                correctAnswer: q.correctAnswer,
+                explanation: q.explanation,
+                difficulty: q.difficultyEstimate,
+                qualityScore: q.qualityScore,
+                pools: q.pools,
+                provenance: { factId: q.factId, templateId: q.templateId },
+              })),
+              null,
+              2,
+            ),
+          );
+        }
+      }
+    } catch {
+      // Ignored in browser contexts
     }
 
     return {

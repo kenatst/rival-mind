@@ -138,16 +138,19 @@ export function Tabs<T extends string>({
 
 export function Modal({
   open,
+  isOpen,
   onClose,
   title,
   children,
 }: {
-  open: boolean;
+  open?: boolean;
+  isOpen?: boolean;
   onClose: () => void;
   title: string;
   children: React.ReactNode;
 }) {
-  if (!open) return null;
+  const isVisible = open !== undefined ? open : !!isOpen;
+  if (!isVisible) return null;
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 sm:items-center sm:p-6">
       <button aria-label="Close" className="absolute inset-0 cursor-default" onClick={onClose} />

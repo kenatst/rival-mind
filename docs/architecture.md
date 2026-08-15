@@ -41,12 +41,23 @@ IQ ARENA is a high-performance global competitive general knowledge sport design
 - **Score-less Match Completion**: `completeRankedMatch(matchId)` calculates scores strictly from server-evaluated rounds.
 - **Pure Idempotency**: Match results and rating deltas are cached on completion; replay returns identical outcome without double mutations.
 
-### Subsystem B: Guest Calibration & Claim Token Engine (`src/engine/calibrationEngine.ts`)
-- Evaluates unauthenticated guest quizzes and calculates authoritative provisional rating.
-- Generates signed single-use claim tokens.
-- Consumes tokens during registration via atomic Postgres RPC `claim_guest_calibration`.
+### Subsystem B: Deterministic Free Answer Engine (`src/engine/freeAnswerEngine.ts`)
+- Multi-stage normalization (accents, punctuation, leading French articles `le`, `la`, `l'`).
+- Bounded Damerau-Levenshtein typo tolerance with length thresholding (<= 5 chars: 0 typos; 6-8 chars: 1 typo; >= 9 chars: 2 typos).
+- Transliteration and alias matching (`USA`, `UK`, `Da Vinci`, `Tchaikovsky`).
+- Community dispute submission and admin adjudication workflow.
 
-### Subsystem C: Industrial Question Factory V1 (`src/factory/`)
+### Subsystem C: Unified Mode Engine & Scoring Handlers (`src/engine/modeEngine.ts`)
+- 4 Sacred Families: **COMPETE**, **QUICK**, **TRAIN**, **SOCIAL**.
+- 5s Blitz timer bar & speed scoring bonuses.
+- 60s Lightning master countdown with strict deadline enforcement (`deadlineAt = startedAt + 60000`).
+- Streak 1-strike elimination.
+- Perfect 10 near-miss calculation ("Question 7 cost you the run").
+- Category Towers (Floors 1-100 across 11 domains with boss floors).
+- Double or Nothing checkpoint banking.
+- Ladder 10 stages with global percentile tracking.
+
+### Subsystem D: Industrial Question Factory V1 (`src/factory/`)
 - **Wikidata Ingestor**: High-confidence whitelist across 12 categories with entity provenance (`Q...`, `P...`).
 - **Eligibility Scorer**: Multi-criteria evaluator (0.00–1.00) filtering malformed or volatile facts.
 - **Deterministic Templates**: Concise, natural French templates with concept lineage.
@@ -54,29 +65,18 @@ IQ ARENA is a high-performance global competitive general knowledge sport design
 - **Multi-Stage Validation Pipeline**: Schema, factual, ambiguity, distractor balance, and deduplication checks.
 - **Trust Pools**: Dynamic classification into `training`, `verified`, `competitive`, and `championship`.
 
+### Subsystem E: Personal Bests & Skill Telemetry (`src/engine/recordsEngine.ts`)
+- Tracks player records across all arcade and competitive formats.
+- Computes game skill telemetry (Speed, Recall, Precision, Knowledge) for gamer profiles.
+
+### Subsystem F: Social Rivalries & Head-to-Head Engine (`src/engine/socialEngine.ts`)
+- Persistent match series tracking (`KENAEL 7 — 6 LUCAS92`).
+- Custom battle format generation (Classic, Blitz, Free Answer, Perfect 10).
+
 ---
 
 ## 3. Security Boundary & Anti-Cheat
 
-```mermaid
-flowchart LR
-    subgraph Client [Untrusted Client Zone]
-        UI[UI Components]
-        Tele[Client Telemetry]
-    end
-
-    subgraph Server [Authoritative Trust Zone]
-        Engine[Authoritative Game Engine]
-        DB[(PostgreSQL RLS)]
-        Calib[Calibration Token Vault]
-        Factory[Question Factory V1]
-    end
-
-    UI -->|1. startRankedMatch| Engine
-    Engine -->|2. Round 1 Only (No Answer)| UI
-    UI -->|3. submitRound(optionId, telemetry)| Engine
-    Engine -->|4. Validate & Record Round| DB
-    UI -->|5. completeMatch(matchId)| Engine
-    Engine -->|6. Calculate Elo K=24 from DB Rounds| DB
-    DB -->|7. Verified Elo Shift| UI
-```
+1. **Answer Masking**: Answer options sent to clients omit `is_correct` and `explanation`.
+2. **Server Timestamps**: Question issuance and submission timestamps are signed server-side.
+3. **No Client Score Trust**: Scores, accuracy, streaks, Elo deltas, and PBs are computed strictly on the server.

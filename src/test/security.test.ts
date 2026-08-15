@@ -14,7 +14,7 @@ describe("IQ ARENA - Security Hardening Test Suite (Goal A)", () => {
     for (let r = 1; r <= 8; r++) {
       const instance = authoritativeGameEngine.getRankedRoundQuestion(match.matchId, r, userA);
       expect(instance.position).toBe(r);
-      const optionId = instance.answers[0].id;
+      const optionId = instance.answers[0]!.id;
       authoritativeGameEngine.submitRankedRound(match.matchId, r, userA, optionId, 1500);
     }
 
@@ -98,7 +98,7 @@ describe("IQ ARENA - Security Hardening Test Suite (Goal A)", () => {
 
     for (let r = 1; r <= 8; r++) {
       const q = authoritativeGameEngine.getRankedRoundQuestion(match.matchId, r, user);
-      authoritativeGameEngine.submitRankedRound(match.matchId, r, user, q.answers[0].id, 1000);
+      authoritativeGameEngine.submitRankedRound(match.matchId, r, user, q.answers[0]!.id, 1000);
     }
 
     const firstCompletion = authoritativeGameEngine.completeRankedMatch(match.matchId, user);

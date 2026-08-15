@@ -1,7 +1,7 @@
 export interface SeedQuestion {
   id: string;
   category: string;
-  subcategory?: string;
+  subcategory?: string | undefined;
   prompt: string;
   difficulty: "easy" | "medium" | "hard" | "expert";
   seconds: number;
