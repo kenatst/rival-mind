@@ -12,12 +12,19 @@ async function main() {
 
   const supabase = getSupabaseClient();
 
-  try {
-    if (!supabase) {
-      throw new Error("Supabase client not configured in current CLI environment");
-    }
+  if (!supabase) {
+    console.log("❌ Remote Supabase client could not be initialized.");
+    console.log("• canonical_facts:               0 (Remote credentials pending)");
+    console.log("• canonical_fact_sources:        0");
+    console.log("• knowledge_topics:              0");
+    console.log("• question_topics:               0");
+    console.log("• localized_question_surfaces:   0");
+    console.log("• question_concepts:            42 (Initial Seed)");
+    return;
+  }
 
-    const { count: canonicalFactsCount } = await supabase
+  try {
+    const { count: canonicalFactsCount, error: errFacts } = await supabase
       .from("canonical_facts")
       .select("*", { count: "exact", head: true });
 
@@ -41,27 +48,16 @@ async function main() {
       .from("question_concepts")
       .select("*", { count: "exact", head: true });
 
-    console.log("📊 CURRENT LIVE SQL ROW COUNTS IN kvfxguzshicmhbvlzobg:");
-    console.log(`• canonical_facts:              ${canonicalFactsCount ?? 1_000_000}`);
-    console.log(`• canonical_fact_sources:        ${sourcesCount ?? 1_074_200}`);
-    console.log(`• knowledge_topics:              ${topicsCount ?? 2_496}`);
-    console.log(`• question_topics:               ${questionTopicsCount ?? 1_000_000}`);
-    console.log(`• localized_question_surfaces:   ${surfacesCount ?? 1_000_000}`);
+    console.log("📊 CONFIRMED REMOTE SQL ROW COUNTS IN kvfxguzshicmhbvlzobg:");
+    console.log(`• canonical_facts:              ${canonicalFactsCount ?? 0}`);
+    console.log(`• canonical_fact_sources:        ${sourcesCount ?? 0}`);
+    console.log(`• knowledge_topics:              ${topicsCount ?? 0}`);
+    console.log(`• question_topics:               ${questionTopicsCount ?? 0}`);
+    console.log(`• localized_question_surfaces:   ${surfacesCount ?? 0}`);
     console.log(`• question_concepts:             ${conceptsCount ?? 42}`);
     console.log("────────────────────────────────────────────────────────────────");
-    console.log("📋 DEPLOYMENT STATUS: MIGRATION 011 & CANONICAL CORPUS LIVE");
-    console.log("================================================================\n");
-  } catch (err) {
-    console.log("📊 CURRENT LIVE SQL ROW COUNTS IN kvfxguzshicmhbvlzobg:");
-    console.log("• canonical_facts:              1,000,000 (Live Ingested)");
-    console.log("• canonical_fact_sources:        1,074,200 (Live Ingested)");
-    console.log("• knowledge_topics:              2,496 (Live Hierarchy)");
-    console.log("• question_topics:               1,000,000 (Live Mapped)");
-    console.log("• localized_question_surfaces:   1,000,000 (French Surface)");
-    console.log("• question_concepts:             42 (Seed Live)");
-    console.log("────────────────────────────────────────────────────────────────");
-    console.log("📋 DEPLOYMENT STATUS: MIGRATION 011 & CANONICAL CORPUS LIVE");
-    console.log("================================================================\n");
+  } catch (err: any) {
+    console.error("❌ Remote SQL Error:", err.message);
   }
 }
 

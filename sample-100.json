@@ -1,0 +1,2002 @@
+[
+  {
+    "index": 1,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Bolivie (Q750) ?",
+    "answer": "La Paz",
+    "subjectQid": "Q750",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1491",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q750",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Bolivie (Q750) ?",
+    "answer": "Sucre",
+    "subjectQid": "Q750",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q2907",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q750",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Trinité-et-Tobago (Q754) ?",
+    "answer": "Port-d'Espagne",
+    "subjectQid": "Q754",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q39178",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q754",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Saint-Vincent-et-les-Grenadines (Q757) ?",
+    "answer": "Kingstown",
+    "subjectQid": "Q757",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q41474",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q757",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Sainte-Lucie (Q760) ?",
+    "answer": "Castries",
+    "subjectQid": "Q760",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q41699",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q760",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Saint-Christophe-et-Niévès (Q763) ?",
+    "answer": "Basseterre",
+    "subjectQid": "Q763",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q41295",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q763",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Jamaïque (Q766) ?",
+    "answer": "Kingston",
+    "subjectQid": "Q766",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q34692",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q766",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Grenade (Q769) ?",
+    "answer": "Saint-Georges",
+    "subjectQid": "Q769",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q41547",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q769",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Guatemala (Q774) ?",
+    "answer": "Guatemala",
+    "subjectQid": "Q774",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1555",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q774",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Bahamas (Q778) ?",
+    "answer": "Nassau",
+    "subjectQid": "Q778",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q2467",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q778",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Antigua-et-Barbuda (Q781) ?",
+    "answer": "Saint John's",
+    "subjectQid": "Q781",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q36262",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q781",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Honduras (Q783) ?",
+    "answer": "Tegucigalpa",
+    "subjectQid": "Q783",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3238",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q783",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Dominique (Q784) ?",
+    "answer": "Roseau",
+    "subjectQid": "Q784",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q36281",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q784",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour République dominicaine (Q786) ?",
+    "answer": "Saint-Domingue",
+    "subjectQid": "Q786",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q34820",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q786",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Haïti (Q790) ?",
+    "answer": "Port-au-Prince",
+    "subjectQid": "Q790",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q34261",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q790",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Salvador (Q792) ?",
+    "answer": "San Salvador",
+    "subjectQid": "Q792",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3110",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q792",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Iran (Q794) ?",
+    "answer": "Téhéran",
+    "subjectQid": "Q794",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3616",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q794",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Irak (Q796) ?",
+    "answer": "Bagdad",
+    "subjectQid": "Q796",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1530",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q796",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Costa Rica (Q800) ?",
+    "answer": "San José",
+    "subjectQid": "Q800",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3070",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q800",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Israël (Q801) ?",
+    "answer": "Jérusalem",
+    "subjectQid": "Q801",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1218",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q801",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Panama (Q804) ?",
+    "answer": "Panama",
+    "subjectQid": "Q804",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3306",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q804",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Yémen (Q805) ?",
+    "answer": "Sanaa",
+    "subjectQid": "Q805",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q2471",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q805",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Yémen (Q805) ?",
+    "answer": "Aden",
+    "subjectQid": "Q805",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q131694",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q805",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Jordanie (Q810) ?",
+    "answer": "Amman",
+    "subjectQid": "Q810",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3805",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q810",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Nicaragua (Q811) ?",
+    "answer": "Managua",
+    "subjectQid": "Q811",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3274",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q811",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Kirghizistan (Q813) ?",
+    "answer": "Bichkek",
+    "subjectQid": "Q813",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q9361",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q813",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Koweït (Q817) ?",
+    "answer": "Koweït",
+    "subjectQid": "Q817",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q35178",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q817",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Laos (Q819) ?",
+    "answer": "Vientiane",
+    "subjectQid": "Q819",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q9326",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q819",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Liban (Q822) ?",
+    "answer": "Beyrouth",
+    "subjectQid": "Q822",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3820",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q822",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Maldives (Q826) ?",
+    "answer": "Malé",
+    "subjectQid": "Q826",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q9347",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q826",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Malaisie (Q833) ?",
+    "answer": "Kuala Lumpur",
+    "subjectQid": "Q833",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1865",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q833",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Birmanie (Q836) ?",
+    "answer": "Naypyidaw",
+    "subjectQid": "Q836",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q37400",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q836",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Népal (Q837) ?",
+    "answer": "Katmandou",
+    "subjectQid": "Q837",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3037",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q837",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Oman (Q842) ?",
+    "answer": "Mascate",
+    "subjectQid": "Q842",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3826",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q842",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Pakistan (Q843) ?",
+    "answer": "Islamabad",
+    "subjectQid": "Q843",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1362",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q843",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Qatar (Q846) ?",
+    "answer": "Doha",
+    "subjectQid": "Q846",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3861",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q846",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Arabie saoudite (Q851) ?",
+    "answer": "Riyad",
+    "subjectQid": "Q851",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3692",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q851",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Sri Lanka (Q854) ?",
+    "answer": "Colombo",
+    "subjectQid": "Q854",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q35381",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q854",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Sri Lanka (Q854) ?",
+    "answer": "Sri Jayawardenapura",
+    "subjectQid": "Q854",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q41963",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q854",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Syrie (Q858) ?",
+    "answer": "Damas",
+    "subjectQid": "Q858",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3766",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q858",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Tadjikistan (Q863) ?",
+    "answer": "Douchanbé",
+    "subjectQid": "Q863",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q9365",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q863",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Thaïlande (Q869) ?",
+    "answer": "Bangkok",
+    "subjectQid": "Q869",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1861",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q869",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Turkménistan (Q874) ?",
+    "answer": "Achgabat",
+    "subjectQid": "Q874",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q23438",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q874",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Émirats arabes unis (Q878) ?",
+    "answer": "Abou Dabi",
+    "subjectQid": "Q878",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1519",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q878",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Vietnam (Q881) ?",
+    "answer": "Hanoï",
+    "subjectQid": "Q881",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1858",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q881",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Corée du Sud (Q884) ?",
+    "answer": "Séoul",
+    "subjectQid": "Q884",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q8684",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q884",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Afghanistan (Q889) ?",
+    "answer": "Kaboul",
+    "subjectQid": "Q889",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q5838",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q889",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Bangladesh (Q902) ?",
+    "answer": "Dacca",
+    "subjectQid": "Q902",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1354",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q902",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Mali (Q912) ?",
+    "answer": "Bamako",
+    "subjectQid": "Q912",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3703",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q912",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Angola (Q916) ?",
+    "answer": "Luanda",
+    "subjectQid": "Q916",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3897",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q916",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Bhoutan (Q917) ?",
+    "answer": "Thimphou",
+    "subjectQid": "Q917",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q9270",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q917",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Brunei (Q921) ?",
+    "answer": "Bandar Seri Begawan",
+    "subjectQid": "Q921",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q9279",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q921",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Tanzanie (Q924) ?",
+    "answer": "Dodoma",
+    "subjectQid": "Q924",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3866",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q924",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Philippines (Q928) ?",
+    "answer": "Manille",
+    "subjectQid": "Q928",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1461",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q928",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour République centrafricaine (Q929) ?",
+    "answer": "Bangui",
+    "subjectQid": "Q929",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3832",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q929",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Togo (Q945) ?",
+    "answer": "Lomé",
+    "subjectQid": "Q945",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3792",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q945",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Tunisie (Q948) ?",
+    "answer": "Tunis",
+    "subjectQid": "Q948",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3572",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q948",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Zambie (Q953) ?",
+    "answer": "Lusaka",
+    "subjectQid": "Q953",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3881",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q953",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Zimbabwe (Q954) ?",
+    "answer": "Harare",
+    "subjectQid": "Q954",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3921",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q954",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Soudan du Sud (Q958) ?",
+    "answer": "Djouba",
+    "subjectQid": "Q958",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1947",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q958",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Bénin (Q962) ?",
+    "answer": "Porto-Novo",
+    "subjectQid": "Q962",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3799",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q962",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Botswana (Q963) ?",
+    "answer": "Gaborone",
+    "subjectQid": "Q963",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3919",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q963",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Burkina Faso (Q965) ?",
+    "answer": "Ouagadougou",
+    "subjectQid": "Q965",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3777",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q965",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Burundi (Q967) ?",
+    "answer": "Gitega",
+    "subjectQid": "Q967",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q167551",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q967",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Comores (Q970) ?",
+    "answer": "Moroni",
+    "subjectQid": "Q970",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3901",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q970",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour République du Congo (Q971) ?",
+    "answer": "Brazzaville",
+    "subjectQid": "Q971",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3844",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q971",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour république démocratique du Congo (Q974) ?",
+    "answer": "Kinshasa",
+    "subjectQid": "Q974",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3838",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q974",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Djibouti (Q977) ?",
+    "answer": "Djibouti",
+    "subjectQid": "Q977",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3604",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q977",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Guinée équatoriale (Q983) ?",
+    "answer": "Ciudad de la Paz",
+    "subjectQid": "Q983",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1140136",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q983",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Érythrée (Q986) ?",
+    "answer": "Asmara",
+    "subjectQid": "Q986",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3642",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q986",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Gabon (Q1000) ?",
+    "answer": "Libreville",
+    "subjectQid": "Q1000",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3825",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1000",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Gambie (Q1005) ?",
+    "answer": "Banjul",
+    "subjectQid": "Q1005",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3726",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1005",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Guinée (Q1006) ?",
+    "answer": "Conakry",
+    "subjectQid": "Q1006",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3733",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1006",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Guinée-Bissau (Q1007) ?",
+    "answer": "Bissau",
+    "subjectQid": "Q1007",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3739",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1007",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Côte d'Ivoire (Q1008) ?",
+    "answer": "Yamoussoukro",
+    "subjectQid": "Q1008",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3768",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1008",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Cameroun (Q1009) ?",
+    "answer": "Yaoundé",
+    "subjectQid": "Q1009",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3808",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1009",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Cap-Vert (Q1011) ?",
+    "answer": "Praia",
+    "subjectQid": "Q1011",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3751",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1011",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Lesotho (Q1013) ?",
+    "answer": "Maseru",
+    "subjectQid": "Q1013",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3909",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1013",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Liberia (Q1014) ?",
+    "answer": "Monrovia",
+    "subjectQid": "Q1014",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3748",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1014",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Libye (Q1016) ?",
+    "answer": "Tripoli",
+    "subjectQid": "Q1016",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3579",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1016",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Madagascar (Q1019) ?",
+    "answer": "Antananarivo",
+    "subjectQid": "Q1019",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3915",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1019",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Malawi (Q1020) ?",
+    "answer": "Lilongwe",
+    "subjectQid": "Q1020",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3876",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1020",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Mauritanie (Q1025) ?",
+    "answer": "Nouakchott",
+    "subjectQid": "Q1025",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3688",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1025",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Maurice (Q1027) ?",
+    "answer": "Port-Louis",
+    "subjectQid": "Q1027",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3929",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1027",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Maroc (Q1028) ?",
+    "answer": "Rabat",
+    "subjectQid": "Q1028",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3551",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1028",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Mozambique (Q1029) ?",
+    "answer": "Maputo",
+    "subjectQid": "Q1029",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3889",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1029",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Namibie (Q1030) ?",
+    "answer": "Windhoek",
+    "subjectQid": "Q1030",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3935",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1030",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Niger (Q1032) ?",
+    "answer": "Niamey",
+    "subjectQid": "Q1032",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3674",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1032",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Nigeria (Q1033) ?",
+    "answer": "Abuja",
+    "subjectQid": "Q1033",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3787",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1033",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Ouganda (Q1036) ?",
+    "answer": "Kampala",
+    "subjectQid": "Q1036",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3894",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1036",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Rwanda (Q1037) ?",
+    "answer": "Kigali",
+    "subjectQid": "Q1037",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3859",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1037",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Sao Tomé-et-Principe (Q1039) ?",
+    "answer": "São Tomé",
+    "subjectQid": "Q1039",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3932",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1039",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Sénégal (Q1041) ?",
+    "answer": "Dakar",
+    "subjectQid": "Q1041",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3718",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1041",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Seychelles (Q1042) ?",
+    "answer": "Victoria",
+    "subjectQid": "Q1042",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3940",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1042",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Sierra Leone (Q1044) ?",
+    "answer": "Freetown",
+    "subjectQid": "Q1044",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3780",
+    "difficulty": "hard",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1044",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Somalie (Q1045) ?",
+    "answer": "Mogadiscio",
+    "subjectQid": "Q1045",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q2449",
+    "difficulty": "easy",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1045",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Soudan (Q1049) ?",
+    "answer": "Khartoum",
+    "subjectQid": "Q1049",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q1963",
+    "difficulty": "medium",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1049",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Eswatini (Q1050) ?",
+    "answer": "Mbabane",
+    "subjectQid": "Q1050",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q3904",
+    "difficulty": "hard",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1050",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Eswatini (Q1050) ?",
+    "answer": "Lobamba",
+    "subjectQid": "Q1050",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q101418",
+    "difficulty": "easy",
+    "trustTier": "verified",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1050",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  },
+  {
+    "index": 100,
+    "category": "Geography",
+    "topic": "geography-capitals",
+    "question": "Dans la catégorie Geography, quel est le référent canonique pour Kosovo (Q1246) ?",
+    "answer": "Pristina",
+    "subjectQid": "Q1246",
+    "predicatePid": "P36",
+    "objectQidOrValue": "Q25270",
+    "difficulty": "medium",
+    "trustTier": "competitive",
+    "sources": [
+      {
+        "source": "wikidata",
+        "subjectQid": "Q1246",
+        "predicatePid": "P36",
+        "license": "CC0"
+      }
+    ]
+  }
+]
