@@ -13,7 +13,7 @@ import type {
   User,
 } from "@/lib/types";
 
-export const countries: Record<string, Country> = {
+export const countries = {
   FR: { code: "FR", name: "France", flag: "🇫🇷" },
   JP: { code: "JP", name: "Japan", flag: "🇯🇵" },
   DE: { code: "DE", name: "Germany", flag: "🇩🇪" },
@@ -24,7 +24,7 @@ export const countries: Record<string, Country> = {
   BR: { code: "BR", name: "Brazil", flag: "🇧🇷" },
   IT: { code: "IT", name: "Italy", flag: "🇮🇹" },
   KR: { code: "KR", name: "South Korea", flag: "🇰🇷" },
-};
+} satisfies Record<string, Country>;
 
 export const divisions: Division[] = [
   { tier: "Rookie", minElo: 0, maxElo: 799, color: "oklch(0.7 0.02 265)" },
