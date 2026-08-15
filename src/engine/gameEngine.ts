@@ -216,11 +216,31 @@ class AuthoritativeGameEngine {
     const playerA = this.playerProfiles.get(userId) || { ...defaultUser, id: userId };
     const playerB = { ...rivalOpponent };
 
+    // Category-Balanced Selection (Parts 16, 17, 48): Max 2 per category, min 4 distinct categories
     const pool = this.questions.filter((q) => !this.quarantinedQuestionIds.has(q.id));
-    const shuffled = [...pool].sort(() => 0.5 - Math.random()).slice(0, 8);
-    const nowMs = Date.now();
+    const shuffledPool = [...pool].sort(() => 0.5 - Math.random());
+    const selectedQuestions: typeof pool = [];
+    const categoryCounts: Record<string, number> = {};
 
-    const rounds: RankedRoundInternal[] = shuffled.map((q, idx) => ({
+    for (const q of shuffledPool) {
+      if (selectedQuestions.length >= 8) break;
+      const count = categoryCounts[q.category] || 0;
+      if (count >= 2) continue; // Prevent Geography or any category dominating
+      categoryCounts[q.category] = count + 1;
+      selectedQuestions.push(q);
+    }
+
+    if (selectedQuestions.length < 8) {
+      for (const q of shuffledPool) {
+        if (selectedQuestions.length >= 8) break;
+        if (!selectedQuestions.some((s) => s.id === q.id)) {
+          selectedQuestions.push(q);
+        }
+      }
+    }
+
+    const nowMs = Date.now();
+    const rounds: RankedRoundInternal[] = selectedQuestions.map((q, idx) => ({
       roundNumber: idx + 1,
       fullQuestion: q,
       questionInstance: {

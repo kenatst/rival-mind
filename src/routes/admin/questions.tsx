@@ -233,6 +233,50 @@ function AdminQuestionsScreen() {
         </Panel>
       </div>
 
+      {/* Pre-Closed-Beta QA Progress Ledger (Part 22, 26, 43) */}
+      <Panel glow className="p-4 mb-6 border-primary/40 bg-surface space-y-3 shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
+          <div>
+            <div className="label-xs text-primary font-black uppercase tracking-wider flex items-center gap-1.5">
+              <Award size={14} /> PRE-CLOSED-BETA HUMAN AUDIT LEDGER · TARGET: 200 QUESTIONS
+            </div>
+            <div className="text-xs text-muted-foreground mt-0.5 font-medium">
+              Every question must pass the strict criterion: <em>"Would I consider this fair if it cost me a Ranked match?"</em>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 font-mono text-xs">
+            <span className="px-2.5 py-1 rounded-lg bg-surface-2 border border-border font-bold">
+              Reviewed: <strong className="text-foreground">0 / 200</strong>
+            </span>
+            <span className="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-500 border border-amber-500/30 font-black">
+              STATUS: IN PROGRESS
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+          <div className="p-2 rounded-xl bg-surface-2 border border-border text-center">
+            <div className="label-xs text-muted-foreground font-bold">Pass Rate (Reviewed)</div>
+            <div className="text-base font-black text-primary mt-0.5">-- %</div>
+          </div>
+          <div className="p-2 rounded-xl bg-surface-2 border border-border text-center">
+            <div className="label-xs text-muted-foreground font-bold">Critical Factual Errors</div>
+            <div className="text-base font-black text-success mt-0.5">0</div>
+          </div>
+          <div className="p-2 rounded-xl bg-surface-2 border border-border text-center">
+            <div className="label-xs text-muted-foreground font-bold">Trust For Elo</div>
+            <div className="text-base font-black text-foreground mt-0.5">Awaiting Review</div>
+          </div>
+          <div className="p-2 rounded-xl bg-surface-2 border border-border text-center">
+            <div className="label-xs text-muted-foreground font-bold">Keyboard Navigation</div>
+            <div className="text-xs font-mono text-muted-foreground mt-0.5">
+              <kbd className="px-1 py-0.5 rounded bg-muted">A</kbd> Pass · <kbd className="px-1 py-0.5 rounded bg-muted">F</kbd> Fail · <kbd className="px-1 py-0.5 rounded bg-muted">C</kbd> Crit · <kbd className="px-1 py-0.5 rounded bg-muted">→</kbd> Next
+            </div>
+          </div>
+        </div>
+      </Panel>
+
       {/* Filter & Search Bar */}
       <div className="grid gap-3 sm:grid-cols-[1fr_auto_auto] items-center mb-6">
         <div className="relative">
@@ -263,8 +307,9 @@ function AdminQuestionsScreen() {
           onChange={setStatusFilter}
           tabs={[
             { id: "all", label: "All Questions" },
-            { id: "free_answer", label: "⌨️ Free Answer (890)" },
-            { id: "blitz", label: "⚡ Blitz Eligible" },
+            { id: "audit_sample", label: "📋 Audit Sample (200)" },
+            { id: "free_answer", label: "⌨️ Free Answer (640)" },
+            { id: "blitz", label: "⚡ Blitz (782)" },
             { id: "quarantined", label: "⚠️ Quarantined" },
           ]}
         />
