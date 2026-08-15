@@ -17,37 +17,11 @@
 
 ---
 
-## 2. Sequential Round Lifecycle
+## 2. Realtime Channel Security & Answer Privacy
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Client as Player Client
-    participant Engine as Authoritative Game Engine
-    participant DB as PostgreSQL / Supabase
-
-    Client->>Engine: startRankedMatch(userId)
-    Engine->>Engine: Generate 8 rounds server-side, set servedAt for Round 1
-    Engine-->>Client: { matchId, totalRounds: 8, initialRoundQuestion (Round 1 only) }
-    
-    Note over Client: Player sees Round 1 timer & options (no correct flags)
-    
-    Client->>Engine: submitRankedRound(matchId, round: 1, optionId, telemetryMs)
-    Engine->>Engine: serverTimeMs = now - servedAt; check answer & record round 1
-    Engine-->>Client: { wasCorrect, correctOptionId, explanation, scoreA, scoreB }
-
-    Client->>Engine: getRankedRoundQuestion(matchId, round: 2)
-    Engine->>Engine: Verify Round 1 completed; set servedAt for Round 2
-    Engine-->>Client: { questionInstance (Round 2) }
-
-    Note over Client: Repeat through Round 8...
-
-    Client->>Engine: completeRankedMatch(matchId)
-    Engine->>DB: complete_ranked_match_secure(matchId, callerId)
-    DB->>DB: Read 8 server rounds, calculate Elo shifts (K=24), update profiles
-    DB-->>Engine: { winnerId, playerAScore, playerARatingAfter, deltaA }
-    Engine-->>Client: Final Verified Match Outcome
-```
+1. **Broadcast Sanitization**: When a player locks in an answer, the Realtime event payload contains ONLY `{ opponentLocked: true, lockedAt: timestamp }`.
+2. **Hidden Option Secrecy**: The `selected_option_id`, correctness, and point value remain strictly sequestered in the PostgreSQL `ranked_round_answers` table until both competitors have answered or the 10.0s round deadline expires.
+3. **RLS Authorization**: Row Level Security prevents any third-party user from reading private round answers or subscribing to unauthorized match channels.
 
 ---
 
@@ -61,8 +35,9 @@ sequenceDiagram
 
 ---
 
-## 4. Anti-Cheat Telemetry & Quarantining
+## 4. Anti-Cheat Telemetry, Anti-Farming & Collusion Auditing
 
-- **Human Physical Threshold**: Responses faster than 250ms are flagged for review.
-- **Reporting System**: Users can flag question ambiguity or errors; reaching threshold triggers automated quarantine.
+- **Human Physical Latency Gate**: Responses faster than 250ms are flagged for anomaly inspection.
+- **Collusion & Elo Farming Audits**: Tracks repeated pairings between the same user IDs in a 24-hour window, abnormal forfeit ratios, and non-random rating transfer patterns.
+- **Reporting System**: Users can flag question ambiguity or errors; reaching report threshold triggers automated quarantine.
 - **Quarantine RPC**: Quarantined variants are removed from matchmaking in O(1) time without system downtime.

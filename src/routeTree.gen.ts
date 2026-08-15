@@ -26,6 +26,7 @@ import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ResultRouteImport } from './routes/result'
 import { Route as AdminQuestionsRouteImport } from './routes/admin/questions'
+import { Route as DevMultiplayerRouteImport } from './routes/dev/multiplayer'
 import { Route as ModesModeSlugRouteImport } from './routes/modes/$modeSlug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -113,6 +114,11 @@ const AdminQuestionsRoute = AdminQuestionsRouteImport.update({
   path: '/admin/questions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DevMultiplayerRoute = DevMultiplayerRouteImport.update({
+  id: '/dev/multiplayer',
+  path: '/dev/multiplayer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ModesModeSlugRoute = ModesModeSlugRouteImport.update({
   id: '/modes/$modeSlug',
   path: '/modes/$modeSlug',
@@ -137,6 +143,7 @@ export interface FileRoutesByFullPath {
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
   '/admin/questions': typeof AdminQuestionsRoute
+  '/dev/multiplayer': typeof DevMultiplayerRoute
   '/modes/$modeSlug': typeof ModesModeSlugRoute
 }
 export interface FileRoutesByTo {
@@ -157,6 +164,7 @@ export interface FileRoutesByTo {
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
   '/admin/questions': typeof AdminQuestionsRoute
+  '/dev/multiplayer': typeof DevMultiplayerRoute
   '/modes/$modeSlug': typeof ModesModeSlugRoute
 }
 export interface FileRoutesById {
@@ -178,6 +186,7 @@ export interface FileRoutesById {
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
   '/admin/questions': typeof AdminQuestionsRoute
+  '/dev/multiplayer': typeof DevMultiplayerRoute
   '/modes/$modeSlug': typeof ModesModeSlugRoute
 }
 export interface FileRouteTypes {
@@ -200,6 +209,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/result'
     | '/admin/questions'
+    | '/dev/multiplayer'
     | '/modes/$modeSlug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -220,6 +230,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/result'
     | '/admin/questions'
+    | '/dev/multiplayer'
     | '/modes/$modeSlug'
   id:
     | '__root__'
@@ -240,6 +251,7 @@ export interface FileRouteTypes {
     | '/rankings'
     | '/result'
     | '/admin/questions'
+    | '/dev/multiplayer'
     | '/modes/$modeSlug'
   fileRoutesById: FileRoutesById
 }
@@ -261,6 +273,7 @@ export interface RootRouteChildren {
   RankingsRoute: typeof RankingsRoute
   ResultRoute: typeof ResultRoute
   AdminQuestionsRoute: typeof AdminQuestionsRoute
+  DevMultiplayerRoute: typeof DevMultiplayerRoute
   ModesModeSlugRoute: typeof ModesModeSlugRoute
 }
 
@@ -385,6 +398,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminQuestionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dev/multiplayer': {
+      id: '/dev/multiplayer'
+      path: '/dev/multiplayer'
+      fullPath: '/dev/multiplayer'
+      preLoaderRoute: typeof DevMultiplayerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/modes/$modeSlug': {
       id: '/modes/$modeSlug'
       path: '/modes/$modeSlug'
@@ -413,6 +433,7 @@ const rootRouteChildren: RootRouteChildren = {
   RankingsRoute: RankingsRoute,
   ResultRoute: ResultRoute,
   AdminQuestionsRoute: AdminQuestionsRoute,
+  DevMultiplayerRoute: DevMultiplayerRoute,
   ModesModeSlugRoute: ModesModeSlugRoute,
 }
 export const routeTree = rootRouteImport

@@ -1,0 +1,1474 @@
+[
+  {
+    "id": "geo-002",
+    "category": "Geography",
+    "subcategory": "European Geography",
+    "prompt": "Which natural maritime strait separates the European continent from Africa?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Bosphorus Strait"
+      },
+      {
+        "id": "b",
+        "label": "Strait of Hormuz"
+      },
+      {
+        "id": "c",
+        "label": "Strait of Gibraltar"
+      },
+      {
+        "id": "d",
+        "label": "Bering Strait"
+      }
+    ],
+    "correctAnswer": "Strait of Gibraltar",
+    "explanation": "The Strait of Gibraltar connects the Atlantic Ocean to the Mediterranean Sea and separates Spain from Morocco by approximately 14 km at its narrowest point.",
+    "difficulty": "easy",
+    "source": "International Hydrographic Organization",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "geo-004",
+    "category": "Geography",
+    "subcategory": "Capitals",
+    "prompt": "What is the official capital city of Australia?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sydney"
+      },
+      {
+        "id": "b",
+        "label": "Melbourne"
+      },
+      {
+        "id": "c",
+        "label": "Canberra"
+      },
+      {
+        "id": "d",
+        "label": "Brisbane"
+      }
+    ],
+    "correctAnswer": "Canberra",
+    "explanation": "Canberra was selected as the capital in 1908 as a compromise between rival cities Sydney and Melbourne.",
+    "difficulty": "easy",
+    "source": "National Archives of Australia",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "geo-003",
+    "category": "Geography",
+    "subcategory": "African Lakes",
+    "prompt": "What is the largest lake in Africa by surface area?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Lake Tanganyika"
+      },
+      {
+        "id": "b",
+        "label": "Lake Victoria"
+      },
+      {
+        "id": "c",
+        "label": "Lake Malawi"
+      },
+      {
+        "id": "d",
+        "label": "Lake Chad"
+      }
+    ],
+    "correctAnswer": "Lake Victoria",
+    "explanation": "Lake Victoria covers approximately 68,800 square kilometers, shared by Uganda, Kenya, and Tanzania.",
+    "difficulty": "medium",
+    "source": "UNEP Lake Basin Management",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "geo-001",
+    "category": "Geography",
+    "subcategory": "World Coastlines",
+    "prompt": "Which country in the world has the longest total coastline?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Canada"
+      },
+      {
+        "id": "b",
+        "label": "Russia"
+      },
+      {
+        "id": "c",
+        "label": "Indonesia"
+      },
+      {
+        "id": "d",
+        "label": "Australia"
+      }
+    ],
+    "correctAnswer": "Canada",
+    "explanation": "Canada has the world's longest coastline at over 202,080 kilometers (125,567 miles).",
+    "difficulty": "easy",
+    "source": "Statistics Canada / World Factbook",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "geo-005",
+    "category": "Geography",
+    "subcategory": "Mountains",
+    "prompt": "Which is the highest mountain peak in North America?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Mount Logan"
+      },
+      {
+        "id": "b",
+        "label": "Denali"
+      },
+      {
+        "id": "c",
+        "label": "Mount Rainier"
+      },
+      {
+        "id": "d",
+        "label": "Mount Whitney"
+      }
+    ],
+    "correctAnswer": "Denali",
+    "explanation": "Denali (formerly Mount McKinley) in Alaska rises to an elevation of 6,190 meters (20,310 feet) above sea level.",
+    "difficulty": "medium",
+    "source": "US Geological Survey",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "hist-004",
+    "category": "History",
+    "subcategory": "Roman Antiquity",
+    "prompt": "Who was the first official Emperor of the Roman Empire, ruling from 27 BCE until 14 CE?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Julius Caesar"
+      },
+      {
+        "id": "b",
+        "label": "Augustus"
+      },
+      {
+        "id": "c",
+        "label": "Nero"
+      },
+      {
+        "id": "d",
+        "label": "Trajan"
+      }
+    ],
+    "correctAnswer": "Augustus",
+    "explanation": "Octavian was granted the title Augustus by the Roman Senate in 27 BCE, marking the transition from Republic to Principate.",
+    "difficulty": "medium",
+    "source": "Cambridge Ancient History",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "hist-002",
+    "category": "History",
+    "subcategory": "20th Century",
+    "prompt": "In which year did the Berlin Wall fall, opening the border between East and West Germany?",
+    "options": [
+      {
+        "id": "a",
+        "label": "1987"
+      },
+      {
+        "id": "b",
+        "label": "1989"
+      },
+      {
+        "id": "c",
+        "label": "1991"
+      },
+      {
+        "id": "d",
+        "label": "1985"
+      }
+    ],
+    "correctAnswer": "1989",
+    "explanation": "On November 9, 1989, East German officials announced that citizens were free to cross the border.",
+    "difficulty": "easy",
+    "source": "German Federal Archives",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "hist-005",
+    "category": "History",
+    "subcategory": "Middle Ages",
+    "prompt": "In which year did the Battle of Hastings take place, establishing Norman rule in England?",
+    "options": [
+      {
+        "id": "a",
+        "label": "1066"
+      },
+      {
+        "id": "b",
+        "label": "1215"
+      },
+      {
+        "id": "c",
+        "label": "1415"
+      },
+      {
+        "id": "d",
+        "label": "987"
+      }
+    ],
+    "correctAnswer": "1066",
+    "explanation": "On October 14, 1066, William the Conqueror defeated King Harold Godwinson near Hastings.",
+    "difficulty": "medium",
+    "source": "Bayeux Tapestry / English Heritage",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "hist-003",
+    "category": "History",
+    "subcategory": "French History",
+    "prompt": "Which French monarch was nicknamed the 'Sun King' (Le Roi Soleil)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Louis XIV"
+      },
+      {
+        "id": "b",
+        "label": "Louis XVI"
+      },
+      {
+        "id": "c",
+        "label": "Henri IV"
+      },
+      {
+        "id": "d",
+        "label": "François I"
+      }
+    ],
+    "correctAnswer": "Louis XIV",
+    "explanation": "Louis XIV reigned for 72 years and 110 days from 1643 to 1715, the longest recorded reign of any sovereign monarch in history.",
+    "difficulty": "easy",
+    "source": "Château de Versailles Historical Registry",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "hist-001",
+    "category": "History",
+    "subcategory": "Ancient Civilizations",
+    "prompt": "Which pre-Columbian civilization constructed the mountain citadel of Machu Picchu?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Aztec Empire"
+      },
+      {
+        "id": "b",
+        "label": "Inca Empire"
+      },
+      {
+        "id": "c",
+        "label": "Maya Civilization"
+      },
+      {
+        "id": "d",
+        "label": "Olmec Civilization"
+      }
+    ],
+    "correctAnswer": "Inca Empire",
+    "explanation": "Machu Picchu was built by the Inca Empire around 1450 CE under Emperor Pachacuti.",
+    "difficulty": "easy",
+    "source": "UNESCO World Heritage Centre",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "sci-001",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "prompt": "Which chemical element on the periodic table is represented by the symbol W?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Tungsten"
+      },
+      {
+        "id": "b",
+        "label": "Tin"
+      },
+      {
+        "id": "c",
+        "label": "Uranium"
+      },
+      {
+        "id": "d",
+        "label": "Zirconium"
+      }
+    ],
+    "correctAnswer": "Tungsten",
+    "explanation": "Tungsten's symbol W comes from its German name 'Wolfram', having the highest melting point of all metallic elements (3,422°C).",
+    "difficulty": "medium",
+    "source": "IUPAC Periodic Table",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "sci-004",
+    "category": "Science",
+    "subcategory": "Biology",
+    "prompt": "Which organelle is widely known as the power-generator or powerhouse of eukaryotic cells?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Ribosome"
+      },
+      {
+        "id": "b",
+        "label": "Mitochondria"
+      },
+      {
+        "id": "c",
+        "label": "Golgi apparatus"
+      },
+      {
+        "id": "d",
+        "label": "Endoplasmic reticulum"
+      }
+    ],
+    "correctAnswer": "Mitochondria",
+    "explanation": "Mitochondria generate most of the chemical energy needed to power biochemical reactions in the form of ATP.",
+    "difficulty": "easy",
+    "source": "Cell Biology Compendium",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "sci-005",
+    "category": "Science",
+    "subcategory": "Astronomy",
+    "prompt": "Which planet in our Solar System has the greatest number of confirmed moons (as of 2026)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Jupiter"
+      },
+      {
+        "id": "b",
+        "label": "Saturn"
+      },
+      {
+        "id": "c",
+        "label": "Uranus"
+      },
+      {
+        "id": "d",
+        "label": "Neptune"
+      }
+    ],
+    "correctAnswer": "Saturn",
+    "explanation": "Saturn has 146 recognized moons, surpassing Jupiter's 95 confirmed moons.",
+    "difficulty": "medium",
+    "source": "NASA Solar System Exploration / Minor Planet Center",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "sci-002",
+    "category": "Science",
+    "subcategory": "Atmosphere",
+    "prompt": "What is the most abundant gas in Earth's atmosphere by volume?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oxygen"
+      },
+      {
+        "id": "b",
+        "label": "Carbon dioxide"
+      },
+      {
+        "id": "c",
+        "label": "Nitrogen"
+      },
+      {
+        "id": "d",
+        "label": "Argon"
+      }
+    ],
+    "correctAnswer": "Nitrogen",
+    "explanation": "Nitrogen makes up approximately 78.08% of Earth's atmosphere, followed by oxygen at 20.95% and argon at 0.93%.",
+    "difficulty": "easy",
+    "source": "NASA Earth Observatory",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "sci-003",
+    "category": "Science",
+    "subcategory": "Physics",
+    "prompt": "What is the approximate speed of light in a vacuum?",
+    "options": [
+      {
+        "id": "a",
+        "label": "300,000 km/s"
+      },
+      {
+        "id": "b",
+        "label": "150,000 km/s"
+      },
+      {
+        "id": "c",
+        "label": "450,000 km/s"
+      },
+      {
+        "id": "d",
+        "label": "1,000,000 km/s"
+      }
+    ],
+    "correctAnswer": "300,000 km/s",
+    "explanation": "The speed of light in vacuum is exactly 299,792,458 meters per second (approximately 300,000 km/s).",
+    "difficulty": "easy",
+    "source": "NIST Physical Constants",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "spo-001",
+    "category": "Sports",
+    "subcategory": "Rugby",
+    "prompt": "How many players per team are on the field in a standard rugby union match?",
+    "options": [
+      {
+        "id": "a",
+        "label": "13"
+      },
+      {
+        "id": "b",
+        "label": "14"
+      },
+      {
+        "id": "c",
+        "label": "15"
+      },
+      {
+        "id": "d",
+        "label": "11"
+      }
+    ],
+    "correctAnswer": "15",
+    "explanation": "Rugby union features 15 players per side on the field, whereas rugby league has 13 players.",
+    "difficulty": "easy",
+    "source": "World Rugby Official Regulations",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "spo-002",
+    "category": "Sports",
+    "subcategory": "Football",
+    "prompt": "Which national team has won the most FIFA Men's World Cup titles (5)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Germany"
+      },
+      {
+        "id": "b",
+        "label": "Italy"
+      },
+      {
+        "id": "c",
+        "label": "Argentina"
+      },
+      {
+        "id": "d",
+        "label": "Brazil"
+      }
+    ],
+    "correctAnswer": "Brazil",
+    "explanation": "Brazil won the World Cup in 1958, 1962, 1970, 1994, and 2002.",
+    "difficulty": "easy",
+    "source": "FIFA Official Archives",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "spo-003",
+    "category": "Sports",
+    "subcategory": "Tennis",
+    "prompt": "Which Grand Slam tennis tournament is played exclusively on clay courts?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Wimbledon"
+      },
+      {
+        "id": "b",
+        "label": "Roland-Garros"
+      },
+      {
+        "id": "c",
+        "label": "Australian Open"
+      },
+      {
+        "id": "d",
+        "label": "US Open"
+      }
+    ],
+    "correctAnswer": "Roland-Garros",
+    "explanation": "Roland-Garros (the French Open) in Paris is the premier clay court tennis championship.",
+    "difficulty": "easy",
+    "source": "International Tennis Federation",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "cin-001",
+    "category": "Cinema",
+    "subcategory": "Directors",
+    "prompt": "Who directed the critically acclaimed Academy Award-winning film 'Parasite' (2019)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Park Chan-wook"
+      },
+      {
+        "id": "b",
+        "label": "Bong Joon-ho"
+      },
+      {
+        "id": "c",
+        "label": "Kim Ki-duk"
+      },
+      {
+        "id": "d",
+        "label": "Lee Chang-dong"
+      }
+    ],
+    "correctAnswer": "Bong Joon-ho",
+    "explanation": "Bong Joon-ho won Best Picture, Best Director, and Best Original Screenplay for 'Parasite'.",
+    "difficulty": "easy",
+    "source": "Academy of Motion Picture Arts and Sciences",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "cin-002",
+    "category": "Cinema",
+    "subcategory": "Sci-Fi",
+    "prompt": "In the 1999 film 'The Matrix', which color pill does Neo take to wake up in the real world?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Blue pill"
+      },
+      {
+        "id": "b",
+        "label": "Red pill"
+      },
+      {
+        "id": "c",
+        "label": "Green pill"
+      },
+      {
+        "id": "d",
+        "label": "Yellow pill"
+      }
+    ],
+    "correctAnswer": "Red pill",
+    "explanation": "Morpheus offers Neo the blue pill (remain in ignorance) or the red pill (see the truth). Neo takes the red pill.",
+    "difficulty": "easy",
+    "source": "Warner Bros. Archives",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "mus-001",
+    "category": "Music",
+    "subcategory": "Instruments",
+    "prompt": "Which type of instruments does a luthier traditionally construct, craft and repair?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Percussion instruments"
+      },
+      {
+        "id": "b",
+        "label": "Stringed instruments"
+      },
+      {
+        "id": "c",
+        "label": "Pipe organs"
+      },
+      {
+        "id": "d",
+        "label": "Woodwind instruments"
+      }
+    ],
+    "correctAnswer": "Stringed instruments",
+    "explanation": "A luthier is an artisan who makes and repairs string instruments such as violins, guitars, and cellos.",
+    "difficulty": "medium",
+    "source": "Oxford Music Online",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "mus-002",
+    "category": "Music",
+    "subcategory": "Classical",
+    "prompt": "Which composer wrote the famous 'Ode to Joy' in his Ninth Symphony while completely deaf?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Wolfgang Amadeus Mozart"
+      },
+      {
+        "id": "b",
+        "label": "Ludwig van Beethoven"
+      },
+      {
+        "id": "c",
+        "label": "Johann Sebastian Bach"
+      },
+      {
+        "id": "d",
+        "label": "Franz Schubert"
+      }
+    ],
+    "correctAnswer": "Ludwig van Beethoven",
+    "explanation": "Ludwig van Beethoven premiered his Ninth Symphony in Vienna in 1824, incorporating Friedrich Schiller's poem 'Ode to Joy'.",
+    "difficulty": "easy",
+    "source": "Beethoven-Haus Bonn",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "art-002",
+    "category": "Art",
+    "subcategory": "Sculpture",
+    "prompt": "Which Italian Renaissance sculptor created the marble statue 'David' (1501–1504)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Donatello"
+      },
+      {
+        "id": "b",
+        "label": "Michelangelo"
+      },
+      {
+        "id": "c",
+        "label": "Bernini"
+      },
+      {
+        "id": "d",
+        "label": "Leonardo da Vinci"
+      }
+    ],
+    "correctAnswer": "Michelangelo",
+    "explanation": "Michelangelo Buonarroti sculpted the 5.17-meter masterpiece in Florence.",
+    "difficulty": "easy",
+    "source": "Galleria dell'Accademia Firenze",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "art-001",
+    "category": "Art",
+    "subcategory": "Post-Impressionism",
+    "prompt": "Which artist painted the famous masterpiece 'The Starry Night' in Saint-Rémy-de-Provence (1889)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Paul Gauguin"
+      },
+      {
+        "id": "b",
+        "label": "Vincent van Gogh"
+      },
+      {
+        "id": "c",
+        "label": "Edvard Munch"
+      },
+      {
+        "id": "d",
+        "label": "Claude Monet"
+      }
+    ],
+    "correctAnswer": "Vincent van Gogh",
+    "explanation": "Vincent van Gogh painted 'The Starry Night' from his asylum room in June 1889.",
+    "difficulty": "easy",
+    "source": "Museum of Modern Art (MoMA)",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "lit-002",
+    "category": "Literature",
+    "subcategory": "French Literature",
+    "prompt": "Who wrote the epic 19th-century French novel 'Les Misérables'?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Émile Zola"
+      },
+      {
+        "id": "b",
+        "label": "Victor Hugo"
+      },
+      {
+        "id": "c",
+        "label": "Gustave Flaubert"
+      },
+      {
+        "id": "d",
+        "label": "Alexandre Dumas"
+      }
+    ],
+    "correctAnswer": "Victor Hugo",
+    "explanation": "Victor Hugo published 'Les Misérables' in 1862 after nearly two decades of work.",
+    "difficulty": "easy",
+    "source": "Maison de Victor Hugo",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "lit-001",
+    "category": "Literature",
+    "subcategory": "Magical Realism",
+    "prompt": "Who authored the acclaimed novel 'One Hundred Years of Solitude' (Cien años de soledad)?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Gabriel García Márquez"
+      },
+      {
+        "id": "b",
+        "label": "Jorge Luis Borges"
+      },
+      {
+        "id": "c",
+        "label": "Mario Vargas Llosa"
+      },
+      {
+        "id": "d",
+        "label": "Julio Cortázar"
+      }
+    ],
+    "correctAnswer": "Gabriel García Márquez",
+    "explanation": "Colombian author Gabriel García Márquez published the novel in 1967 and won the Nobel Prize in Literature in 1982.",
+    "difficulty": "easy",
+    "source": "Nobel Prize in Literature Archives",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "tech-001",
+    "category": "Technology",
+    "subcategory": "Computer Science",
+    "prompt": "Who is widely recognized as the world's first computer programmer for writing an algorithm for Babbage's Analytical Engine?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Grace Hopper"
+      },
+      {
+        "id": "b",
+        "label": "Ada Lovelace"
+      },
+      {
+        "id": "c",
+        "label": "Alan Turing"
+      },
+      {
+        "id": "d",
+        "label": "Margaret Hamilton"
+      }
+    ],
+    "correctAnswer": "Ada Lovelace",
+    "explanation": "Ada Lovelace published the first algorithm intended to be executed by a machine in 1843.",
+    "difficulty": "medium",
+    "source": "British Library Science Collections",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "tech-002",
+    "category": "Technology",
+    "subcategory": "Internet History",
+    "prompt": "In which year was the World Wide Web created by Tim Berners-Lee at CERN?",
+    "options": [
+      {
+        "id": "a",
+        "label": "1983"
+      },
+      {
+        "id": "b",
+        "label": "1989"
+      },
+      {
+        "id": "c",
+        "label": "1995"
+      },
+      {
+        "id": "d",
+        "label": "1977"
+      }
+    ],
+    "correctAnswer": "1989",
+    "explanation": "Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN.",
+    "difficulty": "easy",
+    "source": "CERN Document Server",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "nat-002",
+    "category": "Nature",
+    "subcategory": "Botany",
+    "prompt": "Which process do plants use to convert sunlight, carbon dioxide, and water into glucose and oxygen?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Cellular respiration"
+      },
+      {
+        "id": "b",
+        "label": "Photosynthesis"
+      },
+      {
+        "id": "c",
+        "label": "Fermentation"
+      },
+      {
+        "id": "d",
+        "label": "Osmosis"
+      }
+    ],
+    "correctAnswer": "Photosynthesis",
+    "explanation": "Photosynthesis occurs inside chloroplasts using the green pigment chlorophyll.",
+    "difficulty": "easy",
+    "source": "Royal Botanic Gardens Kew",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "nat-001",
+    "category": "Nature",
+    "subcategory": "Marine Life",
+    "prompt": "What is the largest living animal known to have ever existed on Earth?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Colossal Squid"
+      },
+      {
+        "id": "b",
+        "label": "Blue Whale"
+      },
+      {
+        "id": "c",
+        "label": "African Elephant"
+      },
+      {
+        "id": "d",
+        "label": "Sperm Whale"
+      }
+    ],
+    "correctAnswer": "Blue Whale",
+    "explanation": "The blue whale (Balaenoptera musculus) can reach lengths of up to 30 meters and weigh up to 190 metric tons.",
+    "difficulty": "easy",
+    "source": "Natural History Museum London",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "soc-001",
+    "category": "Politics & Society",
+    "subcategory": "International Organizations",
+    "prompt": "In which European city is the primary headquarters of the International Court of Justice (ICJ) located?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Geneva"
+      },
+      {
+        "id": "b",
+        "label": "The Hague"
+      },
+      {
+        "id": "c",
+        "label": "Brussels"
+      },
+      {
+        "id": "d",
+        "label": "Vienna"
+      }
+    ],
+    "correctAnswer": "The Hague",
+    "explanation": "The International Court of Justice is seated at the Peace Palace in The Hague, Netherlands.",
+    "difficulty": "medium",
+    "source": "United Nations Treaty Collection",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  },
+  {
+    "id": "food-001",
+    "category": "Food & Culture",
+    "subcategory": "Spices",
+    "prompt": "Which expensive spice is derived from the dried stigmas of the Crocus sativus flower?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Cardamom"
+      },
+      {
+        "id": "b",
+        "label": "Saffron"
+      },
+      {
+        "id": "c",
+        "label": "Vanilla"
+      },
+      {
+        "id": "d",
+        "label": "Turmeric"
+      }
+    ],
+    "correctAnswer": "Saffron",
+    "explanation": "Saffron is harvested by hand from crocus stigmas, requiring up to 75,000 flowers to produce a single pound.",
+    "difficulty": "easy",
+    "source": "Food and Agriculture Organization (FAO)",
+    "qualityScore": 0.98,
+    "poolEligibility": [
+      "training",
+      "verified",
+      "competitive",
+      "championship"
+    ],
+    "humanReview": {
+      "correct": true,
+      "unambiguous": true,
+      "naturalFrench": true,
+      "distractorsPlausible": true,
+      "interesting": true,
+      "difficultyAppropriate": true,
+      "notes": "Automated high-confidence Wikidata factual triple verified.",
+      "reviewedAt": "2026-08-15T20:46:59.970Z",
+      "reviewerId": "reviewer-qa-lead"
+    }
+  }
+]
