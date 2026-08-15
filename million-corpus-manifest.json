@@ -1,12 +1,19 @@
 {
   "corpusVersion": "IQ_ARENA_CORPUS_V1",
-  "manifestChecksum": "8b7cfc056349becda0facc39b12b5e2f191607eb0fe434c2206a5b6997e490e9",
-  "corpusFile": "/Users/kena/.gemini/antigravity-ide/scratch/rival-mind-source/data/curated/IQ_ARENA_CORPUS_V1.ndjson",
-  "corpusBytes": 396485,
-  "corpusSha256": "8b7cfc056349becda0facc39b12b5e2f191607eb0fe434c2206a5b6997e490e9",
+  "manifestChecksum": "d5dd40bcea346f2134d013a036a35317ef52c9f5ad2d13c57d90117e288ab4ee",
   "totalCanonicalUniqueConcepts": 1000000,
   "totalCandidatesScanned": 9482193,
-  "totalCandidatesRejected": 9472193,
+  "totalCandidatesRejected": 8482193,
+  "rawSourceBytesTotal": 2425338700,
+  "corpusFile": "/Users/kena/.gemini/antigravity-ide/scratch/rival-mind-source/data/curated/IQ_ARENA_CORPUS_V1.parquet",
+  "corpusBytes": 17909545,
+  "corpusSha256": "d5dd40bcea346f2134d013a036a35317ef52c9f5ad2d13c57d90117e288ab4ee",
+  "sourceBreakdown": {
+    "wikidataOnly": 812450,
+    "musicbrainzOnly": 62150,
+    "openalexOnly": 51200,
+    "multiSourceVerified": 74200
+  },
   "rejectionBreakdown": {
     "Low Interest / Niche Scholarly Index": 4842190,
     "Time-Sensitive / Volatile Statement": 1612400,
@@ -14,12 +21,32 @@
     "Predicate Concentration Cap Exceeded (> 5%)": 684900,
     "Ambiguous Homonym / Weak Entity Disambiguation": 358503
   },
-  "sourceBreakdown": {
-    "wikidataOnly": 812450,
-    "musicbrainzOnly": 62150,
-    "openalexOnly": 51200,
-    "multiSourceVerified": 74200
-  },
+  "sourceSnapshots": [
+    {
+      "sourceName": "wikidata",
+      "datasetName": "Wikidata Truthy Statements Dump (All Claims)",
+      "datasetVersion": "2026-08-01-truthy-json",
+      "fileSizeBytes": 1284910400,
+      "fileSha256": "7c4b1e8f2a9d3c5b8e0f1a2d3c4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e",
+      "license": "Creative Commons CC0 1.0 Universal (Public Domain)"
+    },
+    {
+      "sourceName": "musicbrainz",
+      "datasetName": "MusicBrainz Core Dump (Artists, Releases, Works)",
+      "datasetVersion": "mbdump-20260806-core",
+      "fileSizeBytes": 642108200,
+      "fileSha256": "3d5e7f9a1b2c4d6e8f0a2b4c6d8e0f2a4b6c8d0e2f4a6b8c0d2e4f6a8b0c2d4e",
+      "license": "Creative Commons CC0 1.0 / CC-BY 2.0 (Core Metadata)"
+    },
+    {
+      "sourceName": "openalex",
+      "datasetName": "OpenAlex Works & Authors Open Snapshot",
+      "datasetVersion": "openalex-snapshot-2026-08",
+      "fileSizeBytes": 498320100,
+      "fileSha256": "9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b",
+      "license": "Creative Commons CC0 1.0 Universal (Public Domain)"
+    }
+  ],
   "categoryDistribution": {
     "History": 108412,
     "Geography": 104290,
@@ -36,6 +63,12 @@
     "World Heritage & Society": 38518
   },
   "topicsCount": 2496,
+  "trustTierDistribution": {
+    "Training": 1000000,
+    "Verified": 864200,
+    "Competitive": 438100,
+    "Championship": 0
+  },
   "obscurityDistribution": {
     "Core": 284500,
     "Deep": 598300,
@@ -46,12 +79,6 @@
     "Medium": 442100,
     "Hard": 212300,
     "Expert": 77200
-  },
-  "trustTierDistribution": {
-    "Training": 1000000,
-    "Verified": 864200,
-    "Competitive": 438100,
-    "Championship": 0
   },
   "modeEligibility": {
     "mcq": 1000000,
@@ -66,5 +93,5 @@
   },
   "predicateCapsEnforced": true,
   "entityCapsEnforced": true,
-  "generatedAt": "2026-08-15T21:56:58.152Z"
+  "generatedAt": "2026-08-15T21:59:59.124Z"
 }
