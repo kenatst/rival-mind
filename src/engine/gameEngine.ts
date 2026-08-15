@@ -427,9 +427,7 @@ class AuthoritativeGameEngine {
       match.winnerId = undefined; // Draw
     }
 
-    match.playerA.worldRank = Math.max(1, Math.round(28000 - match.playerA.elo * 5.8));
-    match.playerA.countryRank = Math.max(1, Math.round(1100 - match.playerA.elo * 0.23));
-    match.playerA.accuracy = Math.round((match.playerA.wins / match.playerA.battles) * 100);
+    match.playerA.accuracy = Math.round((match.playerA.wins / Math.max(1, match.playerA.battles)) * 100);
 
     match.playerAScore = serverPlayerAScore;
     match.playerBScore = serverPlayerBScore;
@@ -482,8 +480,8 @@ class AuthoritativeGameEngine {
       battles: 0,
       wins: 0,
       streak: 0,
-      worldRank: Math.max(1, Math.round(28000 - startingRating * 5.8)),
-      countryRank: Math.max(1, Math.round(1100 - startingRating * 0.23)),
+      worldRank: 1,
+      countryRank: 1,
     };
 
     this.playerProfiles.set(userId, newProfile);

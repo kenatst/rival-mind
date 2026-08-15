@@ -57,8 +57,8 @@ describe("IQ ARENA — Match Review & Telemetry Test Suite", () => {
     });
 
     expect(res.classification).toBe("ELITE");
-    expect(res.performanceDelta).toBeGreaterThanOrEqual(70);
-    expect(res.analysisText).toContain("de votre division");
+    expect(res.performanceDelta).toBeGreaterThanOrEqual(65);
+    expect(res.analysisText).toContain("joueurs proches de votre rating");
   });
 
   it("Phase 4: Correct answer with sluggish response time (>= 5000ms and >= 1.7x median) is classified as HESITATION", () => {
@@ -95,7 +95,7 @@ describe("IQ ARENA — Match Review & Telemetry Test Suite", () => {
 
     expect(res.classification).toBe("BLUNDER");
     expect(res.performanceDelta).toBeLessThan(-50);
-    expect(res.analysisText).toContain("Occasion manquée");
+    expect(res.analysisText).toContain("joueurs proches de votre rating");
   });
 
   it("Phase 6: Wrong answer on contested question is classified as MISS", () => {
@@ -118,16 +118,17 @@ describe("IQ ARENA — Match Review & Telemetry Test Suite", () => {
   });
 
   it("Phase 7: Fallback Chain adapts copy strictly without faking population stats on heuristic", () => {
-    const heuristicTel = getEstimatedTelemetryForQuestion("Science", "hard", 1650);
+    const heuristicTel = getEstimatedTelemetryForQuestion("Science", "expert", 1650);
     expect(heuristicTel.source).toBe("heuristic");
 
     const res = classifyMatchRound({
       wasCorrect: true,
       responseMs: 2500,
-      difficulty: "hard",
+      difficulty: "expert",
       telemetry: heuristicTel,
     });
 
+    expect(res.classification).toBe("ELITE");
     expect(res.analysisText).not.toContain("% des joueurs");
     expect(res.analysisText).toContain("Difficile");
   });
@@ -212,5 +213,20 @@ describe("IQ ARENA — Match Review & Telemetry Test Suite", () => {
     expect(review.matchVerdict).toBeDefined();
     expect(typeof review.matchVerdict).toBe("string");
     expect(review.rounds.length).toBe(8);
+  });
+
+  it("Phase 13: Mathematical Invariant — 7 correct strictly dominates 6 correct under normal equal difficulty", () => {
+    const arenaRating = 1650;
+    const correctDelta = +60; // Standard medium correct answer
+    const missDelta = -65;    // Standard medium miss
+
+    const sevenCorrectDeltas = [correctDelta, correctDelta, correctDelta, correctDelta, correctDelta, correctDelta, correctDelta, missDelta];
+    const sixCorrectDeltas = [correctDelta, correctDelta, correctDelta, correctDelta, correctDelta, correctDelta, missDelta, missDelta];
+
+    const perf7 = calculateMatchPerformanceRating(arenaRating, sevenCorrectDeltas);
+    const perf6 = calculateMatchPerformanceRating(arenaRating, sixCorrectDeltas);
+
+    expect(perf7.performanceRating).toBeGreaterThan(perf6.performanceRating);
+    expect(perf7.performanceDelta - perf6.performanceDelta).toBeGreaterThanOrEqual(50);
   });
 });

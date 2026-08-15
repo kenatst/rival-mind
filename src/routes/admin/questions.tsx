@@ -88,6 +88,38 @@ function AdminQuestionsScreen() {
     }
   };
 
+  // Keyboard navigation & quick audit shortcuts (Part 32)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isEditModalOpen || (e.target as HTMLElement)?.tagName === "INPUT") return;
+
+      if (e.key === "ArrowRight" || e.key === "j") {
+        if (selectedIndex < questions.length - 1) {
+          const nextIdx = selectedIndex + 1;
+          setSelectedIndex(nextIdx);
+          setSelectedQuestion(questions[nextIdx] || null);
+        }
+      } else if (e.key === "ArrowLeft" || e.key === "k") {
+        if (selectedIndex > 0) {
+          const prevIdx = selectedIndex - 1;
+          setSelectedIndex(prevIdx);
+          setSelectedQuestion(questions[prevIdx] || null);
+        }
+      } else if (e.key.toUpperCase() === "A") {
+        if (selectedQuestion) {
+          handleRestore(selectedQuestion);
+        }
+      } else if (e.key.toUpperCase() === "F" || e.key.toUpperCase() === "C") {
+        if (selectedQuestion) {
+          handleQuarantine(selectedQuestion);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedIndex, questions, selectedQuestion, isEditModalOpen]);
+
   const handleOpenEdit = (q: AdminQuestionView) => {
     setSelectedQuestion(q);
     setEditPrompt(q.prompt);

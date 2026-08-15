@@ -95,7 +95,7 @@ export interface QuestionTelemetryData {
 }
 
 /**
- * Deterministic Telemetry Fallback Chain (Part 18):
+ * Deterministic Telemetry Fallback Chain (Part 5):
  * 1. Rating Bucket (Sample >= 50)
  * 2. Global Sample (Sample >= 100)
  * 3. Difficulty Heuristic
@@ -124,7 +124,6 @@ export function getEstimatedTelemetryForQuestion(
   // Level 2: Global Sample
   if (empiricalGlobalSample && empiricalGlobalSample.timesServed >= cfg.globalMinSample) {
     const peerAccuracy = empiricalGlobalSample.timesCorrect / empiricalGlobalSample.timesServed;
-    // Adjust expected probability slightly based on player's rating vs baseline 1500
     const ratingAdjustment = ((playerRating - 1500) / 1000) * 0.12;
     const expectedProbability = Math.max(0.08, Math.min(0.95, peerAccuracy + ratingAdjustment));
 
@@ -165,9 +164,9 @@ export function getEstimatedTelemetryForQuestion(
 }
 
 /**
- * Deterministically classifies a single round according to strict competitive rules (Parts 11 to 15).
- * Correct classification order: ELITE -> INSTANT -> HESITATION -> GOOD
- * Incorrect classification order: BLUNDER -> MISS
+ * Deterministically classifies a single round according to strict competitive rules (Parts 6 & 7).
+ * Priority for correct: ELITE -> INSTANT -> HESITATION -> GOOD
+ * Priority for incorrect: BLUNDER -> MISS
  */
 export function classifyMatchRound(params: {
   wasCorrect: boolean;
@@ -192,7 +191,7 @@ export function classifyMatchRound(params: {
   const isClutch = !!isFinalRound && Math.abs(matchScoreDiff || 0) <= 1 && wasCorrect;
   const isMatchChanging = !wasCorrect && Math.abs(matchScoreDiff || 0) <= 1;
 
-  // Speed percentile estimate (for correct answers)
+  // Speed percentile estimate
   let speedPercentile: number | undefined;
   if (wasCorrect) {
     const ratio = responseMs / Math.max(800, peerMedianMs);
@@ -204,62 +203,68 @@ export function classifyMatchRound(params: {
   let performanceDelta = 0;
 
   if (wasCorrect) {
-    // 1. ELITE Check (Part 11 & 13)
+    // 1. ELITE Check (Highest Prestige)
     const isEliteDifficulty =
       expectedProbability <= cfg.elite.maxExpectedProbability ||
-      (expectedProbability <= cfg.elite.maxExpectedWithConfidence && source === "rating_bucket") ||
-      (difficulty === "hard" && expectedProbability <= cfg.elite.hardTierExpectedProbability) ||
-      difficulty === "expert";
+      (expectedProbability <= cfg.elite.maxExpectedWithConfidence && source === "rating_bucket" && sampleSize >= 50) ||
+      (source === "heuristic" && difficulty === "expert");
 
-    // 2. INSTANT Check (Part 11 & 14)
+    // 2. INSTANT Check
     const isInstantSpeed =
       responseMs <= Math.min(peerMedianMs * cfg.instant.medianSpeedMultiplier, cfg.instant.absoluteMaxMs) &&
       responseMs >= cfg.instant.minResponseMs &&
       (speedPercentile !== undefined && speedPercentile >= cfg.instant.topSpeedPercentile || responseMs <= 1200);
 
-    // 3. HESITATION Check (Part 11 & 15)
+    // 3. HESITATION Check
     const isHesitationSpeed =
       responseMs >= peerMedianMs * cfg.hesitation.medianSpeedMultiplier &&
       responseMs >= cfg.hesitation.minAbsoluteMs;
 
+    // Hardened calculation: +55 base + difficulty component + small speed component [-10, +10]
+    const diffBonus = Math.round((1.0 - expectedProbability) * 20);
+    const speedBonus = Math.max(-10, Math.min(10, Math.round((3200 - responseMs) / 200)));
+    performanceDelta = 55 + diffBonus + speedBonus;
+
     if (isEliteDifficulty) {
       classification = "ELITE";
-      performanceDelta = +75;
       if (source === "rating_bucket") {
-        analysisText = `Seulement ${Math.round(peerAccuracy * 100)}% des joueurs de votre division réussissent cette question.`;
+        analysisText = `${Math.round(peerAccuracy * 100)}% des joueurs proches de votre rating réussissent cette question.`;
+      } else if (source === "global") {
+        analysisText = `Réussite globale observée : ${Math.round(peerAccuracy * 100)}%.`;
       } else {
-        analysisText = `Question classée ${difficulty === "expert" ? "Experte" : "Difficile"} avec un faible taux de réussite global.`;
+        analysisText = "Question classée Difficile. Les données comparatives sont encore insuffisantes.";
       }
     } else if (isInstantSpeed && expectedProbability >= 0.25) {
       classification = "INSTANT";
-      performanceDelta = +55;
       analysisText = `Réponse en ${(responseMs / 1000).toFixed(2)}s — nettement plus rapide que la médiane (${(peerMedianMs / 1000).toFixed(2)}s).`;
     } else if (isHesitationSpeed) {
       classification = "HESITATION";
-      performanceDelta = +20;
       analysisText = `Bonne réponse, mais temps de réflexion de ${(responseMs / 1000).toFixed(2)}s supérieur à vos pairs (${(peerMedianMs / 1000).toFixed(2)}s).`;
     } else {
       classification = "GOOD";
-      performanceDelta = +40;
       analysisText = "Réponse solide et maîtrisée dans les temps attendus.";
     }
   } else {
-    // 4. BLUNDER Check (Part 12)
+    // 4. BLUNDER Check
     const isBlunder =
       expectedProbability >= cfg.blunder.minExpectedProbability &&
       (source === "rating_bucket" ? sampleSize >= cfg.blunder.minSampleSizeForBlunder : true);
 
+    // Hardened calculation: -55 base - expected-easiness penalty
+    const easinessPenalty = Math.round(expectedProbability * 20);
+    performanceDelta = -55 - easinessPenalty;
+
     if (isBlunder) {
       classification = "BLUNDER";
-      performanceDelta = -70;
       if (source === "rating_bucket") {
-        analysisText = `Occasion manquée : ${Math.round(peerAccuracy * 100)}% des joueurs de votre niveau trouvent cette réponse.`;
+        analysisText = `${Math.round(peerAccuracy * 100)}% des joueurs proches de votre rating réussissent cette question.`;
+      } else if (source === "global") {
+        analysisText = `Réussite globale observée : ${Math.round(peerAccuracy * 100)}%.`;
       } else {
-        analysisText = "Faute directe sur une question à forte attente de réussite.";
+        analysisText = "Question à forte attente de réussite.";
       }
     } else {
       classification = "MISS";
-      performanceDelta = -35;
       analysisText = "Question disputée. Consultez l'explication pour consolider vos acquis.";
     }
   }
@@ -278,33 +283,26 @@ export function classifyMatchRound(params: {
 }
 
 /**
- * Calculates non-Elo Performance Rating with shrinkage toward Arena Rating (Parts 8 & 9).
- * Correctness strictly dominates speed: 8/8 slow > 4/8 instant.
+ * Calculates non-Elo Performance Rating matching Production Supabase (Part 2 & 3).
+ * Formula: performanceDelta = round(rawDelta * 0.65)
+ * Performance Rating = Arena Rating Before + performanceDelta, clamped to ±450.
+ * Invariant: Correctness strictly dominates speed (8/8 slow > 4/8 instant).
  */
 export function calculateMatchPerformanceRating(
   arenaRating: number,
   roundDeltas: number[],
-  accuracyPercent: number,
-  avgResponseMs: number,
+  _accuracyPercent?: number,
+  _avgResponseMs?: number,
 ): { performanceRating: number; performanceDelta: number } {
   const cfg = MATCH_REVIEW_CONFIG.performance;
-  const totalRoundDelta = roundDeltas.reduce((acc, d) => acc + d, 0);
+  const rawDelta = roundDeltas.reduce((acc, d) => acc + d, 0);
 
-  // Speed bonus is strictly minor and capped
-  const speedBonus = Math.max(-20, Math.min(25, (3200 - avgResponseMs) / 100));
+  // Apply statistical shrinkage factor (0.65)
+  const unconstrainedDelta = Math.round(rawDelta * cfg.shrinkageFactor);
 
-  // Raw performance anchored on round outcomes
-  const rawPerformance = arenaRating + (totalRoundDelta * 1.25) + speedBonus;
-
-  // Apply statistical shrinkage factor for small 8-question match sample (0.65)
-  const unconstrained = Math.round(arenaRating + (rawPerformance - arenaRating) * cfg.shrinkageFactor);
-
-  // Clamp within reasonable competitive bounds (±450 Elo)
-  const minClamp = Math.max(100, arenaRating - cfg.maxDeltaClamp);
-  const maxClamp = arenaRating + cfg.maxDeltaClamp;
-  const performanceRating = Math.max(minClamp, Math.min(maxClamp, unconstrained));
-
-  const performanceDelta = performanceRating - arenaRating;
+  // Clamp within ±450 ELO
+  const performanceDelta = Math.max(-cfg.maxDeltaClamp, Math.min(cfg.maxDeltaClamp, unconstrainedDelta));
+  const performanceRating = Math.max(100, arenaRating + performanceDelta);
 
   return {
     performanceRating,
@@ -313,7 +311,7 @@ export function calculateMatchPerformanceRating(
 }
 
 /**
- * Derives exactly ONE deterministic Match Verdict headline (Part 20).
+ * Derives exactly ONE deterministic Match Verdict headline.
  */
 export function deriveMatchVerdict(params: {
   isVictory: boolean;
@@ -360,10 +358,9 @@ export function deriveMatchVerdict(params: {
 }
 
 /**
- * Identifies exactly ONE Moment of the Match (Part 21).
+ * Identifies exactly ONE Moment of the Match.
  */
 export function identifyMomentOfTheMatch(rounds: MatchRoundReviewItem[]): MatchMomentSummary | undefined {
-  // 1. Clutch round
   const clutch = rounds.find((r) => r.isClutch);
   if (clutch) {
     return {
@@ -374,7 +371,6 @@ export function identifyMomentOfTheMatch(rounds: MatchRoundReviewItem[]): MatchM
     };
   }
 
-  // 2. Elite correct
   const elite = rounds.find((r) => r.classification === "ELITE");
   if (elite) {
     return {
@@ -385,7 +381,6 @@ export function identifyMomentOfTheMatch(rounds: MatchRoundReviewItem[]): MatchM
     };
   }
 
-  // 3. Fastest Instant
   const instant = rounds.find((r) => r.classification === "INSTANT");
   if (instant) {
     return {
@@ -396,7 +391,6 @@ export function identifyMomentOfTheMatch(rounds: MatchRoundReviewItem[]): MatchM
     };
   }
 
-  // 4. Decisive Blunder
   const blunder = rounds.find((r) => r.classification === "BLUNDER" && r.isMatchChanging);
   if (blunder) {
     return {
@@ -411,7 +405,7 @@ export function identifyMomentOfTheMatch(rounds: MatchRoundReviewItem[]): MatchM
 }
 
 /**
- * Generates the complete deterministic Match Review DTO for a specific participant (Part 5 & 6).
+ * Generates the complete deterministic Match Review DTO for a specific participant.
  */
 export function generateMatchReviewDTO(
   match: RankedMatchSnapshotDTO,
@@ -547,14 +541,11 @@ export function generateMatchReviewDTO(
   const { performanceRating, performanceDelta } = calculateMatchPerformanceRating(
     arenaRatingBefore,
     roundDeltas,
-    accuracyPercent,
-    avgResponseMs,
   );
 
   const expectedScore = Number(expectedSum.toFixed(1));
   const scoreDifferenceToExpectation = Number((correctCount - expectedScore).toFixed(1));
 
-  // Derive Verdict & Moment
   const matchVerdict = deriveMatchVerdict({
     isVictory,
     isDraw,
@@ -569,7 +560,6 @@ export function generateMatchReviewDTO(
 
   const momentOfTheMatch = identifyMomentOfTheMatch(roundReviews);
 
-  // Identify Strongest and Costliest categories (Part 24: only if >= 2 questions)
   let strongestCategory: string | undefined;
   let costliestCategory: string | undefined;
 

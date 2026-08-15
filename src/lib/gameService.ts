@@ -118,8 +118,6 @@ class GameRepositoryService implements IGameRepository {
     const updated: PlayerProfile = {
       ...this.state.profile,
       elo: newElo,
-      worldRank: Math.max(1, Math.round(28000 - newElo * 5.8)),
-      countryRank: Math.max(1, Math.round(1100 - newElo * 0.23)),
     };
     this.state.profile = updated;
     this.notify();

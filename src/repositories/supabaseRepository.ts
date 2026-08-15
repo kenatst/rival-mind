@@ -123,6 +123,31 @@ export class SupabaseProfileRepository implements IProfileRepository {
 
       if (error || !data) return this.activePersona;
 
+      // Count actual players with higher rating (Part 68 & 70)
+      let worldRank = data.world_rank_cached || 1;
+      let countryRank = data.country_rank_cached || 1;
+
+      try {
+        const { count: higherWorld } = await client
+          .from("profiles")
+          .select("*", { count: "exact", head: true })
+          .gt("current_rating", data.current_rating);
+
+        if (higherWorld !== null && higherWorld !== undefined) {
+          worldRank = higherWorld + 1;
+        }
+
+        const { count: higherCountry } = await client
+          .from("profiles")
+          .select("*", { count: "exact", head: true })
+          .eq("country_code", data.country_code || "FR")
+          .gt("current_rating", data.current_rating);
+
+        if (higherCountry !== null && higherCountry !== undefined) {
+          countryRank = higherCountry + 1;
+        }
+      } catch {}
+
       return {
         id: data.id,
         username: data.username,
@@ -131,8 +156,8 @@ export class SupabaseProfileRepository implements IProfileRepository {
         initials: data.username.substring(0, 2).toUpperCase(),
         elo: data.current_rating,
         peakElo: data.peak_rating,
-        worldRank: data.world_rank_cached || 18429,
-        countryRank: data.country_rank_cached || 721,
+        worldRank,
+        countryRank,
         streak: data.current_streak,
         level: data.level,
         xp: data.xp,
