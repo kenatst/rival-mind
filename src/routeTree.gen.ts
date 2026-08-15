@@ -11,12 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BattlesRouteImport } from './routes/battles'
+import { Route as DailyRouteImport } from './routes/daily'
+import { Route as FriendsRouteImport } from './routes/friends'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as LeaguesRouteImport } from './routes/leagues'
+import { Route as LiveRouteImport } from './routes/live'
 import { Route as MatchRouteImport } from './routes/match'
 import { Route as MatchResultRouteImport } from './routes/match-result'
 import { Route as MatchmakingRouteImport } from './routes/matchmaking'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PlayRouteImport } from './routes/play'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ResultRouteImport } from './routes/result'
@@ -31,6 +36,16 @@ const BattlesRoute = BattlesRouteImport.update({
   path: '/battles',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DailyRoute = DailyRouteImport.update({
+  id: '/daily',
+  path: '/daily',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FriendsRoute = FriendsRouteImport.update({
+  id: '/friends',
+  path: '/friends',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
@@ -39,6 +54,11 @@ const HomeRoute = HomeRouteImport.update({
 const LeaguesRoute = LeaguesRouteImport.update({
   id: '/leagues',
   path: '/leagues',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveRoute = LiveRouteImport.update({
+  id: '/live',
+  path: '/live',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MatchRoute = MatchRouteImport.update({
@@ -56,9 +76,19 @@ const MatchmakingRoute = MatchmakingRouteImport.update({
   path: '/matchmaking',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlayRoute = PlayRouteImport.update({
   id: '/play',
   path: '/play',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -80,12 +110,17 @@ const ResultRoute = ResultRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/battles': typeof BattlesRoute
+  '/daily': typeof DailyRoute
+  '/friends': typeof FriendsRoute
   '/home': typeof HomeRoute
   '/leagues': typeof LeaguesRoute
+  '/live': typeof LiveRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
   '/matchmaking': typeof MatchmakingRoute
+  '/notifications': typeof NotificationsRoute
   '/play': typeof PlayRoute
+  '/profile': typeof ProfileRoute
   '/quiz': typeof QuizRoute
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
@@ -93,12 +128,17 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/battles': typeof BattlesRoute
+  '/daily': typeof DailyRoute
+  '/friends': typeof FriendsRoute
   '/home': typeof HomeRoute
   '/leagues': typeof LeaguesRoute
+  '/live': typeof LiveRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
   '/matchmaking': typeof MatchmakingRoute
+  '/notifications': typeof NotificationsRoute
   '/play': typeof PlayRoute
+  '/profile': typeof ProfileRoute
   '/quiz': typeof QuizRoute
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
@@ -107,12 +147,17 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/battles': typeof BattlesRoute
+  '/daily': typeof DailyRoute
+  '/friends': typeof FriendsRoute
   '/home': typeof HomeRoute
   '/leagues': typeof LeaguesRoute
+  '/live': typeof LiveRoute
   '/match': typeof MatchRoute
   '/match-result': typeof MatchResultRoute
   '/matchmaking': typeof MatchmakingRoute
+  '/notifications': typeof NotificationsRoute
   '/play': typeof PlayRoute
+  '/profile': typeof ProfileRoute
   '/quiz': typeof QuizRoute
   '/rankings': typeof RankingsRoute
   '/result': typeof ResultRoute
@@ -122,12 +167,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/battles'
+    | '/daily'
+    | '/friends'
     | '/home'
     | '/leagues'
+    | '/live'
     | '/match'
     | '/match-result'
     | '/matchmaking'
+    | '/notifications'
     | '/play'
+    | '/profile'
     | '/quiz'
     | '/rankings'
     | '/result'
@@ -135,12 +185,17 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/battles'
+    | '/daily'
+    | '/friends'
     | '/home'
     | '/leagues'
+    | '/live'
     | '/match'
     | '/match-result'
     | '/matchmaking'
+    | '/notifications'
     | '/play'
+    | '/profile'
     | '/quiz'
     | '/rankings'
     | '/result'
@@ -148,12 +203,17 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/battles'
+    | '/daily'
+    | '/friends'
     | '/home'
     | '/leagues'
+    | '/live'
     | '/match'
     | '/match-result'
     | '/matchmaking'
+    | '/notifications'
     | '/play'
+    | '/profile'
     | '/quiz'
     | '/rankings'
     | '/result'
@@ -162,12 +222,17 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BattlesRoute: typeof BattlesRoute
+  DailyRoute: typeof DailyRoute
+  FriendsRoute: typeof FriendsRoute
   HomeRoute: typeof HomeRoute
   LeaguesRoute: typeof LeaguesRoute
+  LiveRoute: typeof LiveRoute
   MatchRoute: typeof MatchRoute
   MatchResultRoute: typeof MatchResultRoute
   MatchmakingRoute: typeof MatchmakingRoute
+  NotificationsRoute: typeof NotificationsRoute
   PlayRoute: typeof PlayRoute
+  ProfileRoute: typeof ProfileRoute
   QuizRoute: typeof QuizRoute
   RankingsRoute: typeof RankingsRoute
   ResultRoute: typeof ResultRoute
@@ -189,6 +254,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BattlesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/daily': {
+      id: '/daily'
+      path: '/daily'
+      fullPath: '/daily'
+      preLoaderRoute: typeof DailyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/friends': {
+      id: '/friends'
+      path: '/friends'
+      fullPath: '/friends'
+      preLoaderRoute: typeof FriendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -201,6 +280,13 @@ declare module '@tanstack/react-router' {
       path: '/leagues'
       fullPath: '/leagues'
       preLoaderRoute: typeof LeaguesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live': {
+      id: '/live'
+      path: '/live'
+      fullPath: '/live'
+      preLoaderRoute: typeof LiveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/match': {
@@ -224,11 +310,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MatchmakingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/play': {
       id: '/play'
       path: '/play'
       fullPath: '/play'
       preLoaderRoute: typeof PlayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -258,12 +358,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BattlesRoute: BattlesRoute,
+  DailyRoute: DailyRoute,
+  FriendsRoute: FriendsRoute,
   HomeRoute: HomeRoute,
   LeaguesRoute: LeaguesRoute,
+  LiveRoute: LiveRoute,
   MatchRoute: MatchRoute,
   MatchResultRoute: MatchResultRoute,
   MatchmakingRoute: MatchmakingRoute,
+  NotificationsRoute: NotificationsRoute,
   PlayRoute: PlayRoute,
+  ProfileRoute: ProfileRoute,
   QuizRoute: QuizRoute,
   RankingsRoute: RankingsRoute,
   ResultRoute: ResultRoute,
