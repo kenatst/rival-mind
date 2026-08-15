@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BattlesRouteImport } from './routes/battles'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as LeaguesRouteImport } from './routes/leagues'
 import { Route as MatchRouteImport } from './routes/match'
@@ -23,6 +24,11 @@ import { Route as ResultRouteImport } from './routes/result'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BattlesRoute = BattlesRouteImport.update({
+  id: '/battles',
+  path: '/battles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -73,6 +79,7 @@ const ResultRoute = ResultRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/battles': typeof BattlesRoute
   '/home': typeof HomeRoute
   '/leagues': typeof LeaguesRoute
   '/match': typeof MatchRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/battles': typeof BattlesRoute
   '/home': typeof HomeRoute
   '/leagues': typeof LeaguesRoute
   '/match': typeof MatchRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/battles': typeof BattlesRoute
   '/home': typeof HomeRoute
   '/leagues': typeof LeaguesRoute
   '/match': typeof MatchRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/battles'
     | '/home'
     | '/leagues'
     | '/match'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/battles'
     | '/home'
     | '/leagues'
     | '/match'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/battles'
     | '/home'
     | '/leagues'
     | '/match'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BattlesRoute: typeof BattlesRoute
   HomeRoute: typeof HomeRoute
   LeaguesRoute: typeof LeaguesRoute
   MatchRoute: typeof MatchRoute
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/battles': {
+      id: '/battles'
+      path: '/battles'
+      fullPath: '/battles'
+      preLoaderRoute: typeof BattlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BattlesRoute: BattlesRoute,
   HomeRoute: HomeRoute,
   LeaguesRoute: LeaguesRoute,
   MatchRoute: MatchRoute,
