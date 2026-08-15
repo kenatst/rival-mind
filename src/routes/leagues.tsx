@@ -3,19 +3,19 @@ import * as React from "react";
 import { Page } from "@/components/AppShell";
 import { Button, Panel, Modal } from "@/components/kit/primitives";
 import { Avatar } from "@/components/kit/badges";
-import { privateLeague } from "@/data/mock";
+import { gameService } from "@/lib/gameService";
 import { fmt } from "@/lib/game";
 import { Copy, Check, UserPlus, Swords, Trophy, BarChart3 } from "lucide-react";
 
 export const Route = createFileRoute("/leagues")({
   head: () => ({
     meta: [
-      { title: "Private leagues — QuizArena" },
+      { title: "Private Leagues — IQ ARENA" },
       {
         name: "description",
         content: "Create or join private fantasy trivia leagues with friends, colleagues or classmates.",
       },
-      { property: "og:title", content: "Private leagues — QuizArena" },
+      { property: "og:title", content: "Private Leagues — IQ ARENA" },
       { property: "og:description", content: "Compete in custom private leagues." },
     ],
   }),
@@ -23,11 +23,16 @@ export const Route = createFileRoute("/leagues")({
 });
 
 function LeaguesScreen() {
+  const [league, setLeague] = React.useState(() => gameService.getPrivateLeague());
   const [isInviteOpen, setIsInviteOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
   const [isStatsOpen, setIsStatsOpen] = React.useState(false);
 
-  const league = privateLeague;
+  React.useEffect(() => {
+    return gameService.subscribe(() => {
+      setLeague(gameService.getPrivateLeague());
+    });
+  }, []);
 
   const handleCopyCode = () => {
     setCopied(true);
@@ -41,7 +46,7 @@ function LeaguesScreen() {
       wide
       action={
         <Button size="sm" onClick={() => setIsInviteOpen(true)}>
-          <UserPlus size={16} /> Invite Friends
+          <UserPlus size={15} /> Invite Friends
         </Button>
       }
     >
@@ -50,15 +55,15 @@ function LeaguesScreen() {
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
           <div>
             <div className="label-xs flex items-center gap-1.5 text-gold font-bold">
-              <Trophy size={14} /> Season {league.season} · {league.memberCount} Members
+              <Trophy size={14} /> Season {league.season} · {league.memberCount} Competitors
             </div>
-            <h2 className="display mt-1 text-2xl sm:text-3xl">{league.name}</h2>
+            <h2 className="display mt-1 text-2xl sm:text-3xl font-black">{league.name}</h2>
             <p className="mt-1 text-xs text-muted-foreground">
-              Official weekly private tournament. Top 3 win exclusive crown trophies at season close.
+              Official weekly private circuit. Top 3 win exclusive crown trophies at season close.
             </p>
           </div>
           <div className="text-right">
-            <div className="label-xs text-muted-foreground">Your Rank</div>
+            <div className="label-xs text-muted-foreground">Your Standing</div>
             <div className="numeric text-4xl text-primary font-black sm:text-5xl">#2</div>
             <div className="label-xs mt-1 text-muted-foreground font-mono">4,603 pts</div>
           </div>
@@ -79,7 +84,7 @@ function LeaguesScreen() {
         </div>
       </Panel>
 
-      {/* MPP Style Table */}
+      {/* MPP Style Standings Table */}
       <div className="rounded-2xl border border-border bg-surface overflow-x-auto shadow-[var(--shadow-lift)]">
         <table className="w-full text-left border-collapse min-w-[600px]">
           <thead>

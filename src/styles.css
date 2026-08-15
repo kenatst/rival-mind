@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * QUIZARENA design system — competitive knowledge sport.
+ * IQ ARENA design system — competitive knowledge sport.
  * Dark arena stage, electric lime primary, magenta live accent, gold prestige.
  */
 
@@ -130,6 +130,11 @@
     background: var(--primary);
     color: var(--primary-foreground);
   }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
 }
 
 @utility stage {
@@ -233,5 +238,16 @@
   }
   100% {
     transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

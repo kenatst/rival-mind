@@ -11,11 +11,9 @@ export type DivisionTier =
 
 export interface Division {
   tier: DivisionTier;
-  /** Roman sub-division, e.g. "III". Master+ have none. */
   sub?: "I" | "II" | "III";
   minElo: number;
   maxElo: number;
-  /** CSS color token expression used by badges. */
   color: string;
 }
 
@@ -35,6 +33,7 @@ export interface User {
 
 export interface PlayerProfile extends User {
   elo: number;
+  peakElo: number;
   xp: number;
   level: number;
   streak: number;
@@ -43,6 +42,7 @@ export interface PlayerProfile extends User {
   accuracy: number;
   battles: number;
   wins: number;
+  season: string;
   strongCategories: CategoryScore[];
   weakCategories: CategoryScore[];
   achievements: Achievement[];
@@ -52,6 +52,7 @@ export interface PlayerProfile extends User {
 export interface CategoryScore {
   category: string;
   score: number;
+  mmr?: number;
 }
 
 export interface Achievement {
@@ -60,6 +61,8 @@ export interface Achievement {
   description: string;
   icon: string;
   unlocked: boolean;
+  tierRequired?: DivisionTier;
+  ratingRequired?: number;
 }
 
 export interface Answer {
@@ -74,21 +77,10 @@ export interface Question {
   answers: Answer[];
   correctAnswerId: string;
   seconds: number;
-  /** % of players who got this right — used for post-answer feedback. */
   globalSuccessRate: number;
 }
 
-export type MatchMode = "infinite" | "ranked" | "daily12" | "battle" | "category";
-
-export interface Match {
-  id: string;
-  mode: MatchMode;
-  player: PlayerProfile;
-  opponent: PlayerProfile;
-  questions: Question[];
-  eloOnWin: number;
-  eloOnLoss: number;
-}
+export type MatchMode = "ranked" | "training" | "category" | "battle" | "daily" | "guest";
 
 export interface MatchResult {
   matchId: string;
@@ -100,6 +92,7 @@ export interface MatchResult {
   worldRankBefore: number;
   worldRankAfter: number;
   xpGained: number;
+  opponent: PlayerProfile;
 }
 
 export interface LeaderboardEntry {
@@ -108,6 +101,7 @@ export interface LeaderboardEntry {
   elo: number;
   isYou?: boolean;
   trend?: number;
+  streak?: number;
 }
 
 export interface CountryRanking {
@@ -159,6 +153,8 @@ export interface AppNotification {
   body: string;
   time: string;
   unread: boolean;
+  actionRoute?: string;
+  actionQuery?: Record<string, string>;
 }
 
 export interface LiveEvent {
@@ -168,4 +164,15 @@ export interface LiveEvent {
   homeCountry: Country;
   challenger: string;
   registered: number;
+  prizePool: string;
+  isRegistered?: boolean;
+}
+
+export interface BattleChallenge {
+  id: string;
+  challenger: PlayerProfile;
+  questionsCount: number;
+  expiresIn: string;
+  rivalryWins: number;
+  rivalryLosses: number;
 }

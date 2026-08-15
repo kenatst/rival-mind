@@ -22,7 +22,7 @@ export const TIERS: Record<DivisionTier, TierConfig> = {
   Legend: { tier: "Legend", min: 2200, max: 4000, color: "oklch(0.88 0.21 122)", hasSubdivisions: false },
 };
 
-const TIER_ORDER: DivisionTier[] = [
+export const TIER_ORDER: DivisionTier[] = [
   "Rookie",
   "Bronze",
   "Silver",
@@ -57,7 +57,8 @@ export function divisionForElo(elo: number): ResolvedDivision {
 
   const currentTier = TIERS[tierKey];
   const tierIndex = TIER_ORDER.indexOf(tierKey);
-  const nextTier = tierIndex < TIER_ORDER.length - 1 ? TIERS[TIER_ORDER[tierIndex + 1]] : null;
+  const nextTierKey = tierIndex < TIER_ORDER.length - 1 ? TIER_ORDER[tierIndex + 1] : undefined;
+  const nextTier = nextTierKey ? TIERS[nextTierKey] : null;
 
   if (!currentTier.hasSubdivisions) {
     const ceiling = nextTier ? nextTier.min : currentTier.max;
@@ -78,8 +79,8 @@ export function divisionForElo(elo: number): ResolvedDivision {
   }
 
   // 3 subdivisions: III (lower third), II (middle third), I (top third)
-  const tierSpan = currentTier.max - currentTier.min + 1; // e.g. 200
-  const subSpan = tierSpan / 3; // e.g. 66.67
+  const tierSpan = currentTier.max - currentTier.min + 1; // 200 pts
+  const subSpan = tierSpan / 3; // ~66.67 pts
   const offset = elo - currentTier.min;
 
   let sub: "I" | "II" | "III" = "III";
@@ -119,6 +120,20 @@ export function divisionForElo(elo: number): ResolvedDivision {
     eloRemaining,
     isPromotionZone: eloRemaining <= 20 && eloRemaining > 0,
   };
+}
+
+export const getDivisionFromRating = divisionForElo;
+
+export function getNextDivision(elo: number): string {
+  return divisionForElo(elo).nextLabel;
+}
+
+export function getRatingToNextDivision(elo: number): number {
+  return divisionForElo(elo).eloRemaining;
+}
+
+export function getDivisionProgress(elo: number): number {
+  return divisionForElo(elo).progress;
 }
 
 export const fmt = (n: number) => n.toLocaleString("en-US");

@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/match")({
   head: () => ({
     meta: [
-      { title: "Ranked match — QuizArena" },
+      { title: "Ranked Match — IQ ARENA" },
       { name: "description", content: "Live ranked match: same questions, same clock, ELO on the line." },
-      { property: "og:title", content: "Ranked match — QuizArena" },
+      { property: "og:title", content: "Ranked Match — IQ ARENA" },
       { property: "og:description", content: "Head-to-head knowledge duel in progress." },
     ],
   }),
@@ -43,9 +43,29 @@ function RankedMatch() {
     }
   });
 
+  // Keyboard controls (1-4 or A-D)
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (stage !== "answering") return;
+      const key = e.key.toUpperCase();
+      let selectedIdx = -1;
+      if (key === "1" || key === "A") selectedIdx = 0;
+      else if (key === "2" || key === "B") selectedIdx = 1;
+      else if (key === "3" || key === "C") selectedIdx = 2;
+      else if (key === "4" || key === "D") selectedIdx = 3;
+
+      if (selectedIdx >= 0 && selectedIdx < question.answers.length) {
+        handleSelectAnswer(question.answers[selectedIdx]!.id);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [stage, question]);
+
   // Opponent lock simulation
   React.useEffect(() => {
-    const oppDelay = 2200 + (round % 3) * 800;
+    const oppDelay = 2000 + (round % 3) * 700;
     const t = setTimeout(() => {
       setOpponentLocked(true);
     }, oppDelay);
@@ -58,7 +78,7 @@ function RankedMatch() {
     setStage("locked");
     playCue("select");
 
-    // Suspense Beat: Wait 1.4s before simultaneous reveal
+    // Suspense Beat: 600ms pause before simultaneous reveal
     setTimeout(() => {
       const youCorrect = answerId === question.correctAnswerId;
       const theyCorrect = (round + 1) % 3 !== 0; // opponent gets ~66% right
@@ -94,8 +114,8 @@ function RankedMatch() {
         setOpponentLocked(false);
         setBanner(null);
         reset();
-      }, 1900);
-    }, 1400);
+      }, 1800);
+    }, 600);
   };
 
   function stateFor(id: string): AnswerState {
@@ -136,7 +156,7 @@ function RankedMatch() {
 
       {/* Center Question Arena */}
       <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-8 sm:px-6 justify-between">
-        <div className="flex flex-col items-center gap-4 py-5 text-center sm:py-8">
+        <div className="flex flex-col items-center gap-4 py-4 text-center sm:py-6">
           <span className="label-xs rounded-full border border-border bg-surface px-3.5 py-1 text-primary font-black">
             {question.category}
           </span>
@@ -146,16 +166,16 @@ function RankedMatch() {
           </h1>
 
           {/* Staged Tension Indicator */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 min-h-[28px]">
             {stage === "locked" && (
-              <span className="label-xs rounded-full bg-gold/20 text-gold border border-gold/40 px-3 py-1 animate-pulse">
-                ⚡ Answer Locked · Revealing in a moment…
+              <span className="label-xs rounded-full bg-gold/20 text-gold border border-gold/40 px-3.5 py-1 animate-pulse font-bold">
+                ⚡ Answer Locked · Revealing…
               </span>
             )}
             {stage === "answering" && (
               <span
                 className={cn(
-                  "label-xs rounded-full px-3 py-1 font-mono transition-colors",
+                  "label-xs rounded-full px-3 py-1 font-mono font-bold transition-colors",
                   opponentLocked ? "bg-accent/15 text-accent border border-accent/30" : "bg-surface text-muted-foreground border border-border",
                 )}
               >
@@ -166,7 +186,7 @@ function RankedMatch() {
         </div>
 
         {/* 4 Answers Grid */}
-        <div className="grid gap-3 sm:grid-cols-2 pt-4">
+        <div className="grid gap-3 sm:grid-cols-2 pt-2">
           {question.answers.map((a, i) => (
             <AnswerCard
               key={a.id}

@@ -9,14 +9,14 @@ import { getLastMatch } from "@/lib/session";
 import { gameService } from "@/lib/gameService";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
-import { Swords, Share2, RotateCcw, Copy, Check } from "lucide-react";
+import { Swords, Share2, RotateCcw, Copy, Check, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/match-result")({
   head: () => ({
     meta: [
-      { title: "Match result — QuizArena" },
-      { name: "description", content: "Your ELO change, new division and updated world ranking." },
-      { property: "og:title", content: "Match result — QuizArena" },
+      { title: "Match Result — IQ ARENA" },
+      { name: "description", content: "Your ELO change, new division standing and updated world ranking." },
+      { property: "og:title", content: "Match Result — IQ ARENA" },
       { property: "og:description", content: "ELO change and world ranking update." },
     ],
   }),
@@ -45,7 +45,7 @@ function MatchResultScreen() {
     // Record to storage
     gameService.recordMatchResult(win, delta, win ? 380 : 120);
 
-    const t1 = setTimeout(() => setStageIndex(1), 400); // Scores
+    const t1 = setTimeout(() => setStageIndex(1), 300); // Scores
     const t2 = setTimeout(() => {
       setStageIndex(2); // Victory / Defeat headline
       playCue(win ? "victory" : "defeat");
@@ -57,14 +57,12 @@ function MatchResultScreen() {
             origin: { y: 0.55 },
             colors: ["#76FF03", "#FFD600", "#00E5FF"],
           });
-        } catch {
-          // safe
-        }
+        } catch {}
       }
-    }, 1100);
+    }, 900);
 
-    const t3 = setTimeout(() => setStageIndex(3), 1900); // ELO Counter Roll
-    const t4 = setTimeout(() => setStageIndex(4), 3000); // Division progress & CTAs
+    const t3 = setTimeout(() => setStageIndex(3), 1600); // ELO Counter Roll
+    const t4 = setTimeout(() => setStageIndex(4), 2600); // Division progress & CTAs
 
     return () => {
       clearTimeout(t1);
@@ -113,8 +111,10 @@ function MatchResultScreen() {
 
         {/* Stage 3: Animated ELO Counter Roll */}
         {stageIndex >= 3 && (
-          <Panel glow={win} className="animate-rise py-6 text-center space-y-3">
-            <div className="label-xs text-muted-foreground font-black">UPDATED COMPETITIVE RATING</div>
+          <Panel glow={win} className="animate-rise py-6 text-center space-y-3 shadow-[var(--shadow-glow)]">
+            <div className="label-xs text-muted-foreground font-black tracking-wider">
+              UPDATED COMPETITIVE RATING
+            </div>
             <EloCounter from={eloBefore} to={eloAfter} />
             <div className="mt-4 flex justify-center">
               <DivisionBadge elo={eloAfter} size="lg" />
@@ -126,7 +126,7 @@ function MatchResultScreen() {
         {stageIndex >= 3 && (
           <Panel className="animate-rise flex items-center justify-between p-4">
             <div>
-              <div className="label-xs text-muted-foreground">World Ranking</div>
+              <div className="label-xs text-muted-foreground font-bold">World Ranking</div>
               <div className="numeric mt-1 text-3xl font-black">#{fmt(rank)}</div>
             </div>
             <div
@@ -153,8 +153,8 @@ function MatchResultScreen() {
 
             <div className="space-y-3 pt-2">
               <Link to="/matchmaking" className="block">
-                <Button full size="xl" className="shadow-[0_6px_0_0_color-mix(in_oklab,var(--primary)_55%,black)] text-xl">
-                  <Swords size={22} /> Next Opponent
+                <Button full size="xl" className="shadow-[0_6px_0_0_color-mix(in_oklab,var(--primary)_55%,black)] text-xl font-black">
+                  <Swords size={22} /> PLAY AGAIN
                 </Button>
               </Link>
               <div className="grid grid-cols-2 gap-3">
@@ -183,12 +183,12 @@ function MatchResultScreen() {
       <Modal open={isShareModalOpen} onClose={() => setIsShareModalOpen(false)} title="Share Match Card">
         <div className="space-y-4 text-center">
           <div className="rounded-2xl border border-primary/40 bg-surface-2 p-5 text-left space-y-2">
-            <div className="label-xs text-primary font-black">⚡ QUIZARENA MATCH RESULT</div>
-            <div className="display text-xl">{profile.username} (🇫🇷 {eloAfter} ELO)</div>
+            <div className="label-xs text-primary font-black">⚡ IQ ARENA MATCH RESULT</div>
+            <div className="display text-xl font-black">{profile.username} (🇫🇷 {eloAfter} ELO)</div>
             <div className="text-sm font-bold text-success">
               Defeated {rivalOpponent.username} {playerScore} - {opponentScore}
             </div>
-            <div className="label-xs text-muted-foreground">
+            <div className="label-xs text-muted-foreground font-mono">
               Division: {newDiv.label} · World #{fmt(rankAfter)}
             </div>
           </div>

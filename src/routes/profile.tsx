@@ -6,14 +6,14 @@ import { Avatar, DivisionBadge } from "@/components/kit/badges";
 import { StatTile } from "@/components/kit/game";
 import { divisionForElo, fmt } from "@/lib/game";
 import { gameService } from "@/lib/gameService";
-import { Flame, Share2, Trophy, Crown, Copy, Check, Zap, ShieldAlert } from "lucide-react";
+import { Flame, Share2, Trophy, Copy, Check, Zap, ShieldAlert } from "lucide-react";
 
 export const Route = createFileRoute("/profile")({
   head: () => ({
     meta: [
-      { title: "Profile — QuizArena" },
+      { title: "Player Profile — IQ ARENA" },
       { name: "description", content: "Your competitive record, division history, accuracy and unlocked achievements." },
-      { property: "og:title", content: "Profile — QuizArena" },
+      { property: "og:title", content: "Player Profile — IQ ARENA" },
       { property: "og:description", content: "Track your competitive knowledge career." },
     ],
   }),
@@ -41,13 +41,13 @@ function ProfileScreen() {
   return (
     <Page title="Player Profile" subtitle="Your competitive stats, division milestones and unlocked achievements." wide>
       {/* Gamer Identity Card */}
-      <Panel glow className="mb-6 p-6 sm:p-8">
+      <Panel glow className="mb-6 p-6 sm:p-8 shadow-[var(--shadow-glow)]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6">
           <div className="flex min-w-0 items-center gap-5">
             <Avatar initials={profile.initials} color={profile.avatarColor} size={72} ring />
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h1 className="display truncate text-3xl sm:text-4xl">{profile.username}</h1>
+                <h1 className="display truncate text-3xl sm:text-4xl font-black">{profile.username}</h1>
                 <span className="text-2xl leading-none">{profile.country.flag}</span>
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -59,7 +59,7 @@ function ProfileScreen() {
             </div>
           </div>
           <div className="text-right">
-            <div className="numeric text-5xl text-gold sm:text-6xl">{fmt(profile.elo)}</div>
+            <div className="numeric text-5xl text-gold sm:text-6xl font-black">{fmt(profile.elo)}</div>
             <div className="label-xs mt-1 text-muted-foreground font-mono">
               World #{fmt(profile.worldRank)} · France #{profile.countryRank}
             </div>
@@ -67,7 +67,7 @@ function ProfileScreen() {
         </div>
 
         <div className="mt-6 border-t border-border pt-4">
-          <div className="label-xs mb-2 flex justify-between text-muted-foreground font-semibold">
+          <div className="label-xs mb-2 flex justify-between text-muted-foreground font-bold">
             <span>Current Division: {d.label}</span>
             <span className="text-primary">{d.eloRemaining} ELO to {d.nextLabel}</span>
           </div>
@@ -98,9 +98,9 @@ function ProfileScreen() {
           <div className="space-y-2.5">
             {profile.strongCategories.map((c) => (
               <div key={c.category}>
-                <div className="label-xs mb-1 flex justify-between text-muted-foreground">
+                <div className="label-xs mb-1 flex justify-between text-muted-foreground font-bold">
                   <span className="text-foreground">{c.category}</span>
-                  <span className="text-success">{c.score}% Score</span>
+                  <span className="text-success">{c.score}% Score {c.mmr && `· MMR ${c.mmr}`}</span>
                 </div>
                 <ProgressBar value={c.score / 100} color="var(--success)" height={6} />
               </div>
@@ -115,9 +115,9 @@ function ProfileScreen() {
           <div className="space-y-2.5">
             {profile.weakCategories.map((c) => (
               <div key={c.category}>
-                <div className="label-xs mb-1 flex justify-between text-muted-foreground">
+                <div className="label-xs mb-1 flex justify-between text-muted-foreground font-bold">
                   <span className="text-foreground">{c.category}</span>
-                  <span className="text-danger">{c.score}% Score</span>
+                  <span className="text-danger">{c.score}% Score {c.mmr && `· MMR ${c.mmr}`}</span>
                 </div>
                 <ProgressBar value={c.score / 100} color="var(--danger)" height={6} />
               </div>
@@ -167,9 +167,9 @@ function ProfileScreen() {
         <div className="space-y-4 text-center">
           <div className="rounded-2xl border border-primary/40 bg-surface-2 p-6 text-center space-y-3">
             <Avatar initials={profile.initials} color={profile.avatarColor} size={64} ring />
-            <div className="display text-2xl">{profile.username} {profile.country.flag}</div>
+            <div className="display text-2xl font-black">{profile.username} {profile.country.flag}</div>
             <div className="numeric text-4xl text-gold font-black">{profile.elo} ELO</div>
-            <div className="label-xs text-muted-foreground">
+            <div className="label-xs text-muted-foreground font-mono">
               Division: {d.label} · {profile.accuracy}% Accuracy · 🔥 {profile.streak}d Streak
             </div>
           </div>

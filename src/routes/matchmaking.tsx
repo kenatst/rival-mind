@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/matchmaking")({
   head: () => ({
     meta: [
-      { title: "Finding an opponent — QuizArena" },
+      { title: "Finding an Opponent — IQ ARENA" },
       { name: "description", content: "Ranked matchmaking: same skill, same questions, ELO on the line." },
-      { property: "og:title", content: "Finding an opponent — QuizArena" },
+      { property: "og:title", content: "Finding an Opponent — IQ ARENA" },
       { property: "og:description", content: "Ranked matchmaking in progress." },
     ],
   }),
@@ -56,9 +56,9 @@ function Matchmaking() {
   return (
     <div className="stage relative flex min-h-screen flex-col items-center justify-center bg-background px-4 select-none">
       <Link
-        to="/play"
+        to="/home"
         aria-label="Cancel search"
-        className="absolute left-4 top-4 rounded-lg p-2 text-muted-foreground hover:text-foreground transition-colors"
+        className="absolute left-4 top-4 rounded-xl p-2 text-muted-foreground hover:text-foreground transition-colors hover:bg-surface"
       >
         <X size={22} strokeWidth={2.5} />
       </Link>
@@ -77,7 +77,7 @@ function Matchmaking() {
         <div className="my-8 text-center">
           {phase === "searching" && (
             <>
-              <div className="display text-4xl text-muted-foreground animate-pulse">Searching…</div>
+              <div className="display text-4xl text-muted-foreground animate-pulse font-black">Searching…</div>
               <div className="mx-auto mt-4 h-1.5 w-48 overflow-hidden rounded-full bg-muted">
                 <span className="block h-full w-1/3 animate-[sweep_1.2s_linear_infinite] rounded-full bg-primary" />
               </div>
@@ -88,8 +88,8 @@ function Matchmaking() {
           )}
           {phase !== "searching" && (
             <div className="space-y-1">
-              <div className="animate-slam display text-6xl text-accent sm:text-7xl">VS</div>
-              <div className="label-xs inline-flex items-center gap-1.5 rounded-full bg-surface border border-border px-3 py-1 text-gold">
+              <div className="animate-slam display text-6xl text-accent sm:text-7xl font-black">VS</div>
+              <div className="label-xs inline-flex items-center gap-1.5 rounded-full bg-surface border border-border px-3 py-1 text-gold font-bold">
                 <Flame size={12} className="fill-gold" /> KENAEL 7 — 6 LUCAS92 · All-Time Rivalry
               </div>
             </div>
@@ -107,7 +107,7 @@ function Matchmaking() {
             name={phase === "searching" ? "?????" : rivalOpponent.username}
             initials={phase === "searching" ? "??" : rivalOpponent.initials}
             color={rivalOpponent.avatarColor}
-            elo={phase === "searching" ? profile.elo : 1672}
+            elo={phase === "searching" ? profile.elo : rivalOpponent.elo}
             flag={rivalOpponent.country.flag}
             mirrored
           />
@@ -117,12 +117,12 @@ function Matchmaking() {
         {phase !== "searching" && (
           <div className="animate-rise mt-8 grid grid-cols-2 gap-3">
             <div className="rounded-xl border border-primary/40 bg-primary/10 p-3 text-center">
-              <div className="label-xs text-muted-foreground">Victory Stakes</div>
-              <div className="numeric mt-1 text-3xl text-primary font-bold">+18 ELO</div>
+              <div className="label-xs text-muted-foreground font-bold">Victory Stakes</div>
+              <div className="numeric mt-1 text-3xl text-primary font-black">+18 ELO</div>
             </div>
             <div className="rounded-xl border border-border bg-surface p-3 text-center">
-              <div className="label-xs text-muted-foreground">Defeat Risk</div>
-              <div className="numeric mt-1 text-3xl text-muted-foreground font-bold">-14 ELO</div>
+              <div className="label-xs text-muted-foreground font-bold">Defeat Risk</div>
+              <div className="numeric mt-1 text-3xl text-muted-foreground font-black">-14 ELO</div>
             </div>
           </div>
         )}
@@ -169,7 +169,7 @@ function Fighter({
     >
       <Avatar initials={initials} color={color} size={60} ring />
       <div className="min-w-0 flex-1">
-        <div className="display truncate text-2xl">
+        <div className="display truncate text-2xl font-bold">
           {name} <span className="text-base">{flag}</span>
         </div>
         <div className={cn("mt-1 flex items-center gap-2", mirrored && "justify-end")}>

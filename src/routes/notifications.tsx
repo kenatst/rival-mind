@@ -2,16 +2,16 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import * as React from "react";
 import { Page } from "@/components/AppShell";
 import { Button, Panel } from "@/components/kit/primitives";
-import { notifications } from "@/data/mock";
+import { gameService } from "@/lib/gameService";
 import { Bell, Flame, Swords, Trophy, Globe2, Clock, Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/notifications")({
   head: () => ({
     meta: [
-      { title: "Notifications — QuizArena" },
+      { title: "Alerts & Notifications — IQ ARENA" },
       { name: "description", content: "Competitive rivalry updates, streak alarms, and nation war alerts." },
-      { property: "og:title", content: "Notifications — QuizArena" },
+      { property: "og:title", content: "Notifications — IQ ARENA" },
       { property: "og:description", content: "Stay on top of every competitive shift." },
     ],
   }),
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/notifications")({
 
 function NotificationsScreen() {
   const navigate = useNavigate();
-  const [items, setItems] = React.useState(notifications);
+  const [items, setItems] = React.useState(() => gameService.getNotifications());
 
   const getIcon = (kind: string) => {
     switch (kind) {
@@ -39,37 +39,33 @@ function NotificationsScreen() {
     }
   };
 
-  const handleAction = (item: (typeof notifications)[0]) => {
-    // mark read
-    setItems((prev) =>
-      prev.map((n) => (n.id === item.id ? { ...n, unread: false } : n)),
-    );
+  const handleAction = (item: (typeof items)[0]) => {
+    gameService.markNotificationRead(item.id);
+    setItems(gameService.getNotifications());
 
-    if (item.kind === "rival" || item.kind === "rematch") {
-      navigate({ to: "/matchmaking" });
-    } else if (item.kind === "country") {
-      navigate({ to: "/rankings" });
-    } else if (item.kind === "league") {
-      navigate({ to: "/leagues" });
-    } else if (item.kind === "streak") {
-      navigate({ to: "/play" });
-    } else if (item.kind === "event") {
-      navigate({ to: "/live" });
+    if (item.actionRoute) {
+      navigate({
+        to: item.actionRoute,
+        search: (item.actionQuery || {}) as any,
+      });
+    } else {
+      navigate({ to: "/home" });
     }
   };
 
   const handleMarkAllRead = () => {
-    setItems((prev) => prev.map((n) => ({ ...n, unread: false })));
+    gameService.markAllNotificationsRead();
+    setItems(gameService.getNotifications());
   };
 
   return (
     <Page
       title="Alerts & Notifications"
-      subtitle="Live rivalry updates, streak alarms, and nation war standings."
+      subtitle="Live rivalry shifts, streak alarms, and nation war standings."
       wide
       action={
         <Button variant="outline" size="sm" onClick={handleMarkAllRead}>
-          <Check size={14} /> Mark all read
+          <Check size={14} /> Mark All Read
         </Button>
       }
     >

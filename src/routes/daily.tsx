@@ -4,17 +4,18 @@ import { Page } from "@/components/AppShell";
 import { QuizEngine } from "@/components/QuizEngine";
 import { Button, Panel, Modal } from "@/components/kit/primitives";
 import { Avatar } from "@/components/kit/badges";
-import { questions, dailyChallenge } from "@/data/mock";
+import { questions } from "@/data/mock";
 import { fmt, playCue } from "@/lib/game";
-import { Share2, Calendar, Check, Copy, Sparkles, Trophy } from "lucide-react";
+import { gameService } from "@/lib/gameService";
+import { Share2, Check, Copy, Sparkles, Trophy } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export const Route = createFileRoute("/daily")({
   head: () => ({
     meta: [
-      { title: "Daily 12 — QuizArena" },
+      { title: "Daily 12 — Global Challenge | IQ ARENA" },
       { name: "description", content: "Twelve questions. Same for everyone, every day. Keep your streak alive." },
-      { property: "og:title", content: "Daily 12 — QuizArena" },
+      { property: "og:title", content: "Daily 12 — IQ ARENA" },
       { property: "og:description", content: "One shot a day. Keep the streak." },
     ],
   }),
@@ -23,24 +24,26 @@ export const Route = createFileRoute("/daily")({
 
 function DailyScreen() {
   const navigate = useNavigate();
+  const [daily, setDaily] = React.useState(() => gameService.getDailyChallenge());
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const [isCompleted, setIsCompleted] = React.useState(true);
-  const [score, setScore] = React.useState(11);
   const [isShareModalOpen, setIsShareModalOpen] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
 
-  const daily = dailyChallenge;
+  React.useEffect(() => {
+    return gameService.subscribe(() => {
+      setDaily(gameService.getDailyChallenge());
+    });
+  }, []);
 
-  const shareSnippet = `⚡ QUIZARENA DAILY 12 (Aug 15)
-Score: ${score} / 12 (TOP 2.8% Worldwide)
-🇫🇷 France #8,421
+  const shareSnippet = `⚡ IQ ARENA DAILY 12 (${daily.date})
+Score: ${daily.score} / 12 (TOP ${daily.percentile}% Worldwide)
+🇫🇷 France #${fmt(daily.countryRank)}
 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟥
-Play today: https://quizarena.gg/daily`;
+Play today: https://iqarena.gg/daily`;
 
   const handleFinish = (finalScore: number) => {
-    setScore(finalScore);
+    gameService.setDailyCompleted(true, finalScore);
     setIsPlaying(false);
-    setIsCompleted(true);
     playCue("daily-perfect");
     try {
       confetti({
@@ -49,9 +52,7 @@ Play today: https://quizarena.gg/daily`;
         origin: { y: 0.6 },
         colors: ["#76FF03", "#FFD600", "#00E5FF"],
       });
-    } catch {
-      // safe
-    }
+    } catch {}
   };
 
   const handleCopySnippet = () => {
@@ -63,7 +64,8 @@ Play today: https://quizarena.gg/daily`;
     return (
       <QuizEngine
         questions={questions.slice(0, 12)}
-        exitTo="/home"
+        mode="daily"
+        exitTo="/daily"
         onFinish={handleFinish}
       />
     );
@@ -80,24 +82,28 @@ Play today: https://quizarena.gg/daily`;
         </span>
       }
     >
-      {isCompleted ? (
+      {daily.completed ? (
         <div className="space-y-6">
           {/* Performance Highlight Tiles */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <Panel glow className="text-center p-6 space-y-1">
               <div className="label-xs text-muted-foreground font-black">Your Score</div>
               <div className="numeric text-5xl sm:text-6xl text-primary font-black">
-                {score} <span className="text-2xl text-muted-foreground font-normal">/ 12</span>
+                {daily.score} <span className="text-2xl text-muted-foreground font-normal">/ 12</span>
               </div>
-              <div className="label-xs text-success font-bold mt-1">91.7% Accuracy</div>
+              <div className="label-xs text-success font-bold mt-1">
+                {Math.round((daily.score / 12) * 100)}% Accuracy
+              </div>
             </Panel>
 
             <Panel className="text-center p-6 space-y-1 border-gold/40">
               <div className="label-xs text-muted-foreground font-black">Global Standing</div>
               <div className="numeric text-5xl sm:text-6xl text-gold font-black">
-                TOP 2.8%
+                TOP {daily.percentile}%
               </div>
-              <div className="label-xs text-muted-foreground font-mono mt-1">Ahead of 97.2% of players</div>
+              <div className="label-xs text-muted-foreground font-mono mt-1">
+                Ahead of {(100 - daily.percentile).toFixed(1)}% of players
+              </div>
             </Panel>
 
             <Panel className="text-center p-6 space-y-1 border-accent/40">
@@ -139,7 +145,7 @@ Play today: https://quizarena.gg/daily`;
 
             <div className="space-y-1.5">
               {daily.friends.map((f, idx) => {
-                const isMe = f.player.username.includes("YOU");
+                const isMe = f.player.username.includes("YOU") || f.player.username === "KENAEL";
                 return (
                   <div
                     key={f.player.id}
@@ -153,7 +159,7 @@ Play today: https://quizarena.gg/daily`;
                       </span>
                       <Avatar initials={f.player.initials} color={f.player.avatarColor} size={34} />
                       <span className="display text-sm font-bold text-foreground">
-                        {f.player.username}
+                        {f.player.username} {isMe && "(YOU)"}
                       </span>
                     </div>
                     <span className="numeric text-xl text-gold font-black">{f.score} / 12</span>
