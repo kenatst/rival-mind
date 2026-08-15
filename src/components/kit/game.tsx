@@ -105,6 +105,7 @@ export function ScoreCounter({
       const t = setTimeout(() => setBump(false), 300);
       return () => clearTimeout(t);
     }
+    return undefined;
   }, [value]);
   return (
     <span
