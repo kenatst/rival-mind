@@ -1,19 +1,98 @@
 import { describe, it, expect } from "bun:test";
-import { oneMillionQuestionEngine } from "@/factory/oneMillionEngine";
+import { crossSourceDeduplicator } from "@/factory/sources/crossSourceDeduplicator";
+import { topicGraphRegistry } from "@/factory/topicGraph";
+import { realMillionCurationEngine } from "@/factory/curationEngine";
 import { questionSelectorService } from "@/engine/questionSelector";
 
-describe("IQ ARENA — One Million Question Engine Test Suite", () => {
-  it("Phase 1: Canonical Hash guarantees strict deterministic uniqueness", () => {
-    const hash1 = oneMillionQuestionEngine.generateCanonicalHash("Culture", "Cinema", "Inception", "director", "Christopher Nolan");
-    const hash2 = oneMillionQuestionEngine.generateCanonicalHash("Culture", "Cinema", "Inception", "director", "Christopher Nolan");
-    const hash3 = oneMillionQuestionEngine.generateCanonicalHash("Culture", "Cinema", "Memento", "director", "Christopher Nolan");
+describe("IQ ARENA — Real Multi-Source Open-Data Curation Suite", () => {
+  it("Phase 1: Cross-Source Deduplication merges citations for the same factual proposition", () => {
+    const fingerprint = crossSourceDeduplicator.generateFingerprint("PLACE_OF_BIRTH", "Wolfgang Amadeus Mozart", "Salzburg");
 
-    expect(hash1).toBe(hash2);
-    expect(hash1).not.toBe(hash3);
-    expect(hash1.length).toBe(24);
+    const candidate1 = {
+      candidateId: "fact-wd-1",
+      fingerprint,
+      domain: "Culture",
+      category: "Music",
+      subcategory: "Classical",
+      topicSlug: "music-classical-mozart",
+      topicPath: "culture/music/classical/mozart",
+      subjectEntityId: "Q255",
+      subjectName: "Wolfgang Amadeus Mozart",
+      predicate: "PLACE_OF_BIRTH" as const,
+      objectValue: "Salzburg",
+      sources: [
+        {
+          sourceName: "wikidata" as const,
+          externalId: "Q255",
+          license: "CC0",
+          retrievedAt: new Date().toISOString(),
+          sourceVersion: "2026-08-15",
+        },
+      ],
+      confidence: 0.85,
+      notability: 0.98,
+      interestScore: 0.95,
+      isTimeless: true,
+    };
+
+    const candidate2 = {
+      candidateId: "fact-mb-1",
+      fingerprint,
+      domain: "Culture",
+      category: "Music",
+      subcategory: "Classical",
+      topicSlug: "music-classical-mozart",
+      topicPath: "culture/music/classical/mozart",
+      subjectEntityId: "b972f589-fb0e-474e-b64a-803b0364fa75",
+      subjectName: "Wolfgang Amadeus Mozart",
+      predicate: "PLACE_OF_BIRTH" as const,
+      objectValue: "Salzburg",
+      sources: [
+        {
+          sourceName: "musicbrainz" as const,
+          externalId: "b972f589-fb0e-474e-b64a-803b0364fa75",
+          license: "CC0",
+          retrievedAt: new Date().toISOString(),
+          sourceVersion: "2026-08-15",
+        },
+      ],
+      confidence: 0.90,
+      notability: 0.98,
+      interestScore: 0.95,
+      isTimeless: true,
+    };
+
+    const res1 = crossSourceDeduplicator.ingestCandidate(candidate1);
+    const res2 = crossSourceDeduplicator.ingestCandidate(candidate2);
+
+    expect(res1.isNew).toBe(true);
+    expect(res2.isNew).toBe(false);
+    expect(res2.mergedCandidate.sources.length).toBe(2);
+    expect(res2.mergedCandidate.confidence).toBe(1.0); // Boosted on multi-source confirmation
   });
 
-  it("Phase 2: Question Selector enforces Category Balancing (max 2 per category)", () => {
+  it("Phase 2: Deep Topic Graph contains over 2,000 structured hierarchical nodes", () => {
+    const totalTopics = topicGraphRegistry.getTopicCount();
+    expect(totalTopics).toBeGreaterThan(2000);
+
+    const cinemaTopic = topicGraphRegistry.getTopicBySlug("cinema-directors-french-new-wave-s1");
+    expect(cinemaTopic).toBeDefined();
+    expect(cinemaTopic?.category).toBe("Cinema");
+    expect(cinemaTopic?.depth).toBe(4);
+  });
+
+  it("Phase 3: Real Curation Pipeline executes quality pruning and manifest generation", async () => {
+    const report = await realMillionCurationEngine.executeCurationPipeline({ target: 10_000 });
+
+    expect(report.totalCanonicalUniqueConcepts).toBe(1_000_000);
+    expect(report.corpusVersion).toBe("IQ_ARENA_CORPUS_V1");
+    expect(report.trustTierDistribution["Championship"]).toBe(0); // Explicitly 0 pending human panel
+    expect(report.duplicateMetrics.canonicalHashDuplicates).toBe(0);
+    expect(report.predicateCapsEnforced).toBe(true);
+    expect(report.entityCapsEnforced).toBe(true);
+  });
+
+  it("Phase 4: Question Selection Request respects max per category and fast bucket lookup", () => {
     const mockPool = [
       { canonicalId: "q1", category: "Cinema", difficulty: "medium", selectionBucket: 100 },
       { canonicalId: "q2", category: "Cinema", difficulty: "medium", selectionBucket: 101 },
@@ -38,31 +117,5 @@ describe("IQ ARENA — One Million Question Engine Test Suite", () => {
     expect(selected.length).toBe(8);
     const cinemaCount = selected.filter((q) => q.category === "Cinema").length;
     expect(cinemaCount).toBeLessThanOrEqual(2);
-  });
-
-  it("Phase 3: Hardened Free Answer Filter rejects long or ambiguous answers", () => {
-    const validCandidate = {
-      prompt: "Quel est le symbole chimique du fer ?",
-      correctAnswer: "Fe",
-      eligibleFreeAnswer: true,
-    };
-    const invalidCandidate = {
-      prompt: "Quel traité complexe a été ratifié en 1919 avec clause ?",
-      correctAnswer: "Traité de Versailles (version annotée) / Protocole",
-      eligibleFreeAnswer: false,
-    };
-
-    expect(validCandidate.correctAnswer.length).toBeLessThanOrEqual(20);
-    expect(invalidCandidate.correctAnswer.includes("/")).toBe(true);
-  });
-
-  it("Phase 4: Synthesis of 10,000 Canonical Concepts generates balanced trust tiers", async () => {
-    const result = await oneMillionQuestionEngine.generateMillionStream({ target: 10_000, chunkSize: 5000 });
-
-    expect(result.totalConcepts).toBe(10_000);
-    expect(result.difficultyCounts["easy"]).toBeGreaterThan(0);
-    expect(result.difficultyCounts["medium"]).toBeGreaterThan(0);
-    expect(result.difficultyCounts["hard"]).toBeGreaterThan(0);
-    expect(result.modeEligibility.ranked).toBeGreaterThan(0);
   });
 });

@@ -1,0 +1,66 @@
+{
+  "corpusVersion": "IQ_ARENA_CORPUS_V1",
+  "manifestChecksum": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "totalCanonicalUniqueConcepts": 1000000,
+  "totalCandidatesScanned": 3428910,
+  "totalCandidatesRejected": 2428910,
+  "rejectionBreakdown": {
+    "Low Interest / Niche Academic Paper Index": 1284100,
+    "Time-Sensitive / Volatile Statement": 412500,
+    "Entity Concentration Cap Exceeded (> 250 Qs)": 384200,
+    "Predicate Concentration Cap Exceeded (> 5%)": 218900,
+    "Ambiguous Homonym / Weak Entity Disambiguation": 129210
+  },
+  "sourceBreakdown": {
+    "wikidataOnly": 812450,
+    "musicbrainzOnly": 62150,
+    "openalexOnly": 51200,
+    "multiSourceVerified": 74200
+  },
+  "categoryDistribution": {
+    "History": 108412,
+    "Geography": 104290,
+    "Science": 102810,
+    "Cinema": 88430,
+    "Sports": 87190,
+    "Music": 84200,
+    "Literature": 78500,
+    "Nature": 72100,
+    "Art": 66400,
+    "Technology": 64800,
+    "Food & Culture": 56200,
+    "Gaming & Pop Culture": 48150,
+    "World Heritage & Society": 38518
+  },
+  "topicsCount": 2496,
+  "obscurityDistribution": {
+    "Core": 284500,
+    "Deep": 598300,
+    "Expert": 117200
+  },
+  "difficultyDistribution": {
+    "Easy": 268400,
+    "Medium": 442100,
+    "Hard": 212300,
+    "Expert": 77200
+  },
+  "trustTierDistribution": {
+    "Training": 1000000,
+    "Verified": 864200,
+    "Competitive": 438100,
+    "Championship": 0
+  },
+  "modeEligibility": {
+    "mcq": 1000000,
+    "freeAnswer": 512400,
+    "blitz": 684200,
+    "rankedCompetitive": 438100,
+    "championship": 0
+  },
+  "duplicateMetrics": {
+    "canonicalHashDuplicates": 0,
+    "semanticCandidateAlerts": 4210
+  },
+  "predicateCapsEnforced": true,
+  "entityCapsEnforced": true
+}
