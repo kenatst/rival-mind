@@ -1,8 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import * as React from "react";
 import { Button, Panel } from "@/components/kit/primitives";
 import { DivisionBadge } from "@/components/kit/badges";
+import { AuthModal } from "@/components/AuthModal";
 import { getLastRun } from "@/lib/session";
 import { fmt, useCountUp } from "@/lib/game";
+import { authService } from "@/services/authService";
 import { Sparkles, ArrowRight, Shield } from "lucide-react";
 
 export const Route = createFileRoute("/result")({
@@ -21,11 +24,23 @@ export const Route = createFileRoute("/result")({
 });
 
 function PostGame() {
+  const navigate = useNavigate();
   const { score, total } = getLastRun();
   const percentile = Math.min(99, 45 + score * 5);
   const elo = 820 + score * 38;
   const worldRank = Math.max(5000, 1_400_000 - score * 110_000);
   const eloShown = useCountUp(elo, 1400, 0);
+
+  const [isAuthOpen, setIsAuthOpen] = React.useState(false);
+  const auth = authService.getAuthState();
+
+  const handleClaimRank = () => {
+    if (auth.isAuthenticated) {
+      navigate({ to: "/home" });
+    } else {
+      setIsAuthOpen(true);
+    }
+  };
 
   return (
     <div className="stage flex min-h-screen items-center justify-center bg-background px-4 py-10 select-none">
@@ -71,11 +86,15 @@ function PostGame() {
           </p>
 
           <div className="space-y-3 pt-2">
-            <Link to="/home" className="block">
-              <Button size="xl" full variant="primary" className="shadow-[0_5px_0_0_color-mix(in_oklab,var(--primary)_55%,black)] text-xl font-black">
-                <Sparkles size={20} /> Claim My Rank & Enter Lobby <ArrowRight size={18} />
-              </Button>
-            </Link>
+            <Button
+              size="xl"
+              full
+              variant="primary"
+              onClick={handleClaimRank}
+              className="shadow-[0_5px_0_0_color-mix(in_oklab,var(--primary)_55%,black)] text-xl font-black"
+            >
+              <Sparkles size={20} /> Claim My Rank & Enter Lobby <ArrowRight size={18} />
+            </Button>
             <Link to="/play" className="block">
               <Button variant="ghost" full size="md">
                 Browse Game Modes
@@ -84,6 +103,15 @@ function PostGame() {
           </div>
         </Panel>
       </div>
+
+      <AuthModal
+        open={isAuthOpen}
+        onClose={() => {
+          setIsAuthOpen(false);
+          navigate({ to: "/home" });
+        }}
+        estimatedElo={elo}
+      />
     </div>
   );
 }

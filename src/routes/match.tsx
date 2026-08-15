@@ -2,10 +2,10 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import * as React from "react";
 import { AnswerCard, ScoreCounter, Timer, type AnswerState } from "@/components/kit/game";
 import { Avatar } from "@/components/kit/badges";
-import { questions, rivalOpponent } from "@/data/mock";
 import { playCue, useCountdown } from "@/lib/game";
 import { setLastMatch } from "@/lib/session";
 import { gameService } from "@/lib/gameService";
+import { authoritativeGameEngine } from "@/engine/gameEngine";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/match")({
@@ -20,21 +20,28 @@ export const Route = createFileRoute("/match")({
   component: RankedMatch,
 });
 
-const ROUNDS = questions.slice(0, 8);
-
 type DuelStage = "answering" | "locked" | "revealed";
 
 function RankedMatch() {
   const navigate = useNavigate();
   const [profile] = React.useState(() => gameService.getUserProfile());
+
+  // Initialize authoritative ranked match on server
+  const [serverMatch] = React.useState(() =>
+    authoritativeGameEngine.startRankedMatch(profile.id),
+  );
+
   const [round, setRound] = React.useState(0);
   const [picked, setPicked] = React.useState<string | null>(null);
+  const [revealedCorrectId, setRevealedCorrectId] = React.useState<string | null>(null);
   const [scores, setScores] = React.useState({ you: 0, them: 0 });
   const [stage, setStage] = React.useState<DuelStage>("answering");
   const [opponentLocked, setOpponentLocked] = React.useState(false);
   const [banner, setBanner] = React.useState<"won" | "lost" | null>(null);
 
-  const question = ROUNDS[round]!;
+  const rounds = serverMatch.rounds;
+  const currentRound = rounds[round]!;
+  const question = currentRound.question;
   const isAnswering = stage === "answering";
 
   const { left, urgent, reset } = useCountdown(question.seconds, isAnswering, () => {
@@ -63,7 +70,7 @@ function RankedMatch() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [stage, question]);
 
-  // Opponent lock simulation
+  // Opponent simulated behavior
   React.useEffect(() => {
     const oppDelay = 2000 + (round % 3) * 700;
     const t = setTimeout(() => {
@@ -74,15 +81,20 @@ function RankedMatch() {
 
   const handleSelectAnswer = (answerId: string) => {
     if (stage !== "answering") return;
-    setPicked(answerId);
+    const chosen = answerId || "timeout";
+    setPicked(chosen);
     setStage("locked");
     playCue("select");
 
     // Suspense Beat: 600ms pause before simultaneous reveal
     setTimeout(() => {
-      const youCorrect = answerId === question.correctAnswerId;
-      const theyCorrect = (round + 1) % 3 !== 0; // opponent gets ~66% right
+      // Find ground truth answer from server engine
+      const fullQ = authoritativeGameEngine.getQuestionsForAdmin().find((q) => q.id === question.questionId);
+      const correctOpt = fullQ?.answers.find((a) => a.isCorrect);
+      const youCorrect = chosen === correctOpt?.id;
+      const theyCorrect = (round + 1) % 3 !== 0; // opponent ~66% accuracy
 
+      setRevealedCorrectId(correctOpt?.id || null);
       setStage("revealed");
       playCue(youCorrect ? "answer-correct" : "answer-wrong");
 
@@ -100,16 +112,25 @@ function RankedMatch() {
 
       // Next round transition
       setTimeout(() => {
-        if (round === ROUNDS.length - 1) {
+        if (round === rounds.length - 1) {
+          // Authoritatively complete match on server
+          const matchResult = authoritativeGameEngine.completeRankedMatch(
+            serverMatch.matchId,
+            newScores.you,
+            newScores.them,
+          );
+
           setLastMatch({
             playerScore: newScores.you,
             opponentScore: newScores.them,
           });
+
           navigate({ to: "/match-result" });
           return;
         }
         setRound((r) => r + 1);
         setPicked(null);
+        setRevealedCorrectId(null);
         setStage("answering");
         setOpponentLocked(false);
         setBanner(null);
@@ -124,7 +145,7 @@ function RankedMatch() {
       return id === picked ? "selected" : "idle";
     }
     // stage === 'revealed'
-    if (id === question.correctAnswerId) return "correct";
+    if (id === revealedCorrectId) return "correct";
     if (id === picked) return "wrong";
     return "dimmed";
   }
@@ -142,12 +163,12 @@ function RankedMatch() {
             </div>
           </div>
           <div className="label-xs text-center text-muted-foreground font-mono font-bold">
-            Round {round + 1}/{ROUNDS.length}
+            Round {round + 1}/{rounds.length}
           </div>
           <div className="flex min-w-0 flex-row-reverse items-center gap-2 text-right">
-            <Avatar initials={rivalOpponent.initials} color={rivalOpponent.avatarColor} size={36} />
+            <Avatar initials={serverMatch.playerB.initials} color={serverMatch.playerB.avatarColor} size={36} />
             <div className="min-w-0">
-              <div className="display truncate text-sm font-bold">{rivalOpponent.username}</div>
+              <div className="display truncate text-sm font-bold">{serverMatch.playerB.username}</div>
               <ScoreCounter value={scores.them} size="md" className="text-2xl text-accent font-black" />
             </div>
           </div>

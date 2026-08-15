@@ -12,7 +12,8 @@ import {
   Sparkles,
   Sliders,
   RotateCcw,
-  Flame,
+  Shield,
+  LogIn,
   Check,
 } from "lucide-react";
 import { ReactNode, useState, useEffect } from "react";
@@ -21,6 +22,8 @@ import { Avatar, DivisionBadge } from "@/components/kit/badges";
 import { fmt, divisionForElo } from "@/lib/game";
 import { soundService } from "@/lib/soundService";
 import { gameService } from "@/lib/gameService";
+import { authService, AuthState } from "@/services/authService";
+import { AuthModal } from "@/components/AuthModal";
 import { Modal } from "@/components/kit/primitives";
 
 const NAV = [
@@ -61,16 +64,27 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [notifications, setNotifications] = useState(() => gameService.getNotifications());
   const [isMuted, setIsMuted] = useState(() => soundService.getIsMuted());
   const [isDebugOpen, setIsDebugOpen] = useState(false);
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [customElo, setCustomElo] = useState(profile.elo);
+  const [auth, setAuth] = useState<AuthState>(() => authService.getAuthState());
 
   useEffect(() => {
-    return gameService.subscribe(() => {
+    const un1 = gameService.subscribe(() => {
       const p = gameService.getUserProfile();
       setProfile(p);
       setDaily(gameService.getDailyChallenge());
       setNotifications(gameService.getNotifications());
       setCustomElo(p.elo);
     });
+
+    const un2 = authService.subscribe(() => {
+      setAuth(authService.getAuthState());
+    });
+
+    return () => {
+      un1();
+      un2();
+    };
   }, []);
 
   const unread = notifications.filter((n) => n.unread).length;
@@ -132,6 +146,22 @@ export function AppShell({ children }: { children: ReactNode }) {
               </Link>
             );
           })}
+
+          {/* Admin Question Center in sidebar */}
+          {auth.isAdmin && (
+            <Link
+              to="/admin/questions"
+              className={cn(
+                "label-xs flex items-center gap-3 rounded-xl px-3 py-3 mt-2 border border-gold/40 transition-colors",
+                pathname.startsWith("/admin")
+                  ? "bg-gold text-primary-foreground font-black"
+                  : "text-gold hover:bg-gold/15",
+              )}
+            >
+              <Shield size={18} strokeWidth={2.5} />
+              Admin Center
+            </Link>
+          )}
         </nav>
 
         {/* Controls footer */}
@@ -171,16 +201,25 @@ export function AppShell({ children }: { children: ReactNode }) {
             Alerts
           </Link>
 
-          <Link
-            to="/profile"
-            className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-2.5 hover:border-primary/50 transition-colors"
-          >
-            <Avatar initials={profile.initials} color={profile.avatarColor} size={38} />
-            <div className="min-w-0">
-              <div className="display truncate text-sm font-bold">{profile.username}</div>
-              <div className="numeric text-xs text-gold font-black">{fmt(profile.elo)} ELO</div>
-            </div>
-          </Link>
+          {auth.isAuthenticated ? (
+            <Link
+              to="/profile"
+              className="flex items-center gap-3 rounded-2xl border border-border bg-surface p-2.5 hover:border-primary/50 transition-colors"
+            >
+              <Avatar initials={profile.initials} color={profile.avatarColor} size={38} />
+              <div className="min-w-0">
+                <div className="display truncate text-sm font-bold">{profile.username}</div>
+                <div className="numeric text-xs text-gold font-black">{fmt(profile.elo)} ELO</div>
+              </div>
+            </Link>
+          ) : (
+            <button
+              onClick={() => setIsAuthOpen(true)}
+              className="w-full flex items-center justify-center gap-2 rounded-2xl border border-primary/40 bg-primary/10 p-2.5 text-xs text-primary font-bold hover:bg-primary/20 transition-colors"
+            >
+              <LogIn size={15} /> Sign In / Claim Rank
+            </button>
+          )}
         </div>
       </aside>
 
@@ -237,6 +276,9 @@ export function AppShell({ children }: { children: ReactNode }) {
         })}
       </nav>
 
+      {/* Auth Modal */}
+      <AuthModal open={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
+
       {/* Dev Debug Panel Modal (Only in DEV) */}
       {isDev && (
         <Modal open={isDebugOpen} onClose={() => setIsDebugOpen(false)} title="IQ ARENA Dev Debugger">
@@ -286,6 +328,16 @@ export function AppShell({ children }: { children: ReactNode }) {
                   </button>
                 ))}
               </div>
+            </div>
+
+            <div className="pt-2 border-t border-border space-y-2">
+              <div className="label-xs text-muted-foreground font-black">Admin Shortcuts</div>
+              <Link to="/admin/questions" onClick={() => setIsDebugOpen(false)}>
+                <button className="w-full flex items-center justify-between rounded-xl border border-gold/40 bg-gold/10 p-2.5 text-gold font-bold">
+                  <span>🛡️ Open Admin Question Center</span>
+                  <span>→</span>
+                </button>
+              </Link>
             </div>
 
             <div className="pt-2 border-t border-border space-y-2">

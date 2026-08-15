@@ -1,5 +1,5 @@
 import * as React from "react";
-import { X, Flame, Swords, ArrowRight } from "lucide-react";
+import { X, Flame, Swords, ArrowRight, Flag } from "lucide-react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { AnswerCard, ScoreCounter, Timer, type AnswerState } from "@/components/kit/game";
 import { ProgressBar, Button, Modal } from "@/components/kit/primitives";
@@ -7,6 +7,8 @@ import { Avatar } from "@/components/kit/badges";
 import { playCue, useCountdown } from "@/lib/game";
 import type { Question, MatchMode } from "@/lib/types";
 import { gameService } from "@/lib/gameService";
+import { authoritativeGameEngine } from "@/engine/gameEngine";
+import { ReportQuestionModal } from "@/components/ReportQuestionModal";
 import { friends, rivalOpponent } from "@/data/mock";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
@@ -16,17 +18,19 @@ export interface QuizFeedback {
   xp: number;
   streak: number;
   fasterThan: number;
+  correctOptionId?: string | undefined;
+  explanation?: string | undefined;
 }
 
 export function QuizEngine({
-  questions,
+  questions: _initialQuestions,
   mode = "guest",
   categoryName,
   opponentName,
   onFinish,
   exitTo = "/play",
 }: {
-  questions: Question[];
+  questions?: Question[] | undefined;
   mode?: MatchMode | undefined;
   categoryName?: string | undefined;
   opponentName?: string | undefined;
@@ -35,29 +39,25 @@ export function QuizEngine({
 }) {
   const navigate = useNavigate();
   const [profile] = React.useState(() => gameService.getUserProfile());
+
+  // Initialize server-authoritative session (SANITISED: No isCorrect!)
+  const [serverSession] = React.useState(() =>
+    authoritativeGameEngine.startSession(profile.id, mode, categoryName),
+  );
+
   const [index, setIndex] = React.useState(0);
   const [picked, setPicked] = React.useState<string | null>(null);
+  const [revealedCorrectId, setRevealedCorrectId] = React.useState<string | null>(null);
   const [score, setScore] = React.useState(0);
   const [opponentScore, setOpponentScore] = React.useState(0);
   const [streak, setStreak] = React.useState(profile.streak);
-  const [totalXpEarned, setTotalXpEarned] = React.useState(0);
   const [feedback, setFeedback] = React.useState<QuizFeedback | null>(null);
   const [isBattleResultOpen, setIsBattleResultOpen] = React.useState(false);
+  const [isReportOpen, setIsReportOpen] = React.useState(false);
 
-  // Filter or cycle questions
-  const filteredQuestions = React.useMemo(() => {
-    if (mode === "category" && categoryName) {
-      const matched = questions.filter(
-        (q) => q.category.toLowerCase() === categoryName.toLowerCase(),
-      );
-      return matched.length > 0 ? matched : questions;
-    }
-    return questions;
-  }, [questions, mode, categoryName]);
-
-  const totalQuestionsCount = mode === "training" ? "∞" : filteredQuestions.length;
-  const currentQuestionIndex = index % filteredQuestions.length;
-  const question = filteredQuestions[currentQuestionIndex]!;
+  const sessionQuestions = serverSession.questions;
+  const currentQuestionIndex = index % sessionQuestions.length;
+  const question = sessionQuestions[currentQuestionIndex]!;
   const answered = picked !== null;
 
   const opponent = React.useMemo(() => {
@@ -75,7 +75,7 @@ export function QuizEngine({
     if (!answered) resolve("");
   });
 
-  // Keyboard accessibility for answering (1-4 or A-D)
+  // Keyboard accessibility
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (answered) {
@@ -102,14 +102,21 @@ export function QuizEngine({
   }, [answered, question, index]);
 
   function resolve(answerId: string) {
-    const correct = answerId === question.correctAnswerId;
-    setPicked(answerId || "timeout");
-    playCue(correct ? "answer-correct" : "answer-wrong");
+    const chosen = answerId || "timeout";
+    setPicked(chosen);
 
-    const xp = correct ? 80 + left * 8 : 12;
-    setTotalXpEarned((prev) => prev + xp);
+    // Server-Authoritative Answer Validation
+    const validation = authoritativeGameEngine.submitAnswer(
+      serverSession.sessionId,
+      question.instanceId,
+      chosen,
+      (10 - left) * 1000,
+    );
 
-    if (correct) {
+    setRevealedCorrectId(validation.correctOptionId || null);
+    playCue(validation.wasCorrect ? "answer-correct" : "answer-wrong");
+
+    if (validation.wasCorrect) {
       setScore((s) => s + 1);
       setStreak((s) => s + 1);
     } else {
@@ -117,7 +124,6 @@ export function QuizEngine({
     }
 
     if (mode === "battle") {
-      // simulate opponent answering with ~65% accuracy
       const oppCorrect = (index + 2) % 3 !== 0;
       if (oppCorrect) {
         setOpponentScore((s) => s + 1);
@@ -125,19 +131,22 @@ export function QuizEngine({
     }
 
     setFeedback({
-      correct,
-      xp,
-      streak: correct ? streak + 1 : 0,
-      fasterThan: correct ? Math.min(98, 40 + left * 6) : 0,
+      correct: validation.wasCorrect,
+      xp: validation.xpAwarded,
+      streak: validation.wasCorrect ? streak + 1 : 0,
+      fasterThan: validation.wasCorrect ? Math.min(98, 40 + left * 6) : 0,
+      correctOptionId: validation.correctOptionId,
+      explanation: validation.explanation,
     });
   }
 
   function next() {
-    const isLastQuestion = index === filteredQuestions.length - 1;
+    const isLastQuestion = index === sessionQuestions.length - 1;
 
     if (mode === "training") {
       setIndex((i) => i + 1);
       setPicked(null);
+      setRevealedCorrectId(null);
       setFeedback(null);
       reset();
       return;
@@ -162,19 +171,20 @@ export function QuizEngine({
         return;
       }
 
-      onFinish?.(score + (picked === question.correctAnswerId ? 1 : 0));
+      onFinish?.(score + (feedback?.correct ? 1 : 0));
       return;
     }
 
     setIndex((i) => i + 1);
     setPicked(null);
+    setRevealedCorrectId(null);
     setFeedback(null);
     reset();
   }
 
   function stateFor(answerId: string): AnswerState {
     if (!answered) return "idle";
-    if (answerId === question.correctAnswerId) return "correct";
+    if (answerId === revealedCorrectId) return "correct";
     if (answerId === picked) return "wrong";
     return "dimmed";
   }
@@ -194,12 +204,12 @@ export function QuizEngine({
         <div className="min-w-0 flex-1">
           <div className="label-xs flex justify-between text-muted-foreground font-bold">
             <span className="truncate">
-              {mode === "training" && "⚡ Infinite Practice"}
+              {mode === "training" && "⚡ Infinite Practice (Server-Authoritative)"}
               {mode === "category" && `🏛 ${categoryName ? categoryName.toUpperCase() : "CATEGORY"} RUN`}
               {mode === "battle" && `⚔️ DUEL VS ${opponent?.username.toUpperCase()}`}
               {mode === "daily" && "🎯 DAILY 12 CHALLENGE"}
-              {mode === "guest" && `Question ${index + 1} / ${filteredQuestions.length}`}
-              {mode !== "guest" && mode !== "training" && ` (${index + 1} / ${filteredQuestions.length})`}
+              {mode === "guest" && `Question ${index + 1} / ${sessionQuestions.length}`}
+              {mode !== "guest" && mode !== "training" && ` (${index + 1} / ${sessionQuestions.length})`}
             </span>
             <span className="text-gold flex items-center gap-1 font-mono">
               <Flame size={13} className="fill-gold" /> {streak}
@@ -211,7 +221,7 @@ export function QuizEngine({
             value={
               mode === "training"
                 ? Math.min(1, (index + 1) / 50)
-                : (index + (answered ? 1 : 0)) / filteredQuestions.length
+                : (index + (answered ? 1 : 0)) / sessionQuestions.length
             }
             height={6}
           />
@@ -279,9 +289,18 @@ export function QuizEngine({
         <FeedbackBar
           feedback={feedback}
           onNext={next}
-          last={index === filteredQuestions.length - 1 && mode !== "training"}
+          onReport={() => setIsReportOpen(true)}
+          last={index === sessionQuestions.length - 1 && mode !== "training"}
         />
       )}
+
+      {/* Report Question Modal */}
+      <ReportQuestionModal
+        open={isReportOpen}
+        onClose={() => setIsReportOpen(false)}
+        questionId={question.questionId}
+        questionPrompt={question.prompt}
+      />
 
       {/* Battle Complete Modal */}
       {mode === "battle" && opponent && (
@@ -312,12 +331,6 @@ export function QuizEngine({
               </div>
             </div>
 
-            <p className="text-xs text-muted-foreground">
-              {score >= opponentScore
-                ? `You won the 1v1 duel against ${opponent.username}!`
-                : `${opponent.username} won this round. Ready for a rematch?`}
-            </p>
-
             <div className="space-y-2">
               <Button full variant="primary" onClick={() => navigate({ to: "/battles" })}>
                 Back to Battles
@@ -331,6 +344,7 @@ export function QuizEngine({
                   setScore(0);
                   setOpponentScore(0);
                   setPicked(null);
+                  setRevealedCorrectId(null);
                   setFeedback(null);
                   reset();
                 }}
@@ -348,10 +362,12 @@ export function QuizEngine({
 function FeedbackBar({
   feedback,
   onNext,
+  onReport,
   last,
 }: {
   feedback: QuizFeedback;
   onNext: () => void;
+  onReport: () => void;
   last: boolean;
 }) {
   return (
@@ -365,19 +381,33 @@ function FeedbackBar({
     >
       <div className="mx-auto grid w-full max-w-3xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-4 sm:px-6">
         <div className="min-w-0">
-          <div
-            className={cn(
-              "display text-2xl sm:text-3xl font-black",
-              feedback.correct ? "text-success" : "text-danger",
-            )}
-          >
-            {feedback.correct ? "CORRECT" : "WRONG"}
+          <div className="flex items-center gap-3">
+            <div
+              className={cn(
+                "display text-2xl sm:text-3xl font-black",
+                feedback.correct ? "text-success" : "text-danger",
+              )}
+            >
+              {feedback.correct ? "CORRECT" : "WRONG"}
+            </div>
+            <button
+              onClick={onReport}
+              className="text-xs text-muted-foreground hover:text-danger transition-colors flex items-center gap-1 p-1 rounded-md hover:bg-surface"
+              title="Report question issue"
+            >
+              <Flag size={13} />
+            </button>
           </div>
           <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
             <span className="numeric text-base text-foreground font-black">+{feedback.xp} XP</span>
             {feedback.correct && <span className="text-gold font-bold">🔥 x{feedback.streak}</span>}
             {feedback.correct && <span>Faster than {feedback.fasterThan}% of players</span>}
           </div>
+          {feedback.explanation && (
+            <p className="text-xs text-muted-foreground/90 mt-1 line-clamp-1">
+              💡 {feedback.explanation}
+            </p>
+          )}
         </div>
         <button
           onClick={onNext}
