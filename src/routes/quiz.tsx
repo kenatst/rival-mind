@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { QuizEngine } from "@/components/QuizEngine";
 import { questions } from "@/data/mock";
+import { setLastRun } from "@/lib/session";
 
 export const Route = createFileRoute("/quiz")({
   head: () => ({
@@ -23,7 +24,10 @@ function GuestQuiz() {
     <QuizEngine
       questions={questions.slice(0, 10)}
       exitTo="/"
-      onFinish={(score) => navigate({ to: "/result", search: { score } })}
+      onFinish={(score) => {
+        setLastRun({ score, total: 10 });
+        navigate({ to: "/result" });
+      }}
     />
   );
 }
