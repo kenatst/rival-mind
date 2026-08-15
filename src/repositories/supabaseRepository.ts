@@ -15,9 +15,9 @@ import {
 } from "./types";
 import { PlayerRivalry, socialEngine } from "@/engine/socialEngine";
 import { PlayerModeRecordsSummary, PlayerSkillDimensions, recordsEngine } from "@/engine/recordsEngine";
-import { generateMatchReviewDTO } from "@/engine/matchReviewEngine";
+import { generateMatchReviewDTO, MATCH_REVIEW_ANALYSIS_VERSION } from "@/engine/matchReviewEngine";
 
-// Test Personas for Safe Dev / Staging Verification
+// Test Personas for Safe Dev / Staging Verification (Part 60)
 export const DEV_PERSONAS: Record<string, PlayerProfile> = {
   KENAEL: {
     id: "u-kenael",
@@ -112,7 +112,7 @@ export class SupabaseProfileRepository implements IProfileRepository {
     const client = getSupabaseClient();
     if (!client) return this.activePersona;
 
-    const targetId = userId || this.activePersona.id;
+    const targetId = userId || (await client.auth.getUser()).data.user?.id || this.activePersona.id;
 
     try {
       const { data, error } = await client
@@ -331,7 +331,7 @@ export class SupabaseRankedRepository implements IRankedRepository {
 
       const expiresAtMs = new Date(roundData.expires_at).getTime();
       const nowMs = Date.now();
-      const secondsRemaining = Math.max(0, Math.round((expiresAtMs - nowMs) / 1000));
+      const secondsRemaining = Math.max(0, Math.ceil((expiresAtMs - nowMs) / 1000));
       const isRevealed = roundData.status === "revealed" || roundData.status === "completed";
 
       sanitizedRound = {
@@ -582,12 +582,26 @@ export class SupabaseMatchReviewRepository implements IMatchReviewRepository {
     }
 
     try {
-      const { data: reviewData } = await client
+      let { data: reviewData } = await client
         .from("match_reviews")
         .select("*")
         .eq("match_id", matchId)
         .eq("player_id", playerId)
         .single();
+
+      // If not yet generated on DB, invoke authoritative generation RPC (Part 5)
+      if (!reviewData) {
+        try {
+          await client.rpc("generate_match_reviews", { p_match_id: matchId });
+          const res = await client
+            .from("match_reviews")
+            .select("*")
+            .eq("match_id", matchId)
+            .eq("player_id", playerId)
+            .single();
+          reviewData = res.data;
+        } catch {}
+      }
 
       if (reviewData) {
         const { data: roundsData } = await client
@@ -596,10 +610,12 @@ export class SupabaseMatchReviewRepository implements IMatchReviewRepository {
           .eq("match_review_id", reviewData.id)
           .order("round_number", { ascending: true });
 
-        // Load opponent profile
         const rankedRepo = new SupabaseRankedRepository();
         const snap = await rankedRepo.getMatchSnapshot(matchId, playerId);
         const opponent = snap.playerA.id === playerId ? snap.playerB : snap.playerA;
+
+        const summary = reviewData.summary_jsonb || { instant: 0, elite: 0, good: 0, hesitation: 0, miss: 0, blunder: 0 };
+        const categorySummary = reviewData.category_summary_jsonb || {};
 
         return {
           id: reviewData.id,
@@ -612,29 +628,31 @@ export class SupabaseMatchReviewRepository implements IMatchReviewRepository {
           finalScoreOpponent: snap.playerA.id === playerId ? snap.playerB.score : snap.playerA.score,
           isVictory: reviewData.actual_score > (snap.playerA.id === playerId ? snap.playerB.score : snap.playerA.score),
           isDraw: reviewData.actual_score === (snap.playerA.id === playerId ? snap.playerB.score : snap.playerA.score),
-          arenaRatingBefore: reviewData.arena_rating_at_match,
-          arenaRatingAfter: reviewData.arena_rating_at_match + reviewData.performance_delta,
+          arenaRatingBefore: reviewData.arena_rating_before,
+          arenaRatingAfter: reviewData.arena_rating_after,
           arenaRatingDelta: snap.completedResult?.playerADelta || 0,
           performanceRating: reviewData.performance_rating,
           performanceDelta: reviewData.performance_delta,
-          accuracyPercent: reviewData.accuracy_percent,
-          avgResponseMs: reviewData.avg_response_ms,
+          accuracyPercent: reviewData.accuracy,
+          avgResponseMs: reviewData.average_response_ms,
           opponentAvgResponseMs: 3100,
           expectedScore: Number(reviewData.expected_score),
           actualScore: reviewData.actual_score,
-          summary: reviewData.summary_jsonb,
-          strongestCategory: reviewData.strongest_category,
-          costliestCategory: reviewData.costliest_category,
+          scoreDifferenceToExpectation: Number((reviewData.actual_score - Number(reviewData.expected_score)).toFixed(1)),
+          summary,
+          matchVerdict: reviewData.performance_delta >= 80 ? "ABOVE YOUR LEVEL" : "CLINICAL WIN",
+          strongestCategory: categorySummary.strongestCategory,
+          costliestCategory: categorySummary.costliestCategory,
           rounds: (roundsData || []).map((r: any) => ({
             roundNumber: r.round_number,
-            questionId: r.question_id,
-            category: r.category,
+            questionVariantId: r.question_variant_id || `qv-${r.round_number}`,
+            category: r.category || "General",
             subcategory: r.subcategory,
-            prompt: r.prompt,
-            playerSelectedId: r.player_selected_id,
-            playerSelectedLabel: r.player_selected_label,
+            prompt: r.prompt || "Question",
+            playerSelectedId: r.selected_option_id,
+            playerSelectedLabel: r.selected_option_id,
             correctOptionId: r.correct_option_id,
-            correctOptionLabel: r.correct_option_label,
+            correctOptionLabel: r.correct_option_id,
             wasCorrect: r.was_correct,
             playerResponseMs: r.player_response_ms,
             peerMedianResponseMs: r.peer_median_response_ms,
@@ -648,8 +666,10 @@ export class SupabaseMatchReviewRepository implements IMatchReviewRepository {
             analysisText: r.analysis_text,
             explanation: r.explanation,
             isClutch: r.is_clutch,
+            telemetrySource: r.telemetry_source || "rating_bucket",
           })),
-          analysisVersion: reviewData.analysis_version,
+          confidence: Number(reviewData.confidence || 1.0),
+          analysisVersion: reviewData.analysis_version || MATCH_REVIEW_ANALYSIS_VERSION,
           createdAt: reviewData.created_at,
         };
       }

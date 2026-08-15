@@ -6,7 +6,7 @@ let supabaseInstance: SupabaseClient | null = null;
 export function getSupabaseClient(): SupabaseClient | null {
   if (!supabaseInstance && env.isSupabaseConfigured()) {
     try {
-      supabaseInstance = createClient(env.supabaseUrl, env.supabaseAnonKey, {
+      supabaseInstance = createClient(env.supabaseUrl, env.supabasePublishableKey, {
         auth: {
           persistSession: true,
           autoRefreshToken: true,
@@ -14,7 +14,7 @@ export function getSupabaseClient(): SupabaseClient | null {
         },
       });
     } catch (e) {
-      console.warn("Failed to initialize Supabase client:", e);
+      console.error("Failed to initialize Supabase client:", e);
     }
   }
   return supabaseInstance;

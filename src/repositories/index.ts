@@ -1,4 +1,5 @@
 import { getSupabaseClient } from "@/lib/supabase";
+import { env } from "@/lib/env";
 import {
   IProfileRepository,
   IMatchmakingRepository,
@@ -27,9 +28,17 @@ import {
 } from "./mockRepository";
 
 const client = getSupabaseClient();
-const envMode = ((import.meta as any).env?.["VITE_BACKEND_MODE"] as BackendMode) || (client ? "supabase" : "mock");
+const isProd = env.isProd;
+const requestedMode = env.backendMode as BackendMode;
 
-export const activeBackendMode: BackendMode = client && envMode === "supabase" ? "supabase" : "mock";
+// In production, refuse to silently fall back to mock (Part 59)
+if (isProd && !client && requestedMode === "supabase") {
+  throw new Error(
+    "FATAL CONFIGURATION ERROR: Supabase credentials are missing or invalid in production environment. Refusing to run in unauthenticated mock mode.",
+  );
+}
+
+export const activeBackendMode: BackendMode = client && (requestedMode === "supabase" || isProd) ? "supabase" : "mock";
 
 export const profileRepo: IProfileRepository =
   activeBackendMode === "supabase" ? new SupabaseProfileRepository() : new MockProfileRepository();

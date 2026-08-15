@@ -1,9 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import * as React from "react";
-import { Button, Panel, Modal } from "@/components/kit/primitives";
+import { Button, Panel, Modal, Tabs } from "@/components/kit/primitives";
 import { Avatar, DivisionBadge } from "@/components/kit/badges";
 import { profileRepo, matchReviewRepo, MatchReviewDTO, MatchRoundReviewItem, RoundClassification } from "@/repositories";
-import { fmt, playCue, useCountUp } from "@/lib/game";
+import { divisionForElo, fmt, playCue, useCountUp } from "@/lib/game";
+import { ShareCard } from "@/components/kit/ShareCard";
 import {
   Swords,
   Share2,
@@ -22,6 +23,10 @@ import {
   BookOpen,
   Copy,
   Check,
+  Flag,
+  Award,
+  Shield,
+  HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -44,7 +49,7 @@ export const Route = createFileRoute("/match-review")({
   component: MatchReviewScreen,
 });
 
-type FilterTab = "ALL" | "CORRECT" | "MISTAKES" | "ELITE" | "SLOW";
+type FilterTab = "ALL" | "MISTAKES" | "ELITE" | "CORRECT" | "SLOW";
 
 function MatchReviewScreen() {
   const navigate = useNavigate();
@@ -55,7 +60,9 @@ function MatchReviewScreen() {
   const [review, setReview] = React.useState<MatchReviewDTO | null>(null);
   const [activeFilter, setActiveFilter] = React.useState<FilterTab>("ALL");
   const [isShareModalOpen, setIsShareModalOpen] = React.useState(false);
+  const [shareFormat, setShareFormat] = React.useState<"story" | "square">("story");
   const [copied, setCopied] = React.useState(false);
+  const [reportedQuestions, setReportedQuestions] = React.useState<Set<number>>(new Set());
 
   React.useEffect(() => {
     async function load() {
@@ -73,14 +80,14 @@ function MatchReviewScreen() {
     load();
   }, [matchId]);
 
-  const animatedPerf = useCountUp(review?.performanceRating || 1800, 1400, review?.arenaRatingBefore || 1650);
+  const animatedPerf = useCountUp(review?.performanceRating || 1800, 1000, review?.arenaRatingBefore || 1650);
 
   if (!review || !profile) {
     return (
-      <div className="stage min-h-screen grid place-items-center bg-background text-foreground">
+      <div className="stage min-h-screen grid place-items-center bg-background text-foreground select-none">
         <div className="text-center space-y-3">
-          <div className="animate-spin text-primary text-3xl">⚙️</div>
-          <div className="display text-xl font-black">ANALYZING MATCH TELEMETRY...</div>
+          <div className="animate-spin text-primary text-3xl font-black">⚙</div>
+          <div className="display text-xl font-black">ANALYSING MATCH TELEMETRY...</div>
           <div className="text-xs text-muted-foreground font-mono">
             Evaluating speed percentiles & division expected accuracies...
           </div>
@@ -99,10 +106,16 @@ function MatchReviewScreen() {
   });
 
   const isPerfAbove = review.performanceDelta >= 0;
+  const currentDiv = divisionForElo(review.arenaRatingAfter);
 
   const handleCopyShare = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleReportRound = (roundNumber: number) => {
+    setReportedQuestions((prev) => new Set(prev).add(roundNumber));
+    playCue("select");
   };
 
   return (
@@ -132,10 +145,31 @@ function MatchReviewScreen() {
             </div>
           </div>
 
+          {/* Match Verdict Headline Banner (Part 20) */}
+          <div className="p-3 rounded-2xl bg-surface-2 border border-border flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Award size={18} className="text-gold shrink-0" />
+              <div>
+                <div className="label-xs text-muted-foreground font-bold">MATCH VERDICT</div>
+                <div className="display text-sm sm:text-base font-black text-foreground">{review.matchVerdict}</div>
+              </div>
+            </div>
+            {review.momentOfTheMatch && (
+              <span className="label-xs px-2.5 py-1 rounded-lg bg-gold/15 text-gold border border-gold/30 font-bold hidden sm:inline-block">
+                {review.momentOfTheMatch.title}
+              </span>
+            )}
+          </div>
+
           {/* Performance Rating Big Reveal */}
           <div className="grid sm:grid-cols-2 gap-4 items-center">
             <div className="space-y-1">
-              <div className="label-xs text-muted-foreground font-bold">PERFORMANCE RATING</div>
+              <div className="label-xs text-muted-foreground font-bold flex items-center gap-1">
+                PERFORMANCE RATING
+                <span title="Estimated competitive level represented by this match. Your Arena Rating is unchanged by this metric.">
+                  <HelpCircle size={12} className="text-muted-foreground cursor-help" />
+                </span>
+              </div>
               <div className="numeric text-5xl sm:text-6xl font-black text-gold drop-shadow-md">
                 {animatedPerf}
               </div>
@@ -175,20 +209,32 @@ function MatchReviewScreen() {
               <div>
                 <div className="label-xs text-muted-foreground font-bold">Expected</div>
                 <div className="numeric text-lg font-black text-foreground">{review.expectedScore} / 8</div>
-                <div className="text-xs text-gold font-bold">Peer Model</div>
+                <div className="text-xs text-gold font-bold">
+                  {review.scoreDifferenceToExpectation >= 0 ? `+${review.scoreDifferenceToExpectation}` : review.scoreDifferenceToExpectation} vs Model
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Near-Promotion Motivation (Part 32) */}
+          {currentDiv.eloRemaining > 0 && currentDiv.eloRemaining <= 35 && (
+            <div className="p-2.5 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-between text-xs">
+              <span className="font-bold text-foreground">
+                Prochaine division : <strong>{currentDiv.nextLabel}</strong>
+              </span>
+              <span className="font-mono text-primary font-bold">{currentDiv.eloRemaining} ELO restants</span>
+            </div>
+          )}
 
           {/* Classification Sequence Chips */}
           <div className="border-t border-border pt-4">
             <div className="label-xs text-muted-foreground font-bold mb-2.5">ROUND CLASSIFICATIONS</div>
             <div className="flex flex-wrap gap-2">
-              {review.summary.instant > 0 && (
-                <ClassificationBadge label={`INSTANT ×${review.summary.instant}`} variant="INSTANT" />
-              )}
               {review.summary.elite > 0 && (
                 <ClassificationBadge label={`ELITE ×${review.summary.elite}`} variant="ELITE" />
+              )}
+              {review.summary.instant > 0 && (
+                <ClassificationBadge label={`INSTANT ×${review.summary.instant}`} variant="INSTANT" />
               )}
               {review.summary.good > 0 && (
                 <ClassificationBadge label={`GOOD ×${review.summary.good}`} variant="GOOD" />
@@ -210,8 +256,13 @@ function MatchReviewScreen() {
         <div className="flex items-center justify-between gap-2 overflow-x-auto pb-1">
           <div className="flex items-center gap-1.5 bg-surface p-1 rounded-2xl border border-border">
             <FilterButton label="ALL (8)" active={activeFilter === "ALL"} onClick={() => setActiveFilter("ALL")} />
-            <FilterButton label="MISTAKES" active={activeFilter === "MISTAKES"} onClick={() => setActiveFilter("MISTAKES")} alert />
-            <FilterButton label="ELITE" active={activeFilter === "ELITE"} onClick={() => setActiveFilter("ELITE")} />
+            <FilterButton
+              label={`MISTAKES (${review.summary.miss + review.summary.blunder})`}
+              active={activeFilter === "MISTAKES"}
+              onClick={() => setActiveFilter("MISTAKES")}
+              alert={review.summary.miss + review.summary.blunder > 0}
+            />
+            <FilterButton label={`ELITE (${review.summary.elite})`} active={activeFilter === "ELITE"} onClick={() => setActiveFilter("ELITE")} />
             <FilterButton label="CORRECT" active={activeFilter === "CORRECT"} onClick={() => setActiveFilter("CORRECT")} />
             <FilterButton label="SLOW" active={activeFilter === "SLOW"} onClick={() => setActiveFilter("SLOW")} />
           </div>
@@ -224,7 +275,12 @@ function MatchReviewScreen() {
         {/* 3. Question-by-Question Detailed Review List */}
         <div className="space-y-3.5">
           {filteredRounds.map((round) => (
-            <RoundReviewCard key={round.roundNumber} item={round} />
+            <RoundReviewCard
+              key={round.roundNumber}
+              item={round}
+              isReported={reportedQuestions.has(round.roundNumber)}
+              onReport={() => handleReportRound(round.roundNumber)}
+            />
           ))}
 
           {filteredRounds.length === 0 && (
@@ -234,7 +290,7 @@ function MatchReviewScreen() {
           )}
         </div>
 
-        {/* 4. Bottom Sticky Action Hub */}
+        {/* 4. Bottom Action Hub */}
         <div className="pt-4 space-y-3">
           <div className="grid sm:grid-cols-2 gap-3">
             <Button
@@ -261,28 +317,45 @@ function MatchReviewScreen() {
         </div>
       </div>
 
-      {/* Share Modal */}
+      {/* Share Card Modal (Part 27) */}
       {isShareModalOpen && (
         <Modal title="Partager votre Performance" isOpen={isShareModalOpen} onClose={() => setIsShareModalOpen(false)}>
           <div className="space-y-4">
-            <Panel className="p-5 bg-surface-2 border-primary/40 font-mono text-sm leading-relaxed text-foreground whitespace-pre-line">
-              {`🏆 IQ ARENA MATCH REVIEW
-Joueur: ${review.playerUsername} (${review.arenaRatingAfter} ELO)
-Performance Rating: ${review.performanceRating} (${isPerfAbove ? "+" : ""}${review.performanceDelta})
-Résultat: ${review.isVictory ? "VICTOIRE" : "DÉFAITE"} vs ${review.opponentUsername} (${review.finalScorePlayer} — ${review.finalScoreOpponent})
-Précision: ${review.accuracyPercent}% · Vitesse moy.: ${(review.avgResponseMs / 1000).toFixed(2)}s
-Moments clés: ${review.summary.elite} ELITE · ${review.summary.instant} INSTANT · ${review.summary.blunder} BLUNDER
-Relevez le défi sur IQ ARENA: https://iqarena.gg`}
-            </Panel>
+            {/* Format Toggle */}
+            <div className="flex justify-center gap-2">
+              <button
+                onClick={() => setShareFormat("story")}
+                className={cn(
+                  "px-3 py-1 rounded-xl text-xs font-bold border transition-all",
+                  shareFormat === "story" ? "bg-primary text-black border-primary" : "border-border text-muted-foreground",
+                )}
+              >
+                Format Story (9:16)
+              </button>
+              <button
+                onClick={() => setShareFormat("square")}
+                className={cn(
+                  "px-3 py-1 rounded-xl text-xs font-bold border transition-all",
+                  shareFormat === "square" ? "bg-primary text-black border-primary" : "border-border text-muted-foreground",
+                )}
+              >
+                Format Carré (1:1)
+              </button>
+            </div>
+
+            {/* Renderable Graphic Share Card */}
+            <div className="flex justify-center py-2">
+              <ShareCard review={review} format={shareFormat} />
+            </div>
 
             <Button size="lg" full variant="primary" onClick={handleCopyShare} className="font-bold">
               {copied ? (
                 <>
-                  <Check size={18} /> Copié dans le presse-papier !
+                  <Check size={18} /> Résumé copié dans le presse-papier !
                 </>
               ) : (
                 <>
-                  <Copy size={18} /> Copier le résumé de performance
+                  <Copy size={18} /> Copier le résumé pour vos amis
                 </>
               )}
             </Button>
@@ -308,7 +381,7 @@ function FilterButton({
     <button
       onClick={onClick}
       className={cn(
-        "px-3 py-1.5 rounded-xl text-xs font-bold transition-all",
+        "px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap",
         active
           ? "bg-primary text-primary-foreground shadow-sm"
           : alert
@@ -338,7 +411,15 @@ function ClassificationBadge({ label, variant }: { label: string; variant: Round
   );
 }
 
-function RoundReviewCard({ item }: { item: MatchRoundReviewItem }) {
+function RoundReviewCard({
+  item,
+  isReported,
+  onReport,
+}: {
+  item: MatchRoundReviewItem;
+  isReported: boolean;
+  onReport: () => void;
+}) {
   return (
     <Panel className="p-4 sm:p-5 border-border bg-surface hover:border-primary/30 transition-all space-y-3">
       {/* Top Meta Line */}
@@ -349,13 +430,31 @@ function RoundReviewCard({ item }: { item: MatchRoundReviewItem }) {
             {item.category}
           </span>
           {item.isClutch && (
-            <span className="label-xs rounded bg-gold/20 text-gold border border-gold/40 px-2 py-0.5 font-black">
-              ⚡ CLUTCH
+            <span className="label-xs rounded bg-gold/20 text-gold border border-gold/40 px-2 py-0.5 font-black flex items-center gap-1">
+              <Zap size={11} /> CLUTCH
+            </span>
+          )}
+          {item.isMatchChanging && (
+            <span className="label-xs rounded bg-accent/20 text-accent border border-accent/40 px-2 py-0.5 font-bold">
+              TOUR DÉCISIF
             </span>
           )}
         </div>
 
-        <ClassificationBadge label={item.classification} variant={item.classification} />
+        <div className="flex items-center gap-2">
+          <ClassificationBadge label={item.classification} variant={item.classification} />
+          <button
+            onClick={onReport}
+            disabled={isReported}
+            title="Signaler un problème sur cette question"
+            className={cn(
+              "p-1 rounded-md text-muted-foreground hover:text-foreground transition-colors",
+              isReported && "text-primary opacity-60",
+            )}
+          >
+            <Flag size={13} />
+          </button>
+        </div>
       </div>
 
       {/* Question Prompt */}
@@ -386,19 +485,30 @@ function RoundReviewCard({ item }: { item: MatchRoundReviewItem }) {
         )}
       </div>
 
-      {/* Analysis Copy & Peer Telemetry */}
+      {/* Analysis Copy & Peer Telemetry (Part 18) */}
       <div className="pt-1 text-xs text-muted-foreground space-y-1.5 leading-relaxed">
         <p className="text-foreground/90 font-medium">{item.analysisText}</p>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] opacity-75">
-          <span>Taux de réussite pairs : <strong>{Math.round(item.peerAccuracy * 100)}%</strong></span>
-          <span>Médiane division : <strong>{(item.peerMedianResponseMs / 1000).toFixed(2)}s</strong></span>
-          {item.speedPercentile && (
-            <span className="text-primary">Top <strong>{100 - item.speedPercentile}%</strong> vitesse</span>
-          )}
-        </div>
+        {item.telemetrySource === "rating_bucket" ? (
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] opacity-75">
+            <span>Taux de réussite division : <strong>{Math.round(item.peerAccuracy * 100)}%</strong></span>
+            <span>Médiane division : <strong>{(item.peerMedianResponseMs / 1000).toFixed(2)}s</strong></span>
+            {item.speedPercentile && (
+              <span className="text-primary">Top <strong>{100 - item.speedPercentile}%</strong> vitesse</span>
+            )}
+          </div>
+        ) : item.telemetrySource === "global" ? (
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[11px] opacity-75">
+            <span>Taux de réussite global : <strong>{Math.round(item.peerAccuracy * 100)}%</strong></span>
+            <span>Médiane globale : <strong>{(item.peerMedianResponseMs / 1000).toFixed(2)}s</strong></span>
+          </div>
+        ) : (
+          <div className="text-[11px] font-mono opacity-60">
+            Évaluation basée sur les métriques heuristiques standard.
+          </div>
+        )}
       </div>
 
-      {/* Practice CTA for Mistakes */}
+      {/* Practice CTA for Mistakes (Part 25) */}
       {!item.wasCorrect && (
         <div className="pt-2 border-t border-border flex items-center justify-between">
           <span className="text-xs text-muted-foreground italic">Point faible identifié</span>

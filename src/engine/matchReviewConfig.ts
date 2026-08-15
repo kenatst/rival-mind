@@ -29,37 +29,39 @@ export const MATCH_REVIEW_CONFIG = {
     globalMinSample: 100,
   },
 
-  // Instant Speed Thresholds
+  // Instant Speed Thresholds (Part 14)
   instant: {
     medianSpeedMultiplier: 0.45,
     absoluteMaxMs: 1400,
-    minResponseMs: 300, // Physical floor
+    minResponseMs: 300, // Physical human floor
+    topSpeedPercentile: 90,
   },
 
-  // Elite Difficulty Thresholds
+  // Elite Difficulty Thresholds (Part 13)
   elite: {
-    maxExpectedProbability: 0.35,
-    hardTierExpectedProbability: 0.45,
-    expertTierExpectedProbability: 0.55,
+    maxExpectedProbability: 0.30,
+    maxExpectedWithConfidence: 0.35,
+    hardTierExpectedProbability: 0.40,
+    expertTierExpectedProbability: 0.50,
   },
 
-  // Hesitation Thresholds
+  // Hesitation Thresholds (Part 15)
   hesitation: {
     medianSpeedMultiplier: 1.70,
     minAbsoluteMs: 5000,
   },
 
-  // Blunder (Unforced Error) Thresholds
+  // Blunder (Unforced Error) Thresholds (Part 12)
   blunder: {
-    minExpectedProbability: 0.75,
+    minExpectedProbability: 0.80,
+    minSampleSizeForBlunder: 50,
   },
 
-  // Performance Rating Model Configuration
+  // Performance Rating Model Configuration (Part 8 & 9)
   performance: {
-    shrinkageFactor: 0.65, // Shrinks noisy 8-round sample toward Arena Rating
+    shrinkageFactor: 0.65, // Shrinks noisy 8-round sample toward baseline Arena Rating
     maxDeltaClamp: 450,    // Clamps max match divergence to ±450 ELO
-    baseQuestionValue: 50,  // Base performance weight per round
-    speedBonusMax: 15,     // Speed percentile contribution
+    baseWeight: 40,
   },
 } as const;
 
